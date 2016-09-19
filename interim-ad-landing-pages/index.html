@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Interim Static Ad Landing Page README</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h1>Interim Static Ad Landing Page</h1>
+      <h2>README</h2>
+
+      <h3>Why?</h3>
+      <p>Ad Landing Pages are currently under development as a Cascade template. See the sample <a href="ad_landing_page/sample">here</a>.</p>
+
+      <p>Because some ad campaigns were launched prematurely before the Cascade template could be completed, it was necessary to expedite release of certain pages.</p>
+
+      <p>These pages are included here in this special static directory for rapid development within the Cascade Assets repository. They will be released to the Cascade www2 server as they are completed.</p>
+
+      <h3>Base Static Template</h3>
+      <p><a href="/interim-ad-landing-pages/_base.html">Click here</a> for the base static template.</p>
+      <p>This template should be finalized as much as possible before proceeding to develop new program pages using the workflow below.</p>
+
+      <h3>Workflow</h3>
+      <ol>
+        <li>Pull latest version of branch <tt>interim-ad-landing-page</tt> from Github.</li>
+        <li>In <tt></tt> directory, create directory for new landing page, (e.g. <tt>executive-mba</tt>).</li>
+        <li>Copy file <a href="interim-ad-landing-pages/_base.html">_base.html</a> and directory <tt>_assets</tt> with all its contents into new directory.</li>
+        <li>In new directory, rename <tt>_base.html</tt> to <tt>index.html</tt>.</li>
+        <li>Update <tt>index.html</tt> as desired. Review changes on local dev server.</li>
+        <li class="text-primary">Remember to commit and push your changes to the <tt>interim-ad-landing-page</tt> branch</li>
+        <li>When updates complete, deploy files to Cascade Assets <tt>www2</tt> server.</li>
+      </ol>
+
+      <h3>Ad Landing Pages</h3>
+      <p>Add links to new landing pages here.</p>
+      <ul>
+        <li><a href="/interim-ad-landing-pages/executive-mba/index.html">Executive MBA</a></li>
+      </ul>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>
