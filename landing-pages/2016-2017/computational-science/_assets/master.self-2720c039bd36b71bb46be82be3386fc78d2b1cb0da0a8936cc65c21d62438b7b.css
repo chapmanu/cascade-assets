@@ -7775,6 +7775,14 @@ body.personnel .main {
 .ad-landing-masthead .masthead-content-panel h2, .ad-landing-masthead .masthead-content-panel p {
   text-align: left;
 }
+
+.ad-landing-masthead .masthead-content-panel .form_p .form_label {
+  font-weight: normal;
+  color: #2f2f2f;
+  font-size: 16px;
+  line-height: 24px;
+}
+
 /* line 158, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/_ad_landing_page/masthead.scss */
 .ad-landing-masthead .masthead-content-panel .calls-to-action {
   margin-top: 16px;
@@ -7783,7 +7791,7 @@ body.personnel .main {
 /* line 162, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/_ad_landing_page/masthead.scss */
 .ad-landing-masthead .masthead-content-panel .calls-to-action input, .ad-landing-masthead .masthead-content-panel .calls-to-action select {
   border-radius: 0;
-  margin-bottom: 16px;
+  margin-bottom: 5px;
   width: 100%;
 }
 /* line 168, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/_ad_landing_page/masthead.scss */
