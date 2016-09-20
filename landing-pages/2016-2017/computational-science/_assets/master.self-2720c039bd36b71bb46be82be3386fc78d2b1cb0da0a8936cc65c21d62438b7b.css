@@ -7628,6 +7628,7 @@ body.personnel .main {
     padding: 24px 32px;
     font-size: 20px;
     line-height: 24px;
+    border-bottom:1px solid #d8d8d8;
   }
 }
 /* line 50, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/_ad_landing_page/masthead.scss */
