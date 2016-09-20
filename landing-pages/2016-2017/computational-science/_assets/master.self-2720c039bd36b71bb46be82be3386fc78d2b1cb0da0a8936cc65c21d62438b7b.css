@@ -7633,7 +7633,6 @@ body.personnel .main {
 }
 /* line 50, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/_ad_landing_page/masthead.scss */
 .ad-landing-masthead .masthead-header .header-logo-desktop {
-  /*width: 50%;*/
   display: table-cell;
   height:35px;
 }
@@ -7648,7 +7647,6 @@ body.personnel .main {
     text-align: right;
     font-size: 20px;
     text-transform: uppercase;
-    padding-right: 8px;
     vertical-align: middle;
     margin: 0;
   }
