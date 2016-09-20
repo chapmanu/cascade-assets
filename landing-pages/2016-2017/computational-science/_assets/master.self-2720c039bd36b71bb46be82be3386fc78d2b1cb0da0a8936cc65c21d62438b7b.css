@@ -7821,7 +7821,7 @@ body.personnel .main {
   color: white;
   pointer-events: all;
   position: relative;
-  padding: 24px;
+  padding: 32px;
   z-index: 667;
 }
 @media screen and (min-width: 768px) {
