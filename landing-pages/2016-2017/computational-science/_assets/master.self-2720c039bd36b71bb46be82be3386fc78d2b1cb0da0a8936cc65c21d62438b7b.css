@@ -110,7 +110,7 @@ html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  background-image: url(/landing-pages/2016-2017/sample/_assets/window-pattern-062ab2baae21dd6948256b38bc889f03dc5dcc658028ac77b60360e4d7ed9e3b.gif);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/window-pattern-062ab2baae21dd6948256b38bc889f03dc5dcc658028ac77b60360e4d7ed9e3b.gif);
   background-color: #eaeaea;
   font-family: "proxima-nova-soft", "proxima-nova-soft-n4", sans-serif;
   overflow-x: hidden;
@@ -917,7 +917,7 @@ h5 {
   height: 17px;
   width: 13px;
   text-indent: -9999px;
-  background-image: url(/landing-pages/2016-2017/sample/_assets/home_icon-f01b0dabaaa451654147fbde48b66eb864738b272606341bb11af92dfcb51db6.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/home_icon-f01b0dabaaa451654147fbde48b66eb864738b272606341bb11af92dfcb51db6.png);
   background-repeat: no-repeat;
   background-position: left center;
 }
@@ -1111,7 +1111,7 @@ h5 {
   width: 100%;
   left: -100%;
   z-index: 110;
-  background-image: url(/landing-pages/2016-2017/sample/_assets/slide_fade_left-52b40b1828e16132e17be3dc12bb58e06ff0defc13a0c4d4b53951ad1ada4701.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/slide_fade_left-52b40b1828e16132e17be3dc12bb58e06ff0defc13a0c4d4b53951ad1ada4701.png);
   background-repeat: repeat-y;
   background-position: right top;
 }
@@ -1124,7 +1124,7 @@ h5 {
   width: 100%;
   right: -100%;
   z-index: 110;
-  background-image: url(/landing-pages/2016-2017/sample/_assets/slide_fade_right-433ba289f11a4f672f49e2bed62aab50c75707917cd862d258d73d4ac4eeb135.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/slide_fade_right-433ba289f11a4f672f49e2bed62aab50c75707917cd862d258d73d4ac4eeb135.png);
   background-repeat: repeat-y;
   background-position: left top;
 }
@@ -1585,31 +1585,31 @@ th.header-light {
 }
 /* line 154, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/components/fact-card.scss */
 .fact-card .fact-image.people {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/many_people-21d242a753fbe30f57743c72d19b5453fb7253f9d06af9d29b22ffc4ad32b0a9.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/many_people-21d242a753fbe30f57743c72d19b5453fb7253f9d06af9d29b22ffc4ad32b0a9.svg);
   background-size: contain;
   background-position: center top;
 }
 /* line 159, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/components/fact-card.scss */
 .fact-card .fact-image.student {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/student_walking-dfaf0a32f5e6398e6522a138e33ae121edbe9d86064feb73d032cac423dcdb67.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/student_walking-dfaf0a32f5e6398e6522a138e33ae121edbe9d86064feb73d032cac423dcdb67.svg);
   background-size: 185px;
   background-position: left center;
 }
 /* line 164, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/components/fact-card.scss */
 .fact-card .fact-image.chair {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/desk_chair-85442251c81cec99e2f86ead6197226844e544984ba7edcaa7ee5aef90a15176.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/desk_chair-85442251c81cec99e2f86ead6197226844e544984ba7edcaa7ee5aef90a15176.svg);
   background-size: contain;
   background-position: right center;
 }
 /* line 169, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/components/fact-card.scss */
 .fact-card .fact-image.books {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/stacked_books-d212f241f612e63429e14a478eb52985070272241ec01be2b665e028c353d083.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/stacked_books-d212f241f612e63429e14a478eb52985070272241ec01be2b665e028c353d083.svg);
   background-size: contain;
   background-position: right top;
 }
 /* line 174, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/components/fact-card.scss */
 .fact-card .fact-image.mortarboard {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/mortarboard-2d8f7fca91706b4917a3322875db9642939e7799190b9dff56225852123ed19c.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/mortarboard-2d8f7fca91706b4917a3322875db9642939e7799190b9dff56225852123ed19c.svg);
   background-size: 65px;
   background-position: center top;
 }
@@ -3031,11 +3031,11 @@ Javascript disabled
 
 @font-face {
   font-family: 'icomoon';
-  src: url(/landing-pages/2016-2017/sample/_assets/icomoon-2b272ca81c50ea1a6759e09631416812a6b1234e63b1875e5373d102a605f4a9.eot);
-  src: url(/landing-pages/2016-2017/sample/_assets/icomoon-2b272ca81c50ea1a6759e09631416812a6b1234e63b1875e5373d102a605f4a9.eot?) format("embedded-opentype"),
-       url(/landing-pages/2016-2017/sample/_assets/icomoon-5274f5a0f9afe011fb111bdc9b0fff3a467ebfc3a36dd94e87fd02c2d4ec1fec.woff) format("woff"),
-       url(/landing-pages/2016-2017/sample/_assets/icomoon-15685c5868fd176a37ca443a4edbf0efe287303f236c527db49abcedffed0d21.ttf) format("truetype"),
-       url(/landing-pages/2016-2017/sample/_assets/icomoon-e6c614595c4c417514bdd62127e8d2764fa77f597d0241eb93d07af0b256a014.svg) format("svg");
+  src: url(/landing-pages/2016-2017/computational-science/_assets/icomoon-2b272ca81c50ea1a6759e09631416812a6b1234e63b1875e5373d102a605f4a9.eot);
+  src: url(/landing-pages/2016-2017/computational-science/_assets/icomoon-2b272ca81c50ea1a6759e09631416812a6b1234e63b1875e5373d102a605f4a9.eot?) format("embedded-opentype"),
+       url(/landing-pages/2016-2017/computational-science/_assets/icomoon-5274f5a0f9afe011fb111bdc9b0fff3a467ebfc3a36dd94e87fd02c2d4ec1fec.woff) format("woff"),
+       url(/landing-pages/2016-2017/computational-science/_assets/icomoon-15685c5868fd176a37ca443a4edbf0efe287303f236c527db49abcedffed0d21.ttf) format("truetype"),
+       url(/landing-pages/2016-2017/computational-science/_assets/icomoon-e6c614595c4c417514bdd62127e8d2764fa77f597d0241eb93d07af0b256a014.svg) format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -3591,7 +3591,7 @@ you can use the generic selector below, but it's slower:
 }
 /* line 62, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/components/left-nav-ul.scss */
 .leftNav > ul > li > a .plus {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/miscButtons-487b2977368c301c0d79df578db4281200255e9186fcecb6d4eb9419c5a99765.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/miscButtons-487b2977368c301c0d79df578db4281200255e9186fcecb6d4eb9419c5a99765.png);
   background-repeat: no-repeat;
   background-position: -79px 0px;
   text-indent: -50px;
@@ -3725,7 +3725,7 @@ you can use the generic selector below, but it's slower:
 .open .mainNavExpand a .arrow {
   top: 50%;
   margin-top: -16px;
-  background: url(/landing-pages/2016-2017/sample/_assets/up-arrow-3e1de9e88677f537e94b0d1611f3055f73788ccb401c8a229eb0e141977ba4bd.png) no-repeat;
+  background: url(/landing-pages/2016-2017/computational-science/_assets/up-arrow-3e1de9e88677f537e94b0d1611f3055f73788ccb401c8a229eb0e141977ba4bd.png) no-repeat;
   text-indent: -999px;
   overflow: hidden;
 }
@@ -3754,7 +3754,7 @@ you can use the generic selector below, but it's slower:
   right: 8px;
   top: 50%;
   margin-top: -16px;
-  background: url(/landing-pages/2016-2017/sample/_assets/down-arrow-d0f41fe5a8832150a2731a34e05819cce0606de6f3b2ee93dc484f3c14331b99.png) no-repeat;
+  background: url(/landing-pages/2016-2017/computational-science/_assets/down-arrow-d0f41fe5a8832150a2731a34e05819cce0606de6f3b2ee93dc484f3c14331b99.png) no-repeat;
   text-indent: -999px;
   overflow: hidden;
 }
@@ -3777,9 +3777,9 @@ you can use the generic selector below, but it's slower:
   text-indent: -999em;
   margin-bottom: 16px;
   margin-left: 16px;
-  background: url(/landing-pages/2016-2017/sample/_assets/chapman_logo_horizonal_stacked-caf28d75edfaf8883e512ad97b06a6a3e166ec1c53817e9601b50be00648dbf5.png);
-  background: url(/landing-pages/2016-2017/sample/_assets/chapman_logo_horizonal_stacked-a410c9acf637afbe563448e7e799afa422650fb0d656b29bc36f754f09c19dad.svg), -webkit-linear-gradient(transparent, transparent);
-  background: url(/landing-pages/2016-2017/sample/_assets/chapman_logo_horizonal_stacked-a410c9acf637afbe563448e7e799afa422650fb0d656b29bc36f754f09c19dad.svg), linear-gradient(transparent, transparent);
+  background: url(/landing-pages/2016-2017/computational-science/_assets/chapman_logo_horizonal_stacked-caf28d75edfaf8883e512ad97b06a6a3e166ec1c53817e9601b50be00648dbf5.png);
+  background: url(/landing-pages/2016-2017/computational-science/_assets/chapman_logo_horizonal_stacked-a410c9acf637afbe563448e7e799afa422650fb0d656b29bc36f754f09c19dad.svg), -webkit-linear-gradient(transparent, transparent);
+  background: url(/landing-pages/2016-2017/computational-science/_assets/chapman_logo_horizonal_stacked-a410c9acf637afbe563448e7e799afa422650fb0d656b29bc36f754f09c19dad.svg), linear-gradient(transparent, transparent);
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -3931,7 +3931,7 @@ you can use the generic selector below, but it's slower:
   /* line 192, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/components/main_navigation.scss */
   .mainNavLinks > li:hover > a > span {
     background-color: #faf9f6;
-    background-image: url(/landing-pages/2016-2017/sample/_assets/up_arrow-c3c0d525d34992fa78d9b14da39e5780c694537cdb5967714c45d87f27e248e3.png);
+    background-image: url(/landing-pages/2016-2017/computational-science/_assets/up_arrow-c3c0d525d34992fa78d9b14da39e5780c694537cdb5967714c45d87f27e248e3.png);
   }
 }
 @media (min-width: 780px) {
@@ -4050,7 +4050,7 @@ you can use the generic selector below, but it's slower:
   .mainNavLinks {
     display: block;
     background-color: #353430;
-    background-image: url(/landing-pages/2016-2017/sample/_assets/ribbon_tails-b7f0694bd5d3c96acc5d6cd44d0bf1b864b2a3bbe2f3d3f27291694ecb4371dc.png);
+    background-image: url(/landing-pages/2016-2017/computational-science/_assets/ribbon_tails-b7f0694bd5d3c96acc5d6cd44d0bf1b864b2a3bbe2f3d3f27291694ecb4371dc.png);
     background-repeat: no-repeat;
     background-position: -2px 0;
     width: 100%;
@@ -4084,7 +4084,7 @@ you can use the generic selector below, but it's slower:
 @media (min-width: 1024px) {
   /* line 1, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/components/masthead-placeholder.scss */
   .mastheadPlaceholder:before {
-    background-image: url(/landing-pages/2016-2017/sample/_assets/masthead_bg_small-84183a7f96323bfe483f2ebaed041a85b2ab7a227e247be7a357a504bf55ea41.png);
+    background-image: url(/landing-pages/2016-2017/computational-science/_assets/masthead_bg_small-84183a7f96323bfe483f2ebaed041a85b2ab7a227e247be7a357a504bf55ea41.png);
     background-position: left top;
     background-repeat: no-repeat;
   }
@@ -4355,7 +4355,7 @@ you can use the generic selector below, but it's slower:
     bottom: 0;
     left: 0;
     background-color: transparent;
-    background-image: url(/landing-pages/2016-2017/sample/_assets/masthead_bg_small-84183a7f96323bfe483f2ebaed041a85b2ab7a227e247be7a357a504bf55ea41.png);
+    background-image: url(/landing-pages/2016-2017/computational-science/_assets/masthead_bg_small-84183a7f96323bfe483f2ebaed041a85b2ab7a227e247be7a357a504bf55ea41.png);
     background-repeat: no-repeat;
     background-position: left top;
   }
@@ -4407,7 +4407,7 @@ you can use the generic selector below, but it's slower:
     bottom: 0;
     left: 0;
     background-color: transparent;
-    background-image: url(/landing-pages/2016-2017/sample/_assets/masthead_bg_small-84183a7f96323bfe483f2ebaed041a85b2ab7a227e247be7a357a504bf55ea41.png);
+    background-image: url(/landing-pages/2016-2017/computational-science/_assets/masthead_bg_small-84183a7f96323bfe483f2ebaed041a85b2ab7a227e247be7a357a504bf55ea41.png);
     background-repeat: no-repeat;
     background-position: left top;
   }
@@ -4473,7 +4473,7 @@ you can use the generic selector below, but it's slower:
   position: absolute;
   width: 73px;
   height: 28px;
-  background: url(/landing-pages/2016-2017/sample/_assets/default_follow_us-9daf64ac2628b75db37feda276361ea612466602efe4c5c36167631af0222b7d.png);
+  background: url(/landing-pages/2016-2017/computational-science/_assets/default_follow_us-9daf64ac2628b75db37feda276361ea612466602efe4c5c36167631af0222b7d.png);
   margin-left: -8px;
   left: -57px;
   top: 6px;
@@ -4495,7 +4495,7 @@ you can use the generic selector below, but it's slower:
   position: absolute;
   top: 0;
   left: 0;
-  background: url(/landing-pages/2016-2017/sample/_assets/default_icons-331f348ff370027cfa65ac02e2715767747bc264bbcaf7e927a633e650710acc.png) -1px -1px;
+  background: url(/landing-pages/2016-2017/computational-science/_assets/default_icons-331f348ff370027cfa65ac02e2715767747bc264bbcaf7e927a633e650710acc.png) -1px -1px;
   z-index: 100;
 }
 /* line 45, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/components/social-follow-us.scss */
@@ -4505,7 +4505,7 @@ you can use the generic selector below, but it's slower:
   position: absolute;
   top: 0;
   left: 0;
-  background: url(/landing-pages/2016-2017/sample/_assets/default_icons-331f348ff370027cfa65ac02e2715767747bc264bbcaf7e927a633e650710acc.png) -1px -1px;
+  background: url(/landing-pages/2016-2017/computational-science/_assets/default_icons-331f348ff370027cfa65ac02e2715767747bc264bbcaf7e927a633e650710acc.png) -1px -1px;
   z-index: 100;
   z-index: 200;
 }
@@ -4769,7 +4769,7 @@ you can use the generic selector below, but it's slower:
 /* line 10, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/components/tabs.scss */
 .tabNav {
   display: block;
-  background-image: url(/landing-pages/2016-2017/sample/_assets/tab_shadow-2842a912d60c3805775be622b6a93b26719ca47ff514f6b58ae7314650980173.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/tab_shadow-2842a912d60c3805775be622b6a93b26719ca47ff514f6b58ae7314650980173.png);
   background-repeat: no-repeat;
   background-position: left 4px;
   height: 37px;
@@ -4787,7 +4787,7 @@ you can use the generic selector below, but it's slower:
   color: #a2a0a0;
   cursor: pointer;
   background-color: #f7f6f0;
-  background-image: url(/landing-pages/2016-2017/sample/_assets/tab_bg-16e1904adacf9c5b8af8d24fef050e025826ddea9d4371e90bf0039e5334c2d5.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/tab_bg-16e1904adacf9c5b8af8d24fef050e025826ddea9d4371e90bf0039e5334c2d5.png);
   background-repeat: repeat-x;
   background-position: left top;
   border: 1px solid #c4c2b7;
@@ -4798,7 +4798,7 @@ you can use the generic selector below, but it's slower:
   color: #fff;
   bottom: 0;
   background-color: #98002e;
-  background-image: url(/landing-pages/2016-2017/sample/_assets/active_tab_bg-40bcb32b916cbda15a0a33672f872239b5bee7eb05d019db4b854c3566145116.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/active_tab_bg-40bcb32b916cbda15a0a33672f872239b5bee7eb05d019db4b854c3566145116.png);
   background-repeat: repeat-x;
   background-position: left top;
   font-weight: bold;
@@ -5332,7 +5332,7 @@ you can use the generic selector below, but it's slower:
 }
 /* line 47, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/layout_old/footer.scss */
 .footer .socialIcons a {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/socialIconsFooter-b83fe12f66f40991e53ec9b994939e86393930bfbcaa4091907f43affa610376.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/socialIconsFooter-b83fe12f66f40991e53ec9b994939e86393930bfbcaa4091907f43affa610376.png);
   background-repeat: no-repeat;
   text-indent: -9999px;
   margin: 7px 8px 0 0;
@@ -5424,7 +5424,7 @@ you can use the generic selector below, but it's slower:
 }
 /* line 97, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/layout_old/footer.scss */
 .footer a.meta-link:after {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/miscButtons-487b2977368c301c0d79df578db4281200255e9186fcecb6d4eb9419c5a99765.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/miscButtons-487b2977368c301c0d79df578db4281200255e9186fcecb6d4eb9419c5a99765.png);
   width: 16px;
   height: 10px;
   margin-top: 3px;
@@ -5513,7 +5513,7 @@ you can use the generic selector below, but it's slower:
 @media (min-width: 780px) {
   /* line 269, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/layout_old/footer.scss */
   .footer-ribbon .footer-ribbon-after {
-    background-image: url(/landing-pages/2016-2017/sample/_assets/ribbon_tails-b7f0694bd5d3c96acc5d6cd44d0bf1b864b2a3bbe2f3d3f27291694ecb4371dc.png);
+    background-image: url(/landing-pages/2016-2017/computational-science/_assets/ribbon_tails-b7f0694bd5d3c96acc5d6cd44d0bf1b864b2a3bbe2f3d3f27291694ecb4371dc.png);
     background-repeat: no-repeat;
     background-position: right 0;
     position: absolute;
@@ -5598,7 +5598,7 @@ you can use the generic selector below, but it's slower:
 }
 /* line 338, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/layout_old/footer.scss */
 .footer-links-group > h3:after {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/miscButtons-487b2977368c301c0d79df578db4281200255e9186fcecb6d4eb9419c5a99765.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/miscButtons-487b2977368c301c0d79df578db4281200255e9186fcecb6d4eb9419c5a99765.png);
   background-position: -23px 0;
   margin-top: -4px;
   width: 27px;
@@ -6119,7 +6119,7 @@ you can use the generic selector below, but it's slower:
   height: 44px;
   padding: 5px;
   margin: 0 0 0 10px;
-  background: url(/landing-pages/2016-2017/sample/_assets/gray_30-7152297a05f6898d6dc735111efe5b4f2dae3b3c61a9a7562c5ff77dbfcb61eb.png);
+  background: url(/landing-pages/2016-2017/computational-science/_assets/gray_30-7152297a05f6898d6dc735111efe5b4f2dae3b3c61a9a7562c5ff77dbfcb61eb.png);
   text-indent: -9999px;
   opacity: 0.75;
   -webkit-transition: opacity 0.2s ease-out, height 0s ease-out;
@@ -6143,22 +6143,22 @@ you can use the generic selector below, but it's slower:
 }
 /* line 52, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/layout_old/home/main.scss */
 #main #mastheadNavigation #changeVolume {
-  background: rgba(0, 0, 0, 0.8) url(/landing-pages/2016-2017/sample/_assets/volume-on_white-cedd74e5397051cc32d487569e082646b1d27bfbad8a60be6e1eef52a16603b3.svg) no-repeat center;
+  background: rgba(0, 0, 0, 0.8) url(/landing-pages/2016-2017/computational-science/_assets/volume-on_white-cedd74e5397051cc32d487569e082646b1d27bfbad8a60be6e1eef52a16603b3.svg) no-repeat center;
   background-size: 20px;
 }
 /* line 55, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/layout_old/home/main.scss */
 #main #mastheadNavigation #changeVolume.muted {
-  background: rgba(0, 0, 0, 0.8) url(/landing-pages/2016-2017/sample/_assets/volume-off_white-350c0cf64a2680b9140bf095a63c399bc60cb2ad9bd76bb4f2634299fb542dc0.svg) no-repeat 16px center;
+  background: rgba(0, 0, 0, 0.8) url(/landing-pages/2016-2017/computational-science/_assets/volume-off_white-350c0cf64a2680b9140bf095a63c399bc60cb2ad9bd76bb4f2634299fb542dc0.svg) no-repeat 16px center;
   background-size: 20px;
 }
 /* line 60, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/layout_old/home/main.scss */
 #main #mastheadNavigation #showOlderContent {
-  background: rgba(0, 0, 0, 0.8) url(/landing-pages/2016-2017/sample/_assets/arrow-right_white-800c7312bcb223ba1284a8b05002b71c005e5567d4ab41e474b56cc96d63d110.svg) no-repeat center;
+  background: rgba(0, 0, 0, 0.8) url(/landing-pages/2016-2017/computational-science/_assets/arrow-right_white-800c7312bcb223ba1284a8b05002b71c005e5567d4ab41e474b56cc96d63d110.svg) no-repeat center;
   background-size: 20px;
 }
 /* line 64, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/layout_old/home/main.scss */
 #main #mastheadNavigation #showNewerContent {
-  background: rgba(0, 0, 0, 0.8) url(/landing-pages/2016-2017/sample/_assets/arrow-left_white-3a1b4d9af5b6a1845cd54228865c618cc88955a7e94882230294b2e61e918f05.svg) no-repeat center;
+  background: rgba(0, 0, 0, 0.8) url(/landing-pages/2016-2017/computational-science/_assets/arrow-left_white-3a1b4d9af5b6a1845cd54228865c618cc88955a7e94882230294b2e61e918f05.svg) no-repeat center;
   background-size: 20px;
 }
 @media (min-width: 680px) {
@@ -6278,7 +6278,7 @@ body.personnel .main {
 @media (min-width: 1024px) {
   /* line 32, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/layout_old/main.scss */
   .main .tabNav {
-    background-image: url(/landing-pages/2016-2017/sample/_assets/tab_shadow-2842a912d60c3805775be622b6a93b26719ca47ff514f6b58ae7314650980173.png);
+    background-image: url(/landing-pages/2016-2017/computational-science/_assets/tab_shadow-2842a912d60c3805775be622b6a93b26719ca47ff514f6b58ae7314650980173.png);
     background-position: left 3px;
     height: auto;
     height: 35px;
@@ -6575,7 +6575,7 @@ body.personnel .main {
 @media only screen and (min-width: 1024px) {
   /* line 62, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/layout_old/phase4_masthead.scss */
   .mastheadPlaceholder:before {
-    background-image: url(/landing-pages/2016-2017/sample/_assets/masthead_bg_small-84183a7f96323bfe483f2ebaed041a85b2ab7a227e247be7a357a504bf55ea41.png);
+    background-image: url(/landing-pages/2016-2017/computational-science/_assets/masthead_bg_small-84183a7f96323bfe483f2ebaed041a85b2ab7a227e247be7a357a504bf55ea41.png);
     background-position: left top;
     background-repeat: no-repeat;
   }
@@ -9733,7 +9733,7 @@ body.personnel .main {
   display: block;
   width: 20px;
   height: 20px;
-  background: url(/landing-pages/2016-2017/sample/_assets/cu_monogram_red-7b18f276fe32e8fed6def9effff48af3c4ce79df9503e83e01b48ed396778fe7.svg) no-repeat center left;
+  background: url(/landing-pages/2016-2017/computational-science/_assets/cu_monogram_red-7b18f276fe32e8fed6def9effff48af3c4ce79df9503e83e01b48ed396778fe7.svg) no-repeat center left;
   background-size: contain;
   position: absolute;
   top: 10px;
@@ -9802,11 +9802,11 @@ body.personnel .main {
 }
 /* line 408, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/home_page/blog_stories.scss */
 .homepage .stories .icon.comments {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/bubble-dots3_white-07e7e77cdb0e5e905ee5b078e11cee25b25c185ad21029f68769cb939dd2918f.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/bubble-dots3_white-07e7e77cdb0e5e905ee5b078e11cee25b25c185ad21029f68769cb939dd2918f.svg);
 }
 /* line 411, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/home_page/blog_stories.scss */
 .homepage .stories .icon.shares {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/share_white-22d7e4b97cb99383c05f8b25cb172520d2bca82e57f02bc5e84770eb648c8d55.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/share_white-22d7e4b97cb99383c05f8b25cb172520d2bca82e57f02bc5e84770eb648c8d55.svg);
 }
 /* line 414, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/home_page/blog_stories.scss */
 .homepage .stories .icon.views {
@@ -9814,11 +9814,11 @@ body.personnel .main {
 }
 /* line 419, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/home_page/blog_stories.scss */
 .homepage .stories .story .icon.comments {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/bubble-dots3-3388177160f5e301f07134d00aceb6c210c80cd527edc9b1249640ad1ad64fb1.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/bubble-dots3-3388177160f5e301f07134d00aceb6c210c80cd527edc9b1249640ad1ad64fb1.svg);
 }
 /* line 422, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/home_page/blog_stories.scss */
 .homepage .stories .story .icon.shares {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/share-d8c262862a7052be0fbb0bf7448def62dbf6da94e7be4cc9c1bf461e6e8debda.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/share-d8c262862a7052be0fbb0bf7448def62dbf6da94e7be4cc9c1bf461e6e8debda.svg);
 }
 /* line 425, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/home_page/blog_stories.scss */
 .homepage .stories .story .icon.views {
@@ -9904,13 +9904,13 @@ body.personnel .main {
 }
 /* line 527, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/home_page/blog_stories.scss */
 .homepage .stories .action.facebook {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/facebook_white-91b0df607f1fccd5c19b992542e0e27e381a5db1503244189156497ca4741585.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/facebook_white-91b0df607f1fccd5c19b992542e0e27e381a5db1503244189156497ca4741585.svg);
   background-color: #38659f;
   background-position: center !important;
 }
 /* line 532, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/home_page/blog_stories.scss */
 .homepage .stories .action.twitter {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/twitter_white-534659c6e0a71d44626881a0c1fe942cd69b66f57e82a69419294fae1b18ebfe.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/twitter_white-534659c6e0a71d44626881a0c1fe942cd69b66f57e82a69419294fae1b18ebfe.svg);
   background-color: #3aa8dd;
   background-position: center !important;
 }
@@ -9989,7 +9989,7 @@ body.personnel .main {
 ***************************************************/
 /* line 5, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/home_page/graduate_admission.scss */
 #graduateAdmission {
-  background: #111111 url(/landing-pages/2016-2017/sample/_assets/graduate_admissions_960_v3-dbdbc4f6bb30194a6ea74476e614e6a79133b74ffa53cd51d51b5b83155c00a0.jpg) no-repeat center;
+  background: #111111 url(/landing-pages/2016-2017/computational-science/_assets/graduate_admissions_960_v3-dbdbc4f6bb30194a6ea74476e614e6a79133b74ffa53cd51d51b5b83155c00a0.jpg) no-repeat center;
   background-size: cover;
   color: #FFFFFF;
   padding: 50px 0;
@@ -10050,7 +10050,7 @@ body.personnel .main {
 @media only screen and (min-width: 680px) {
   /* line 57, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/home_page/graduate_admission.scss */
   #graduateAdmission {
-    background-image: url(/landing-pages/2016-2017/sample/_assets/graduate_admissions_1200_v3-27f947a5ff24a22b51998d83fe5d9db39ad9d6006d92dff1254b029c2f808408.jpg);
+    background-image: url(/landing-pages/2016-2017/computational-science/_assets/graduate_admissions_1200_v3-27f947a5ff24a22b51998d83fe5d9db39ad9d6006d92dff1254b029c2f808408.jpg);
     text-align: left;
     background-position: center;
   }
@@ -10079,7 +10079,7 @@ body.personnel .main {
 @media only screen and (min-width: 1180px) {
   /* line 87, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/home_page/graduate_admission.scss */
   #graduateAdmission {
-    background-image: url(/landing-pages/2016-2017/sample/_assets/graduate_admissions_1706_v3-da4bb5e189db0ae3f387e45b96fce73db22153b547e856f8751bf4f868353af8.jpg);
+    background-image: url(/landing-pages/2016-2017/computational-science/_assets/graduate_admissions_1706_v3-da4bb5e189db0ae3f387e45b96fce73db22153b547e856f8751bf4f868353af8.jpg);
     padding: 100px;
   }
   /* line 90, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/home_page/graduate_admission.scss */
@@ -10202,7 +10202,7 @@ body.personnel .main {
   height: 100%;
   z-index: 10;
   background: rgba(0, 0, 0, 0.4);
-  background: url(/landing-pages/2016-2017/sample/_assets/gray_30-7152297a05f6898d6dc735111efe5b4f2dae3b3c61a9a7562c5ff77dbfcb61eb.png) repeat;
+  background: url(/landing-pages/2016-2017/computational-science/_assets/gray_30-7152297a05f6898d6dc735111efe5b4f2dae3b3c61a9a7562c5ff77dbfcb61eb.png) repeat;
   /* FF3.6+ */
   background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0, 0, 0, 0.6)), color-stop(100%, transparent));
   /* Chrome,Safari4+ */
@@ -10534,7 +10534,7 @@ Image Quick View
 ***************************************************/
 /* line 136, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/home_page/undergraduate_admission.scss */
 #undergraduateAdmission {
-  background: #111111 url(/landing-pages/2016-2017/sample/_assets/undergrad-admissions-6b05436c3ff08330a37837dcf25b8c5c1749cc7456f32c7383593726a4125407.jpg) no-repeat center;
+  background: #111111 url(/landing-pages/2016-2017/computational-science/_assets/undergrad-admissions-6b05436c3ff08330a37837dcf25b8c5c1749cc7456f32c7383593726a4125407.jpg) no-repeat center;
   background-size: cover;
   color: #FFFFFF;
   padding: 65px 0 140px 0;
@@ -10571,7 +10571,7 @@ Image Quick View
   color: #fff;
   top: -176px;
   cursor: pointer;
-  background-image: url(/landing-pages/2016-2017/sample/_assets/gray_arrows-8fe6f959aef0a609c1d474a4d50d54c85a9e388ed29615455dbe5faff00383c0.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/gray_arrows-8fe6f959aef0a609c1d474a4d50d54c85a9e388ed29615455dbe5faff00383c0.png);
   background-repeat: no-repeat;
 }
 /* line 17, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/masthead.scss */
@@ -10820,7 +10820,7 @@ Image Quick View
 .rounded-slider .flex-control-nav li a {
   width: 13px;
   height: 13px;
-  background: url(/landing-pages/2016-2017/sample/_assets/pager_sprite-3f72ded59561a7d54505b2e0d5a65b43ec774efc44dd029c1da406ffea2661da.png) no-repeat;
+  background: url(/landing-pages/2016-2017/computational-science/_assets/pager_sprite-3f72ded59561a7d54505b2e0d5a65b43ec774efc44dd029c1da406ffea2661da.png) no-repeat;
   background-position: -13px 0;
   text-indent: 999px;
   overflow: hidden;
@@ -11264,9 +11264,9 @@ Image Quick View
 /* line 1, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/primary_column/carousel.scss */
 .carousel-prev {
   left: 0;
-  background: -webkit-linear-gradient(left, rgba(32, 32, 32, 0.6666), rgba(32, 32, 32, 0.25)), url(/landing-pages/2016-2017/sample/_assets/carousel-prev-a604fde990c1ac9c19d5040e95caf2af23367ededd9a3026c06eb9b137609a20.png) no-repeat center/60%;
-  background: linear-gradient(to right, rgba(32, 32, 32, 0.6666), rgba(32, 32, 32, 0.25)), url(/landing-pages/2016-2017/sample/_assets/carousel-prev-a604fde990c1ac9c19d5040e95caf2af23367ededd9a3026c06eb9b137609a20.png) no-repeat center/60%;
-  background-image: url(/landing-pages/2016-2017/sample/_assets/carousel-prev-a604fde990c1ac9c19d5040e95caf2af23367ededd9a3026c06eb9b137609a20.png);
+  background: -webkit-linear-gradient(left, rgba(32, 32, 32, 0.6666), rgba(32, 32, 32, 0.25)), url(/landing-pages/2016-2017/computational-science/_assets/carousel-prev-a604fde990c1ac9c19d5040e95caf2af23367ededd9a3026c06eb9b137609a20.png) no-repeat center/60%;
+  background: linear-gradient(to right, rgba(32, 32, 32, 0.6666), rgba(32, 32, 32, 0.25)), url(/landing-pages/2016-2017/computational-science/_assets/carousel-prev-a604fde990c1ac9c19d5040e95caf2af23367ededd9a3026c06eb9b137609a20.png) no-repeat center/60%;
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/carousel-prev-a604fde990c1ac9c19d5040e95caf2af23367ededd9a3026c06eb9b137609a20.png);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -11274,9 +11274,9 @@ Image Quick View
 /* line 9, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/primary_column/carousel.scss */
 .carousel-next {
   right: 0;
-  background: -webkit-linear-gradient(right, rgba(32, 32, 32, 0.6666), rgba(32, 32, 32, 0.25)), url(/landing-pages/2016-2017/sample/_assets/carousel-next-51ceaa0c303d8ad054371b74be8810a13909fce0be98f24aa0a9e5846ab20712.png) no-repeat center/60%;
-  background: linear-gradient(to left, rgba(32, 32, 32, 0.6666), rgba(32, 32, 32, 0.25)), url(/landing-pages/2016-2017/sample/_assets/carousel-next-51ceaa0c303d8ad054371b74be8810a13909fce0be98f24aa0a9e5846ab20712.png) no-repeat center/60%;
-  background-image: url(/landing-pages/2016-2017/sample/_assets/carousel-next-51ceaa0c303d8ad054371b74be8810a13909fce0be98f24aa0a9e5846ab20712.png);
+  background: -webkit-linear-gradient(right, rgba(32, 32, 32, 0.6666), rgba(32, 32, 32, 0.25)), url(/landing-pages/2016-2017/computational-science/_assets/carousel-next-51ceaa0c303d8ad054371b74be8810a13909fce0be98f24aa0a9e5846ab20712.png) no-repeat center/60%;
+  background: linear-gradient(to left, rgba(32, 32, 32, 0.6666), rgba(32, 32, 32, 0.25)), url(/landing-pages/2016-2017/computational-science/_assets/carousel-next-51ceaa0c303d8ad054371b74be8810a13909fce0be98f24aa0a9e5846ab20712.png) no-repeat center/60%;
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/carousel-next-51ceaa0c303d8ad054371b74be8810a13909fce0be98f24aa0a9e5846ab20712.png);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -11718,7 +11718,7 @@ Image Quick View
 }
 /* line 71, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/primary_column/collapsibles.scss */
 .collapsibles-widget .accordion .header .show, .collapsibles-widget .accordion .header .hide {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/miscButtons-487b2977368c301c0d79df578db4281200255e9186fcecb6d4eb9419c5a99765.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/miscButtons-487b2977368c301c0d79df578db4281200255e9186fcecb6d4eb9419c5a99765.png);
   background-position: -23px 0;
   background-repeat: no-repeat;
   position: absolute;
@@ -13888,7 +13888,7 @@ div.four-col-float {
 
   /* line 9, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/layouts/print.scss */
   html:before {
-    content: url(/landing-pages/2016-2017/sample/_assets/logo-49150043c45602e855ac3d04d402b3b577e063ca2ec56717878b2713a57b9984.png);
+    content: url(/landing-pages/2016-2017/computational-science/_assets/logo-49150043c45602e855ac3d04d402b3b577e063ca2ec56717878b2713a57b9984.png);
   }
 
   /* line 12, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/layouts/print.scss */
@@ -14005,11 +14005,11 @@ div.four-col-float {
 }
 /* line 24, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/business.scss */
 #theme.business #social_follow_us .banner {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/asbe_follow_us-72c0407b1f73fe81eabfd90c63a765c083b5234de06b3f86c0a290c6a2e06807.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/asbe_follow_us-72c0407b1f73fe81eabfd90c63a765c083b5234de06b3f86c0a290c6a2e06807.png);
 }
 /* line 28, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/business.scss */
 #theme.business #social_follow_us li span.hover_state, #theme.business #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/asbe_icons-a1479f6b7e65c6b8d957b6ce84c3c90fcff84f2d75f68003242420630f8a6e52.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/asbe_icons-a1479f6b7e65c6b8d957b6ce84c3c90fcff84f2d75f68003242420630f8a6e52.png);
 }
 /* line 34, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/business.scss */
 #theme.business .rounded-slider .info-container .blue {
@@ -14102,11 +14102,11 @@ div.four-col-float {
 }
 /* line 29, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/ces.scss */
 #theme.ces #social_follow_us .banner {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/ces_follow_us-6def931b788b9c06cd9cde7fbdc5415c70fe5adafaa984da2e938246d3b85671.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/ces_follow_us-6def931b788b9c06cd9cde7fbdc5415c70fe5adafaa984da2e938246d3b85671.png);
 }
 /* line 33, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/ces.scss */
 #theme.ces #social_follow_us li span.hover_state, #theme.ces #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/ces_icons-6eb33d3c035fe1eba3612a5905eeb180bf9ff4a89f7ee3606ba1c78dc5126743.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/ces_icons-6eb33d3c035fe1eba3612a5905eeb180bf9ff4a89f7ee3606ba1c78dc5126743.png);
 }
 /* line 39, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/ces.scss */
 #theme.ces .rounded-slider .info-container .blue {
@@ -14200,11 +14200,11 @@ div.four-col-float {
 }
 /* line 22, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/communication.scss */
 #theme.communication #social_follow_us .banner {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/default_follow_us-9daf64ac2628b75db37feda276361ea612466602efe4c5c36167631af0222b7d.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/default_follow_us-9daf64ac2628b75db37feda276361ea612466602efe4c5c36167631af0222b7d.png);
 }
 /* line 26, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/communication.scss */
 #theme.communication #social_follow_us li span.hover_state, #theme.communication #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/default_icons-331f348ff370027cfa65ac02e2715767747bc264bbcaf7e927a633e650710acc.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/default_icons-331f348ff370027cfa65ac02e2715767747bc264bbcaf7e927a633e650710acc.png);
 }
 /* line 32, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/communication.scss */
 #theme.communication .rounded-slider .info-container .blue {
@@ -14301,11 +14301,11 @@ div.four-col-float {
 }
 /* line 26, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/copa.scss */
 #theme.copa #social_follow_us .banner {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/copa_follow_us-d5647855d739a333443cc66a1fa4270f78d94791370e2e540ea59bcd300e7705.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/copa_follow_us-d5647855d739a333443cc66a1fa4270f78d94791370e2e540ea59bcd300e7705.png);
 }
 /* line 30, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/copa.scss */
 #theme.copa #social_follow_us li span.hover_state, #theme.copa #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/copa_icons-011385e040cbf946b6bdf127738894b1613d6a0083779823b640a2fb33942b0e.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/copa_icons-011385e040cbf946b6bdf127738894b1613d6a0083779823b640a2fb33942b0e.png);
 }
 /* line 36, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/copa.scss */
 #theme.copa .rounded-slider .info-container .blue {
@@ -14402,11 +14402,11 @@ div.four-col-float {
 }
 /* line 26, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/copa__dance.scss */
 #theme.copa__dance #social_follow_us .banner {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/copa_dance_follow_us-c0ed3906b860b09bee3f468a1958164a4468433b17d83dc8874e0fb9248a4872.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/copa_dance_follow_us-c0ed3906b860b09bee3f468a1958164a4468433b17d83dc8874e0fb9248a4872.png);
 }
 /* line 30, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/copa__dance.scss */
 #theme.copa__dance #social_follow_us li span.hover_state, #theme.copa__dance #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/copa_dance_icons-48ae0b084edfdcb776cfdddf43cd1309e4b235325fd073e2e01211bc568832da.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/copa_dance_icons-48ae0b084edfdcb776cfdddf43cd1309e4b235325fd073e2e01211bc568832da.png);
 }
 /* line 36, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/copa__dance.scss */
 #theme.copa__dance .rounded-slider .info-container .blue {
@@ -14503,11 +14503,11 @@ div.four-col-float {
 }
 /* line 27, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/copa__music.scss */
 #theme.copa__music #social_follow_us .banner {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/copa_music_follow_us-9410da3f7287c868ec1a7b9542c94e2077c0942e5a4ba89695d5d3ec33614d97.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/copa_music_follow_us-9410da3f7287c868ec1a7b9542c94e2077c0942e5a4ba89695d5d3ec33614d97.png);
 }
 /* line 31, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/copa__music.scss */
 #theme.copa__music #social_follow_us li span.hover_state, #theme.copa__music #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/copa_music_icons-5e8e49d57b15d3ca72219b66fd34c2bc16a5b5cfa81edc5b84defa2d4306f1eb.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/copa_music_icons-5e8e49d57b15d3ca72219b66fd34c2bc16a5b5cfa81edc5b84defa2d4306f1eb.png);
 }
 /* line 37, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/copa__music.scss */
 #theme.copa__music .rounded-slider .info-container .blue {
@@ -14604,11 +14604,11 @@ div.four-col-float {
 }
 /* line 27, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/copa__theatre.scss */
 #theme.copa__theatre #social_follow_us .banner {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/copa_theatre_follow_us-25802a84b6126c92ad2549514573d5471a8b91fab4288b70c1e27ed1bdcfde3c.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/copa_theatre_follow_us-25802a84b6126c92ad2549514573d5471a8b91fab4288b70c1e27ed1bdcfde3c.png);
 }
 /* line 31, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/copa__theatre.scss */
 #theme.copa__theatre #social_follow_us li span.hover_state, #theme.copa__theatre #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/copa_theatre_icons-573fd601d93ac5e3edc13ef4fa25d7fe841977420ae8e6689b5db01f38d6bc99.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/copa_theatre_icons-573fd601d93ac5e3edc13ef4fa25d7fe841977420ae8e6689b5db01f38d6bc99.png);
 }
 /* line 37, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/copa__theatre.scss */
 #theme.copa__theatre .rounded-slider .info-container .blue {
@@ -14707,11 +14707,11 @@ div.four-col-float {
 }
 /* line 28, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/crean.scss */
 #theme.crean #social_follow_us .banner {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/crean_follow_us-37bc86976c3a1f897ceabe67125afa2a3c4c1d24918fbcbdcbcc94e568aa7a1b.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/crean_follow_us-37bc86976c3a1f897ceabe67125afa2a3c4c1d24918fbcbdcbcc94e568aa7a1b.png);
 }
 /* line 32, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/crean.scss */
 #theme.crean #social_follow_us li span.hover_state, #theme.crean #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/crean_icons-789e8d76e297481cd8ee167bfae0479b7b5cd8a64fb179dc6dbbaa421d476993.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/crean_icons-789e8d76e297481cd8ee167bfae0479b7b5cd8a64fb179dc6dbbaa421d476993.png);
 }
 /* line 38, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/crean.scss */
 #theme.crean .rounded-slider .info-container .blue {
@@ -14813,16 +14813,16 @@ div.four-col-float {
 }
 /* line 34, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/dodge.scss */
 #theme.dodge #social_follow_us li span.hover_state, #theme.dodge #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/dodge_icons-f6643db0d5ed7544bfb4a42d5ba2dd7fd766e717e70e0271a2963a7505e262cc.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/dodge_icons-f6643db0d5ed7544bfb4a42d5ba2dd7fd766e717e70e0271a2963a7505e262cc.png);
 }
 /* line 38, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/dodge.scss */
 #theme.dodge #social_follow_us .banner {
-  background: url(/landing-pages/2016-2017/sample/_assets/dodge_follow_us-a3e82e85f08150c192287654b56336931b4fad4878bd5b2ae64b59f577c113a3.png);
-  background-image: url(/landing-pages/2016-2017/sample/_assets/dodge_follow_us-a3e82e85f08150c192287654b56336931b4fad4878bd5b2ae64b59f577c113a3.png);
+  background: url(/landing-pages/2016-2017/computational-science/_assets/dodge_follow_us-a3e82e85f08150c192287654b56336931b4fad4878bd5b2ae64b59f577c113a3.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/dodge_follow_us-a3e82e85f08150c192287654b56336931b4fad4878bd5b2ae64b59f577c113a3.png);
 }
 /* line 43, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/dodge.scss */
 #theme.dodge #social_follow_us li span.hover_state, #theme.dodge #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/dodge_icons-f6643db0d5ed7544bfb4a42d5ba2dd7fd766e717e70e0271a2963a7505e262cc.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/dodge_icons-f6643db0d5ed7544bfb4a42d5ba2dd7fd766e717e70e0271a2963a7505e262cc.png);
 }
 /* line 49, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/dodge.scss */
 #theme.dodge .rounded-slider .info-container .blue {
@@ -14933,7 +14933,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 44px;
   padding: 5px;
   margin: 0 0 0 10px;
-  background: url(/landing-pages/2016-2017/sample/_assets/gray_30-7152297a05f6898d6dc735111efe5b4f2dae3b3c61a9a7562c5ff77dbfcb61eb.png);
+  background: url(/landing-pages/2016-2017/computational-science/_assets/gray_30-7152297a05f6898d6dc735111efe5b4f2dae3b3c61a9a7562c5ff77dbfcb61eb.png);
   text-indent: -9999px;
   opacity: 0.75;
   -webkit-transition: opacity 0.2s ease-out, height 0s ease-out;
@@ -14957,17 +14957,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* line 98, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/home.scss */
 .homepage #mastheadNavigation #changeVolume {
-  background: rgba(0, 0, 0, 0.8) url(/landing-pages/2016-2017/sample/_assets/volume-on_white-cedd74e5397051cc32d487569e082646b1d27bfbad8a60be6e1eef52a16603b3.svg) no-repeat center;
+  background: rgba(0, 0, 0, 0.8) url(/landing-pages/2016-2017/computational-science/_assets/volume-on_white-cedd74e5397051cc32d487569e082646b1d27bfbad8a60be6e1eef52a16603b3.svg) no-repeat center;
   background-size: 20px;
 }
 /* line 101, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/home.scss */
 .homepage #mastheadNavigation #changeVolume.muted {
-  background: rgba(0, 0, 0, 0.8) url(/landing-pages/2016-2017/sample/_assets/volume-off_white-350c0cf64a2680b9140bf095a63c399bc60cb2ad9bd76bb4f2634299fb542dc0.svg) no-repeat 16px center;
+  background: rgba(0, 0, 0, 0.8) url(/landing-pages/2016-2017/computational-science/_assets/volume-off_white-350c0cf64a2680b9140bf095a63c399bc60cb2ad9bd76bb4f2634299fb542dc0.svg) no-repeat 16px center;
   background-size: 20px;
 }
 /* line 106, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/home.scss */
 .homepage #mastheadNavigation #showOlderContent {
-  background: rgba(0, 0, 0, 0.8) url(/landing-pages/2016-2017/sample/_assets/arrow-right_white-800c7312bcb223ba1284a8b05002b71c005e5567d4ab41e474b56cc96d63d110.svg) no-repeat center;
+  background: rgba(0, 0, 0, 0.8) url(/landing-pages/2016-2017/computational-science/_assets/arrow-right_white-800c7312bcb223ba1284a8b05002b71c005e5567d4ab41e474b56cc96d63d110.svg) no-repeat center;
   background-size: 20px;
 }
 /* line 110, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/home.scss */
@@ -15083,35 +15083,35 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* line 209, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/home.scss */
 .homepage .section .actions .button .apply {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/file6_white_15-8d8562baffa6fa76dfb1acc261d243260cd6bec890fc9662cb3969bb58d653b0.png);
-  background-image: none, url(/landing-pages/2016-2017/sample/_assets/file6_white-aa61bf72774b9d9f3c004c13f4569a85705651210018b2331d0c3a4eb2840f1d.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/file6_white_15-8d8562baffa6fa76dfb1acc261d243260cd6bec890fc9662cb3969bb58d653b0.png);
+  background-image: none, url(/landing-pages/2016-2017/computational-science/_assets/file6_white-aa61bf72774b9d9f3c004c13f4569a85705651210018b2331d0c3a4eb2840f1d.svg);
 }
 /* line 213, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/home.scss */
 .homepage .section .actions .button.apply-ug {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/file6-aa495a8d726839c9518f80511b9f4aae1f1f2757f7f734ba810aa235aef4b63c.png);
-  background-image: none, url(/landing-pages/2016-2017/sample/_assets/file6-fbb1b6a30dde865f5263e4e9e74d84ffa808750a906c1958c4e42325eee9b998.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/file6-aa495a8d726839c9518f80511b9f4aae1f1f2757f7f734ba810aa235aef4b63c.png);
+  background-image: none, url(/landing-pages/2016-2017/computational-science/_assets/file6-fbb1b6a30dde865f5263e4e9e74d84ffa808750a906c1958c4e42325eee9b998.svg);
 }
 /* line 217, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/home.scss */
 .homepage .section .actions .button.request {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/email_white_15-923faea6fbf72cadb0f5b8156c99e5e61f6209c6f6922dab1c250319c4ce7bd1.png);
-  background-image: none, url(/landing-pages/2016-2017/sample/_assets/email_white-41e01815aba1f81c930f99b0d24add41cd32959772a804dd98e39be22dd44800.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/email_white_15-923faea6fbf72cadb0f5b8156c99e5e61f6209c6f6922dab1c250319c4ce7bd1.png);
+  background-image: none, url(/landing-pages/2016-2017/computational-science/_assets/email_white-41e01815aba1f81c930f99b0d24add41cd32959772a804dd98e39be22dd44800.svg);
 }
 /* line 221, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/home.scss */
 .homepage .section .actions .button.request-ug {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/email-991ce28a5208a60e994b639c225b30d7d5546cc57440f85f346cdb3653359617.png);
-  background-image: none, url(/landing-pages/2016-2017/sample/_assets/email-c8db7f3c18417f2457311a0091a06a0fdf167e138c45ee29413728a065d7f370.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/email-991ce28a5208a60e994b639c225b30d7d5546cc57440f85f346cdb3653359617.png);
+  background-image: none, url(/landing-pages/2016-2017/computational-science/_assets/email-c8db7f3c18417f2457311a0091a06a0fdf167e138c45ee29413728a065d7f370.svg);
 }
 /* line 225, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/home.scss */
 .homepage .section .actions .button.monogram {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/cu_monogram_gray_25-b2f8f378df672c67e80cd024fae893afd45d2fcc4ad280ecd587fad8f7cc3571.png);
-  background-image: none, url(/landing-pages/2016-2017/sample/_assets/cu_monogram_gray-a2a506c56ba2c8f0be62f868e07ef30d916c5acb237d53743342094ef5dee352.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/cu_monogram_gray_25-b2f8f378df672c67e80cd024fae893afd45d2fcc4ad280ecd587fad8f7cc3571.png);
+  background-image: none, url(/landing-pages/2016-2017/computational-science/_assets/cu_monogram_gray-a2a506c56ba2c8f0be62f868e07ef30d916c5acb237d53743342094ef5dee352.svg);
   background-size: 25px;
   padding-left: 43px;
 }
 /* line 231, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/home.scss */
 .homepage .section .actions .button.calendar {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/calendar4_white_15-93dba9e8bb4b4a1280add5771d3a19adbedb855dea5af3213f59ac78c5aa84fe.png);
-  background-image: none, url(/landing-pages/2016-2017/sample/_assets/calendar4_white-2bc5bb0a5f073d991f81ad4d97ab8d01d74a4e01336dcb9e4f22e770389e8712.svg);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/calendar4_white_15-93dba9e8bb4b4a1280add5771d3a19adbedb855dea5af3213f59ac78c5aa84fe.png);
+  background-image: none, url(/landing-pages/2016-2017/computational-science/_assets/calendar4_white-2bc5bb0a5f073d991f81ad4d97ab8d01d74a4e01336dcb9e4f22e770389e8712.svg);
 }
 /* line 239, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/home.scss */
 .homepage .section .third {
@@ -15302,7 +15302,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* line 9, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/law.scss */
 #theme.law .logo {
-  background: url(/landing-pages/2016-2017/sample/_assets/logo_law_alternate-a0883f67b370c1ca77a855f02797cb689d5cbcd28d6884ebe9243c753a9b37de.svg);
+  background: url(/landing-pages/2016-2017/computational-science/_assets/logo_law_alternate-a0883f67b370c1ca77a855f02797cb689d5cbcd28d6884ebe9243c753a9b37de.svg);
   background-repeat: no-repeat;
   height: 57px;
   width: 200px;
@@ -15360,7 +15360,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   /* line 60, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/law.scss */
   #theme.law .footer-ribbon .footer-ribbon-after {
-    background-image: url(/landing-pages/2016-2017/sample/_assets/ribbon_tails_law-1fc0578bd05adc666e60bc798b12059a7b3afef9744d6cc1011990b25fe38ce8.png);
+    background-image: url(/landing-pages/2016-2017/computational-science/_assets/ribbon_tails_law-1fc0578bd05adc666e60bc798b12059a7b3afef9744d6cc1011990b25fe38ce8.png);
   }
 }
 @media (min-width: 780px) {
@@ -15387,12 +15387,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* line 84, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/law.scss */
 #theme.law #social_follow_us .banner {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/law_follow_us-88c4e51582b0f274a5f696269dfd6de954e9001d88bfbbe0ce5d4f61d977cc10.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/law_follow_us-88c4e51582b0f274a5f696269dfd6de954e9001d88bfbbe0ce5d4f61d977cc10.png);
 }
 /* line 87, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/law.scss */
 #theme.law #social_follow_us li span.hover_state,
 #theme.law #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/law_icons-623b52a72835f5d67cf54956e6b8872e2f1bb48838d4feccff8e2d1095a33c77.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/law_icons-623b52a72835f5d67cf54956e6b8872e2f1bb48838d4feccff8e2d1095a33c77.png);
 }
 /* line 92, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/law.scss */
 #theme.law .ie8 .slideDescription,
@@ -15440,7 +15440,7 @@ h1, h2, h3, h4, h5, h6 {
   /* line 140, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/law.scss */
   #theme.law .mainNavLinks,
   #theme.law footer .footerAfter {
-    background-image: url(/landing-pages/2016-2017/sample/_assets/ribbon_tails_law-1fc0578bd05adc666e60bc798b12059a7b3afef9744d6cc1011990b25fe38ce8.png);
+    background-image: url(/landing-pages/2016-2017/computational-science/_assets/ribbon_tails_law-1fc0578bd05adc666e60bc798b12059a7b3afef9744d6cc1011990b25fe38ce8.png);
   }
   /* line 145, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/law.scss */
   #theme.law .footerLinks {
@@ -15550,11 +15550,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* line 226, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/law.scss */
 #theme.law #social_follow_us .banner {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/law_follow_us-88c4e51582b0f274a5f696269dfd6de954e9001d88bfbbe0ce5d4f61d977cc10.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/law_follow_us-88c4e51582b0f274a5f696269dfd6de954e9001d88bfbbe0ce5d4f61d977cc10.png);
 }
 /* line 229, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/law.scss */
 #theme.law #social_follow_us li span.hover_state, #theme.law #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/law_icons-623b52a72835f5d67cf54956e6b8872e2f1bb48838d4feccff8e2d1095a33c77.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/law_icons-623b52a72835f5d67cf54956e6b8872e2f1bb48838d4feccff8e2d1095a33c77.png);
 }
 /* line 233, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/law.scss */
 #theme.law .rounded-slider .info-container .blue {
@@ -15656,11 +15656,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* line 34, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/pharmacy.scss */
 #theme.pharmacy #social_follow_us .banner {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/pharmacy_follow_us-8428254aa1f13a85125b06d14e35f77c208793beb01f780f2d989c5b6ba74af9.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/pharmacy_follow_us-8428254aa1f13a85125b06d14e35f77c208793beb01f780f2d989c5b6ba74af9.png);
 }
 /* line 38, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/pharmacy.scss */
 #theme.pharmacy #social_follow_us li span.hover_state, #theme.pharmacy #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/pharmacy_icons-5be39eaebf233129ac0d0258be6262b2c745301c8b1e51c4c48e5d145d61df40.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/pharmacy_icons-5be39eaebf233129ac0d0258be6262b2c745301c8b1e51c4c48e5d145d61df40.png);
 }
 /* line 44, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/pharmacy.scss */
 #theme.pharmacy .rounded-slider .info-container .blue {
@@ -15767,11 +15767,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* line 40, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/scst.scss */
 #theme.scst #social_follow_us .banner {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/scst_follow_us-3388417aa59e0b3d07addaeecef9292d66dad3c3f55f59db1e8bfcf9ff616961.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/scst_follow_us-3388417aa59e0b3d07addaeecef9292d66dad3c3f55f59db1e8bfcf9ff616961.png);
 }
 /* line 44, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/scst.scss */
 #theme.scst #social_follow_us li span.hover_state, #theme.scst #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/scst_icons-3d64f8ff9e4f6801b59225ba3fff9c9e766fa23dc370f8ffe5c60b7b64bc8d39.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/scst_icons-3d64f8ff9e4f6801b59225ba3fff9c9e766fa23dc370f8ffe5c60b7b64bc8d39.png);
 }
 /* line 50, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/scst.scss */
 #theme.scst .rounded-slider .info-container .blue {
@@ -15868,11 +15868,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* line 27, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/wilkinson.scss */
 #theme.wilkinson #social_follow_us .banner {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/wilkinson_follow_us-6def931b788b9c06cd9cde7fbdc5415c70fe5adafaa984da2e938246d3b85671.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/wilkinson_follow_us-6def931b788b9c06cd9cde7fbdc5415c70fe5adafaa984da2e938246d3b85671.png);
 }
 /* line 31, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/wilkinson.scss */
 #theme.wilkinson #social_follow_us li span.hover_state, #theme.wilkinson #social_follow_us li span.inactive_state {
-  background-image: url(/landing-pages/2016-2017/sample/_assets/wilkinson_icons-6eb33d3c035fe1eba3612a5905eeb180bf9ff4a89f7ee3606ba1c78dc5126743.png);
+  background-image: url(/landing-pages/2016-2017/computational-science/_assets/wilkinson_icons-6eb33d3c035fe1eba3612a5905eeb180bf9ff4a89f7ee3606ba1c78dc5126743.png);
 }
 /* line 37, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/themes/wilkinson.scss */
 #theme.wilkinson .rounded-slider .info-container .blue {
