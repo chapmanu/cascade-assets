@@ -7636,6 +7636,7 @@ body.personnel .main {
   display: table-cell;
   height:35px;
 }
+
 /* line 55, /Users/atwell/projects/cascade-assets/app/assets/stylesheets/widgets/_ad_landing_page/masthead.scss */
 .ad-landing-masthead .masthead-header .header-text-desktop {
   display: none;
@@ -7936,8 +7937,7 @@ body.personnel .main {
   .ad-landing-masthead article .subtitle {
     float: left;
     display: block;
-    margin-right: 1.40845%;
-    width: 66.19718%;
+    width: 90%;
     font-size: 24px;
     font-weight: 34px;
   }
