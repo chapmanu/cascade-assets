@@ -1,0 +1,89 @@
+<%
+# This file mirrors, or parodies, the Cascade VTL script at
+# /_cascade/formats/modular/1 Column Primary Content
+#
+# It uses snakeCase variable to match those used in Cascade as closely as possible.
+#
+
+# VTL import syntax:
+#import( "/_cascade/formats/helpers.velocity" )
+
+#import( '/_cascade/formats/modular/widgets/1 Column/fact_cards_with_text' )
+#import( "/_cascade/formats/modular/widgets/1 Column/video_with_text" )
+#import( "/_cascade/formats/modular/widgets/1 Column/image_with_text" )
+#import( "/_cascade/formats/modular/widgets/1 Column/text_only" )
+#import( "/_cascade/formats/modular/widgets/1 Column/call_to_action_3_up" )
+#import( "/_cascade/formats/modular/widgets/1 Column/chapman_social_feed" )
+#import( "/_cascade/formats/modular/widgets/1 Column/subscribe" )
+#import( "/_cascade/formats/modular/widgets/1 Column/call_to_action_block" )
+#import( "/_cascade/formats/modular/widgets/1 Column/chapman_events_feed" )
+#import( "/_cascade/formats/modular/widgets/1 Column/chapman_stories_feed" )
+#import( "/_cascade/formats/modular/widgets/1 Column/call_to_action_footer" )
+#import( "/_cascade/formats/modular/widgets/1 Column/contact_footer" )
+
+# VTL set syntax:
+#set ($currentPage = $_XPathTool.selectSingleNode($contentRoot, "//system-page[@current]"))
+
+#set ($primaryContent = _xPathTool_selectSingleNode($contentRoot, '//system-page[@current]'))
+#set ($widgets = _xPathTool_selectNodes($primaryContent, 'widget'))
+#set ($widgets = $_XPathTool.selectNodes($primaryContent, "widget"))
+#set ($meta = $currentPage.getChild('system-data-structure').getChild('meta') )
+
+## Widgets
+#foreach ($widget in $widgets)
+    #set ($widgetType = $widget.getChild('widgetType').value)
+
+    #if ($widgetType == 'Fact Cards with Text')
+        #outputFactCardsWithText($widget)
+    #end
+
+    #if ($widgetType == 'Image with Text')
+        #outputImageWithText($widget)
+    #end
+
+    #if ($widgetType == 'Video with Text')
+        #outputVideoWithText($widget)
+    #end
+
+    #if ($widgetType == 'Text Only')
+        #outputTextOnly($widget)
+    #end
+
+    #if ($widgetType == 'Call To Action 3 Up')
+        #outputCallToAction3Up($widget)
+    #end
+
+    #if ($widgetType == 'Social.chapman Feed')
+        #outputChapmanSocialFeed($widget)
+    #end
+
+    #if ($widgetType == 'Subscribe')
+        #outputSubscribe($widget)
+    #end
+
+    #if ($widgetType == 'Call To Action Block')
+        #outputCallToActionBlock($widget)
+    #end
+
+    #if ($widgetType == 'Events.chapman Feed')
+        #outputChapmanEventsFeed($widget)
+    #end
+
+    #if ($widgetType == 'Stories Feed')
+        #outputChapmanStoriesFeed($widget)
+    #end
+
+    #if ($widgetType == 'Call To Action Footer')
+        #outputCallToActionFooter($widget)
+    #end
+
+    #if ($widgetType == 'Contact Footer')
+        #outputContactFooter($widget)
+    #end
+#end
+###inspectXML($widget)
+%>
+
+<%= Cascade::Velocity.output('<h3>Primary Content Here</h3>') %>
+<p>More content.</p>
+

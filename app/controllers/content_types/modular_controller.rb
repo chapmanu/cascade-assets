@@ -75,11 +75,11 @@ module ContentTypes
         'OG_TAGS' => '',
         'PAGE WRAPPER CLOSE' => '',
         'PAGE WRAPPER OPEN' => '',
+        'PRIMARY CONTENT' => cascade_block('_cascade/formats/modular/one_column_primary_content'),
 
         # TODO: convert these to cascade_format action.
         'OMNI-NAV' => render_static_partial('widgets/shared/omninav'),
         'NAVIGATION' => render_static_partial('widgets/shared/navigation'),
-        'PRIMARY CONTENT' => '<h2>PRIMARY CONTENT GOES HERE!</h2>',
         'GLOBAL FOOTER' => render_static_partial('widgets/shared/footer')
       }
 
