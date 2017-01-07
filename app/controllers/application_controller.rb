@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
 
   def cascade_format(format_path)
     # Make data definition a local within partial as variable current_page
-    render_to_string(partial: format_path, locals: {current_page: @data_definition})
+    render_to_string(partial: format_path, locals: {current_page: @data_definition,
+                                                    contentRoot: @data_definition.document})
   end
 
   def render_velocity(format_path, data)

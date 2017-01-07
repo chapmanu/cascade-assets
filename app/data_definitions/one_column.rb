@@ -2,7 +2,10 @@ module DataDefinitions
   class OneColumn < DataDefinitions::Base
     # XML XPath Selectors
     XPATH = {
-      masthead_type: '//group[@identifier="masthead"]/text[@identifier="mastheadType"]'
+      masthead_type: '//group[@identifier="masthead"]/text[@identifier="mastheadType"]',
+      primary_widget_image_with_text: '//group[@identifier="primaryContent"]' \
+                                      '/group[@identifier="widget"]' \
+                                      '/text[@identifier="widgetType"]'
     }.freeze
 
     # Preset Data Values

@@ -61,6 +61,17 @@ module ContentTypes
       @metadata_set = MetadataSet.page(title: 'Modular One Column')
       @data_definition = DataDefinitions::OneColumn.default
 
+      # Manually set primary content.
+      widget = @data_definition.document.at_xpath('//group[@identifier="widget"]')
+      widget.at_xpath('text[@identifier="widgetType"]').content = 'Image with Text'
+
+      # TEST
+      currentPage = Cascade::XPathTool.selectSingleNode(@data_definition.document, "//system-page[@current]")
+      systemData = currentPage.getChild('system-data-structure')
+      primaryContent = systemData.getChild('primaryContent')
+      widgets = Cascade::XPathTool.selectNodes(primaryContent, "widget")
+      p currentPage.name, systemData.name, widgets.length
+
       # Define configuration set regions.
       @configuration_set.regions = {
         'ADDITIONAL BODY AT-END' => '',
@@ -75,7 +86,7 @@ module ContentTypes
         'OG_TAGS' => '',
         'PAGE WRAPPER CLOSE' => '',
         'PAGE WRAPPER OPEN' => '',
-        'PRIMARY CONTENT' => cascade_block('_cascade/formats/modular/one_column_primary_content'),
+        'PRIMARY CONTENT' => cascade_format('_cascade/formats/modular/one_column_primary_content'),
 
         # TODO: convert these to cascade_format action.
         'OMNI-NAV' => render_static_partial('widgets/shared/omninav'),

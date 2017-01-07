@@ -1,9 +1,18 @@
 <%
+#
 # This file mirrors, or parodies, the Cascade VTL script at
 # /_cascade/formats/modular/1 Column Primary Content
 #
 # It uses snakeCase variable to match those used in Cascade as closely as possible.
 #
+
+# In Cascade, $contentRoot is a default object in Velocity context. From docs:
+# contentRoot - JDOM Element containing the XML supplied for the current region. This content
+# could be coming from a block or the page's own structured data or xml. To view the raw XML,
+# simply apply no Format to that region.
+# contentRoot here is the data_definition object set by the ApplicationController cascade_format
+# method. It is reassigned to $contentRoot to be consistent with code in Cascade.
+$contentRoot = contentRoot
 
 # VTL import syntax:
 #import( "/_cascade/formats/helpers.velocity" )
@@ -22,12 +31,14 @@
 #import( "/_cascade/formats/modular/widgets/1 Column/contact_footer" )
 
 # VTL set syntax:
-#set ($currentPage = $_XPathTool.selectSingleNode($contentRoot, "//system-page[@current]"))
-
-#set ($primaryContent = _xPathTool_selectSingleNode($contentRoot, '//system-page[@current]'))
-#set ($widgets = _xPathTool_selectNodes($primaryContent, 'widget'))
+#set ($currentPage = $_XPathTool.selectSingleNode($contentRoot, "//system-page[@current]") )
+#set ($primaryContent = $currentPage.getChild('system-data-structure').getChild('primaryContent'))
 #set ($widgets = $_XPathTool.selectNodes($primaryContent, "widget"))
 #set ($meta = $currentPage.getChild('system-data-structure').getChild('meta') )
+
+Cascade::Velocity.set($currentPage = Cascade::XPathTool.selectSingleNode($contentRoot, "//system-page[@current]"))
+Cascade::Velocity.set($primaryContent = $currentPage.getChild('system-data-structure').getChild('primaryContent'))
+Cascade::Velocity.set($widgets = Cascade::XPathTool.selectNodes($primaryContent, "widget"))
 
 ## Widgets
 #foreach ($widget in $widgets)
@@ -84,6 +95,15 @@
 ###inspectXML($widget)
 %>
 
-<%= Cascade::Velocity.output('<h3>Primary Content Here</h3>') %>
-<p>More content.</p>
+<%# Note: you can't use global $widget as block var %>
+<% $widgets.each do | widget | %>
+  <% widgetType = widget.getChild('widgetType').value %>
 
+  <% if widgetType == 'Image with Text' %>
+    <pre>outputImageWithText(widget)</pre>
+  <% end %>
+
+  <%= widgetType %>
+<% end %>
+
+<p>More primary content.</p>
