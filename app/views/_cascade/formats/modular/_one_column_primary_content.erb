@@ -98,8 +98,7 @@ Cascade::Velocity.set($widgets = Cascade::XPathTool.selectNodes($primaryContent,
   <% widgetType = widget.getChild('widgetType').value %>
 
   <% if widgetType == 'Image with Text' %>
-    <%#= Cascade::Macros.outputImageWithText(widget) %>
-    <pre>outputImageWithText(widget)</pre>
+    <%= Cascade::Macros.outputImageWithText(widget) %>
   <% end %>
 
   <%= widgetType %>
