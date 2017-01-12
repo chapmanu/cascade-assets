@@ -16,30 +16,28 @@ $contentRoot = contentRoot
 
 # VTL import syntax:
 #import( "/_cascade/formats/helpers.velocity" )
-
-#import( '/_cascade/formats/modular/widgets/1 Column/fact_cards_with_text' )
-#import( "/_cascade/formats/modular/widgets/1 Column/video_with_text" )
-#import( "/_cascade/formats/modular/widgets/1 Column/image_with_text" )
-#import( "/_cascade/formats/modular/widgets/1 Column/text_only" )
-#import( "/_cascade/formats/modular/widgets/1 Column/call_to_action_3_up" )
-#import( "/_cascade/formats/modular/widgets/1 Column/chapman_social_feed" )
-#import( "/_cascade/formats/modular/widgets/1 Column/subscribe" )
-#import( "/_cascade/formats/modular/widgets/1 Column/call_to_action_block" )
-#import( "/_cascade/formats/modular/widgets/1 Column/chapman_events_feed" )
-#import( "/_cascade/formats/modular/widgets/1 Column/chapman_stories_feed" )
-#import( "/_cascade/formats/modular/widgets/1 Column/call_to_action_footer" )
-#import( "/_cascade/formats/modular/widgets/1 Column/contact_footer" )
+Cascade::Velocity.import('/_cascade/formats/helpers.velocity')
+Cascade::Velocity.import('/_cascade/formats/modular/widgets/1 Column/fact_cards_with_text')
+Cascade::Velocity.import('/_cascade/formats/modular/widgets/1 Column/video_with_text')
+Cascade::Velocity.import('/_cascade/formats/modular/widgets/1 Column/image_with_text')
+Cascade::Velocity.import('/_cascade/formats/modular/widgets/1 Column/text_only')
+Cascade::Velocity.import('/_cascade/formats/modular/widgets/1 Column/call_to_action_3_up')
+Cascade::Velocity.import('/_cascade/formats/modular/widgets/1 Column/chapman_social_feed')
+Cascade::Velocity.import('/_cascade/formats/modular/widgets/1 Column/subscribe')
+Cascade::Velocity.import('/_cascade/formats/modular/widgets/1 Column/call_to_action_block')
+Cascade::Velocity.import('/_cascade/formats/modular/widgets/1 Column/chapman_events_feed')
+Cascade::Velocity.import('/_cascade/formats/modular/widgets/1 Column/chapman_stories_feed')
+Cascade::Velocity.import('/_cascade/formats/modular/widgets/1 Column/call_to_action_footer')
+Cascade::Velocity.import('/_cascade/formats/modular/widgets/1 Column/contact_footer')
 
 # VTL set syntax:
 #set ($currentPage = $_XPathTool.selectSingleNode($contentRoot, "//system-page[@current]") )
-#set ($primaryContent = $currentPage.getChild('system-data-structure').getChild('primaryContent'))
-#set ($widgets = $_XPathTool.selectNodes($primaryContent, "widget"))
-#set ($meta = $currentPage.getChild('system-data-structure').getChild('meta') )
-
 Cascade::Velocity.set($currentPage = Cascade::XPathTool.selectSingleNode($contentRoot, "//system-page[@current]"))
 Cascade::Velocity.set($primaryContent = $currentPage.getChild('system-data-structure').getChild('primaryContent'))
 Cascade::Velocity.set($widgets = Cascade::XPathTool.selectNodes($primaryContent, "widget"))
+#Cascade::Velocity.set($meta = $currentPage.getChild('system-data-structure').getChild('meta'))
 
+# TODO: Recreate this in each loop down below.
 ## Widgets
 #foreach ($widget in $widgets)
     #set ($widgetType = $widget.getChild('widgetType').value)
@@ -100,6 +98,7 @@ Cascade::Velocity.set($widgets = Cascade::XPathTool.selectNodes($primaryContent,
   <% widgetType = widget.getChild('widgetType').value %>
 
   <% if widgetType == 'Image with Text' %>
+    <%#= Cascade::Macros.outputImageWithText(widget) %>
     <pre>outputImageWithText(widget)</pre>
   <% end %>
 
