@@ -1,0 +1,57 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 223.27 109.55">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 21.92px;
+        letter-spacing: 2px;
+      }
+
+      .cls-1, .cls-7 {
+        fill: #231f20;
+        font-family: Minion Pro;
+      }
+
+      .cls-2 {
+        letter-spacing: 1px;
+      }
+
+      .cls-3 {
+        font-size: 17px;
+      }
+
+      .cls-4 {
+        letter-spacing: 3px;
+      }
+
+      .cls-5 {
+        fill: #98002e;
+      }
+
+      .cls-6 {
+        fill: none;
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+        stroke-width: 0.5px;
+      }
+
+      .cls-7 {
+        font-size: 15px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <title>schmid-center-stacked</title>
+  <text class="cls-1" transform="translate(48.86 50.6)">C<tspan class="cls-2" x="17.21" y="0">H</tspan><tspan x="35.82" y="0">APMAN</tspan><tspan class="cls-3"><tspan x="0.12" y="16">UNIVER</tspan><tspan x="80.56" y="16">S</tspan><tspan x="91.31" y="16">I</tspan><tspan class="cls-4" x="100" y="16">T</tspan><tspan x="113.88" y="16">Y</tspan></tspan></text>
+  <g>
+    <polygon class="cls-5" points="110.57 14.46 97.53 27.49 97.53 14.46 110.57 14.46"/>
+    <polygon class="cls-5" points="97.53 13.62 97.53 0.59 110.57 13.62 97.53 13.62"/>
+    <polygon class="cls-5" points="125.03 0 111.99 13.03 111.99 0 125.03 0"/>
+    <polygon class="cls-5" points="111.16 13.03 98.12 0 111.16 0 111.16 13.03"/>
+    <polygon class="cls-5" points="112.58 13.62 125.61 0.59 125.61 13.62 112.58 13.62"/>
+    <polygon class="cls-5" points="125.61 14.46 125.61 27.49 112.58 14.46 125.61 14.46"/>
+    <polygon class="cls-5" points="111.16 15.05 98.12 28.08 111.16 28.08 111.16 15.05"/>
+    <polygon class="cls-5" points="111.99 15.05 111.99 28.08 125.02 28.08 111.99 15.05"/>
+  </g>
+  <line class="cls-6" x1="50.14" y1="72.32" x2="173.37" y2="72.32"/>
+  <text class="cls-7" transform="translate(0 88.15)">SCHMID <tspan x="64.62" y="0">C</tspan><tspan x="75.13" y="0">O</tspan><tspan x="86.65" y="0">LLEGE </tspan><tspan x="136.27" y="0">O</tspan><tspan x="147.79" y="0">F SCIE</tspan><tspan x="192.67" y="0">N</tspan><tspan x="203.95" y="0">CE</tspan><tspan x="40.23" y="16">AND TECH</tspan><tspan x="118.68" y="16">N</tspan><tspan x="129.96" y="16">O</tspan><tspan x="141.48" y="16">L</tspan><tspan x="149.92" y="16">O</tspan><tspan x="161.88" y="16">GY</tspan></text>
+</svg>

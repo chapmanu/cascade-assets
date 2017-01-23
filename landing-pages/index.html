@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Interim Ad Landing Pages</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <style>
+      tt {
+        color: #696;
+        font-weight: bold;
+      }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h1>Interim Ad Landing Pages</h1>
+      <h2>README</h2>
+
+      <h3>Why are we creating static pages in Cascade Assets?</h3>
+      <p>Ad Landing Pages are currently under development as a Cascade template. <a href="ad_landing_page/sample">Click here</a> to see the sample.</p>
+
+      <p>Because some ad campaigns were launched prematurely before the Cascade template could be completed, it was necessary to expedite release of certain pages.</p>
+
+      <p>These pages are included here in this special static directory for rapid development within the Cascade Assets repository. They will be released to the Cascade www2 server as they are completed.</p>
+
+      <h3>Sample Static Template</h3>
+      <p>To create a new landing page, use the sample static template here:</p>
+      <ul>
+        <li><a href="/landing-pages/2016-2017/sample/index.html">Sample Template</a></li>
+      </ul>
+      <p>This template should be finalized as much as possible before proceeding to develop new program pages using the workflow below.</p>
+
+      <h3>Workflow</h3>
+      <ol>
+        <li>Pull latest version of branch <tt>interim-ad-landing-page</tt> from Github.</li>
+        <li>In directory <tt>/landing-pages/2016-2017</tt>, create a directory for the new landing page, (e.g. <tt>/landing-pages/2016-2017/computational-science</tt>).</li>
+        <li>Copy the contents of directory <tt>/landing-pages/2016-2017/sample</tt> into the new directory.</li>
+        <li>Update any paths in <tt>_assets/master.self-2720c039bd36b71bb46be82be3386fc78d2b1cb0da0a8936cc65c21d62438b7b.css</tt> to use the full relative base page. For example, to insure icomoon icons load properly, globally replace <tt>/landing-pages/2016-2017/sample/</tt> with <tt>/landing-pages/2016-2017/computational-science/</tt>:
+          <pre>@font-face {
+  font-family: 'icomoon';
+  src: url(/landing-pages/2016-2017/sample/_assets/icomoon-2b272ca81c50ea1a6759e09631416812a6b1234e63b1875e5373d102a605f4a9.eot);
+  src: url(/landing-pages/2016-2017/sample/_assets/icomoon-2b272ca81c50ea1a6759e09631416812a6b1234e63b1875e5373d102a605f4a9.eot?) format("embedded-opentype"),
+       url(/landing-pages/2016-2017/sample/_assets/icomoon-5274f5a0f9afe011fb111bdc9b0fff3a467ebfc3a36dd94e87fd02c2d4ec1fec.woff) format("woff"),
+       url(/landing-pages/2016-2017/sample/_assets/icomoon-15685c5868fd176a37ca443a4edbf0efe287303f236c527db49abcedffed0d21.ttf) format("truetype"),
+       url(/landing-pages/2016-2017/sample/_assets/icomoon-e6c614595c4c417514bdd62127e8d2764fa77f597d0241eb93d07af0b256a014.svg) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}</pre>
+        to:
+          <pre>@font-face {
+  font-family: 'icomoon';
+  src: url(/landing-pages/2016-2017/computational-science/_assets/icomoon-2b272ca81c50ea1a6759e09631416812a6b1234e63b1875e5373d102a605f4a9.eot);
+  src: url(/landing-pages/2016-2017/computational-science/_assets/icomoon-2b272ca81c50ea1a6759e09631416812a6b1234e63b1875e5373d102a605f4a9.eot?) format("embedded-opentype"),
+       url(/landing-pages/2016-2017/computational-science/_assets/icomoon-5274f5a0f9afe011fb111bdc9b0fff3a467ebfc3a36dd94e87fd02c2d4ec1fec.woff) format("woff"),
+       url(/landing-pages/2016-2017/computational-science/_assets/icomoon-15685c5868fd176a37ca443a4edbf0efe287303f236c527db49abcedffed0d21.ttf) format("truetype"),
+       url(/landing-pages/2016-2017/computational-science/_assets/icomoon-e6c614595c4c417514bdd62127e8d2764fa77f597d0241eb93d07af0b256a014.svg) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}</pre>
+        </li>
+        directory.</li>
+        <li>Update <tt>index.html</tt> as desired. Review changes on local dev server.</li>
+        <li class="text-primary">Remember to commit and push your changes to the <tt>interim-ad-landing-page</tt> branch</li>
+        <li>When updates complete, deploy files to Cascade Assets <tt>www2</tt> server.</li>
+      </ol>
+
+      <h3>Ad Landing Pages</h3>
+      <p>Add links to new landing pages here.</p>
+      <ul>
+        <li><a href="/landing-pages/2016-2017/sample/index.html">Sample</a></li>
+        <li><a href="/landing-pages/2016-2017/computational-science/index.html">Computational Science</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>
