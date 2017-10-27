@@ -42,6 +42,7 @@ gem "non-stupid-digest-assets", group: :development
 # Access an IRB console on exception pages or by using <%= console %> in views
 gem 'web-console', '~> 2.0', group: :development
 
+gem 'savon', '~> 2.11.1'
 # Test-Only Gems
 group :test do
   # Rubocop static code analyzer: https://github.com/bbatsov/rubocop
