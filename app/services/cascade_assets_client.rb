@@ -1,11 +1,7 @@
 require 'savon'
 
 module CascadeAssetsClient
-  CASCADE_ASSET_OPERATION_WSDL = (Rails.application.secrets.cascade_asset_operation_endpoint + "?wsdl").freeze
-  SITE_NAME = "Chapman.edu".freeze
-  ASSETS_PATH = "_assets/".freeze
-  ASSET_BLOCK_PATH = "_cascade/blocks/html/cascade-assets/".freeze
-
+  CASCADE_ASSET_OPERATION_WSDL = (CASCADE_CONFIG['asset_operation_endpoint'] + "?wsdl").freeze
   @client = Savon.client(wsdl: CASCADE_ASSET_OPERATION_WSDL)
 
   module_function
@@ -22,7 +18,7 @@ module CascadeAssetsClient
     asset_identifier = {
       path: {
         path: block_path,
-        siteName: SITE_NAME
+        siteName: CASCADE_CONFIG['site_name']
       },
       type: "block"
     }
@@ -33,7 +29,7 @@ module CascadeAssetsClient
 
   def write_asset_block(local_block)
     # First get a reference to the remote asset block, and then update the xml with the local block
-    read_response = read_asset_block(ASSET_BLOCK_PATH)
+    read_response = read_asset_block(CASCADE_CONFIG['asset_block_path'])
     return unless read_response && read_response.body[:read_response][:read_return][:success]
     xml_block = read_response.body[:read_response][:read_return][:asset][:xml_block]
     xml_block[:xml] = local_block
@@ -56,31 +52,102 @@ module CascadeAssetsClient
     request(:edit, message)
   end
 
-  def write_asset_file(local_asset, asset_name)
-    encoded_image = Base64.encode64(local_asset)
-
-    asset = {
-      file: {
-        name: asset_name,
-        parentFolderPath: '_assets',
-        siteName: SITE_NAME,
-        metadataSetPath: '/Default',
-        shouldBePublished: 'false',
-        shouldBeIndexed: 'false',
-        data: encoded_image,
-        rewriteLinks: 'false',
-        maintainAbsoluteLinks: 'false'
-      }
+  # Currently there is no way to upload asset files without duplicating the ones
+  # that already exist (see https://help.hannonhill.com/hc/en-us/requests/4460)
+  # So instead, delete all assets files before recreating them in the upload method
+  def delete_assets
+    batch_request = {
+      authentication: deploy_credentials,
+      operation: [
+        {
+          delete: {
+            identifier: {
+              path: {
+                path: CASCADE_CONFIG['asset_path'],
+                siteName: CASCADE_CONFIG['site_name']
+              },
+              type: "folder"
+            }
+          },
+        },
+        create: folder_asset(CASCADE_CONFIG['asset_path'])
+      ]
     }
 
-    message = {authentication: deploy_credentials, asset: asset}
-    request(:create, message)
+    request(:batch, batch_request)
+  end
+
+  def upload_assets
+    local_assets, operations = [], []
+
+    Dir.chdir(local_asset_path) do
+      local_assets = Dir.glob("**/*", File::FNM_DOTMATCH).reject{|asset| File.basename(asset) == "." || File.basename(asset) == ".."}
+    end
+
+    local_assets.each do |path|
+      remote_path, local_path = remote_asset_path(path), local_asset_path(path)
+      asset = File.directory?(local_path) ? folder_asset(remote_path) : file_asset(remote_path, IO.read(local_path))
+      operations.push({create: asset})
+    end
+
+    batch_request = {
+      authentication: deploy_credentials,
+      operation: operations
+    }
+
+    request(:batch, batch_request)
+  end
+
+  def file_asset(remote_path, data)
+    encoded_data = Base64.encode64(data)
+
+    {
+      asset: {
+        file: {
+          name: File.basename(remote_path),
+          parentFolderPath: parent_dir_path(remote_path),
+          siteName: CASCADE_CONFIG['site_name'],
+          metadataSetPath: '/Default',
+          shouldBePublished: 'false',
+          shouldBeIndexed: 'false',
+          data: encoded_data,
+          rewriteLinks: 'false',
+          maintainAbsoluteLinks: 'false'
+        }
+      }
+    }
+  end
+
+  def folder_asset(remote_path)
+    {
+      asset: {
+        folder: {
+          name: File.basename(remote_path),
+          parentFolderPath: parent_dir_path(remote_path),
+          siteName: CASCADE_CONFIG['site_name'],
+          metadataSetPath: '/Website Folder'
+        }
+      }
+    }
+  end
+
+  def parent_dir_path(rel_path)
+    child_path = Pathname.new(rel_path)
+    child_path.parent.to_s == '.' ? '' : child_path.parent.to_s
+  end
+
+  def local_asset_path(rel_path = '')
+    Rails.root.join('public', '_assets', rel_path)
+  end
+
+  def remote_asset_path(rel_path = '')
+    File.join(CASCADE_CONFIG['asset_path'], rel_path)
   end
 
   def deploy_credentials
     {
-      password: Rails.application.secrets.cascade_password,
-      username: Rails.application.secrets.cascade_username
+      password: CASCADE_CONFIG['deploy_password'],
+      username: CASCADE_CONFIG['deploy_username']
     }
   end
 end

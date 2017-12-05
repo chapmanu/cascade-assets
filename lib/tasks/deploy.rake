@@ -14,13 +14,11 @@ namespace :deploy do
       CascadeAssetsClient.write_asset_block(local_asset_block)
     end
 
-    # This will be implemented in story: https://trello.com/c/tG7s7cCf
-    # For now just upload a test img to demonstrate functionality
     desc "Upload compiled assets to remote"
     task asset_files: :environment do
       puts "Uploading compiled assets to remote"
-      local_asset = IO.read(local_compiled_assets_path('test-img-asset.jpg'))
-      CascadeAssetsClient.write_asset_file(local_asset, 'test-img-asset.jpg')
+      CascadeAssetsClient.delete_assets
+      CascadeAssetsClient.upload_assets
     end
   end
 end
@@ -30,5 +28,6 @@ def local_compiled_assets_path(sub_path="")
 end
 
 def local_asset_block_path
-  Rails.root.join('dist', Rails.env, 'cascade-assets.xml')
+  env = Rails.env == 'development' ? 'staging' : Rails.env
+  Rails.root.join('dist', env, 'cascade-assets.xml')
 end
