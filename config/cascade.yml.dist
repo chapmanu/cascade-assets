@@ -1,0 +1,34 @@
+default: &default
+  site_name: Chapman.edu
+
+development:
+  <<: *default
+  deploy_username: TBA
+  deploy_password: TBA
+  asset_operation_endpoint: https://dev-cascade.chapman.edu/ws/services/AssetOperationService
+  asset_path: test-section/deploy/_assets
+  asset_block_path: test-section/deploy/cascade-assets
+
+test:
+  <<: *default
+  deploy_username: N/A
+  deploy_password: N/A
+  asset_operation_endpoint: https://dev-cascade.chapman.edu/ws/services/AssetOperationService
+  asset_path: test-section/deploy/_assets
+  asset_block_path: test-section/deploy/cascade-assets
+
+staging:
+  <<: *default
+  cdeploy_username: TBA
+  deploy_password: TBA
+  asset_operation_endpoint: https://dev-cascade.chapman.edu/ws/services/AssetOperationService
+  asset_path: _assets/
+  asset_block_path: _cascade/blocks/html/cascade-assets/
+
+production:
+  <<: *default
+  deploy_username: TBA
+  deploy_password: TBA
+  asset_operation_endpoint: https://cascade.chapman.edu/ws/services/AssetOperationService
+  asset_path: _assets/
+  asset_block_path: _cascade/blocks/html/cascade-assets/
