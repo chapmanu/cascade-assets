@@ -87,7 +87,10 @@ module CascadeAssetsClient
     local_assets.each do |path|
       remote_path, local_path = remote_asset_path(path), local_asset_path(path)
       asset = File.directory?(local_path) ? folder_asset(remote_path) : file_asset(remote_path, IO.read(local_path))
-      operations.push({create: asset})
+      operations.push(
+        {create: asset},
+        {publish: publish_information(remote_path)}
+      )
     end
 
     batch_request = {
@@ -95,7 +98,23 @@ module CascadeAssetsClient
       operation: operations
     }
 
-    request(:batch, batch_request)
+    response = request(:batch, batch_request)
+  end
+
+  def publish_information(remote_path)
+    type = File.directory?(remote_path) ? 'folder' : 'file'
+
+    {
+      publishInformation: {
+        identifier: {
+          path: {
+            path: remote_path,
+            siteName: CASCADE_CONFIG['site_name']
+          },
+          type: type
+        }
+      }
+    }
   end
 
   def file_asset(remote_path, data)
@@ -108,7 +127,7 @@ module CascadeAssetsClient
           parentFolderPath: parent_dir_path(remote_path),
           siteName: CASCADE_CONFIG['site_name'],
           metadataSetPath: '/Default',
-          shouldBePublished: 'false',
+          shouldBePublished: 'true',
           shouldBeIndexed: 'false',
           data: encoded_data,
           rewriteLinks: 'false',
