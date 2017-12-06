@@ -1,6 +1,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore secrets
+/config/secrets.yml
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -31,3 +34,5 @@ node_modules
 db/data.yml
 npm-debug.log
 *.log
+
+/config/cascade.yml
