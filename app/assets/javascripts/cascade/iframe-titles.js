@@ -77,8 +77,6 @@
   };
 }(jQuery, document));
 $(window).load(function () {
-
-  var attr = $(this).attr('title');
   if (typeof attr !== typeof undefined && attr !== false) {
     $("iframe").on('load', function () {
       $('iframe').attr('title', 'Embedded content from external source');
@@ -87,27 +85,14 @@ $(window).load(function () {
   $("iframe").iready(function () {
     // 1. Replace <noscript></noscript> in order to edit contents
     $('noscript').replaceWith('<tempscript>' + $('noscript').html() + '</tempscript>')
-    var ifr = $("#test");
-    console.log("iready - Should now be ready.");
-    try {
-      console.log($("#iframe").contents()[0].readyState);
-    } catch (ignore) {
-      console.log("cross domain");
-      // 2. If iFrame is missing title, add a generic one
-      var attr = $(this).attr('title');
-      if (typeof attr !== typeof undefined && attr !== false) {
-        $("iframe").on('load', function () {
-          $('iframe').attr('title', 'Embedded content from external source');
-          $('tempscript').replaceWith('<noscript>' + $('tempscript').html() + '</noscript>')
-          $("noscript").attr("aria-role", "presentation");
-
-        });
-      }
+    // 2. If iFrame is missing title, add a generic one
+    var attr = $(this).attr('title');
+    if (typeof attr !== typeof undefined && attr !== false) {
+      $('iframe').attr('title', 'Embedded content from external source');
+      $('tempscript').replaceWith('<noscript>' + $('tempscript').html() + '</noscript>')
+      $("noscript").attr("aria-role", "presentation");
     }
   });
   try {
-    console.log("Should not be ready: " + $("#iframe").contents()[0].readyState);
   } catch (ignore) { }
 });
-
-
