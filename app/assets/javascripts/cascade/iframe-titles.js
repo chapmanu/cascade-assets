@@ -1,4 +1,27 @@
-// Add titles to untitled iFrames for Wave
+function renameNoscript() {
+  $('noscript').replaceWith('<tempscript>' + $('noscript').html() + '</tempscript>')
+  //console.log('rename noscript to tempscript');
+}
+function renameTempscript() {
+  //console.log('renaming tempscript back to noscript');
+  $('tempscript').replaceWith('<noscript>' + $('tempscript').html() + '</noscript>')
+}
+
+function addiFrameTitle() {
+  var attr = $(this).attr('title');
+  var noTitle = $('iframe').not('[title]');
+  $("iframe").each(function () {
+    $(noTitle).attr('title', 'Embedded content from external source');
+    renameTempscript();
+  });
+
+}
+renameNoscript();
+//console.log('renameNoscript 1');
+//debugger
+addiFrameTitle();
+//console.log('addiFrameTitle 2');
+//debugger
 (function ($, document, undefined) {
   $.fn["iready"] = function (callback) {
     var ifr = this.filter("iframe"),
@@ -76,23 +99,41 @@
     return this;
   };
 }(jQuery, document));
-$(window).load(function () {
-  if (typeof attr !== typeof undefined && attr !== false) {
-    $("iframe").on('load', function () {
-      $('iframe').attr('title', 'Embedded content from external source');
-    });
-  }
-  $("iframe").iready(function () {
-    // 1. Replace <noscript></noscript> in order to edit contents
-    $('noscript').replaceWith('<tempscript>' + $('noscript').html() + '</tempscript>')
-    // 2. If iFrame is missing title, add a generic one
-    var attr = $(this).attr('title');
-    if (typeof attr !== typeof undefined && attr !== false) {
-      $('iframe').attr('title', 'Embedded content from external source');
-      $('tempscript').replaceWith('<noscript>' + $('tempscript').html() + '</noscript>')
-      $("noscript").attr("aria-role", "presentation");
-    }
+$(window).load(function (callback) {
+  ////debugger
+  renameNoscript();
+
+  addiFrameTitle();
+  $("iframe").iready(function (callback) {
+    renameNoscript();
+    ////debugger
+    addiFrameTitle();
+
+
+    ////debugger
+    renameTempscript();
   });
   try {
   } catch (ignore) { }
 });
+renameTempscript();
+
+
+// var attr = $(this).attr('title');
+
+// $('iframe').each(function () {
+//   if ($('iframe').find(':not([title])') {
+//     $('iframe').attr('title', 'Embedded content from external source');
+//   }
+// })
+
+// $("iframe").each(function () {
+//   $('iframe').not('[title]');
+//   $('iframe').attr('title', 'halp');
+//   $(this).attr('title');
+// });
+
+// var noTitle = $('iframe').not('[title]');
+// $("iframe").each(function () {
+//   $(noTitle).attr('title', 'Embedded content from external source');
+// });
