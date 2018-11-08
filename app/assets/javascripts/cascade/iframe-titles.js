@@ -102,14 +102,11 @@ addiFrameTitle();
 $(window).load(function (callback) {
   ////debugger
   renameNoscript();
-
   addiFrameTitle();
   $("iframe").iready(function (callback) {
     renameNoscript();
     ////debugger
     addiFrameTitle();
-
-
     ////debugger
     renameTempscript();
   });
@@ -117,23 +114,3 @@ $(window).load(function (callback) {
   } catch (ignore) { }
 });
 renameTempscript();
-
-
-// var attr = $(this).attr('title');
-
-// $('iframe').each(function () {
-//   if ($('iframe').find(':not([title])') {
-//     $('iframe').attr('title', 'Embedded content from external source');
-//   }
-// })
-
-// $("iframe").each(function () {
-//   $('iframe').not('[title]');
-//   $('iframe').attr('title', 'halp');
-//   $(this).attr('title');
-// });
-
-// var noTitle = $('iframe').not('[title]');
-// $("iframe").each(function () {
-//   $(noTitle).attr('title', 'Embedded content from external source');
-// });
