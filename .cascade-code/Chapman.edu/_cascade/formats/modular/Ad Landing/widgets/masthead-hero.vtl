@@ -1,0 +1,62 @@
+#import( "/_cascade/formats/helpers.velocity" )
+
+#macro(outputMastheadHero $element)  
+    ## Variables
+    #set ( $header            = $element.getChild('header') )
+    #set ( $mobileLogoFields  = $header.getChild('mobileLogoFields') )
+    #set ( $desktopLogoFields = $header.getChild('desktopLogoFields') )
+    #set ( $headerText        = $header.getChild('headerText') )
+    
+    #set ( $hero            = $element.getChild('hero') )
+    #set ( $backgroundImage = $hero.getChild('backgroundImage') )
+    #set ( $heroTitle       = $hero.getChild('title').value )
+    #set ( $heroSubtitle    = $hero.getChild('subtitle').value )
+    
+    #set ( $form      = $element.getChild('form') )
+    #set ( $formTitle = $form.getChild('title').value )
+    #set ( $formId    = $form.getChild('formId').value )
+    
+
+    <div class="ad-landing-masthead">
+      <div class="masthead-header">
+        <img class="header-mobile" #outputSrc($mobileLogoFields) alt="$_EscapeTool.xml($mobileLogoFields.getChild('alternateText').value)"/>
+        <div class="header-desktop">
+          <img class="header-logo-desktop" #outputSrc($desktopLogoFields) alt="$_EscapeTool.xml($desktopLogoFields.getChild('alternateText').value)"/>
+          <p class="header-text-desktop">$_SerializerTool.serialize($headerText, true)</p>
+        </div>
+      </div>
+    
+      <div class="masthead-hero">
+        <!-- There are two elements with background images because of the major design difference between the mobile and desktop layouts -->
+        <div class="background-image" title="desktop hero background image" style=#addBackgroundImage($backgroundImage)>
+          <article title="mobile hero background image" style=#addBackgroundImage($backgroundImage)>
+            <div class="content">
+              <h1 class="title">$_EscapeTool.xml($heroTitle)</h1>
+              <h2 class="subtitle">$_EscapeTool.xml($heroSubtitle)</h2>
+            </div>
+          </article>
+        </div> 
+      </div>
+    
+      <div class="masthead-content">
+        <section aria-labelledby="mastheadcontentpanel" class="masthead-content-panel">
+          <h2 id="mastheadcontentpanel">$_EscapeTool.xml($formTitle)</h2>
+          
+          <div class="calls-to-action">
+            <div id="form_$_EscapeTool.xml($formId)">Loading...</div>
+            <script>/*<![CDATA[*/
+              var script = document.createElement('script');
+              script.async = 1;
+              script.src = 'https://go.chapman.edu/register/?id=$_EscapeTool.xml($formId)&output=embed&div=form_$_EscapeTool.xml($formId)' + ((location.search.length > 1) ? '&' + location.search.substring(1) : '');
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(script, s);
+            /*]]>*/</script>
+          </div>
+        </section>
+      </div>
+    
+      <div class="masthead-footer">
+        <h2 class="footer-text-desktop">CHAPMAN UNIVERSITY</h2>
+      </div>
+    </div>
+#end
