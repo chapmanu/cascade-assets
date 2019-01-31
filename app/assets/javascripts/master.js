@@ -37,6 +37,9 @@
 //= require cascade/plugins/jcarousel
 //= require cascade/plugins/modernizr
 //= require cascade/plugins/hero-slider
+//= require cascade/plugins/loadCSS/cssrelpreload
+//= require cascade/plugins/loadCSS/loadCSS
+//= require cascade/plugins/loadCSS/onloadCSS
 //= require cascade/plugins/personalize
 //= require cascade/plugins/respond
 //= require cascade/plugins/super-pager
