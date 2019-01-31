@@ -1079,3 +1079,9 @@ table.gssb_c {
     }
   }
 }
+
+// Prevents flash of unstyled content (caused by cascade-assets.xml.erb... for Google Lighthouse mobile performance reasons...)
+html {
+  visibility: visible;
+  opacity: 1;
+}
