@@ -448,7 +448,7 @@
 			}
 
 			// Fetch past content
-			$.getJSON(cu_hero_area.hero_stories_html_dir + 'listing_order.json.txt', function(data) {
+			$.getJSON(cu_hero_area.hero_stories_html_dir + 'listing_order.json', function(data) {
 				cu_hero_area.currentCampaign = 0;
 				cu_hero_area.pastCampaigns = [];
 				var keys = data ? Object.keys(data) : [];
