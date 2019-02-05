@@ -419,7 +419,7 @@
 		}
 	}; // end cu_parallax_fx
 
-	var hero_stories_hostname = document.location.hostname == 'localhost' ? 'http://www.chapman.edu/' : '';
+	var hero_stories_hostname = document.location.hostname == 'localhost' ? 'https://www.chapman.edu/' : 'https://www.chapman.edu/';
 
 	var cu_hero_area = {
 		// Configurations
