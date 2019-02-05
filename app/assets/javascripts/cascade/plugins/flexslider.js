@@ -1194,4 +1194,14 @@
       }
     }
   };
+
+  $(window).on('load', function() {
+     if ($('.flexslider').length > 0) {
+      $('.flexslider').data('flexslider').resize();
+     }
+  });
+
+  
+
 })(jQuery);
+
