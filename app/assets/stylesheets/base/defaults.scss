@@ -38,10 +38,55 @@ html {
   font-family: $font-stack-body;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+
   &.cu-companion-bar {
     padding-top: 75px !important;
   }
 }
+
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* https://stackoverflow.com/a/13881860 */
+:target {
+  padding-top: 80px;
+  margin-top: -80px;
+  display: inline-block;
+}
+// a-z class
+// .letter:target {
+//     padding-top: unset;
+// }
+
+@media (max-width:1380px) and (min-width:768px) {
+  :target {
+    padding-top: 150px;
+    margin-top: -150px;
+    display: inline-block;
+  }
+}
+
+// causes issues on 'a-z anchors'
+// :target:before {
+//     content: "";
+//     display: block;
+//     height: 5rem;
+//     margin: -5rem 0 0;
+// }
+
+// @media (max-width:1380px) and (min-width:768px) {
+// :target:before {
+//     content: "";
+//     display: block;
+//     height: 8rem;
+//     margin: -8rem 0 0;
+// }
+// }
 
 body {
   @include paragraph;
@@ -183,7 +228,7 @@ abbr[title] {
 }
 
 b, strong {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 blockquote {

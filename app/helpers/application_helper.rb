@@ -24,4 +24,8 @@ module ApplicationHelper
   def render_widgets(*widgets)
     safe_join(widgets.map { |widget| render "widgets/#{widget}" })
   end
+
+  def get_current_branch
+    puts `git rev-parse --abbrev-ref HEAD` 
+  end
 end
