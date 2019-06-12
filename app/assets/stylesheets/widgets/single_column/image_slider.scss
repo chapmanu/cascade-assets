@@ -1,8 +1,4 @@
 .image-slider-wrapper {
-  position: relative;
-}
-
-.image-slider-wrapper {
   .container {
     margin-top: 0;
   }
@@ -69,6 +65,10 @@
     }
   }
 
+  .image-slider-wrapper {
+    position: relative;
+  }
+
   img {
     max-height: 600px;
     width: 100vw;
@@ -82,10 +82,6 @@
     margin-bottom: 37px;
     margin-top: 10px;
     width: auto;
-  }
-
-  .lSSlideOuter {
-    max-height: 600px;
   }
 
   .lSSlideOuter .lSPager.lSpg {
@@ -255,7 +251,7 @@
 
   @media screen and (max-width: 1024px) {
     img {
-      min-height: 600px;
+      height: 600px;
     }
 
     .content-container-slider {
@@ -272,6 +268,10 @@
 
     .image-slider-wrapper img {
       display: block;
+    }
+
+    .lSSlideOuter {
+      max-height: 600px;
     }
 
     .lSSlideOuter .lSPager.lSpg {
