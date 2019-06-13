@@ -1,13 +1,8 @@
 .image-slider-wrapper {
-  display: relative;
-}
-.image-slider-wrapper {
   .container {
     margin-top: 0;
   }
-  .lSSlideOuter {
-    max-height: 600px;
-  }
+
   h1,
   .faux-h1 {
     font-family: $futura-regular;
@@ -303,7 +298,7 @@
     }
 
     .lSSlideOuter {
-      max-height: 680px;
+      max-height: auto;
     }
 
     .lSSlideOuter .lSPager.lSpg {
