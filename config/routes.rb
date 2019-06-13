@@ -10,8 +10,7 @@ Rails.application.routes.draw do
   get 'home_page/:page',       to: 'dashboard#home_page'
   get 'ad_landing_page/:page', to: 'dashboard#ad_landing_page'
   get 'image_slider', to: 'dashboard#image_slider'
-  get 'directory', to: 'home#directory'
-  
+
   # Mock routes
   get '/home_page/_hero_stories/listing_order.json.txt', to: 'dashboard#mock_success'
 

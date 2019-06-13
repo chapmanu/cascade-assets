@@ -1,86 +1,80 @@
 .call-to-action-3-up-widget {
-  padding: $one-column-widget-spacing 0;
-  background-color: #eaeaea;
+	padding: $one-column-widget-spacing 0;
+	background-color: #eaeaea;
+	
+	.outer-container {
+		@include outer-container();
+	}
 
-  .outer-container {
-    @include outer-container();
-  }
+	.column {
+		margin-bottom: $base-spacing*3;
+		&:last-child { margin-bottom: 0; }
+		@include media($medium-screen) {
+			margin-bottom: 0;
+			@include span-columns(6);
+			@include pad(0 default);
+		}
+	}
 
-  .column {
-    margin-bottom: $base-spacing*3;
+	h2.headline {
+		@include section_heading();
+		margin: 24px 0 0;
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+		@include media($medium-screen) {
+			@include sub_section_heading();
+		}
 
-    @include media($medium-screen) {
-      margin-bottom: 0;
-      @include span-columns(6);
-      @include pad(0 default);
-    }
-  }
+		@include media(min-width 800px) {
+			@include section_heading();
+		}
+	}
 
-  h2.headline {
-    @include section_heading();
-    margin: 24px 0 0;
+	.image-wrap {
+		@include aspect_ratio(3, 2);
+		position: relative;
+		overflow: hidden;
+		max-width: 900px;
+		max-height: 400px;
+		width: auto;
+		height: auto;
 
-    @include media($medium-screen) {
-      @include sub_section_heading();
-    }
+		img {
+			height: 100%;
+			width: 100%;
+		}
+	}
 
-    @include media(min-width 800px) {
-      @include section_heading();
-    }
-  }
+	.text-wrap {
+		display: inline-block;
+		@include pad($base-spacing*2 $base-spacing*2 0);
 
-  .image-wrap {
-    @include aspect_ratio(3, 2);
-    position: relative;
-    overflow: hidden;
-    max-width: 900px;
-    max-height: 400px;
-    width: auto;
-    height: auto;
+		@include media($medium-screen) {
+			@include pad(0 default);
+		}
 
-    img {
-      height: 100%;
-      width: 100%;
-    }
-  }
+		@include media($large-screen) {
+			padding: 0;
+		}
 
-  .text-content {
-    padding-bottom: 44px;
-  }
+		@include media(min-width 800px) {
+			@include pad(0 default);
+		}
+	}
 
-  .text-wrap {
-    display: inline-block;
-    @include pad($base-spacing*2 $base-spacing*2 0);
+	p {
+		@include paragraph();
+		margin: 0;
+	}
 
-    @include media($medium-screen) {
-      @include pad(0 default);
-    }
+	a.more-link {
+		@include hyperlinks();
+		display: inline-block;
+		margin-top: 44px;
 
-    @include media($large-screen) {
-      padding: 0;
-    }
-
-    @include media(min-width 800px) {
-      @include pad(0 default);
-    }
-  }
-
-  p {
-    @include paragraph();
-    margin: 0;
-  }
-
-  a.more-link {
-    @include hyperlinks();
-
-    &:after {
-      content: " »"
-    }
-  }
+		&:after {
+			content: " »"
+		}
+	}
 }
 
 .call-to-action-3-up-widget__medium-bg {
