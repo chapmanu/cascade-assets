@@ -84,6 +84,11 @@
     width: auto;
   }
 
+  .lSSlideOuter {
+    margin-bottom: -5px;
+    overflow: unset;
+  }
+
   .lSSlideOuter .lSPager.lSpg {
     margin: 10px 0 0;
     padding: 0;
@@ -295,10 +300,6 @@
 
     .image-slider-wrapper img {
       display: block;
-    }
-
-    .lSSlideOuter {
-      max-height: auto;
     }
 
     .lSSlideOuter .lSPager.lSpg {
