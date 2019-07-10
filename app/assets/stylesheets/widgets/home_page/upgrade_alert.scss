@@ -25,6 +25,7 @@ div.upgrade-browser-wrapper {
   input {
     color: #2f2f2f;
   }
+
   p {
     position: relative;
     text-align: center;
@@ -120,7 +121,7 @@ div.upgrade-browser-wrapper {
 
   /* IE11 */
   *::-ms-backdrop,
-  #upgrade-browser {
+  div.upgrade-browser-wrapper {
     display: none !important;
   }
 }
