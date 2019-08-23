@@ -155,19 +155,41 @@ end
 task do_precompile: :environment do
   # Rake::Task['assets:clobber'].invoke
   # Rake::Task['assets:precompile'].invoke
-    
-  open("./dist/changelog-simple.log", 'w') { |f|
-    
-    f.puts "Local changes:"
-    f.puts `git status`
-    f.puts "-------"
-    f.puts "Changes since last pull request"
-      f.puts `git --no-pager diff --name-only FETCH_HEAD $(git merge-base FETCH_HEAD master)`
-    }
+  git_log = './dist/changelog-simple.log'
+  git_log_html = './dist/changelog-simple.html'
+  current_branch = `git rev-parse --abbrev-ref HEAD`
+
+  File.delete(git_log_html) if File.exist?(git_log_html)
+  open(git_log_html, 'w') { |f|
+ 
     # open("./dist/changelog-detailed.log", 'w') { |f|
     #   f.puts `git whatchanged`
     # }
-  system %(open "./dist")
+    f.puts '<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Document</title>
+    </head>
+    <style>
+      html {
+        background-color: black;
+    color: green;
+      }
+      </style>
+<body><xmp>'
+    f.puts "Comparing changes from current branch #{current_branch} to master"
+    f.puts `git --no-pager diff --name-only FETCH_HEAD $(git merge-base FETCH_HEAD master)`
+    f.puts "------------------------------------------------------------------------------------------"
+    f.puts "------------------------------------------------------------------------------------------"
+    f.puts "Local changes:"
+    f.puts `git status`
+    f.puts '</xmp></body>
+</html>'
+    }
+  `open #{git_log_html}`
 end
 
 ####################
