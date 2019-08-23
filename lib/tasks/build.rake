@@ -153,8 +153,21 @@ task build: :environment do
 end
 
 task do_precompile: :environment do
-  Rake::Task['assets:clobber'].invoke
-  Rake::Task['assets:precompile'].invoke
+  # Rake::Task['assets:clobber'].invoke
+  # Rake::Task['assets:precompile'].invoke
+    
+  open("./dist/changelog-simple.log", 'w') { |f|
+    
+    f.puts "Local changes:"
+    f.puts `git status`
+    f.puts "-------"
+    f.puts "Changes since last pull request"
+      f.puts `git --no-pager diff --name-only FETCH_HEAD $(git merge-base FETCH_HEAD master)`
+    }
+    # open("./dist/changelog-detailed.log", 'w') { |f|
+    #   f.puts `git whatchanged`
+    # }
+  system %(open "./dist")
 end
 
 ####################
