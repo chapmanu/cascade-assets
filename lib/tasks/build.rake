@@ -159,37 +159,24 @@ task do_precompile: :environment do
   git_log_html = './dist/changelog-simple.html'
   current_branch = `git rev-parse --abbrev-ref HEAD`
 
-  File.delete(git_log_html) if File.exist?(git_log_html)
-  open(git_log_html, 'w') { |f|
+  File.delete(git_log) if File.exist?(git_log)
+  open(git_log, 'w') { |f|
  
     # open("./dist/changelog-detailed.log", 'w') { |f|
     #   f.puts `git whatchanged`
     # }
-    f.puts '<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Document</title>
-    </head>
-    <style>
-      html {
-        background-color: black;
-    color: green;
-      }
-      </style>
-<body><xmp>'
-    f.puts "Comparing changes from current branch #{current_branch} to master"
+  
+    f.puts "--------------------------------------------------------------------------"
+    f.puts "Comparing changes from current branch #{current_branch} to MASTER "
+    f.puts "--------------------------------------------------------------------------"
     f.puts `git --no-pager diff --name-only FETCH_HEAD $(git merge-base FETCH_HEAD master)`
-    f.puts "------------------------------------------------------------------------------------------"
-    f.puts "------------------------------------------------------------------------------------------"
-    f.puts "Local changes:"
+    f.puts "--------------------------------------------------------------------------"
+    f.puts "Uncommitted local changes:"
+    f.puts "--------------------------------------------------------------------------"
+
     f.puts `git status`
-    f.puts '</xmp></body>
-</html>'
     }
-  `open #{git_log_html}`
+  `open #{git_log}`
 end
 
 ####################
