@@ -71,7 +71,8 @@
             <li class="#if($foreach.index == 0)selected#end">
               <div class="theme-bg-color slider-bottom-border"></div>
               #if ( $backgroundType == 'Image' )
-                <div class="background-image" style="background-image: url('[system-asset]${backgroundImage}[/system-asset]'); background-position: center ${backgroundImageAlignY.toLowerCase()};">
+                <div id="blur" class="background-image" style="background-image: url('[system-asset]${backgroundImage}[/system-asset]'); background-position: center ${backgroundImageAlignY.toLowerCase()};"></div>
+                <div id="foreground" class="background-image" style="background-image: url('[system-asset]${backgroundImage}[/system-asset]'); background-position: center ${backgroundImageAlignY.toLowerCase()};"></div>
                   <article class="theme-bg-color-alpha">
                     <img src="[system-asset]${backgroundImage}[/system-asset]" alt="${_EscapeTool.xml($backgroundAltText)}" />
                     #if ( $featuredContentExists == 'true' )
@@ -86,7 +87,6 @@
                       </div>
                     #end
                   </article>
-                </div>
               #elseif ( $backgroundType == 'Video' )
                 <div class="background-video-wrapper">
                   <article class="theme-bg-color-alpha">

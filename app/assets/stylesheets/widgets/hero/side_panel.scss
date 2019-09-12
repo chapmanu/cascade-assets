@@ -1,454 +1,519 @@
 .side-panel-hero {
-	position: relative;
-	background-color: #eaeaea;
+  position: relative;
+  background-color: #eaeaea;
 
-	+ div {
-		// Whatever is under this hero area should have double padding to account for the overlap
-		padding-top: $one-column-widget-spacing;
-	}
+  +div {
+    // Whatever is under this hero area should have double padding to account for the overlap
+    padding-top: $one-column-widget-spacing;
+  }
 
-	video {
-		width: 100%;
-	}
+  video {
+    width: 100%;
+  }
 
-	.cd-hero,
-	.background-image,
-	.background-video-wrapper {
-		padding-bottom: $one-column-widget-spacing/2;
-		pointer-events: none;
-		background-color: #eaeaea;
+  .cd-hero,
+  .background-image,
+  .background-video-wrapper {
+    padding-bottom: $one-column-widget-spacing/2;
+    pointer-events: none;
+    background-color: #eaeaea;
 
-		@include media($medium-screen) {
-			padding: 0;
-		}
+    @include media($medium-screen) {
+      padding: 0;
+    }
 
-		@include media($large-screen) {
-			overflow: hidden;
-			display: block;
-			position: absolute;
-			top: 0;
-			right: 0;
-			left: 0;
-			bottom: 0;
-			width: 100%;
-		}
-	}
+    @include media($large-screen) {
+      overflow: hidden;
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  }
 
-	.cd-hero {
-		@include media($medium-screen) {
-			.cd-arrow-left,
-			.cd-arrow-right {
-				display: none;
-			}
-			&:hover {
-				.cd-arrow-left,
-				.cd-arrow-right {
-					display: block;
-				}
-			}
-		}
-	}
+  .cd-hero {
+    @include media($medium-screen) {
 
-	.cd-arrow-left,
-	.cd-arrow-right {
-		position: absolute;
-		top: 115px;
-		height: 50px;
-		width: 50px;
-		text-align: center;
-		margin: auto;
-		z-index: 668;
-		pointer-events: all;
-		background-color: white;
-		opacity: .7;
-		@include media($medium-screen) {
-			top: 0;
-			bottom: 0;
-		}
+      .cd-arrow-left,
+      .cd-arrow-right {
+        display: none;
+      }
 
-		a {
-			display: inline-block;
-			height: 50px;
-			width: 50px;
-			font-size: 80px;
-			line-height: 40px;
-			color: $black;
-		}
-	}
+      &:hover {
 
-	.cd-arrow-left {
-		left: 0;
-	}
-	.cd-arrow-right {
-		right: 0;
-	}
+        .cd-arrow-left,
+        .cd-arrow-right {
+          display: block;
+        }
+      }
+    }
+  }
 
-	.cd-slide-container {
-		height: 95%;
-		width: 100%;
-	}
-	// super ugly css I know, but this was the only fix I could come up with to make the arrows appear properly
-	@include media($large-screen) {
-		.cd-arrow-left,
-		.cd-arrow-right {
-			display: none;
-		}
-		&:hover {
-			.cd-arrow-left,
-			.cd-arrow-right {
-				display: block;
-			}
-		}
-	}
+  .cd-arrow-left,
+  .cd-arrow-right {
+    position: absolute;
+    top: 115px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    margin: auto;
+    z-index: 668;
+    pointer-events: all;
+    background-color: white;
+    opacity: .7;
 
-	.cd-hero-slider {
-		height: 95%;
-		list-style-type: none;
+    @include media($medium-screen) {
+      top: 0;
+      bottom: 0;
+    }
 
-		li {
-			padding: $one-column-widget-spacing/4 0;
-			max-width: 100%;
-			margin-bottom: 0;
-			background-color: #eaeaea;
-		}
+    a {
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      font-size: 80px;
+      line-height: 40px;
+      color: $black;
+    }
+  }
 
-		.slider-bottom-border {
-			@include media($large-screen) {
-				position: absolute;
-				bottom: 0;
-				height: 10px;
-				z-index: 667;
-				width: 100%;
-			}
-		}
-	}
+  .cd-arrow-left {
+    left: 0;
+  }
 
-	.cd-slider-nav {
-		height: 13%;
-		background-color: transparent;
-		text-align: left;
-		pointer-events: all;
-		padding-left: 16px;
+  .cd-arrow-right {
+    right: 0;
+  }
 
-		.cd-marker {
-			background-color: transparent;
-			color: #e5e5e5;
-			box-shadow: none;
-		}
+  .cd-slide-container {
+    height: 95%;
+    width: 100%;
+  }
 
-		a {
-			outline: none;
-			display: inline-block;
-			font-size: 0px;
-			height: 15px;
-			width: 15px;
-			line-height: 10px;
-			background: #565656;
-			color: white;
-			border-radius: 15px;
-			text-indent: -9999px;
-			margin-right: 12px;
-			border: 2px solid #676767;
-			padding-top: 0;
-			&:hover {
-				background-color: #676767;
-			}
-		}
+  // super ugly css I know, but this was the only fix I could come up with to make the arrows appear properly
+  @include media($large-screen) {
 
-		li {
-			width: inherit;
-			&.selected a {
-				background: #c8c8c8;
-				opacity: 1;
-				box-shadow: 0 0 2px #f0efe7;
-				&:hover {
-					background-color: #676767;
-				}
-			}
-		}
+    .cd-arrow-left,
+    .cd-arrow-right {
+      display: none;
+    }
 
-		@include media($medium-screen) {
-			height: 7%;
-			padding-left: 32px;
-			padding-right: 0;
-		}
+    &:hover {
 
-		@include media($large-screen) {
-			height: 9%;
-			text-align: center;
-			@include shift(6);
-		}
-	}
+      .cd-arrow-left,
+      .cd-arrow-right {
+        display: block;
+      }
+    }
+  }
 
-	.background-image {
-		background-size: 0 0;
-		@include media($large-screen) {
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position: center bottom;
-		}
-	}
+  .cd-hero-slider {
+    height: 95%;
+    list-style-type: none;
 
-	.background-video-wrapper #background-video {
-		display: none;
-		@include media($large-screen) {
-			display: inline-block;
-		}
-	}
+    li {
+      padding: $one-column-widget-spacing/4 0;
+      max-width: 100%;
+      margin-bottom: 0;
+      background-color: #eaeaea;
+    }
 
-	.hero-content {
-		@include outer-container;
-		position: relative;
-		padding: $one-column-widget-spacing/2 $primary-column-widget-spacing;
+    .slider-bottom-border {
+      @include media($large-screen) {
+        position: absolute;
+        bottom: 0;
+        height: 10px;
+        z-index: 667;
+        width: 100%;
+      }
+    }
+  }
 
-		@include media($medium-screen) {
-			padding: $one-column-widget-spacing $base-spacing*3 $base-spacing $base-spacing*3;
-		}
-		@include media($large-screen) {
-			padding: $primary-column-widget-spacing*2 0;
-			pointer-events: none;
-			z-index: 666;
-		}
-	}
+  .cd-slider-nav {
+    height: 13%;
+    background-color: transparent;
+    text-align: left;
+    pointer-events: all;
+    padding-left: 16px;
 
-	// The side panel
-	.hero-content-panel {
-		@include media($large-screen) {
-			@include span-columns(6);
-			padding: $base-spacing*3 $one-column-widget-spacing/2 $one-column-widget-spacing
-				$one-column-widget-spacing/2;
-			box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.2);
-			background-color: white;
-			pointer-events: all;
-		}
+    .cd-marker {
+      background-color: transparent;
+      color: #e5e5e5;
+      box-shadow: none;
+    }
 
-		// Title
-		h1,
-		.faux-h1 {
-			margin: 0;
-			font-size: 26px;
-			line-height: 30px;
+    a {
+      outline: none;
+      display: inline-block;
+      font-size: 0px;
+      height: 15px;
+      width: 15px;
+      line-height: 10px;
+      background: #565656;
+      color: white;
+      border-radius: 15px;
+      text-indent: -9999px;
+      margin-right: 12px;
+      border: 2px solid #676767;
+      padding-top: 0;
 
-			@include media($medium-screen) {
-				font-size: 32px;
-				line-height: 36px;
-			}
+      &:hover {
+        background-color: #676767;
+      }
+    }
 
-			@include media($large-screen) {
-				font-size: 36px;
-				line-height: 40px;
-			}
-		}
+    li {
+      width: inherit;
 
-		// Subtitle
-		h2,
-		.faux-h2 {
-			font-weight: 200;
-			margin: $base-spacing/2 0;
-			font-size: 22px;
-			line-height: 26px;
+      &.selected a {
+        background: #c8c8c8;
+        opacity: 1;
+        box-shadow: 0 0 2px #f0efe7;
 
-			@include media($medium-screen) {
-				font-size: 26px;
-				line-height: 28px;
-			}
+        &:hover {
+          background-color: #676767;
+        }
+      }
+    }
 
-			@include media($large-screen) {
-				font-size: 30px;
-				line-height: 32px;
-			}
-		}
+    @include media($medium-screen) {
+      height: 7%;
+      padding-left: 32px;
+      padding-right: 0;
+    }
 
-		p {
-			line-height: 24px;
-		}
+    @include media($large-screen) {
+      height: 9%;
+      text-align: center;
+      @include shift(6);
+    }
+  }
 
-		h1,
-		.faux-h1,
-		h2,
-		.faux-h2,
-		p {
-			text-align: center;
-			@include media($large-screen) {
-				text-align: left;
-			}
-		}
+  .background-image {
+    background-size: 0 0;
 
-		.calls-to-action {
-			margin-top: $base-spacing;
-			text-align: center;
+    @include media($large-screen) {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+    }
+  }
 
-			a {
-				@include button($blue);
-				width: 100%;
-				margin-bottom: $base-spacing/2;
-				text-align: center;
-				line-height: 30px;
-				border-radius: 0px;
+  .background-video-wrapper #background-video {
+    display: none;
 
-				@include media($medium-screen) {
-					width: 45%;
-					margin: $base-spacing/2;
-				}
+    @include media($large-screen) {
+      display: inline-block;
+    }
+  }
 
-				@include media($large-screen) {
-					width: 100%;
-					margin: $base-spacing/4 0px;
-				}
-        
+  .hero-content {
+    @include outer-container;
+    position: relative;
+    padding: $one-column-widget-spacing/2 $primary-column-widget-spacing;
+
+    @include media($medium-screen) {
+      padding: $one-column-widget-spacing $base-spacing*3 $base-spacing $base-spacing*3;
+    }
+
+    @include media($large-screen) {
+      padding: $primary-column-widget-spacing*2 0;
+      pointer-events: none;
+      z-index: 666;
+    }
+  }
+
+  // The side panel
+  .hero-content-panel {
+    @include media($large-screen) {
+      @include span-columns(6);
+      padding: $base-spacing*3 $one-column-widget-spacing/2 $one-column-widget-spacing $one-column-widget-spacing/2;
+      box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.2);
+      background-color: white;
+      pointer-events: all;
+    }
+
+    // Title
+    h1,
+    .faux-h1 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 30px;
+
+      @include media($medium-screen) {
+        font-size: 32px;
+        line-height: 36px;
+      }
+
+      @include media($large-screen) {
+        font-size: 36px;
+        line-height: 40px;
+      }
+    }
+
+    // Subtitle
+    h2,
+    .faux-h2 {
+      font-weight: 200;
+      margin: $base-spacing/2 0;
+      font-size: 22px;
+      line-height: 26px;
+
+      @include media($medium-screen) {
+        font-size: 26px;
+        line-height: 28px;
+      }
+
+      @include media($large-screen) {
+        font-size: 30px;
+        line-height: 32px;
+      }
+    }
+
+    p {
+      line-height: 24px;
+    }
+
+    h1,
+    .faux-h1,
+    h2,
+    .faux-h2,
+    p {
+      text-align: center;
+
+      @include media($large-screen) {
+        text-align: left;
+      }
+    }
+
+    .calls-to-action {
+      margin-top: $base-spacing;
+      text-align: center;
+
+      a {
+        @include button($blue);
+        width: 100%;
+        margin-bottom: $base-spacing/2;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 0px;
+
+        @include media($medium-screen) {
+          width: 45%;
+          margin: $base-spacing/2;
+        }
+
+        @include media($large-screen) {
+          width: 100%;
+          margin: $base-spacing/4 0px;
+        }
+
         &:focus {
           outline: 2px dotted #333 !important;
         }
-			}
-		}
+      }
+    }
 
-		.program-select {
-			position: relative;
+    .program-select {
+      position: relative;
 
-			@include media($medium-screen) {
-				width: 50%;
-				margin-top: $base-spacing*3;
-				margin-left: auto;
-				margin-right: auto;
-			}
-			@include media($large-screen) {
-				width: 100%;
-				margin: 0;
-				margin-top: $base-spacing/4;
-			}
+      @include media($medium-screen) {
+        width: 50%;
+        margin-top: $base-spacing*3;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-			.select-arrow {
-				position: absolute;
-				top: 20px;
-				right: 18px;
-				display: block;
-				background: transparent;
-				border-width: 0px 1px 1px 0px;
-				border-style: solid;
-				width: 8px;
-				height: 8px;
-				transform: rotateZ(45deg);
-			}
+      @include media($large-screen) {
+        width: 100%;
+        margin: 0;
+        margin-top: $base-spacing/4;
+      }
 
-			.hero-select-button {
-				width: 100%;
-				font-size: 16px;
-				line-height: 30px;
-				outline: none;
-				padding: $base-spacing/2 $base-spacing;
-				background-color: transparent;
-				box-shadow: none;
-				margin: 0;
-				height: auto;
-				border: 2px solid #000000;
-				border-radius: 3px;
-				background-position: center right;
-				background-repeat: no-repeat;
-        
+      .select-arrow {
+        position: absolute;
+        top: 20px;
+        right: 18px;
+        display: block;
+        background: transparent;
+        border-width: 0px 1px 1px 0px;
+        border-style: solid;
+        width: 8px;
+        height: 8px;
+        transform: rotateZ(45deg);
+      }
+
+      .hero-select-button {
+        width: 100%;
+        font-size: 16px;
+        line-height: 30px;
+        outline: none;
+        padding: $base-spacing/2 $base-spacing;
+        background-color: transparent;
+        box-shadow: none;
+        margin: 0;
+        height: auto;
+        border: 2px solid #000000;
+        border-radius: 3px;
+        background-position: center right;
+        background-repeat: no-repeat;
+
         &:focus {
           outline: 2px dotted #333;
           outline-offset: 5px;
         }
-			}
+      }
 
-			.hero-select-list {
-				display: none;
-				position: absolute;
-				margin: 0;
-				box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.2);
-				width: 100%;
-				background-color: #fff;
-				top: 0px;
-				z-index: 667;
+      .hero-select-list {
+        display: none;
+        position: absolute;
+        margin: 0;
+        box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        background-color: #fff;
+        top: 0px;
+        z-index: 667;
 
-				li {
-					max-width: 100%;
-					font-size: 16px;
-					line-height: 36px;
-					margin: 0;
-					padding: $base-spacing/2 $base-spacing;
+        li {
+          max-width: 100%;
+          font-size: 16px;
+          line-height: 36px;
+          margin: 0;
+          padding: $base-spacing/2 $base-spacing;
 
-					&:hover,
-					&.selected {
-						background-color: #e5e5e5;
-					}
-				}
-			}
-		}
-	}
+          &:hover,
+          &.selected {
+            background-color: #e5e5e5;
+          }
+        }
+      }
+    }
+  }
 
-	// The featured article
-	article {
-		color: $black;
-		pointer-events: all;
+  // The featured article
+  article {
+    color: $black;
+    pointer-events: all;
 
-		@include media($medium-screen) {
-			margin-top: $base-spacing*3;
-		}
+    @include media($medium-screen) {
+      margin-top: $base-spacing*3;
+    }
 
-		@include media($large-screen) {
-			@include span-columns(7);
-			@include shift(9);
-			bottom: 0;
-			border-radius: 3px;
-			position: absolute;
-			color: white;
-		}
+    @include media($large-screen) {
+      @include span-columns(7);
+      @include shift(9);
+      bottom: 0;
+      border-radius: 3px;
+      position: absolute;
+      color: white;
+    }
 
-		img,
-		video {
-			width: 100%;
-			height: auto;
-			margin-bottom: -6px;
-			@include media($large-screen) {
-				display: none;
-			}
-		}
+    img,
+    video {
+      width: 100%;
+      height: auto;
+      margin-bottom: -6px;
 
-		.content {
-			padding: $base-spacing*2;
-			z-index: 667;
+      @include media($large-screen) {
+        display: none;
+      }
+    }
 
-			@include media($large-screen) {
-				padding: $base-spacing*2 $base-spacing*3;
-			}
-		}
+    .content {
+      padding: $base-spacing*2;
+      z-index: 667;
 
-		.category {
-			@include content_label();
-			color: $black;
+      @include media($large-screen) {
+        padding: $base-spacing*2 $base-spacing*3;
+      }
+    }
 
-			@include media($large-screen) {
-				color: white;
-			}
-		}
+    .category {
+      @include content_label();
+      color: $black;
 
-		.title {
-			margin: 0;
-		}
+      @include media($large-screen) {
+        color: white;
+      }
+    }
 
-		.subtitle {
-			margin-top: 0;
-			font-weight: 200;
-		}
+    .title {
+      margin: 0;
+    }
 
-		a {
-			color: $black;
-			text-decoration: underline;
-			font-weight: bold;
+    .subtitle {
+      margin-top: 0;
+      font-weight: 200;
+    }
 
-			@include media($large-screen) {
-				color: white;
-			}
-		}
-	}
+    a {
+      color: $black;
+      text-decoration: underline;
+      font-weight: bold;
+
+      @include media($large-screen) {
+        color: white;
+      }
+    }
+  }
+
+  .blur {
+
+    z-index: 1;
+    filter: blur(2px);
+    transform: scale(1.1);
+    width: 100vw;
+    height: auto;
+
+  }
+
+  // this is to prevent people's faces from being cut off on wide displays
+  @media only screen and (min-width : 1920px) {
+    .foreground-wrapper {
+      width: 100%;
+    }
+
+    .foreground-img-lg {
+      object-fit: contain;
+      position: relative;
+      max-width: 1920px;
+      z-index: 2;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+
+    .theme-bg-color-alpha {
+      z-index: 3;
+    }
+
+    #blur  {
+      filter: blur(100px);
+      transform: scale(1.1);
+      background-position: center;
+      background-size: 100%;
+      z-index:1;
+    }
+
+
+    #foreground {
+      z-index: 2;
+      display: block;
+      margin: auto;
+      height: 80%;
+      background-position: center center;
+    }
+  }
 }
 
 // Override the default background color when no theme is applied
 #theme .side-panel-hero .theme-bg-color-alpha {
-	background-color: transparent;
+  background-color: transparent;
 
-	@include media($large-screen) {
-		background-color: rgba(0, 0, 0, 0.95);
-	}
+  @include media($large-screen) {
+    background-color: rgba(0, 0, 0, 0.95);
+  }
 }
