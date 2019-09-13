@@ -1,0 +1,367 @@
+		<div class="focuspoint-wrapper">
+		<div id="Info">
+			<div class="helper-tool">
+				<h1>Click the image to set the FocusPoint.</h1>
+				<div class="helper-tool-target">
+					<img class="helper-tool-img">
+					<img class="reticle" <%= image_tag("focuspoint-target") %> 
+					<img class="target-overlay">
+				</div>
+				<p>
+					<label for="set-src">Paste in a URL to change the image</label>
+					<input name="set-src" id="set-src" class='helper-tool-set-src' type='text'>
+				</p>
+				<p>
+					<label for="data-attr">FocusPoint data- attributes:</label>
+					<input class='helper-tool-data-attr' id="data-attr" name="data-attr" type='text' placeholder='data-focus-x="0" data-focus-y="0" '>	
+				</p>
+				<p>
+					<label for="css3-val">CSS3 Background Position:</label>
+					<input class='helper-tool-css3-val' id="css3-val" name="css3-val" type='text' placeholder='background-position:'>	
+				</p>
+				<p><a href="https://github.com/jonom/jquery-focuspoint">» Project Home</a></p>
+			</div><!-- End Helper Tool -->
+		</div>
+  </div>
+  <div id="Frames">		
+    </div>
+      
+<style>
+
+
+  .blur {
+
+    z-index: 1;
+    filter: blur(2px);
+    transform: scale(1.1);
+    width: 100vw;
+    height: auto;
+
+  }
+
+  @media only screen and (min-width : 1920px) {
+    .foreground-wrapper {
+      width: 100%;
+    }
+
+    .foreground-img-lg {
+      object-fit: contain;
+      position: relative;
+      max-width: 1920px;
+      z-index: 2;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+
+    .theme-bg-color-alpha {
+      z-index: 3;
+    }
+
+    #blur {
+      filter: blur(20px);
+      transform: scale(2);
+      background-position: center;
+      background-size: 100%;
+    }
+
+    #foreground {
+      z-index: 2;
+      display: block;
+      margin: auto;
+      height: 80%;
+      background-position: center center;
+    }
+  }
+</style>
+
+
+<style>
+
+/* !HELPER TOOL GUI */
+/*-----------------------------------------*/
+.focuspoint-wrapper {
+  position: relative;
+  min-height: 300px;
+}
+.focuspoint-wrapper #Info {
+  width: auto;
+}
+
+#Info {
+	width:320px;
+}
+#Info .helper-tool h1 {
+	font-size:14px;
+}
+#Info .helper-tool p {
+	font-size: 0.825rem;
+	padding:0;
+	margin:0 0 1em;
+}
+.helper-tool, .helper-tool * {
+	box-sizing:border-box;
+}
+.helper-tool {
+	padding:12px;
+	border:1px solid #fcfcfc;
+}
+.helper-tool input {
+	position:relative;
+	width:100%;
+}
+
+/* !HELPER TOOL TARGETING SYSTEM */
+.focuspoint img {
+  transition: all 500ms ease-in-out;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+}
+
+/* !HELPER TOOL TARGETING SYSTEM */
+.helper-tool-target {
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  margin-bottom:1em;
+}
+.helper-tool-target img {
+  display: block;
+  max-width: 100%;
+  height:auto;
+}
+.helper-tool-target img.target-overlay, .helper-tool-target img.reticle {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.helper-tool-target img.target-overlay {
+  cursor:pointer;
+  opacity: 0.01;
+}
+.helper-tool-target img.reticle {
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  top:50%;
+  left:50%;
+  transition: all 500ms ease-in-out;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+}
+
+/* !TYPOGRAPHY */
+/*-----------------------------------------*/
+body {
+	font-family: sans-serif;
+	color: #717171;
+	font-size: 12px;
+}
+a {
+	color: #2697ff;
+	text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active {
+	color: #0074de;
+}
+
+/* !INFO */
+/*-----------------------------------------*/
+#Info {
+	position: absolute;
+	left: 2%;
+	top: 2%;
+	width: 20%;
+	box-shadow: 0px 0px 13px rgba(0,0,0,0.6);
+	background: #fff;
+	border: 1px solid #fff;
+}
+#Info p {
+	font-size: 12px;
+	padding: 10px;
+	margin: 0;
+}
+#Original {
+	position: relative;
+}
+#Original img {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	display: block;
+	margin: 0;
+}
+#Original h4 {
+	position: absolute;
+	left: 0;
+	bottom: 15px;
+	width: 100%;
+	text-align: center;
+	margin: 0;
+}
+#Original h4 span {
+	font-size: 12px;
+	padding: 3px 10px;
+	border-radius: 100px;
+	background: rgba(0,0,0,0.32);
+	color: #fff;
+}
+</style>
+
+
+
+<script>
+    $(function() {
+  
+      $('.focuspoint').focusPoint();
+
+  });
+
+</script>
+
+
+
+
+<div class="side-panel-hero">
+    <div class="hero-content">
+      <section aria-labelledby="herocontentpanel" class="hero-content-panel">
+        <h1 id="herocontentpanel">Dodge College of Film and Media Arts</h1>
+        <h2>Preparing students for a creative life in fiml and media arts.</h2>
+        <p>
+          Welcome to Dodge College of film and Media arts, a state-of-the-art facility open to you 24/7, acomplished
+          faculty with a combined filmography of more than 300 feature films, a hands-on learning environment,
+          international travel oportunities, one-of-a-kind internships, a solid alumni network and synergy across all
+          programs.
+          Welcome to Dodge College of film and Media arts, a state-of-the-art facility open to you 24/7, acomplished
+          faculty with a combined filmography of more than 300 feature films, a hands-on learning environment,
+          international travel oportunities, one-of-a-kind internships, a solid alumni network and synergy across all
+          programs.
+        </p>
+
+
+        <nav class="calls-to-action">
+          <a href="#" class="theme-bg-color theme-button">Visit Dodge</a>
+          <a href="#" class="theme-bg-color theme-button">Admission Information</a>
+        </nav>
+
+        <nav id="program-select-links" class="program-select">
+          <span class="select-arrow theme-border-color"></span>
+
+          <button class="hero-select-button theme-border-color" tabindex="0">Sample Text</button>
+          <ul class="hero-select-list">
+            <li>
+              <a href="http://www.google.com">Programs and Majors</a>
+            </li>
+            <li><a href="http://www.google.com">Film Production</a></li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+
+    <div class="cd-hero">
+      <div class="cd-arrow-left"><a href="#">&lsaquo;</a></div>
+      <div class="cd-arrow-right"><a href="#">&rsaquo;</a></div>
+      <div class="cd-slide-container">
+        <ul class="cd-hero-slider autoplay">
+          <li class="selected">
+            <div class="theme-bg-color slider-bottom-border"></div>
+
+
+
+              <!-- begin focuspoint -->
+              <div class="focuspoint"
+              data-focus-x="0.331"
+              data-focus-y="-0.224"
+              data-image-w="400"
+              data-image-h="300">
+               
+              <div class=" background-image" id="blur"
+                style="background-image: url('https://www.chapman.edu/business/_files/homepage/argyros-bush.jpg'); ">
+              </div>
+
+              <!-- end focuspoint -->
+            </div>
+
+            <div class=" background-image" id="foreground"
+              style="background-image: url('https://www.chapman.edu/business/_files/homepage/argyros-bush.jpg'); ">
+            </div>
+            <article class="theme-bg-color-alpha">
+              <img src="https://www.chapman.edu/business/_files/homepage/argyros-bush.jpg">
+              <div class="content">
+                <span class="category">Beyond Dodge</span>
+                <h2 class="title">New Orleans Becoming Hollywood South</h2>
+                <h3 class="subtitle">Alumni Discuss the film industry in New Orleans</h3>
+                <p class="body">
+                  What’s the first thing that comes to mind when you think of France and the arts? The Louvre? The
+                  Mona Lisa? Hiroshima, Mon Amour? It’s probably not animation. Yet the influence of French animation
+                  is also enormous, from the first animated film in history, Reynaud’s Pauvre Pierrot to Illumination
+                  Studios’ newest blockbuster, Minions. Dodge’s Digital...&nbsp;&nbsp;<a href="#">Read more on
+                    dodge</a>
+                </p>
+              </div>
+            </article>
+
+          </li>
+
+          <li>
+            <div class="theme-bg-color slider-bottom-border"></div>
+            <div class="background-video-wrapper">
+              <article class="theme-bg-color-alpha">
+                <video autoplay loop poster="http://www.chapman.edu/_files/img/hero-panels/fallback-images/football.jpg">
+                  <source src="http://www.chapman.edu/_files/img/hero-panels/html5-videos/homecoming.mp4"
+                    type="video/mp4">
+                </video>
+                <div class="content">
+                  <span class="category">Sports Broadcasting</span>
+                  <h2 class="title">Students Cover Chapman's Homecoming Football Game</h2>
+                  <h3 class="subtitle">Equitment and crew all from Chapman's own Dodge College</h3>
+                  <p class="body">
+                    What’s the first thing that comes to mind when you think of France and the arts? The Louvre? The Mona
+                    Lisa? Hiroshima, Mon Amour? It’s probably not animation. Yet the influence of French animation is also
+                    enormous, from the first animated film in history, Reynaud’s Pauvre Pierrot to Illumination Studios’
+                    newest blockbuster, Minions. Dodge’s Digital...&nbsp;&nbsp;<a href="#">Read more on dodge</a>
+                  </p>
+                </div>
+              </article>
+              <video id="background-video" class="background-video" autoplay loop
+                poster="http://www.chapman.edu/_files/img/hero-panels/fallback-images/football.jpg">
+                <source src="http://www.chapman.edu/_files/img/hero-panels/html5-videos/homecoming.mp4" type="video/mp4">
+              </video>
+            </div>
+          </li>
+          <li>
+            <div class="theme-bg-color slider-bottom-border"></div>
+            <div class="background-image"
+              style="background-image: url('http://www.chapman.edu/dodge/_files/dmac/dmac-masthead.jpg'); ">
+              <article class="theme-bg-color-alpha">
+                <img src="http://www.chapman.edu/dodge/_files/dmac/dmac-masthead.jpg">
+                <div class="content">
+                  <span class="category">Hello there</span>
+                  <h2 class="title">This is my test panel, hope it works</h2>
+                  <h3 class="subtitle">Alumni Discuss the film industry in New Orleans</h3>
+                  <p class="body">
+                    What’s the first thing that comes to mind when you think of France and the arts? The Louvre? The Mona
+                    Lisa? Hiroshima, Mon Amour? It’s probably not animation. Yet the influence of French animation is also
+                    enormous, from the first animated film in history, Reynaud’s Pauvre Pierrot to Illumination Studios’
+                    newest blockbuster, Minions. Dodge’s Digital...&nbsp;&nbsp;<a href="#">Read more on dodge</a>
+                  </p>
+                </div>
+              </article>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="cd-slider-nav">
+        <nav>
+          <span class="cd-marker item-1"></span>
+          <ul>
+            <li class="selected"><a href="#" tabindex="0">1</a></li>
+            <li><a href="#" tabindex="0">2</a></li>
+            <li><a href="#" tabindex="0">3</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
