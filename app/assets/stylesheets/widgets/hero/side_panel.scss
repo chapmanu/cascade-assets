@@ -1,7 +1,7 @@
 .side-panel-hero {
   position: relative;
   background-color: #eaeaea;
-
+  height: 100%;
   +div {
     // Whatever is under this hero area should have double padding to account for the overlap
     padding-top: $one-column-widget-spacing;
@@ -92,7 +92,7 @@
     height: 95%;
     width: 100%;
   }
-
+  
   // super ugly css I know, but this was the only fix I could come up with to make the arrows appear properly
   @include media($large-screen) {
 
@@ -501,8 +501,8 @@
       display: block;
       margin: auto;
       // height: 80%;
-      background-position: center center;
-      max-width: 50%;
+      // background-position: center center;
+      max-width:50%;
     }
 
     .contain {
@@ -534,5 +534,6 @@
 
 .focuspoint-wrapper {
   position: fixed;
-  z-index: 3;
+  z-index: 999999;
+  // display: none;
 }

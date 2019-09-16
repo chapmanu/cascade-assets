@@ -48,19 +48,17 @@
 
 </div>
 
-<div id="Frames" class="hidden">
-  </div>
-  
+
 <script>
   $(function () {
 
-    $('.focuspoint').focusPoint();
+    $('.focuspoint').focusPoint({
+      reCalcOnWindowResize: true,
+    });
 
   });
 
 </script>
-
-
 
 
 <div class="side-panel-hero">
@@ -103,23 +101,24 @@
     <div class="cd-arrow-left"><a href="#">&lsaquo;</a></div>
     <div class="cd-arrow-right"><a href="#">&rsaquo;</a></div>
     <div class="cd-slide-container">
-      <ul class="cd-hero-slider autoplay">
+      <ul class="cd-hero-slider autoplay focuspoint" data-focus-x="0.40" data-focus-y="0.26" data-image-w="6000" data-image-h="4000">
         <li class="selected">
           <div class="theme-bg-color slider-bottom-border"></div>
 
 
 
           <!-- begin focuspoint -->
-          <div class="focuspoint desktop" data-focus-x="0.07" data-focus-y="0.18">
+          <div  >
 
               <img src="https://www.chapman.edu/business/_files/homepage/argyros-bush.jpg">
 
+              <!-- <div id="Frames"></div> -->
               
-            <!-- <div class="background-image" id="blur"
-              style="background-image: url('https://www.chapman.edu/business/_files/homepage/argyros-bush.jpg'); ">
-            </div>
+            <!-- <div class="background-image" id=""
+              style="background-image: url('https://www.chapman.edu/business/_files/homepage/argyros-bush.jpg');" data-focus-x="0.21" data-focus-y="0.18" data-image-w="6000" data-image-h="4000">
+            </div> -->
               
-            <div class="contain background-image" id="foreground"
+            <!-- <div class="contain background-image" id="foreground"
               style="background-image: url('https://www.chapman.edu/business/_files/homepage/argyros-bush.jpg'); ">
             </div>  -->
 
@@ -128,9 +127,9 @@
 
           
           <article class="theme-bg-color-alpha">
-        <div class="focuspoint" data-focus-x="0.07" data-focus-y="0.18">
+        <!-- <div class="focuspoint" data-focus-x="0.07" data-focus-y="0.18">
             <img src="https://www.chapman.edu/business/_files/homepage/argyros-bush.jpg">
-        </div>
+        </div> -->
             <div class="content">
               <span class="category">Beyond Dodge</span>
               <h2 class="title">New Orleans Becoming Hollywood South</h2>
@@ -207,3 +206,4 @@
     </div>
   </div>
 </div>
+

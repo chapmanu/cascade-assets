@@ -4,7 +4,7 @@
  *#
 
 [system-view:internal]
-		<div class="focuspoint-wrapper draggable">
+	
 <div class="focuspoint-wrapper draggable">
 
   <div id="Info">
@@ -54,9 +54,7 @@
   </div>
 
 </div>
-  </div>
-  <div id="Frames">		
-    </div>
+  
 
 [/system-view:internal]
 
@@ -74,8 +72,7 @@
   ## Featured Content Slides
   #set ( $slides = $_XPathTool.selectNodes($element, '//sidePanelHero/featuredContent') )
 
-  <div class="side-panel-hero">
-
+  <div class="side-panel-hero focuspoint" >
     <div class="hero-content">
       <section aria-labelledby="herocontentpanel" class="hero-content-panel">
         <h1 id="herocontentpanel">$_EscapeTool.xml($panelTitle)</h1>
@@ -106,7 +103,6 @@
       <div class="cd-arrow-left"><a href="#">&#139;</a></div>
       <div class="cd-arrow-right"><a href="#">&#155;</a></div>
       <div class="cd-slide-container">
-        <ul class="cd-hero-slider autoplay">
           #foreach($slide in $slides)
             ## Background Variables
             #set ( $backgroundType          = $slide.getChild('featuredBackgroundMedia').getChild('type').value )
@@ -115,7 +111,8 @@
             #set ( $backgroundVideo         = $slide.getChild('featuredBackgroundMedia').getChild('videoFile').getChild('path').value )
             #set ( $backgroundFallbackImage = $slide.getChild('featuredBackgroundMedia').getChild('fallbackImageFile').getChild('path').value )
             #set ( $backgroundAltText       = $slide.getChild('featuredBackgroundMedia').getChild('alternateText').value )
-
+            #set ( $wtf   = $slide.getChild('featuredBackgroundMedia').getChild('focalPoint').value )
+            
             ## Featured Content Variables
             #set ( $featuredCategory      = $slide.getChild('featuredPanel').getChild('category').value )
             #set ( $featuredTitle         = $slide.getChild('featuredPanel').getChild('title').value )
@@ -125,11 +122,22 @@
             #set ( $featuredContentExists = "#if($featuredCategory != '' || $featuredTitle != '' || $featuredSubtitle != '' || $slide.getChild('featuredPanel').getChild('body').value.length() != 0 || $featuredLink.getChild('label').value != '')true#{else}false#end")
             #set ( $featuredLinkExists    = $featuredLink.getChild('label').value != '' )
 
+        <ul class="cd-hero-slider autoplay focuspoint" $wtf >
+
             <li class="#if($foreach.index == 0)selected#end">
               <div class="theme-bg-color slider-bottom-border"></div>
               #if ( $backgroundType == 'Image' )
-                <div id="blur" class="background-image" style="background-image: url('[system-asset]${backgroundImage}[/system-asset]'); background-position: center ${backgroundImageAlignY.toLowerCase()};"></div>
-                <div id="foreground" class="background-image" style="background-image: url('[system-asset]${backgroundImage}[/system-asset]'); background-position: center ${backgroundImageAlignY.toLowerCase()};"></div>
+
+              <div>
+                ## <div id="blur" class="background-image" style="background-image: url('[system-asset]${backgroundImage}[/system-asset]'); background-position: center ${backgroundImageAlignY.toLowerCase()};"></div>
+                ## <div id="foreground" class="background-image" style="background-image: url('[system-asset]${backgroundImage}[/system-asset]'); background-position: center ${backgroundImageAlignY.toLowerCase()};"></div>
+                
+                                    <img src="[system-asset]${backgroundImage}[/system-asset]" alt="${_EscapeTool.xml($backgroundAltText)}" />
+                                      
+
+
+
+              </div>
                   <article class="theme-bg-color-alpha">
                     <img src="[system-asset]${backgroundImage}[/system-asset]" alt="${_EscapeTool.xml($backgroundAltText)}" />
                     #if ( $featuredContentExists == 'true' )
@@ -187,3 +195,9 @@
     </div>
   </div>
 #end
+
+<script>
+  $(function () {
+    $('.focuspoint').focusPoint();
+  });
+</script>
