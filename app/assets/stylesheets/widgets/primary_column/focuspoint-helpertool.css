@@ -1,0 +1,122 @@
+.focuspoint-wrapper {
+  background-color: white;
+  transition: box-shadow .15s ease;
+  z-index: 999;
+  box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* !HELPER TOOL TARGETING SYSTEM */
+  /* !HELPER TOOL TARGETING SYSTEM */
+}
+
+.focuspoint-wrapper:hover {
+  box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.6);
+}
+
+.focuspoint-wrapper h2 {
+  margin-top: 0;
+}
+
+.focuspoint-wrapper ol {
+  margin-left: 2rem;
+}
+
+.focuspoint-wrapper .toggle {
+  padding-left: 1rem;
+  padding-top: 1rem;
+  background-color: #f6f2e8 !important;
+  height: 5rem;
+  border-bottom: 2px solid black;
+}
+
+.focuspoint-wrapper .fas.fa-times {
+  z-index: 99999;
+  cursor: pointer;
+}
+
+.focuspoint-wrapper .focuspoint-wrapper {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.focuspoint-wrapper #Info {
+  width: auto;
+}
+
+.focuspoint-wrapper #Info .helper-tool h1 {
+  font-size: 14px;
+}
+
+.focuspoint-wrapper #Info .helper-tool p.instructions {
+  font-size: 1.8rem;
+  margin-top: 1.2rem;
+  margin-left: -1.6rem;
+  padding-left: 0;
+  font-weight: bold;
+}
+
+.focuspoint-wrapper .helper-tool,
+.focuspoint-wrapper .helper-tool * {
+  box-sizing: border-box;
+}
+
+.focuspoint-wrapper .helper-tool {
+  padding: 12px;
+  border: 1px solid #fcfcfc;
+}
+
+.focuspoint-wrapper .helper-tool input {
+  position: relative;
+  width: 100%;
+}
+
+.focuspoint-wrapper .focuspoint img {
+  transition: all 500ms ease-in-out;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+}
+
+.focuspoint-wrapper .helper-tool-target {
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+
+.focuspoint-wrapper .helper-tool-target img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.focuspoint-wrapper .helper-tool-target img.target-overlay,
+.focuspoint-wrapper .helper-tool-target img.reticle {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.focuspoint-wrapper .helper-tool-target img.target-overlay {
+  cursor: pointer;
+  opacity: 0.01;
+}
+
+.focuspoint-wrapper .helper-tool-target img.reticle {
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transition: all 500ms ease-in-out;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+}
+
+.focuspoint-wrapper label {
+  font-size: 1.6rem;
+}

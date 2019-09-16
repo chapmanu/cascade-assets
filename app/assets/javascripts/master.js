@@ -32,8 +32,9 @@
 //= require cascade/plugins/cookie
 //= require cascade/plugins/ellipsis
 //= require cascade/plugins/flexslider
-//= require_tree ../../../vendor/assets/javascripts/focuspoint
-
+//= require cascade/plugins/focuspoint-helpertool-basic
+//= require cascade/plugins/focuspoint-helpertool
+//= require cascade/plugins/focuspoint
 //= require cascade/plugins/hover-intent
 //= require cascade/plugins/jcarousel
 //= require cascade/plugins/modernizr
