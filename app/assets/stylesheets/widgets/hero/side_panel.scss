@@ -461,13 +461,11 @@
   }
 
   .blur {
-
     z-index: 1;
     filter: blur(2px);
     transform: scale(1.1);
     width: 100vw;
     height: auto;
-
   }
 
   // this is to prevent people's faces from being cut off on wide displays
@@ -490,24 +488,40 @@
       z-index: 3;
     }
 
-    #blur  {
+    #blur {
       filter: blur(100px);
       transform: scale(1.1);
       background-position: center;
       background-size: 100%;
-      z-index:1;
+      z-index: 1;
     }
-
 
     #foreground {
       z-index: 2;
       display: block;
       margin: auto;
-      height: 80%;
+      // height: 80%;
       background-position: center center;
+      max-width: 50%;
+    }
+
+    .contain {
+      object-fit: contain;
+      height: 100vh;
+      width: 100vw;
     }
   }
 }
+
+@media only screen and (max-width : 1024px) {
+  .desktop {
+    display: none;
+  }
+  #blur {
+    display: none;
+  }
+}
+
 
 // Override the default background color when no theme is applied
 #theme .side-panel-hero .theme-bg-color-alpha {
