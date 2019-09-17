@@ -1,0 +1,23 @@
+@import "variables";
+
+#uninav {
+  display: grid;
+  grid-template-areas:
+    "logo utility"
+    "global cta";
+
+
+  ul li {
+    display: inline;
+  }
+
+  .uninav__logo {
+    grid-area: logo;
+  }
+
+  #uninav__global-nav {
+    grid-area: global;
+  }
+
+
+}

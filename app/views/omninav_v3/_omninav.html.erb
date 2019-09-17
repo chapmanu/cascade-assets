@@ -1,7 +1,52 @@
-<!-- BEM Naming Convention: Block - Elements - Modifier -->
-<!--  -->
-  <div id="uninav" class="uninav">
-    <div class="uninav__logo">
-      <img src="" alt="">
-    </div>
-  </div>
+<!-- Goals:
+- WCAG Accessible  
+- CSS Grid
+- Links still accessible without JS
+- Smoother, meaningful transitions/animations
+-->
+
+<div id="uninav" class="uninav" role="navigation" aria-labelledby="" landmark="nav">
+  <%= render 'omninav_v3/logo' %>
+  <%= render 'omninav_v3/utility_nav' %>
+  <%= render 'omninav_v3/global_nav' %>
+  <%= render 'omninav_v3/cta' %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- debugging -->
+<style>
+  .uninav,
+  .uninav>div {
+    border: 2px solid black;
+  }
+</style>
+<!-- <script>
+var divs = document.getElementsByTagName('div');
+
+for(var i =0; i < divs.length; i++){
+divs[i].style.background = getRandomColor();
+}
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+</script> -->
