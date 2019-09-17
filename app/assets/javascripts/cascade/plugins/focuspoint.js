@@ -85,7 +85,7 @@
       }
 
       var containerW = $el.innerWidth();
-      var containerH = $el.outerHeight();
+      var containerH = $el.height();
       var focusX = parseFloat($el.data('focusX'));
       var focusY = parseFloat($el.data('focusY'));
       var $image = $el.find('img').first();
