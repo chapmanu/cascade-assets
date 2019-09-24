@@ -52,6 +52,7 @@
 					<asset identifier="videoFile" label="Video File (.mp4 no larger than 10mb)" type="file"/>
 					<asset identifier="fallbackImageFile" label="Fallback Image File (Around 1600px by 1200px)" type="file"/>
 					<asset identifier="imageFile" label="Image File (Around 1600px by 1200px)" type="file"/>
+					<text identifier="focalPoint" label="Focal Point Data Attribute"/>
 					<text default="Bottom" identifier="alignY" label="Image Align" type="radiobutton">
 						<radio-item value="Top"/>
 						<radio-item value="Center"/>
@@ -149,7 +150,7 @@
 				</text>
 				<asset help-text=".mp4 - no larger than 10mb" identifier="videoFile" label="Video File" type="file"/>
 				<asset identifier="fallbackImageFile" label="Fallback Image File" type="file"/>
-				<asset identifier="imageFile" label="Image File" type="file" required="true"/>
+				<asset identifier="imageFile" label="Image File" required="true" type="file"/>
 				<text default="Center" identifier="alignY" label="Image Align" type="radiobutton">
 					<radio-item value="Top"/>
 					<radio-item value="Center"/>
