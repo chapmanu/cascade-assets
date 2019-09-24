@@ -3,6 +3,61 @@
  * Master Version: Chapman.edu/_cascade/formats/modular/mastheads/side_panel_hero
  *#
 
+[system-view:internal]
+	
+<div class="focuspoint-wrapper draggable">
+
+  <div id="Info">
+    <div class="toggle">
+      <span class="fas fa-times">
+        <div class="sr-only">dismiss</div>
+      </span>
+    </div>
+    <div class="helper-tool" style="width: 348px; height: 589px;">
+      <h2>This section will only display within Cascade's Preview!</h2>
+      <details>
+        <summary class="faux-h3">Instructions</summary>
+        <ol>
+          <p class="instructions">For each image in the masthead:</p>
+          <li>Copy and paste the image url.</li>
+          <li>Choose a focal point with the picker. </li>
+          <li>Copy and paste the data-attributes into the corresponding masthead widget field. <br/>
+            example:
+            <pre>data-focus-x="0.18" data-focus-y="0.21" data-image-w="6000" data-image-h="4000"</pre>
+          </li>
+        </ol>
+      </details>
+
+
+      <div class="helper-tool-target">
+        <img class="helper-tool-img"/> 
+        <img class="reticle"
+          src="https://dev-www.chapman.edu/_assets/focuspoint-target-c253e91ff87a1d9168a3755299e453672d02a9d6d0e4de1d1554a11e860aea78.png"
+          alt=" " />
+        <img class="target-overlay" alt=" "/>
+      </div>
+      <p>
+        <label for="set-src">Paste in a URL to change the image</label>
+        <input class="helper-tool-set-src" id="set-src" name="set-src" type="text" />
+      </p>
+      <p>
+        <label for="data-attr">Focal Point data-attributes:</label>
+        <input class="helper-tool-data-attr" id="data-attr" name="data-attr"
+          placeholder="data-focus-x=&quot;0&quot; data-focus-y=&quot;0&quot; " type="text" />
+      </p>
+        <p>
+          <label for="css3-val">CSS Background Position:</label>
+          <input class="helper-tool-css3-val" id="css3-val" name="css3-val" placeholder="background-position:"
+            type="text" />
+        </p>
+    </div><!-- End Helper Tool -->
+  </div>
+
+</div>
+  
+
+[/system-view:internal]
+
 #import( "/_cascade/formats/helpers.velocity" )
 
 #macro(outputSidePanelHero $element)
@@ -17,8 +72,7 @@
   ## Featured Content Slides
   #set ( $slides = $_XPathTool.selectNodes($element, '//sidePanelHero/featuredContent') )
 
-  <div class="side-panel-hero">
-
+  <div class="side-panel-hero focuspoint" >
     <div class="hero-content">
       <section aria-labelledby="herocontentpanel" class="hero-content-panel">
         <h1 id="herocontentpanel">$_EscapeTool.xml($panelTitle)</h1>
@@ -49,7 +103,6 @@
       <div class="cd-arrow-left"><a href="#">&#139;</a></div>
       <div class="cd-arrow-right"><a href="#">&#155;</a></div>
       <div class="cd-slide-container">
-        <ul class="cd-hero-slider autoplay">
           #foreach($slide in $slides)
             ## Background Variables
             #set ( $backgroundType          = $slide.getChild('featuredBackgroundMedia').getChild('type').value )
@@ -58,7 +111,8 @@
             #set ( $backgroundVideo         = $slide.getChild('featuredBackgroundMedia').getChild('videoFile').getChild('path').value )
             #set ( $backgroundFallbackImage = $slide.getChild('featuredBackgroundMedia').getChild('fallbackImageFile').getChild('path').value )
             #set ( $backgroundAltText       = $slide.getChild('featuredBackgroundMedia').getChild('alternateText').value )
-
+            #set ( $wtf   = $slide.getChild('featuredBackgroundMedia').getChild('focalPoint').value )
+            
             ## Featured Content Variables
             #set ( $featuredCategory      = $slide.getChild('featuredPanel').getChild('category').value )
             #set ( $featuredTitle         = $slide.getChild('featuredPanel').getChild('title').value )
@@ -68,10 +122,22 @@
             #set ( $featuredContentExists = "#if($featuredCategory != '' || $featuredTitle != '' || $featuredSubtitle != '' || $slide.getChild('featuredPanel').getChild('body').value.length() != 0 || $featuredLink.getChild('label').value != '')true#{else}false#end")
             #set ( $featuredLinkExists    = $featuredLink.getChild('label').value != '' )
 
+        <ul class="cd-hero-slider autoplay focuspoint" $wtf >
+
             <li class="#if($foreach.index == 0)selected#end">
               <div class="theme-bg-color slider-bottom-border"></div>
               #if ( $backgroundType == 'Image' )
-                <div class="background-image" style="background-image: url('[system-asset]${backgroundImage}[/system-asset]'); background-position: center ${backgroundImageAlignY.toLowerCase()};">
+
+              <div>
+                ## <div id="blur" class="background-image" style="background-image: url('[system-asset]${backgroundImage}[/system-asset]'); background-position: center ${backgroundImageAlignY.toLowerCase()};"></div>
+                ## <div id="foreground" class="background-image" style="background-image: url('[system-asset]${backgroundImage}[/system-asset]'); background-position: center ${backgroundImageAlignY.toLowerCase()};"></div>
+                
+                                    <img src="[system-asset]${backgroundImage}[/system-asset]" alt="${_EscapeTool.xml($backgroundAltText)}" />
+                                      
+
+
+
+              </div>
                   <article class="theme-bg-color-alpha">
                     <img src="[system-asset]${backgroundImage}[/system-asset]" alt="${_EscapeTool.xml($backgroundAltText)}" />
                     #if ( $featuredContentExists == 'true' )
@@ -86,7 +152,6 @@
                       </div>
                     #end
                   </article>
-                </div>
               #elseif ( $backgroundType == 'Video' )
                 <div class="background-video-wrapper">
                   <article class="theme-bg-color-alpha">
@@ -130,3 +195,9 @@
     </div>
   </div>
 #end
+
+<script>
+  $(function () {
+    $('.focuspoint').focusPoint();
+  });
+</script>

@@ -36,6 +36,8 @@ var chapDOM = (function () {
    * @param {String} className The class name
   */
   Constructor.prototype.addClass = function(className) {
+    if(!this.elems.length) return;
+
     this.each(function (item) {
       item.classList.add(className);
     });
@@ -49,9 +51,11 @@ var chapDOM = (function () {
    * @param {String} data Value to set the html attribute to
   */
   Constructor.prototype.changeAttr = function(type, data) {
-    if(typeof data !== 'string' && !validAttr.includes(type)) return;
+    if (!this.elems.length) return
 
-    if ( this.elems.length > 0) {
+    if(typeof data !== 'string' && !validAttr.includes(type)) return;
+    
+    if ( this.elems.length > 1) {
       this.each( function(elem) {
         elem.setAttribute(type, data);
       });
@@ -67,6 +71,8 @@ var chapDOM = (function () {
    * @param {String} text Value to set the inner html for the element to
   */
   Constructor.prototype.changeText = function(text) {
+    if (!this.elems.length) return
+
     if(typeof text !== 'string') return;
 
     if ( this.elems.length > 1) {
@@ -85,6 +91,8 @@ var chapDOM = (function () {
    * @param {String} className The class name
   */
   Constructor.prototype.removeClass = function(className) {
+    if(!this.elems.length) return;
+
     this.each(function (item) {
       item.classList.remove(className);
     });
@@ -93,6 +101,8 @@ var chapDOM = (function () {
   };
 
   Constructor.prototype.hide = function() {
+    if(!this.elems.length) return;
+
     if ( this.elems.length > 1) {
       this.each( function(elem) {
         elem.style.display = 'none';
