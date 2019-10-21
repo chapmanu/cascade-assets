@@ -1,217 +1,26 @@
 body {
   .buorg {
     font: 1.6rem $font-stack-heading;
+    font: 1.6rem $font-stack-body;
   }
 
   #buorgul {
-    -webkit-font-smoothing: antialiased;
-    font-weight: 400;
-    font-family: Arial, sans-serif;
-    line-height: 2rem;
-    -webkit-box-direction: normal;
-    text-align: center;
-    word-wrap: break-word;
-    text-decoration: none;
-    border-bottom: none;
-    cursor: pointer;
-    display: inline-block;
-    padding: 15px 25px;
-    font-size: 16px;
-    border-radius: 3px;
-    -webkit-transition: background-color 0.4s;
-    transition: background-color 0.4s;
-    box-sizing: border-box;
-    width: auto;
-    background: #a50034 no-repeat center;
-    color: #FFFFFF;
-    background-size: 15px;
-    background-position: 15px center;
-    padding-left: 25px;
-    padding-right: 25px;
-    margin: 5px
-  }
-
-  #buorgul:hover {
-    background-color: #C8003F
+    // background: $red;
+    @include button;
+    padding: 2px 5px;
+    border-radius: 0;
   }
 
   #buorgig {
-    -webkit-font-smoothing: antialiased;
-    font-weight: 400;
-    font-family: Arial, sans-serif;
-    line-height: 2rem;
-    -webkit-box-direction: normal;
-    text-align: center;
-    word-wrap: break-word;
-    text-decoration: none;
-    border-bottom: none;
-    cursor: pointer;
-    display: inline-block;
-    padding: 15px 25px;
-    font-size: 16px;
-    border-radius: 3px;
-    background: #cfcfcf no-repeat center;
-    color: #313131;
-    -webkit-transition: background-color 0.4s;
-    transition: background-color 0.4s;
-    box-sizing: border-box;
-    width: auto;
-    background-size: 15px;
-    background-position: 15px center;
-    padding-left: 25px;
-    padding-right: 25px;
-    margin: 5px
-  }
+    background: $cu-light-grey;
+    color: $panther-black;
+    padding: 2px 5px;
+    border-radius: 0;
+    transition: 1s ease;
 
-  #buorgig:hover {
-    background: #ffffff
-  }
-
-  .buorg-buttons {
-    padding-top: 15px
-  }
-
-  #buorg {
-    border-bottom: none;
-    background-color: #f6f2e8;
-  }
-
-  .buorg-pad {
-    padding: 35px 20px 35px 20px;
-    line-height: 1.7em
-  }
-
-  .buorg-test {
-    width: 300px;
-    top: 0;
-    right: 0;
-    background-color: #a50034;
-    font-size: 1.4rem;
-    height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    color: #ffffff;
-    display: none;
-  }
-
-   .noscript {
-    #buorg {
-      top: 0;
-      // margin-top: 60px;
-      position: relative;
-      width: 100%;
-      // z-index: 9;
-    }
-
-    .buorg-pad {
-      display: block;
-      text-align: center;
-    }
-  }
-// IE 6-8
-@media \0screen\,screen\9 {
-  .noscript {
-    #buorg {
-      top: 0;
-      margin-top: 60px;
-      position: absolute;
-      width: 100%;
-      z-index: 9;
-    }
-
-    .buorg-pad {
-      display: block;
-      text-align: center;
-    }
-  }
-  #buorg {
-    top: 0 !important;
-    margin-top: 60px !important;
-    position: absolute !important;
-    width: 100%  !important;
-    z-index: 9  !important;
-    display: block !important;
-  }
-
-  .buorg-pad {
-    display: block !important;
-    text-align: center !important;
-  }
-}
-  // IE 9
-  #omni-nav-v2 {
-    // display: none \9;
-  }
-
-  #buorg {
-    top: 0 \9 !important;
-    margin-top: 60px \9 !important;
-    position: absolute \9 !important;
-    width: 100% \9 !important;
-    z-index: 9 \9 !important;
-    display: block \9 !important;
-  }
-
-  .buorg-pad {
-    display: block \9 !important;
-    text-align: center \9 !important;
-  }
-
-  @media screen and (min-width:0) and (min-resolution:.001dpcm) {
-     .noscript {
-      #buorg {
-        top: 0;
-        margin-top: 60px;
-        position: absolute;
-        width: 100%;
-        z-index: 9;
-      }
-
-      .buorg-pad {
-        display: block;
-        text-align: center;
-      }
+    &:hover {
+      background: $white;
     }
   }
 
-  // IE 11
-  _:-ms-fullscreen,
-  :root .ie11up {
-    #buorg {
-      display: none !important;
-    }
-  }
-
-  // Microsoft Edge (supports grid eg covered above. leaving here in case needed later)
-  @supports (-ms-ime-align: auto) {
-    #buorg {
-      display: none !important;
-    }
-  }
-
-  // Microsoft ie 10 & 11
-  // https://www.chapman.edu/upgrade-browser.aspx requires supporting 11
-  @media all and (-ms-high-contrast:none) {
-
-    /* IE11 */
-    *::-ms-backdrop,
-    #buorg {
-      display: none !important;
-    }
-  }
-}
-
-
-@supports (display: grid) {
-  body {
-
-    #buorg,
-    #bourg>* {
-      display: none !important;
-    }
-  }
 }
