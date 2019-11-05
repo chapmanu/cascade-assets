@@ -1,58 +1,63 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-  <title><system-page-title/> | Landing Page | Chapman University</title>
-  <system-page-meta-keywords/>
-  <system-page-meta-description/>
-  <system-page-meta-author/>
-  <system-region name="OG_TAGS"/>
-  <system-region name="META VIEWPORT"/>
-  <!-- Jquery, Typekit, Common Assets -->
-  <system-region name="TYPEKIT"/>
-  <system-region name="JQUERY"/>
-  <system-region name="CASCADE ASSETS"/>
-  <!-- Analytics -->
-  <system-region name="FB_JS_SDK"/>
-  <system-region name="GOOGLE_ANALYTICS"/>
-  <!-- Any Additional Head Code -->
-  <system-region name="ADDITIONAL HEAD"/>
-</head>
-
-<!--[if gt IE 8]><!-->
-<body>
-  <!--<![endif]-->
-  <system-region name="GOOGLE_TAG_MANAGER"/>
-  <system-region name="PAGE WRAPPER OPEN"/>
-  <system-region name="JUMP LINK"/>
-  <div id="fb-root"></div>
-  <system-region name="NO_SCRIPT"/>
-  <div class="ad-landing-container" id="container">
-    <header>
-      <system-region name="NAVIGATION"/>
-    </header>
-    <div id="main" role="main">
-      <div class="primary-content landing">
-        <system-region name="MASTHEAD"/> 
-        <!-- primary content no longer used but leave here until sure content is reassigned to default -->
-        <system-region name="PRIMARY CONTENT"/>
-        <!-- default region replaces primary content region -->
-        <system-region name="DEFAULT"/>
-      </div>
-    </div>
-    <footer id="footer">
-      <system-region name="FOOTER"/> 
-      <div class="copyright">
-        <p>All Rights Reserved. Chapman University ® 2016</p>
-      </div>
-    </footer>
-  </div>
-    <!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-    <![endif]-->
-  <system-region name="ADDITIONAL BODY AT-END"/>
-  <system-region name="PAGE WRAPPER CLOSE"/>
-</body>
+<html
+	xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+		<title>
+			<system-page-title/> | Landing Page | Chapman University
+		</title>
+		<system-page-meta-keywords/>
+		<system-page-meta-description/>
+		<system-page-meta-author/>
+		<system-region name="OG_TAGS"/>
+		<system-region name="META VIEWPORT"/>
+		<!-- Jquery, Typekit, Common Assets -->
+		<system-region name="TYPEKIT"/>
+		<system-region name="JQUERY"/>
+		<system-region name="CASCADE ASSETS"/>
+		<!-- Analytics -->
+		<system-region name="FB_JS_SDK"/>
+		<system-region name="GOOGLE_ANALYTICS"/>
+		<!-- Any Additional Head Code -->
+		<system-region name="ADDITIONAL HEAD"/>
+	</head>
+	<!--[if gt IE 8]>
+	<!-->
+	<body>
+		<!--
+                
+		<![endif]-->
+		<system-region name="GOOGLE_TAG_MANAGER"/>
+		<system-region name="PAGE WRAPPER OPEN"/>
+		<system-region name="NO_SCRIPT"/>
+		<system-region name="JUMP LINK"/>
+		<div id="fb-root"></div>
+		<div class="ad-landing-container" id="container">
+			<header>
+				<system-region name="NAVIGATION"/>
+			</header>
+			<div id="main" role="main">
+				<div class="primary-content landing">
+					<system-region name="MASTHEAD"/>
+					<!-- primary content no longer used but leave here until sure content is reassigned to default -->
+					<system-region name="PRIMARY CONTENT"/>
+					<!-- default region replaces primary content region -->
+					<system-region name="DEFAULT"/>
+				</div>
+			</div>
+			<div class="footer__container">
+				<system-region name="FOOTER"/>
+			</div>
+			<div class="copyright">
+				<p>All Rights Reserved. Chapman University Â® 2016</p>
+			</div>
+			<!--[if lt IE 7 ]>
+			<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+			<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+			<![endif]-->
+			<system-region name="ADDITIONAL BODY AT-END"/>
+			<system-region name="PAGE WRAPPER CLOSE"/>
+		</div>
+	</body>
 </html>
