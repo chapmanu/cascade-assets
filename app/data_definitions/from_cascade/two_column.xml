@@ -1,732 +1,731 @@
 <system-data-structure>
-  <group collapsed="true" identifier="masthead" label="Masthead Options">
-    <!-- Masthead Options -->
-    <!-- radio-item show-fields map to groups below -->
-    <!-- radio-item values map to Masthead format selectors -->
-    <text help-text="these are the new wider mastheads available" identifier="mastheadType" label="Masthead Type" type="radiobutton">
-      <radio-item show-fields="masthead/branded201611" value="Branded - New"/>
-      <radio-item show-fields="masthead/slider201611" value="Slider - New"/>
-      <radio-item show-fields="masthead/boxes" value="Boxes"/>
-      <radio-item value="No Masthead"/>
-    </text>
-    <!-- New masthead formats (Nov 2016): Branded and Slider -->
-    <!-- These should mirror groups in three_column.xml -->
-    <group identifier="branded201611" label="Branded - New">
-      <text help-text="title that appears in masthead to the side of the photo" identifier="header" label="School or Dept Name" required="true"/>
-      <asset identifier="image" label="Image (780x260)" required="true" type="file"/>
-      <text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
-      <text help-text="short caption (70 chars max including blanks) to show on photo eg. Photo By: or other text" identifier="photoCaption" label="Caption (optional. 70 chars max)" maxlength="70"/>
-    </group>
-    <group identifier="slider201611" label="Slider - New">
-      <text help-text="title that appears in masthead to the side of the photo" identifier="header" label="School or Dept Name" required="true"/>
-      <group identifier="slides" label="Slides">
-        <group identifier="slide" label="Slide" maximum-number="10" minimum-number="1" multiple="true">
-          <asset identifier="image" label="Image (780x440)" required="true" type="file"/>
-          <text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
-          <text identifier="subTitle" label="subTitle"/>
-          <text help-text="short caption (70 chars max including blanks) to show on photo eg. Photo By: or other text" identifier="photoCaption" label="Caption (optional. 70 chars max)" maxlength="70"/>
-        </group>
-      </group>
-    </group>
-    <group identifier="boxes" label="Boxes">
-      <text default="No" identifier="show" label="Show" required="true" type="radiobutton">
-        <radio-item value="Yes"/>
-        <radio-item value="No"/>
-      </text>
-      <text identifier="autoRotate" label="Auto Rotate" type="checkbox">
-        <checkbox-item value="On"/>
-      </text>
-      <text help-text="Accepts an integer corresponding to slide number" identifier="startingSlideNumber" label="Starting Slide Number"/>
-      <text help-text="Number of seconds it takes a slide to auto rotate. If no value is entered, slides will rotate every ten seconds." identifier="speed" label="Speed"/>
-      <group identifier="slides" label="Slides">
-        <group identifier="slide" label="Slide" minimum-number="4" multiple="true">
-          <asset identifier="image" label="Image (266x220)" type="file"/>
-          <text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
-          <text default="[header]" identifier="header" label="Header" maxlength="35" required="true"/>
-          <text default="[description]" identifier="description" label="Description (25 words max)" multi-line="true" required="true"/>
-          <text help-text="full url (including http) to page outside of Cascade" identifier="link" label="External Link"/>
-          <asset identifier="internalLink" label="Or Internal Link" type="page"/>
-        </group>
-      </group>
-    </group>
-  </group>
-  <group collapsed="true" identifier="leftColumn" label="Left Column">
-    <group identifier="widget" label="Widget" multiple="true">
-      <text default="(select one)" help-text="Choose the type of content you'd like to add to the page" identifier="widgetType" label="Type of Widget" type="dropdown">
-        <dropdown-item value="(select one)"/>
-        <dropdown-item show-fields="leftColumn/widget/actionButtons" value="Button"/>
-        <dropdown-item show-fields="leftColumn/widget/calloutBox" value="Callout Box"/>
-        <dropdown-item show-fields="leftColumn/widget/FeaturedNewsEvents" value="Featured / News / Events"/>
-        <dropdown-item show-fields="leftColumn/widget/contact" value="Department Contact Info"/>
-      </text>
-      <group collapsed="true" identifier="calloutBox" label="Callout Box">
-        <text default="Yes" identifier="display-callout-box" label="Show" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <group identifier="text" label="Text">
-          <text default="[headline]" identifier="headline" label="Headline" multi-line="true"/>
-          <text identifier="copy" label="Copy" wysiwyg="true"/>
-        </group>
-        <group identifier="links" label="Links">
-          <group identifier="link" label="Link" multiple="true">
-            <text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
-              <radio-item show-fields="leftColumn/widget/calloutBox/links/link/internalLink" value="Internal Link"/>
-              <radio-item show-fields="leftColumn/widget/calloutBox/links/link/externalLink" value="External Link"/>
-              <radio-item show-fields="leftColumn/widget/calloutBox/links/link/fileLink" value="File Link"/>
-            </text>
-            <text identifier="externalLink" label="External Link"/>
-            <asset identifier="internalLink" label="Internal Link" type="page"/>
-            <asset identifier="fileLink" label="File Link" type="file"/>
-            <text identifier="label" label="Label"/>
-          </group>
-        </group>
-      </group>
-      <group collapsed="true" identifier="actionButtons" label="Buttons">
-        <text default="Yes" identifier="display-action-buttons" label="Show" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <group identifier="button" label="Button" multiple="true">
-          <text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
-            <radio-item show-fields="leftColumn/widget/actionButtons/button/internalLink" value="Internal Link"/>
-            <radio-item show-fields="leftColumn/widget/actionButtons/button/externalLink" value="External Link"/>
-            <radio-item show-fields="leftColumn/widget/actionButtons/button/fileLink" value="File Link"/>
-          </text>
-          <text identifier="externalLink" label="External Link"/>
-          <asset identifier="internalLink" label="Internal Link" type="page"/>
-          <asset identifier="fileLink" label="File Link" type="file"/>
-          <text identifier="label" label="Label"/>
-          <text help-text="Javascript code to execute on the click event of this link." identifier="onclick" label="Custom Onclick Code"/>
-        </group>
-        <asset identifier="block" label="Block" render-content-depth="unlimited" type="block"/>
-      </group>
-      <group collapsed="true" identifier="FeaturedNewsEvents" label="Featured / News / Events">
-        <text default="Do Not Show" identifier="options" label="Options" required="true" type="dropdown">
-          <dropdown-item value="Featured - News - Events (Featured active)"/>
-          <dropdown-item value="Featured - News - Events (News active)"/>
-          <dropdown-item value="Featured - News - Events (Events active)"/>
-          <dropdown-item value="Featured - News (Featured active)"/>
-          <dropdown-item value="Featured - News (News active)"/>
-          <dropdown-item value="Featured - Events (Featured active)"/>
-          <dropdown-item value="Featured - Events (Events active)"/>
-          <dropdown-item value="News - Events (News active)"/>
-          <dropdown-item value="News - Events (Events active)"/>
-          <dropdown-item value="Featured Only"/>
-          <dropdown-item value="News Only"/>
-          <dropdown-item value="Events Only"/>
-          <dropdown-item value="Do Not Show"/>
-        </text>
-      </group>
-      <group collapsed="true" identifier="contact" label="Department Contact">
-        <text default="Yes" identifier="display-contact" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <asset identifier="info" label="Contact Block" render-content-depth="2" required="true" type="block"/>
-      </group>
-    </group>
-  </group>
-  <group collapsed="true" identifier="primaryContent" label="Primary Content">
-    <text default="[page title]" identifier="pageTitle" label="Page Title" required="true"/>
-    <group identifier="widget" label="Widgets" multiple="true">
-      <text default="(choose one)" help-text="Choose the type of content you'd like to add to the page" identifier="widgetType" label="Type of Widget" type="dropdown">
-        <dropdown-item value="(select one)"/>
-        <dropdown-item show-fields="primaryContent/widget/carousel" value="Carousel"/>
-        <dropdown-item show-fields="primaryContent/widget/collapsibleRegions" value="Collapsible Regions"/>
-        <dropdown-item show-fields="primaryContent/widget/faculty" value="Faculty Info"/>
-        <dropdown-item show-fields="primaryContent/widget/FeaturedNewsEvents" value="Featured / News / Events"/>
-        <dropdown-item show-fields="primaryContent/widget/form-embed" value="Form Embed"/>
-        <dropdown-item show-fields="primaryContent/widget/form" value="Form"/>
-        <dropdown-item show-fields="primaryContent/widget/funnels-2up" value="Funnels 2up"/>
-        <dropdown-item show-fields="primaryContent/widget/funnels-1up" value="Funnels 1up"/>
-        <dropdown-item show-fields="primaryContent/widget/logo-image-rotator" value="Logo Image Rotator"/>
-        <dropdown-item show-fields="primaryContent/widget/personnel" value="Personnel Table"/>
-        <dropdown-item show-fields="primaryContent/widget/tabs" value="Tabs"/>
-        <dropdown-item show-fields="primaryContent/widget/wysiwyg-editor" value="Text Editor"/>
-        <dropdown-item show-fields="primaryContent/widget/threePhotoCallout" value="Three Photo Callout"/>
-        <dropdown-item show-fields="primaryContent/widget/twitterTimeline" value="Twitter Feed"/>
-        <dropdown-item show-fields="primaryContent/widget/Calendar25Live" value="Calendar25Live"/>
-        <dropdown-item show-fields="primaryContent/widget/AtoZListing" value="A to Z Listing"/>
-        <dropdown-item show-fields="primaryContent/widget/html-block" value="Html Block"/>
-        <!--<dropdown-item show-fields="primaryContent/widget/reserved-block-formats" value="Reserved Block-Formats"/>-->
-        <dropdown-item show-fields="primaryContent/widget/contact" value="Department Contact Info"/>
-        <dropdown-item show-fields="primaryContent/widget/degree" value="Degree Info"/>
-      </text>
-      <group collapsed="true" identifier="carousel" label="Carousel">
-        <text default="Yes" identifier="display-carousel" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <group identifier="image" label="Image" multiple="true">
-          <text identifier="headline" label="Headline"/>
-          <text identifier="caption" label="Caption" wysiwyg="true"/>
-          <text default="Internal Cascade Image" identifier="imageLink" label="Image Link" type="radiobutton">
-            <radio-item show-fields="primaryContent/widget/carousel/image/internalCascadeImage" value="Internal Cascade Image"/>
-            <radio-item show-fields="primaryContent/widget/carousel/image/externalImageURL" value="External Image URL"/>
-          </text>
-          <text identifier="externalImageURL" label="External Image URL (960x540)"/>
-          <asset identifier="internalCascadeImage" label="Internal Cascade Image  (960x540)" type="file"/>
-        </group>
-      </group>
-      <group collapsed="true" identifier="collapsibleRegions" label="Collapsible Regions">
-        <text default="Yes" identifier="display-collapsibles" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text help-text="heading to appear above set of collapsibles" identifier="header" label="Main Header"/>
-        <text help-text="introductory text to appear above set of collapsibles" identifier="copy" label="Introductory Copy" wysiwyg="true"/>
-        <group identifier="collapsibleRegion" label="Region" minimum-number="0" multiple="true">
-          <text default="No" identifier="active" label="Open by Default" required="true" type="radiobutton">
-            <radio-item value="Yes"/>
-            <radio-item value="No"/>
-          </text>
-          <text default="[section header here]" identifier="header" label="Collapsible Header" required="true"/>
-          <text identifier="copy" label="Copy" wysiwyg="true"/>
-        </group>
-      </group>
-      <group collapsed="true" identifier="FeaturedNewsEvents" label="Featured / News / Events">
-        <text default="Do Not Show" identifier="options" label="Options" required="true" type="dropdown">
-          <dropdown-item value="Featured - News - Events (Featured active)"/>
-          <dropdown-item value="Featured - News - Events (News active)"/>
-          <dropdown-item value="Featured - News - Events (Events active)"/>
-          <dropdown-item value="Featured - News (Featured active)"/>
-          <dropdown-item value="Featured - News (News active)"/>
-          <dropdown-item value="Featured - Events (Featured active)"/>
-          <dropdown-item value="Featured - Events (Events active)"/>
-          <dropdown-item value="News - Events (News active)"/>
-          <dropdown-item value="News - Events (Events active)"/>
-          <dropdown-item value="Featured Only"/>
-          <dropdown-item value="News Only"/>
-          <dropdown-item value="Events Only"/>
-          <dropdown-item value="Do Not Show"/>
-        </text>
-      </group>
-      <group collapsed="true" identifier="tabs" label="Tabs">
-        <text default="Yes" identifier="display-tabs" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <group identifier="tab" label="Tab" multiple="true">
-          <text default="[name]" identifier="name" label="Name" required="true"/>
-          <text default="[content]" identifier="content" label="Content" required="true" wysiwyg="true"/>
-        </group>
-      </group>
-      <group collapsed="true" identifier="funnels-1up" label="Funnels (1up)">
-        <text default="Yes" identifier="display-funnels-1up" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <group identifier="region" label="Region" minimum-number="0" multiple="true">
-          <text default="[headline]" identifier="headline" label="Headline" required="true"/>
-          <asset identifier="image" label="Image (200x150)" required="true" type="file"/>
-          <text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
-          <text identifier="copy" label="Copy" wysiwyg="true"/>
-          <group identifier="links" label="Links">
-            <group identifier="link" label="Link" minimum-number="0" multiple="true">
-              <text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
-                <radio-item show-fields="primaryContent/widget/funnels-1up/region/links/link/internalLink" value="Internal Link"/>
-                <radio-item show-fields="primaryContent/widget/funnels-1up/region/links/link/externalLink" value="External Link"/>
-                <radio-item show-fields="primaryContent/widget/funnels-1up/region/links/link/fileLink" value="File Link"/>
-              </text>
-              <text help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-              <asset identifier="internalLink" label="Internal Link" type="page"/>
-              <asset identifier="fileLink" label="File Link" type="file"/>
-              <text identifier="label" label="Label"/>
-            </group>
-          </group>
-        </group>
-      </group>
-      <group collapsed="true" identifier="funnels-2up" label="Funnels (2up)">
-        <text default="Yes" identifier="display-funnels-2up" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <group identifier="region" label="Region" multiple="true">
-          <asset identifier="image" label="Image (290x125)" type="file"/>
-          <text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
-          <text default="[headline]" identifier="headline" label="Headline" multi-line="true" required="true"/>
-          <group identifier="headlineLink" label="Headline Link">
-            <text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
-              <radio-item show-fields="primaryContent/widget/funnels-2up/region/headlineLink/internalLink" value="Internal Link"/>
-              <radio-item show-fields="primaryContent/widget/funnels-2up/region/headlineLink/externalLink" value="External Link"/>
-            </text>
-            <text help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-            <asset identifier="internalLink" label="Internal Link" type="page"/>
-          </group>
-          <text identifier="copy" label="Copy" multi-line="true"/>
-          <group identifier="links" label="Links">
-            <group identifier="link" label="Link" multiple="true">
-              <text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
-                <radio-item show-fields="primaryContent/widget/funnels-2up/region/links/link/internalLink" value="Internal Link"/>
-                <radio-item show-fields="primaryContent/widget/funnels-2up/region/links/link/externalLink" value="External Link"/>
-                <radio-item show-fields="primaryContent/widget/funnels-2up/region/links/link/fileLink" value="File Link"/>
-              </text>
-              <text help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-              <asset identifier="internalLink" label="Internal Link" type="page"/>
-              <asset identifier="fileLink" label="File Link" type="file"/>
-              <text identifier="label" label="Label"/>
-            </group>
-          </group>
-        </group>
-      </group>
-      <group collapsed="true" identifier="personnel" label="Personnel">
-        <text default="Yes" identifier="display-personnel" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text identifier="header" label="Header"/>
-        <text help-text="text to appear above list of people" identifier="copy" label="Copy" wysiwyg="true"/>
-        <group identifier="person" label="Person" multiple="true">
-          <text identifier="first-name" label="First Name"/>
-          <text identifier="middle-name" label="Middle Name"/>
-          <text identifier="last-name" label="Last Name"/>
-          <text identifier="title" label="Title"/>
-          <text identifier="location" label="Campus Location"/>
-          <text identifier="phone" label="Phone Number"/>
-          <text identifier="email" label="Email address"/>
-          <asset identifier="image" label="Image (120px wide)" type="file"/>
-          <text identifier="bio" label="Bio paragraph" multi-line="true" multiple="true"/>
-          <group identifier="link" label="Links" multiple="true">
-            <text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
-              <radio-item show-fields="primaryContent/widget/personnel/person/link/internalLink" value="Internal Link"/>
-              <radio-item show-fields="primaryContent/widget/personnel/person/link/externalLink" value="External Link"/>
-              <radio-item show-fields="primaryContent/widget/personnel/person/link/fileLink" value="File Link"/>
-            </text>
-            <text identifier="externalLink" label="External Link"/>
-            <asset identifier="internalLink" label="Internal Link" type="page"/>
-            <asset identifier="fileLink" label="File Link" type="file"/>
-            <text identifier="label" label="Link text (defaults to 'View Full Bio' if blank)"/>
-          </group>
-        </group>
-      </group>
-      <group collapsed="true" identifier="threePhotoCallout" label="Three Photo Callout">
-        <text default="Yes" identifier="display-three-photo-callout" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <group identifier="photoCallout" label="Photo" maximum-number="3" minimum-number="3" multiple="true">
-          <asset identifier="image" label="Image (136x96)" type="file"/>
-          <text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
-          <group identifier="link" label="Link">
-            <text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
-              <radio-item show-fields="primaryContent/widget/threePhotoCallout/photoCallout/link/internalLink" value="Internal Link"/>
-              <radio-item show-fields="primaryContent/widget/threePhotoCallout/photoCallout/link/externalLink" value="External Link"/>
-              <radio-item show-fields="primaryContent/widget/threePhotoCallout/photoCallout/link/fileLink" value="File Link"/>
-            </text>
-            <text identifier="externalLink" label="External Link"/>
-            <asset identifier="internalLink" label="Internal Link" type="page"/>
-            <asset identifier="fileLink" label="File Link" type="file"/>
-            <text identifier="label" label="Label"/>
-          </group>
-        </group>
-      </group>
-      <group collapsed="true" identifier="twitterTimeline" label="Twitter Timeline">
-        <text default="Yes" identifier="display-twitter-timeline" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <asset identifier="timeline" label="Timeline" render-content-depth="unlimited" type="block"/>
-      </group>
-      <group collapsed="true" identifier="Calendar25Live" label="25Live Calendar (labs and classrooms)">
-        <text default="Yes" identifier="display-25live-listing" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <group identifier="settings" label="Settings">
-          <text default="llb03" help-text="code for specific calendar from 25live database" identifier="Calendar25LiveVariable" label="25Live Calendar Code" type="dropdown">
-            <dropdown-item value="llb03"/>
-            <dropdown-item value="llb12"/>
-            <dropdown-item value="llb13"/>
-            <dropdown-item value="llb14"/>
-            <dropdown-item value="llb16"/>
-            <dropdown-item value="llb17"/>
-            <dropdown-item value="computer-lab-schedule-dh100"/>
-            <dropdown-item value="rinker-health-science-9501-room-129"/>
-            <dropdown-item value="rinker-health-science-9501-room-130"/>
-            <dropdown-item value="rinker-health-science-9501-room-131"/>
-            <dropdown-item value="rinker-health-science-9501-room-132"/>
-            <dropdown-item value="rinker-health-science-9501-room-133"/>
-            <dropdown-item value="rk-104"/>
-            <dropdown-item value="rk-106"/>
-            <dropdown-item value="rk-203"/>
-            <dropdown-item value="rk-204"/>
-            <dropdown-item value="rk-205"/>
-            <dropdown-item value="rk-207"/>
-            <dropdown-item value="rk-212"/>
-            <dropdown-item value="rk-215"/>
-            <dropdown-item value="rk-216"/>
-            <dropdown-item value="rk-217"/>
-            <dropdown-item value="rk-94_110"/>
-            <dropdown-item value="rk-94_113"/>
-            <dropdown-item value="rk-94_127"/>
-            <dropdown-item value="rinker-health-science-9401-room-131"/>
-            <dropdown-item value="rinker-health-science-9401-room-202"/>
-            <dropdown-item value="rinker-health-science-9401-room-203"/>
-            <dropdown-item value="rinker-health-science-9401-room-236"/>
-            <dropdown-item value="rinker-health-science-9401-room-277"/>
-            <dropdown-item value="rinker-health-science-9401-room-278"/>
-          </text>
-        </group>
-      </group>
-      <group collapsed="true" identifier="AtoZListing" label="A to Z Listing (Block)">
-        <text default="Yes" identifier="display-a-z-listing" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <asset help-text="choose an index block from _cascade/blocks/ folder" identifier="blockName" label="Block" type="block"/>
-      </group>
-      <group collapsed="true" identifier="html-block" label="Html block">
-        <text default="Yes" identifier="display-html-block" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text default="Cascade Block" identifier="block-type" label="Block Type" required="true" type="radiobutton">
-          <radio-item label="Cascade Block" show-fields="primaryContent/widget/html-block/cascade-block" value="Cascade Block"/>
-          <radio-item label="Paste In External Code" show-fields="primaryContent/widget/html-block/external-block" value="External Block"/>
-        </text>
-        <group identifier="cascade-block" label="Cascade Block">
-          <asset help-text="link to _cascade/blocks/html" identifier="code-block" label="Block" render-content-depth="unlimited" type="block"/>
-        </group>
-        <group identifier="external-block" label="External Block">
-          <text help-text="paste in raw html or Javascript link to render code or iFrame" identifier="code-block" label="HTml of Javascript Embed or IFrame Code Block" multi-line="true" required="true"/>
-        </group>
-      </group>
-      <!--
-      <group collapsed="true" identifier="reserved-block-formats" label="Reserved Block/Formats">
-        <text default="Yes" identifier="display-reserved-block-formats" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text default="A to Z Listing" help-text="identifies pre-paired block and formats of data" identifier="BlockFormatType" label="Block/Format Type" type="dropdown">
-          <dropdown-item value="University-wide Faculty By Rank Listing"/>
-          <dropdown-item value="University-wide Tenure/Tenure-Track Faculty Listing"/>
-          <dropdown-item value="University-wide Presidential Fellows Listing"/>
-          <dropdown-item value="A to Z Listing"/>
-        </text>
-      </group>
+	<group collapsed="true" identifier="masthead" label="Masthead Options">
+		<!-- Masthead Options -->
+		<!-- radio-item show-fields map to groups below -->
+		<!-- radio-item values map to Masthead format selectors -->
+		<text help-text="these are the new wider mastheads available" identifier="mastheadType" label="Masthead Type" type="radiobutton">
+			<radio-item show-fields="masthead/branded201611" value="Branded - New"/>
+			<radio-item show-fields="masthead/slider201611" value="Slider - New"/>
+			<radio-item show-fields="masthead/boxes" value="Boxes"/>
+			<radio-item value="No Masthead"/>
+		</text>
+		<!-- New masthead formats (Nov 2016): Branded and Slider -->
+		<!-- These should mirror groups in three_column.xml -->
+		<group identifier="branded201611" label="Branded - New">
+			<text help-text="title that appears in masthead to the side of the photo" identifier="header" label="School or Dept Name" required="true"/>
+			<asset identifier="image" label="Image (780x260)" required="true" type="file"/>
+			<text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
+			<text help-text="short caption (70 chars max including blanks) to show on photo eg. Photo By: or other text" identifier="photoCaption" label="Caption (optional. 70 chars max)" maxlength="70"/>
+		</group>
+		<group identifier="slider201611" label="Slider - New">
+			<text help-text="title that appears in masthead to the side of the photo" identifier="header" label="School or Dept Name" required="true"/>
+			<group identifier="slides" label="Slides">
+				<group identifier="slide" label="Slide" maximum-number="10" minimum-number="1" multiple="true">
+					<asset identifier="image" label="Image (780x440)" required="true" type="file"/>
+					<text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
+					<text identifier="subTitle" label="subTitle"/>
+					<text help-text="short caption (70 chars max including blanks) to show on photo eg. Photo By: or other text" identifier="photoCaption" label="Caption (optional. 70 chars max)" maxlength="70"/>
+				</group>
+			</group>
+		</group>
+		<group identifier="boxes" label="Boxes">
+			<text default="No" identifier="show" label="Show" required="true" type="radiobutton">
+				<radio-item value="Yes"/>
+				<radio-item value="No"/>
+			</text>
+			<text identifier="autoRotate" label="Auto Rotate" type="checkbox">
+				<checkbox-item value="On"/>
+			</text>
+			<text help-text="Accepts an integer corresponding to slide number" identifier="startingSlideNumber" label="Starting Slide Number"/>
+			<text help-text="Number of seconds it takes a slide to auto rotate. If no value is entered, slides will rotate every ten seconds." identifier="speed" label="Speed"/>
+			<group identifier="slides" label="Slides">
+				<group identifier="slide" label="Slide" minimum-number="4" multiple="true">
+					<asset identifier="image" label="Image (266x220)" type="file"/>
+					<text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
+					<text default="[header]" identifier="header" label="Header" maxlength="35" required="true"/>
+					<text default="[description]" identifier="description" label="Description (25 words max)" multi-line="true" required="true"/>
+					<text help-text="full url (including http) to page outside of Cascade" identifier="link" label="External Link"/>
+					<asset identifier="internalLink" label="Or Internal Link" type="page"/>
+				</group>
+			</group>
+		</group>
+	</group>
+	<group collapsed="true" identifier="leftColumn" label="Left Column">
+		<group identifier="widget" label="Widget" multiple="true">
+			<text default="(select one)" help-text="Choose the type of content you'd like to add to the page" identifier="widgetType" label="Type of Widget" type="dropdown">
+				<dropdown-item value="(select one)"/>
+				<dropdown-item show-fields="leftColumn/widget/actionButtons" value="Button"/>
+				<dropdown-item show-fields="leftColumn/widget/calloutBox" value="Callout Box"/>
+				<dropdown-item show-fields="leftColumn/widget/FeaturedNewsEvents" value="Featured / News / Events"/>
+				<dropdown-item show-fields="leftColumn/widget/contact" value="Department Contact Info"/>
+			</text>
+			<group collapsed="true" identifier="calloutBox" label="Callout Box">
+				<text default="Yes" identifier="display-callout-box" label="Show" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<group collapsed="true" identifier="color-wrapper" label="Color">
+					<text default="Grey" identifier="color-value" label="Color" required="False" type="dropdown">
+						<dropdown-item value="Grey"/>
+						<dropdown-item value="Red"/>
+						<dropdown-item value="Black"/>
+						<dropdown-item value="Sand"/>
+						<dropdown-item value="White"/>
+					</text>
+				</group>
+				<group identifier="text" label="Text">
+					<text default="[preheader]" identifier="preheader" label="Preheader (Optional)" multi-line="false" required="false"/>
+					<text default="[headline]" identifier="headline" label="Headline" multi-line="true"/>
+					<text identifier="copy" label="Copy" wysiwyg="true"/>
+				</group>
+				<group identifier="links" label="Links">
+					<group identifier="link" label="Link" multiple="true">
+						<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+							<radio-item show-fields="leftColumn/widget/calloutBox/links/link/internalLink" value="Internal Link"/>
+							<radio-item show-fields="leftColumn/widget/calloutBox/links/link/externalLink" value="External Link"/>
+							<radio-item show-fields="leftColumn/widget/calloutBox/links/link/fileLink" value="File Link"/>
+						</text>
+						<text identifier="externalLink" label="External Link"/>
+						<asset identifier="internalLink" label="Internal Link" type="page"/>
+						<asset identifier="fileLink" label="File Link" type="file"/>
+						<text identifier="label" label="Label"/>
+					</group>
+				</group>
+			</group>
+			<group collapsed="true" identifier="actionButtons" label="Buttons">
+				<text default="Yes" identifier="display-action-buttons" label="Show" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<group identifier="button" label="Button" multiple="true">
+					<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+						<radio-item show-fields="leftColumn/widget/actionButtons/button/internalLink" value="Internal Link"/>
+						<radio-item show-fields="leftColumn/widget/actionButtons/button/externalLink" value="External Link"/>
+						<radio-item show-fields="leftColumn/widget/actionButtons/button/fileLink" value="File Link"/>
+					</text>
+					<text identifier="externalLink" label="External Link"/>
+					<asset identifier="internalLink" label="Internal Link" type="page"/>
+					<asset identifier="fileLink" label="File Link" type="file"/>
+					<text identifier="label" label="Label"/>
+					<text help-text="Javascript code to execute on the click event of this link." identifier="onclick" label="Custom Onclick Code"/>
+				</group>
+				<asset identifier="block" label="Block" render-content-depth="unlimited" type="block"/>
+			</group>
+			<group collapsed="true" identifier="FeaturedNewsEvents" label="Featured / News / Events">
+				<text default="Do Not Show" identifier="options" label="Options" required="true" type="dropdown">
+					<dropdown-item value="Featured - News - Events (Featured active)"/>
+					<dropdown-item value="Featured - News - Events (News active)"/>
+					<dropdown-item value="Featured - News - Events (Events active)"/>
+					<dropdown-item value="Featured - News (Featured active)"/>
+					<dropdown-item value="Featured - News (News active)"/>
+					<dropdown-item value="Featured - Events (Featured active)"/>
+					<dropdown-item value="Featured - Events (Events active)"/>
+					<dropdown-item value="News - Events (News active)"/>
+					<dropdown-item value="News - Events (Events active)"/>
+					<dropdown-item value="Featured Only"/>
+					<dropdown-item value="News Only"/>
+					<dropdown-item value="Events Only"/>
+					<dropdown-item value="Do Not Show"/>
+				</text>
+			</group>
+			<group collapsed="true" identifier="contact" label="Department Contact">
+				<text default="Yes" identifier="display-contact" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<asset identifier="info" label="Contact Block" render-content-depth="2" required="true" type="block"/>
+			</group>
+		</group>
+	</group>
+	<group collapsed="true" identifier="primaryContent" label="Primary Content">
+		<text default="[page title]" identifier="pageTitle" label="Page Title" required="true"/>
+		<group identifier="widget" label="Widgets" multiple="true">
+			<text default="(choose one)" help-text="Choose the type of content you'd like to add to the page" identifier="widgetType" label="Type of Widget" type="dropdown">
+				<dropdown-item value="(select one)"/>
+				<dropdown-item show-fields="primaryContent/widget/carousel" value="Carousel"/>
+				<dropdown-item show-fields="primaryContent/widget/collapsibleRegions" value="Collapsible Regions"/>
+				<dropdown-item show-fields="primaryContent/widget/faculty" value="Faculty Info"/>
+				<dropdown-item show-fields="primaryContent/widget/FeaturedNewsEvents" value="Featured / News / Events"/>
+				<dropdown-item show-fields="primaryContent/widget/form-embed" value="Form Embed"/>
+				<dropdown-item show-fields="primaryContent/widget/form" value="Form"/>
+				<dropdown-item show-fields="primaryContent/widget/funnels-2up" value="Funnels 2up"/>
+				<dropdown-item show-fields="primaryContent/widget/funnels-1up" value="Funnels 1up"/>
+				<dropdown-item show-fields="primaryContent/widget/logo-image-rotator" value="Logo Image Rotator"/>
+				<dropdown-item show-fields="primaryContent/widget/personnel" value="Personnel Table"/>
+				<dropdown-item show-fields="primaryContent/widget/tabs" value="Tabs"/>
+				<dropdown-item show-fields="primaryContent/widget/wysiwyg-editor" value="Text Editor"/>
+				<dropdown-item show-fields="primaryContent/widget/threePhotoCallout" value="Three Photo Callout"/>
+				<dropdown-item show-fields="primaryContent/widget/twitterTimeline" value="Twitter Feed"/>
+				<dropdown-item show-fields="primaryContent/widget/Calendar25Live" value="Calendar25Live"/>
+				<dropdown-item show-fields="primaryContent/widget/AtoZListing" value="A to Z Listing"/>
+				<dropdown-item show-fields="primaryContent/widget/html-block" value="Html Block"/>
+				<!--<dropdown-item show-fields="primaryContent/widget/reserved-block-formats" value="Reserved Block-Formats"/>-->
+				<dropdown-item show-fields="primaryContent/widget/contact" value="Department Contact Info"/>
+				<dropdown-item show-fields="primaryContent/widget/degree" value="Degree Info"/>
+			</text>
+			<group collapsed="true" identifier="carousel" label="Carousel">
+				<text default="Yes" identifier="display-carousel" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<group identifier="image" label="Image" multiple="true">
+					<text identifier="headline" label="Headline"/>
+					<text identifier="caption" label="Caption" wysiwyg="true"/>
+					<text default="Internal Cascade Image" identifier="imageLink" label="Image Link" type="radiobutton">
+						<radio-item show-fields="primaryContent/widget/carousel/image/internalCascadeImage" value="Internal Cascade Image"/>
+						<radio-item show-fields="primaryContent/widget/carousel/image/externalImageURL" value="External Image URL"/>
+					</text>
+					<text identifier="externalImageURL" label="External Image URL (960x540)"/>
+					<asset identifier="internalCascadeImage" label="Internal Cascade Image  (960x540)" type="file"/>
+				</group>
+			</group>
+			<group collapsed="true" identifier="collapsibleRegions" label="Collapsible Regions">
+				<text default="Yes" identifier="display-collapsibles" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<text help-text="heading to appear above set of collapsibles" identifier="header" label="Main Header"/>
+				<text help-text="introductory text to appear above set of collapsibles" identifier="copy" label="Introductory Copy" wysiwyg="true"/>
+				<group identifier="collapsibleRegion" label="Region" minimum-number="0" multiple="true">
+					<text default="No" identifier="active" label="Open by Default" required="true" type="radiobutton">
+						<radio-item value="Yes"/>
+						<radio-item value="No"/>
+					</text>
+					<text default="[section header here]" identifier="header" label="Collapsible Header" required="true"/>
+					<text identifier="copy" label="Copy" wysiwyg="true"/>
+				</group>
+			</group>
+			<group collapsed="true" identifier="FeaturedNewsEvents" label="Featured / News / Events">
+				<text default="Do Not Show" identifier="options" label="Options" required="true" type="dropdown">
+					<dropdown-item value="Featured - News - Events (Featured active)"/>
+					<dropdown-item value="Featured - News - Events (News active)"/>
+					<dropdown-item value="Featured - News - Events (Events active)"/>
+					<dropdown-item value="Featured - News (Featured active)"/>
+					<dropdown-item value="Featured - News (News active)"/>
+					<dropdown-item value="Featured - Events (Featured active)"/>
+					<dropdown-item value="Featured - Events (Events active)"/>
+					<dropdown-item value="News - Events (News active)"/>
+					<dropdown-item value="News - Events (Events active)"/>
+					<dropdown-item value="Featured Only"/>
+					<dropdown-item value="News Only"/>
+					<dropdown-item value="Events Only"/>
+					<dropdown-item value="Do Not Show"/>
+				</text>
+			</group>
+			<group collapsed="true" identifier="tabs" label="Tabs">
+				<text default="Yes" identifier="display-tabs" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<group identifier="tab" label="Tab" multiple="true">
+					<text default="[name]" identifier="name" label="Name" required="true"/>
+					<text default="[content]" identifier="content" label="Content" required="true" wysiwyg="true"/>
+				</group>
+			</group>
+			<group collapsed="true" identifier="funnels-1up" label="Funnels (1up)">
+				<text default="Yes" identifier="display-funnels-1up" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<group identifier="region" label="Region" minimum-number="0" multiple="true">
+					<text default="[headline]" identifier="headline" label="Headline" required="true"/>
+					<asset identifier="image" label="Image (200x150)" required="true" type="file"/>
+					<text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
+					<text identifier="copy" label="Copy" wysiwyg="true"/>
+					<group identifier="links" label="Links">
+						<group identifier="link" label="Link" minimum-number="0" multiple="true">
+							<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+								<radio-item show-fields="primaryContent/widget/funnels-1up/region/links/link/internalLink" value="Internal Link"/>
+								<radio-item show-fields="primaryContent/widget/funnels-1up/region/links/link/externalLink" value="External Link"/>
+								<radio-item show-fields="primaryContent/widget/funnels-1up/region/links/link/fileLink" value="File Link"/>
+							</text>
+							<text help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+							<asset identifier="internalLink" label="Internal Link" type="page"/>
+							<asset identifier="fileLink" label="File Link" type="file"/>
+							<text identifier="label" label="Label"/>
+						</group>
+					</group>
+				</group>
+			</group>
+			<group collapsed="true" identifier="funnels-2up" label="Funnels (2up)">
+				<text default="Yes" identifier="display-funnels-2up" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<group identifier="region" label="Region" multiple="true">
+					<asset identifier="image" label="Image (290x125)" type="file"/>
+					<text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
+					<text default="[headline]" identifier="headline" label="Headline" multi-line="true" required="true"/>
+					<group identifier="headlineLink" label="Headline Link">
+						<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+							<radio-item show-fields="primaryContent/widget/funnels-2up/region/headlineLink/internalLink" value="Internal Link"/>
+							<radio-item show-fields="primaryContent/widget/funnels-2up/region/headlineLink/externalLink" value="External Link"/>
+						</text>
+						<text help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+						<asset identifier="internalLink" label="Internal Link" type="page"/>
+					</group>
+					<text identifier="copy" label="Copy" multi-line="true"/>
+					<group identifier="links" label="Links">
+						<group identifier="link" label="Link" multiple="true">
+							<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+								<radio-item show-fields="primaryContent/widget/funnels-2up/region/links/link/internalLink" value="Internal Link"/>
+								<radio-item show-fields="primaryContent/widget/funnels-2up/region/links/link/externalLink" value="External Link"/>
+								<radio-item show-fields="primaryContent/widget/funnels-2up/region/links/link/fileLink" value="File Link"/>
+							</text>
+							<text help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+							<asset identifier="internalLink" label="Internal Link" type="page"/>
+							<asset identifier="fileLink" label="File Link" type="file"/>
+							<text identifier="label" label="Label"/>
+						</group>
+					</group>
+				</group>
+			</group>
+			<group collapsed="true" identifier="personnel" label="Personnel">
+				<text default="Yes" identifier="display-personnel" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<text identifier="header" label="Header"/>
+				<text help-text="text to appear above list of people" identifier="copy" label="Copy" wysiwyg="true"/>
+				<group identifier="person" label="Person" multiple="true">
+					<text identifier="first-name" label="First Name"/>
+					<text identifier="middle-name" label="Middle Name"/>
+					<text identifier="last-name" label="Last Name"/>
+					<text identifier="title" label="Title"/>
+					<text identifier="location" label="Campus Location"/>
+					<text identifier="phone" label="Phone Number"/>
+					<text identifier="email" label="Email address"/>
+					<asset identifier="image" label="Image (120px wide)" type="file"/>
+					<text identifier="bio" label="Bio paragraph" multi-line="true" multiple="true"/>
+					<group identifier="link" label="Links" multiple="true">
+						<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+							<radio-item show-fields="primaryContent/widget/personnel/person/link/internalLink" value="Internal Link"/>
+							<radio-item show-fields="primaryContent/widget/personnel/person/link/externalLink" value="External Link"/>
+							<radio-item show-fields="primaryContent/widget/personnel/person/link/fileLink" value="File Link"/>
+						</text>
+						<text identifier="externalLink" label="External Link"/>
+						<asset identifier="internalLink" label="Internal Link" type="page"/>
+						<asset identifier="fileLink" label="File Link" type="file"/>
+						<text identifier="label" label="Link text (defaults to 'View Full Bio' if blank)"/>
+					</group>
+				</group>
+			</group>
+			<group collapsed="true" identifier="threePhotoCallout" label="Three Photo Callout">
+				<text default="Yes" identifier="display-three-photo-callout" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<group identifier="photoCallout" label="Photo" maximum-number="3" minimum-number="3" multiple="true">
+					<asset identifier="image" label="Image (136x96)" type="file"/>
+					<text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
+					<group identifier="link" label="Link">
+						<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+							<radio-item show-fields="primaryContent/widget/threePhotoCallout/photoCallout/link/internalLink" value="Internal Link"/>
+							<radio-item show-fields="primaryContent/widget/threePhotoCallout/photoCallout/link/externalLink" value="External Link"/>
+							<radio-item show-fields="primaryContent/widget/threePhotoCallout/photoCallout/link/fileLink" value="File Link"/>
+						</text>
+						<text identifier="externalLink" label="External Link"/>
+						<asset identifier="internalLink" label="Internal Link" type="page"/>
+						<asset identifier="fileLink" label="File Link" type="file"/>
+						<text identifier="label" label="Label"/>
+					</group>
+				</group>
+			</group>
+			<group collapsed="true" identifier="twitterTimeline" label="Twitter Timeline">
+				<text default="Yes" identifier="display-twitter-timeline" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<asset identifier="timeline" label="Timeline" render-content-depth="unlimited" type="block"/>
+			</group>
+			<group collapsed="true" identifier="Calendar25Live" label="25Live Calendar (labs and classrooms)">
+				<text default="Yes" identifier="display-25live-listing" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<group identifier="settings" label="Settings">
+					<text default="llb03" help-text="code for specific calendar from 25live database" identifier="Calendar25LiveVariable" label="25Live Calendar Code" type="dropdown">
+						<dropdown-item value="llb03"/>
+						<dropdown-item value="llb12"/>
+						<dropdown-item value="llb13"/>
+						<dropdown-item value="llb14"/>
+						<dropdown-item value="llb16"/>
+						<dropdown-item value="llb17"/>
+						<dropdown-item value="computer-lab-schedule-dh100"/>
+						<dropdown-item value="rinker-health-science-9501-room-129"/>
+						<dropdown-item value="rinker-health-science-9501-room-130"/>
+						<dropdown-item value="rinker-health-science-9501-room-131"/>
+						<dropdown-item value="rinker-health-science-9501-room-132"/>
+						<dropdown-item value="rinker-health-science-9501-room-133"/>
+						<dropdown-item value="rk-104"/>
+						<dropdown-item value="rk-106"/>
+						<dropdown-item value="rk-203"/>
+						<dropdown-item value="rk-204"/>
+						<dropdown-item value="rk-205"/>
+						<dropdown-item value="rk-207"/>
+						<dropdown-item value="rk-212"/>
+						<dropdown-item value="rk-215"/>
+						<dropdown-item value="rk-216"/>
+						<dropdown-item value="rk-217"/>
+						<dropdown-item value="rk-94_110"/>
+						<dropdown-item value="rk-94_113"/>
+						<dropdown-item value="rk-94_127"/>
+						<dropdown-item value="rinker-health-science-9401-room-131"/>
+						<dropdown-item value="rinker-health-science-9401-room-202"/>
+						<dropdown-item value="rinker-health-science-9401-room-203"/>
+						<dropdown-item value="rinker-health-science-9401-room-236"/>
+						<dropdown-item value="rinker-health-science-9401-room-277"/>
+						<dropdown-item value="rinker-health-science-9401-room-278"/>
+					</text>
+				</group>
+			</group>
+			<group collapsed="true" identifier="AtoZListing" label="A to Z Listing (Block)">
+				<text default="Yes" identifier="display-a-z-listing" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<asset help-text="choose an index block from _cascade/blocks/ folder" identifier="blockName" label="Block" type="block"/>
+			</group>
+			<group collapsed="true" identifier="html-block" label="Html block">
+				<text default="Yes" identifier="display-html-block" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<text default="Cascade Block" identifier="block-type" label="Block Type" required="true" type="radiobutton">
+					<radio-item label="Cascade Block" show-fields="primaryContent/widget/html-block/cascade-block" value="Cascade Block"/>
+					<radio-item label="Paste In External Code" show-fields="primaryContent/widget/html-block/external-block" value="External Block"/>
+				</text>
+				<group identifier="cascade-block" label="Cascade Block">
+					<asset help-text="link to _cascade/blocks/html" identifier="code-block" label="Block" render-content-depth="unlimited" type="block"/>
+				</group>
+				<group identifier="external-block" label="External Block">
+					<text help-text="paste in raw html or Javascript link to render code or iFrame" identifier="code-block" label="HTml of Javascript Embed or IFrame Code Block" multi-line="true" required="true"/>
+				</group>
+			</group>
+			<!--
+      <group collapsed="true" identifier="reserved-block-formats" label="Reserved Block/Formats"><text default="Yes" identifier="display-reserved-block-formats" label="Show" required="true" type="radiobutton"><radio-item value="Yes"/><radio-item value="No"/></text><text default="A to Z Listing" help-text="identifies pre-paired block and formats of data" identifier="BlockFormatType" label="Block/Format Type" type="dropdown"><dropdown-item value="University-wide Faculty By Rank Listing"/><dropdown-item value="University-wide Tenure/Tenure-Track Faculty Listing"/><dropdown-item value="University-wide Presidential Fellows Listing"/><dropdown-item value="A to Z Listing"/></text></group>
       -->
-      <group collapsed="true" identifier="wysiwyg-editor" label="Text Editor">
-        <text default="Yes" identifier="display-wysiwyg-editor" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text identifier="content" label="Content" wysiwyg="true"/>
-      </group>
-      <group collapsed="true" identifier="logo-image-rotator" label="Logo Image Rotator">
-        <text default="Yes" identifier="display-logo-image-rotator" label="Show" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text identifier="label" label="Label" maxlength="20"/>
-        <group identifier="image" label="Image" maximum-number="25" multiple="true">
-          <asset identifier="image-file" label="Image (114 x 100)" type="file"/>
-          <text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
-          <group identifier="link" label="Link">
-            <text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
-              <radio-item show-fields="primaryContent/widget/logo-image-rotator/image/link/internalLink" value="Internal Link"/>
-              <radio-item show-fields="primaryContent/widget/logo-image-rotator/image/link/externalLink" value="External Link"/>
-              <radio-item show-fields="primaryContent/widget/logo-image-rotator/image/link/fileLink" value="File Link"/>
-            </text>
-            <text help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-            <asset identifier="internalLink" label="Internal Link" type="page"/>
-            <asset identifier="fileLink" label="File Link" type="file"/>
-          </group>
-        </group>
-      </group>
-      <group collapsed="true" identifier="form-embed" label="Form Embed">
-        <text default="Yes" identifier="display-form-embed" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text default="Cascade Block" identifier="block-type" label="Block Type" required="true" type="radiobutton">
-          <radio-item label="Cascade Block" show-fields="primaryContent/widget/form-embed/cascade-block" value="Cascade Block"/>
-          <radio-item label="External Javascript Embed or iFrame Block" show-fields="primaryContent/widget/form-embed/external-block" value="External Block"/>
-        </text>
-        <group identifier="cascade-block" label="Cascade Block">
-          <text identifier="header" label="Header"/>
-          <text identifier="copy" label="Introductory Copy" wysiwyg="true"/>
-          <asset help-text="link to _cascade/blocks/html/Forms-primary-content" identifier="code-block" label="Form Block" render-content-depth="unlimited" type="block"/>
-        </group>
-        <group identifier="external-block" label="External Block">
-          <text identifier="copy" label="Introductory Copy" wysiwyg="true"/>
-          <text help-text="paste in Javascript block provided by Embed Form action or iFrame in Formstack (check checkboxes for Don't Need Jquery or Jquery UI or Modernizer)" identifier="code-block" label="Embed or IFrame Code Block" multi-line="true" required="true"/>
-        </group>
-      </group>
-      <group collapsed="true" identifier="form" label="Form">
-        <text default="Yes" identifier="display-form" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text identifier="header" label="Header"/>
-        <text identifier="copy" label="Copy" wysiwyg="true"/>
-        <asset help-text="link to _cascade/blocks/html/Forms-primary-content" identifier="formBlock" label="Form Block" render-content-depth="unlimited" type="block"/>
-      </group>
-      <group collapsed="true" identifier="contact" label="Department Contact">
-        <text default="Yes" identifier="display-contact" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text identifier="heading" label="Heading"/>
-        <text identifier="copy" label="Copy" wysiwyg="true"/>
-        <text default="Multiple Department Listing" identifier="type" label="Display" required="true" type="radiobutton">
-          <radio-item show-fields="primaryContent/widget/contact/umbrella" value="Multiple Department Listing"/>
-          <radio-item show-fields="primaryContent/widget/contact/info" value="Individual Department"/>
-        </text>
-        <asset identifier="info" label="Choose Department" render-content-depth="2" required="true" type="block"/>
-        <text default="All" identifier="umbrella" label="Umbrella Group" type="dropdown">
-          <dropdown-item value="All"/>
-          <dropdown-item value="About"/>
-          <dropdown-item value="Academics"/>
-          <dropdown-item value="Admission"/>
-          <dropdown-item value="Alumni"/>
-          <dropdown-item value="Argyros School of Business"/>
-          <dropdown-item value="Attallah College"/>
-          <dropdown-item value="Campus Services"/>
-          <dropdown-item value="College of Performing Arts"/>
-          <dropdown-item value="Crean College"/>
-          <dropdown-item value="Dodge College"/>
-          <dropdown-item value="Faculty and Staff"/>
-          <dropdown-item value="Families"/>
-          <dropdown-item value="Fowler Law School"/>
-          <dropdown-item value="Research and Institutions"/>
-          <dropdown-item value="Schmid College"/>
-          <dropdown-item value="School of Communication"/>
-          <dropdown-item value="School of Pharmacy"/>
-          <dropdown-item value="Students"/>
-          <dropdown-item value="Student Affairs"/>
-          <dropdown-item value="Support Chapman"/>
-          <dropdown-item value="Wilkinson College"/>
-        </text>
-        <text default="Basic Address" identifier="display" label="Information to Display" type="dropdown">
-          <dropdown-item value="Basic Address"/>
-          <dropdown-item value="Basic Location"/>
-          <dropdown-item value="Main / People"/>
-          <dropdown-item value="People Only"/>
-        </text>
-      </group>
-      <group collapsed="true" identifier="degree" label="Degree Information">
-        <text default="Yes" identifier="display-degree" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text identifier="heading" label="Heading"/>
-        <text identifier="copy" label="Copy" wysiwyg="true"/>
-        <text default="Single Degree" identifier="type" label="Display" required="true" type="radiobutton">
-          <radio-item show-fields="primaryContent/widget/degree/show, primaryContent/widget/degree/block" value="Single Degree"/>
-          <radio-item show-fields="primaryContent/widget/degree/school, primaryContent/widget/degree/cat, primaryContent/widget/degree/level" value="Degree Listing"/>
-        </text>
-        <asset identifier="block" label="Degree" render-content-depth="2" required="true" type="block"/>
-        <text default="All" identifier="school" label="School Affliation" type="dropdown">
-          <dropdown-item value="All"/>
-          <dropdown-item value="Argyros School of Business and Economics"/>
-          <dropdown-item value="Attallah College of Educational Studies"/>
-          <dropdown-item value="Dodge College of Film and Media Arts"/>
-          <dropdown-item value="Crean College of Health and Behavioral Sciences"/>
-          <dropdown-item value="Wilkinson College of Arts, Humanities, and Social Sciences"/>
-          <dropdown-item value="College of Performing Arts"/>
-          <dropdown-item value="School of Pharmacy"/>
-          <dropdown-item value="Fowler School of Law"/>
-          <dropdown-item value="Schmid College of Science and Technology"/>
-          <dropdown-item value="School of Communication"/>
-        </text>
-        <text identifier="level" label="Degree Level" type="checkbox">
-          <checkbox-item value="Bachelors"/>
-          <checkbox-item value="Masters"/>
-          <checkbox-item value="Doctorate"/>
-          <checkbox-item value="Certificate"/>
-          <checkbox-item value="4+1 and Bridge"/>
-          <checkbox-item value="Major"/>
-          <checkbox-item value="Minor"/>
-        </text>
-        <text default="No" identifier="show" label="Show Photo" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-      </group>
-      <group collapsed="true" identifier="faculty" label="Faculty">
-        <text default="Yes" identifier="display-faculty" label="Show" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text identifier="heading" label="Heading"/>
-        <text identifier="copy" label="Copy" wysiwyg="true"/>
-        <text default="Individual Faculty" identifier="type" label="Display" required="true" type="radiobutton">
-          <radio-item show-fields="primaryContent/widget/faculty/person" value="Individual Faculty"/>
-          <radio-item label="Faculty Listing" show-fields="primaryContent/widget/faculty/school, primaryContent/widget/faculty/dept, primaryContent/widget/faculty/filter, primaryContent/widget/faculty/facultyUnit, primaryContent/widget/faculty/photo, primaryContent/widget/faculty/bio-link, primaryContent/widget/faculty/short-bio, primaryContent/widget/faculty/office-info, primaryContent/widget/faculty/show-school-affiliations" value="Faculty Listing"/>
-        </text>
-        <group identifier="person" label="Person" multiple="true">
-          <asset identifier="faculty-block" label="Faculty Member" required="true" type="block"/>
-          <text default="Yes" identifier="photo" label="Show Photo" required="true" type="radiobutton">
-            <radio-item value="Yes"/>
-            <radio-item value="No"/>
-          </text>
-          <text default="Yes" identifier="bio-link" label="Link to Full Bio" required="true" type="radiobutton">
-            <radio-item value="Yes"/>
-            <radio-item value="No"/>
-          </text>
-          <text default="No" identifier="short-bio" label="Show Short Bio" required="true" type="radiobutton">
-            <radio-item value="Yes"/>
-            <radio-item value="No"/>
-          </text>
-          <text default="No" identifier="office-info" label="Show Office Info" required="true" type="radiobutton">
-            <radio-item value="Yes"/>
-            <radio-item value="No"/>
-          </text>
-          <text default="Yes" identifier="show-school-affiliations" label="Show School Affiliation(s)" required="true" type="radiobutton">
-            <radio-item value="Yes"/>
-            <radio-item value="No"/>
-          </text>
-        </group>
-        <text default="All" identifier="school" label="School Affiliation" type="dropdown">
-          <dropdown-item label="All" value="All"/>
-          <dropdown-item label="Argyros School" value="SBE"/>
-          <dropdown-item label="Attallah College" value="CES"/>
-          <dropdown-item label="Dodge College" value="CFMA"/>
-          <dropdown-item label="Crean College" value="CHBS"/>
-          <dropdown-item label="Wilkinson College" value="CHSS"/>
-          <dropdown-item label="College of Performing Arts" value="COPA"/>
-          <dropdown-item label="School of Pharmacy" value="SOP"/>
-          <dropdown-item label="Fowler School of Engineering" value="SENG"/>
-          <dropdown-item label="Fowler Law" value="SOL"/>
-          <dropdown-item label="Schmid College" value="COS"/>
-          <dropdown-item label="School of Communication" value="COMM"/>
-        </text>
-        <text default="All" identifier="dept" label="Dept Affiliation" type="dropdown">
-          <dropdown-item value="All"/>
-          <dropdown-item label="Art" value="ARTS"/>
-          <dropdown-item label="Athletic Training Program " value="ATPE"/>
-          <dropdown-item label="Biological Sciences " value="BIOL"/>
-          <dropdown-item label="Business and Economics " value="BUSI"/>
-          <dropdown-item label="Chapman Ability Project " value="CAPX"/>
-          <dropdown-item label="Chemistry " value="CHEM"/>
-          <dropdown-item label="Communication Studies " value="COMM"/>
-          <dropdown-item label="Communication Sciences and Disorders " value="CSD"/>
-          <dropdown-item label="Computational and Data Science " value="CADS"/>
-          <dropdown-item label="Creative and Cultural Industries " value="CMCI"/>
-          <dropdown-item label="Dance " value="DANC"/>
-          <dropdown-item label="Economic Science Institute " value="ESI"/>
-          <dropdown-item label="Education " value="EDUC"/>
-          <dropdown-item label="Electrical Engineering and Computer Science " value="EECS"/>
-          <dropdown-item label="English " value="ENGL"/>
-          <dropdown-item label="Environmental Science " value="ENV"/>
-          <dropdown-item label="Film and Media Arts " value="FILM"/>
-          <dropdown-item label="Food Science " value="FOOD"/>
-          <dropdown-item label="Health and Strategic Communication " value="HCOM"/>
-          <dropdown-item label="Health Sciences " value="HSK"/>
-          <dropdown-item label="History " value="HIST"/>
-          <dropdown-item label="Honors Program " value="HNRS"/>
-          <dropdown-item label="International Studies " value="INTS"/>
-          <dropdown-item label="(World) Languages and Cultures " value="LANG"/>
-          <dropdown-item label="Law " value="LAWS"/>
-          <dropdown-item label="Leadership Programs " value="LEAD"/>
-          <dropdown-item label="Marriage and Family Therapy " value="MFT"/>
-          <dropdown-item label="Mathematics " value="MATH"/>
-          <dropdown-item label="Music, Conservatory of " value="MUSI"/>
-          <dropdown-item label="Peace Studies " value="PCST"/>
-          <dropdown-item label="Pharmacy " value="PHRM"/>
-          <dropdown-item label="Philosophy " value="PHIL"/>
-          <dropdown-item label="Physical Activity " value="PAC"/>
-          <dropdown-item label="Physical Therapy " value="PT"/>
-          <dropdown-item label="Physician Assistant Studies " value="PAS"/>
-          <dropdown-item label="Physics " value="PHYZ"/>
-          <dropdown-item label="Physics, Computational Science and Engineering " value="PCSE"/>
-          <dropdown-item label="Political Science " value="POLI"/>
-          <dropdown-item label="Psychology " value="PSYC"/>
-          <dropdown-item label="Religious Studies " value="RELI"/>
-          <dropdown-item label="Sociology " value="SOCI"/>
-          <dropdown-item label="Theatre " value="THEA"/>
-        </text>
-        <text default="All" identifier="filter" label="Filter By" required="true" type="dropdown">
-          <dropdown-item value="All"/>
-          <dropdown-item value="Emeriti only"/>
-          <dropdown-item value="Presidential Fellows only"/>
-          <dropdown-item value="Tenured/Tenure-Track only"/>
-          <dropdown-item value="Core Faculty only"/>
-        </text>
-        <text default="All" identifier="facultyUnit" label="Faculty Unit" type="dropdown">
-          <dropdown-item value="All"/>
-          <dropdown-item value="SCST-CBFS"/>
-          <dropdown-item value="SCST-LES"/>
-          <dropdown-item value="SCST-MPC"/>
-          <dropdown-item value="WILK-PEAC"/>
-          <dropdown-item value="PHRM-BPS"/>
-          <dropdown-item value="PHRM-PHP"/>
-        </text>
-        <text default="Yes" identifier="photo" label="Show Photo" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text default="Yes" identifier="bio-link" label="Link to Full Bio" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text default="No" identifier="short-bio" label="Show Short Bio" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text default="No" identifier="office-info" label="Show Office Info" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text default="Yes" identifier="show-school-affiliations" label="Show School Affiliation(s)" required="true" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-      </group>
-    </group>
-  </group>
-  <group collapsed="true" identifier="meta" label="Supplemental Content">
-    <asset identifier="social_accounts" label="Social Accounts" render-content-depth="10" type="block"/>
-    <group collapsed="true" identifier="sharing" label="Sharing ">
-      <asset help-text="Image used for sharing on facebook (130px w, 110px h exactly)" identifier="og_image" label="OG Image" type="file"/>
-      <text help-text="Overrides title for when page is shared to facebook (defaults to Display Name)" identifier="og_title" label="OG Title"/>
-      <text help-text="Overrides description when page is shared to facebook" identifier="og_description" label="OG Description"/>
-      <text help-text="The text that prepopulates on twitter (followed by URL and hashtags)" identifier="twitter_text" label="Twitter Share Text"/>
-      <text help-text="Hashtags to get appended to tweet (no #!)" identifier="twitter_hashtag" label="Twitter Hashtag" maximum-number="3" multiple="true"/>
-    </group>
-    <group identifier="news-events-options" label="Featured / News / Events Feeds">
-      <asset identifier="feature" label="Feature" type="page"/>
-      <text default="Default" help-text="Default is stories from Newsroom maintained by Marketing Dept at Chapman" identifier="newsFeed" label="News Feed" type="dropdown">
-        <dropdown-item value="Default"/>
-        <dropdown-item value="Academics"/>
-        <dropdown-item value="Admissions"/>
-        <dropdown-item value="ASBE"/>
-        <dropdown-item value="Commencement"/>
-        <dropdown-item value="COPA"/>
-        <dropdown-item value="Crean"/>
-        <dropdown-item value="Dodge"/>
-        <dropdown-item value="Education"/>
-        <dropdown-item value="Information Systems"/>
-        <dropdown-item value="Law"/>
-        <dropdown-item value="Pharmacy"/>
-        <dropdown-item value="Schmid"/>
-        <dropdown-item value="SOC"/>
-        <dropdown-item value="Students"/>
-        <dropdown-item value="Thompson Policy Institute"/>
-        <dropdown-item value="Wilkinson"/>
-      </text>
-      <text default="Default" help-text="Default is today's events on events.chapman.edu" identifier="eventsFeed" label="Events Feed" type="dropdown">
-        <dropdown-item value="Default"/>
-        <dropdown-item value="ASBE"/>
-        <dropdown-item value="CDC"/>
-        <dropdown-item value="COPA"/>
-        <dropdown-item value="CREAN"/>
-        <dropdown-item value="DANCE"/>
-        <dropdown-item value="DODGE"/>
-        <dropdown-item value="Education"/>
-        <dropdown-item value="Information Systems"/>
-        <dropdown-item value="LAW"/>
-        <dropdown-item value="MUSIC"/>
-        <dropdown-item value="PHARMACY"/>
-        <dropdown-item value="SCHMID"/>
-        <dropdown-item value="SOC"/>
-        <dropdown-item value="STUDENTS"/>
-        <dropdown-item value="THEATRE"/>
-        <dropdown-item value="Thompson Policy Institute"/>
-        <dropdown-item value="WILKINSON"/>
-        <dropdown-item value="ESI"/>
-      </text>
-    </group>
-  </group>
+			<group collapsed="true" identifier="wysiwyg-editor" label="Text Editor">
+				<text default="Yes" identifier="display-wysiwyg-editor" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<text identifier="content" label="Content" wysiwyg="true"/>
+			</group>
+			<group collapsed="true" identifier="logo-image-rotator" label="Logo Image Rotator">
+				<text default="Yes" identifier="display-logo-image-rotator" label="Show" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<text identifier="label" label="Label" maxlength="20"/>
+				<group identifier="image" label="Image" maximum-number="25" multiple="true">
+					<asset identifier="image-file" label="Image (114 x 100)" type="file"/>
+					<text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
+					<group identifier="link" label="Link">
+						<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+							<radio-item show-fields="primaryContent/widget/logo-image-rotator/image/link/internalLink" value="Internal Link"/>
+							<radio-item show-fields="primaryContent/widget/logo-image-rotator/image/link/externalLink" value="External Link"/>
+							<radio-item show-fields="primaryContent/widget/logo-image-rotator/image/link/fileLink" value="File Link"/>
+						</text>
+						<text help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+						<asset identifier="internalLink" label="Internal Link" type="page"/>
+						<asset identifier="fileLink" label="File Link" type="file"/>
+					</group>
+				</group>
+			</group>
+			<group collapsed="true" identifier="form-embed" label="Form Embed">
+				<text default="Yes" identifier="display-form-embed" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<text default="Cascade Block" identifier="block-type" label="Block Type" required="true" type="radiobutton">
+					<radio-item label="Cascade Block" show-fields="primaryContent/widget/form-embed/cascade-block" value="Cascade Block"/>
+					<radio-item label="External Javascript Embed or iFrame Block" show-fields="primaryContent/widget/form-embed/external-block" value="External Block"/>
+				</text>
+				<group identifier="cascade-block" label="Cascade Block">
+					<text identifier="header" label="Header"/>
+					<text identifier="copy" label="Introductory Copy" wysiwyg="true"/>
+					<asset help-text="link to _cascade/blocks/html/Forms-primary-content" identifier="code-block" label="Form Block" render-content-depth="unlimited" type="block"/>
+				</group>
+				<group identifier="external-block" label="External Block">
+					<text identifier="copy" label="Introductory Copy" wysiwyg="true"/>
+					<text help-text="paste in Javascript block provided by Embed Form action or iFrame in Formstack (check checkboxes for Don't Need Jquery or Jquery UI or Modernizer)" identifier="code-block" label="Embed or IFrame Code Block" multi-line="true" required="true"/>
+				</group>
+			</group>
+			<group collapsed="true" identifier="form" label="Form">
+				<text default="Yes" identifier="display-form" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<text identifier="header" label="Header"/>
+				<text identifier="copy" label="Copy" wysiwyg="true"/>
+				<asset help-text="link to _cascade/blocks/html/Forms-primary-content" identifier="formBlock" label="Form Block" render-content-depth="unlimited" type="block"/>
+			</group>
+			<group collapsed="true" identifier="contact" label="Department Contact">
+				<text default="Yes" identifier="display-contact" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<text identifier="heading" label="Heading"/>
+				<text identifier="copy" label="Copy" wysiwyg="true"/>
+				<text default="Multiple Department Listing" identifier="type" label="Display" required="true" type="radiobutton">
+					<radio-item show-fields="primaryContent/widget/contact/umbrella" value="Multiple Department Listing"/>
+					<radio-item show-fields="primaryContent/widget/contact/info" value="Individual Department"/>
+				</text>
+				<asset identifier="info" label="Choose Department" render-content-depth="2" required="true" type="block"/>
+				<text default="All" identifier="umbrella" label="Umbrella Group" type="dropdown">
+					<dropdown-item value="All"/>
+					<dropdown-item value="About"/>
+					<dropdown-item value="Academics"/>
+					<dropdown-item value="Admission"/>
+					<dropdown-item value="Alumni"/>
+					<dropdown-item value="Argyros School of Business"/>
+					<dropdown-item value="Attallah College"/>
+					<dropdown-item value="Campus Services"/>
+					<dropdown-item value="College of Performing Arts"/>
+					<dropdown-item value="Crean College"/>
+					<dropdown-item value="Dodge College"/>
+					<dropdown-item value="Faculty and Staff"/>
+					<dropdown-item value="Families"/>
+					<dropdown-item value="Fowler Law School"/>
+					<dropdown-item value="Research and Institutions"/>
+					<dropdown-item value="Schmid College"/>
+					<dropdown-item value="School of Communication"/>
+					<dropdown-item value="School of Pharmacy"/>
+					<dropdown-item value="Students"/>
+					<dropdown-item value="Student Affairs"/>
+					<dropdown-item value="Support Chapman"/>
+					<dropdown-item value="Wilkinson College"/>
+				</text>
+				<text default="Basic Address" identifier="display" label="Information to Display" type="dropdown">
+					<dropdown-item value="Basic Address"/>
+					<dropdown-item value="Basic Location"/>
+					<dropdown-item value="Main / People"/>
+					<dropdown-item value="People Only"/>
+				</text>
+			</group>
+			<group collapsed="true" identifier="degree" label="Degree Information">
+				<text default="Yes" identifier="display-degree" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<text identifier="heading" label="Heading"/>
+				<text identifier="copy" label="Copy" wysiwyg="true"/>
+				<text default="Single Degree" identifier="type" label="Display" required="true" type="radiobutton">
+					<radio-item show-fields="primaryContent/widget/degree/show, primaryContent/widget/degree/block" value="Single Degree"/>
+					<radio-item show-fields="primaryContent/widget/degree/school, primaryContent/widget/degree/cat, primaryContent/widget/degree/level" value="Degree Listing"/>
+				</text>
+				<asset identifier="block" label="Degree" render-content-depth="2" required="true" type="block"/>
+				<text default="All" identifier="school" label="School Affliation" type="dropdown">
+					<dropdown-item value="All"/>
+					<dropdown-item value="Argyros School of Business and Economics"/>
+					<dropdown-item value="Attallah College of Educational Studies"/>
+					<dropdown-item value="Dodge College of Film and Media Arts"/>
+					<dropdown-item value="Crean College of Health and Behavioral Sciences"/>
+					<dropdown-item value="Wilkinson College of Arts, Humanities, and Social Sciences"/>
+					<dropdown-item value="College of Performing Arts"/>
+					<dropdown-item value="School of Pharmacy"/>
+					<dropdown-item value="Fowler School of Law"/>
+					<dropdown-item value="Schmid College of Science and Technology"/>
+					<dropdown-item value="School of Communication"/>
+				</text>
+				<text identifier="level" label="Degree Level" type="checkbox">
+					<checkbox-item value="Bachelors"/>
+					<checkbox-item value="Masters"/>
+					<checkbox-item value="Doctorate"/>
+					<checkbox-item value="Certificate"/>
+					<checkbox-item value="4+1 and Bridge"/>
+					<checkbox-item value="Major"/>
+					<checkbox-item value="Minor"/>
+				</text>
+				<text default="No" identifier="show" label="Show Photo" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+			</group>
+			<group collapsed="true" identifier="faculty" label="Faculty">
+				<text default="Yes" identifier="display-faculty" label="Show" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<text identifier="heading" label="Heading"/>
+				<text identifier="copy" label="Copy" wysiwyg="true"/>
+				<text default="Individual Faculty" identifier="type" label="Display" required="true" type="radiobutton">
+					<radio-item show-fields="primaryContent/widget/faculty/person" value="Individual Faculty"/>
+					<radio-item label="Faculty Listing" show-fields="primaryContent/widget/faculty/school, primaryContent/widget/faculty/dept, primaryContent/widget/faculty/filter, primaryContent/widget/faculty/facultyUnit, primaryContent/widget/faculty/photo, primaryContent/widget/faculty/bio-link, primaryContent/widget/faculty/short-bio, primaryContent/widget/faculty/office-info, primaryContent/widget/faculty/show-school-affiliations" value="Faculty Listing"/>
+				</text>
+				<group identifier="person" label="Person" multiple="true">
+					<asset identifier="faculty-block" label="Faculty Member" required="true" type="block"/>
+					<text default="Yes" identifier="photo" label="Show Photo" required="true" type="radiobutton">
+						<radio-item value="Yes"/>
+						<radio-item value="No"/>
+					</text>
+					<text default="Yes" identifier="bio-link" label="Link to Full Bio" required="true" type="radiobutton">
+						<radio-item value="Yes"/>
+						<radio-item value="No"/>
+					</text>
+					<text default="No" identifier="short-bio" label="Show Short Bio" required="true" type="radiobutton">
+						<radio-item value="Yes"/>
+						<radio-item value="No"/>
+					</text>
+					<text default="No" identifier="office-info" label="Show Office Info" required="true" type="radiobutton">
+						<radio-item value="Yes"/>
+						<radio-item value="No"/>
+					</text>
+					<text default="Yes" identifier="show-school-affiliations" label="Show School Affiliation(s)" required="true" type="radiobutton">
+						<radio-item value="Yes"/>
+						<radio-item value="No"/>
+					</text>
+				</group>
+				<text default="All" identifier="school" label="School Affiliation" type="dropdown">
+					<dropdown-item label="All" value="All"/>
+					<dropdown-item label="Argyros School" value="SBE"/>
+					<dropdown-item label="Attallah College" value="CES"/>
+					<dropdown-item label="Dodge College" value="CFMA"/>
+					<dropdown-item label="Crean College" value="CHBS"/>
+					<dropdown-item label="Wilkinson College" value="CHSS"/>
+					<dropdown-item label="College of Performing Arts" value="COPA"/>
+					<dropdown-item label="School of Pharmacy" value="SOP"/>
+					<dropdown-item label="Fowler School of Engineering" value="SENG"/>
+					<dropdown-item label="Fowler Law" value="SOL"/>
+					<dropdown-item label="Schmid College" value="COS"/>
+					<dropdown-item label="School of Communication" value="COMM"/>
+				</text>
+				<text default="All" identifier="dept" label="Dept Affiliation" type="dropdown">
+					<dropdown-item value="All"/>
+					<dropdown-item label="Art" value="ARTS"/>
+					<dropdown-item label="Athletic Training Program " value="ATPE"/>
+					<dropdown-item label="Biological Sciences " value="BIOL"/>
+					<dropdown-item label="Business and Economics " value="BUSI"/>
+					<dropdown-item label="Chapman Ability Project " value="CAPX"/>
+					<dropdown-item label="Chemistry " value="CHEM"/>
+					<dropdown-item label="Communication Studies " value="COMM"/>
+					<dropdown-item label="Communication Sciences and Disorders " value="CSD"/>
+					<dropdown-item label="Computational and Data Science " value="CADS"/>
+					<dropdown-item label="Creative and Cultural Industries " value="CMCI"/>
+					<dropdown-item label="Dance " value="DANC"/>
+					<dropdown-item label="Economic Science Institute " value="ESI"/>
+					<dropdown-item label="Education " value="EDUC"/>
+					<dropdown-item label="Electrical Engineering and Computer Science " value="EECS"/>
+					<dropdown-item label="English " value="ENGL"/>
+					<dropdown-item label="Environmental Science " value="ENV"/>
+					<dropdown-item label="Film and Media Arts " value="FILM"/>
+					<dropdown-item label="Food Science " value="FOOD"/>
+					<dropdown-item label="Health and Strategic Communication " value="HCOM"/>
+					<dropdown-item label="Health Sciences " value="HSK"/>
+					<dropdown-item label="History " value="HIST"/>
+					<dropdown-item label="Honors Program " value="HNRS"/>
+					<dropdown-item label="International Studies " value="INTS"/>
+					<dropdown-item label="(World) Languages and Cultures " value="LANG"/>
+					<dropdown-item label="Law " value="LAWS"/>
+					<dropdown-item label="Leadership Programs " value="LEAD"/>
+					<dropdown-item label="Marriage and Family Therapy " value="MFT"/>
+					<dropdown-item label="Mathematics " value="MATH"/>
+					<dropdown-item label="Music, Conservatory of " value="MUSI"/>
+					<dropdown-item label="Peace Studies " value="PCST"/>
+					<dropdown-item label="Pharmacy " value="PHRM"/>
+					<dropdown-item label="Philosophy " value="PHIL"/>
+					<dropdown-item label="Physical Activity " value="PAC"/>
+					<dropdown-item label="Physical Therapy " value="PT"/>
+					<dropdown-item label="Physician Assistant Studies " value="PAS"/>
+					<dropdown-item label="Physics " value="PHYZ"/>
+					<dropdown-item label="Physics, Computational Science and Engineering " value="PCSE"/>
+					<dropdown-item label="Political Science " value="POLI"/>
+					<dropdown-item label="Psychology " value="PSYC"/>
+					<dropdown-item label="Religious Studies " value="RELI"/>
+					<dropdown-item label="Sociology " value="SOCI"/>
+					<dropdown-item label="Theatre " value="THEA"/>
+				</text>
+				<text default="All" identifier="filter" label="Filter By" required="true" type="dropdown">
+					<dropdown-item value="All"/>
+					<dropdown-item value="Emeriti only"/>
+					<dropdown-item value="Presidential Fellows only"/>
+					<dropdown-item value="Tenured/Tenure-Track only"/>
+					<dropdown-item value="Core Faculty only"/>
+				</text>
+				<text default="All" identifier="facultyUnit" label="Faculty Unit" type="dropdown">
+					<dropdown-item value="All"/>
+					<dropdown-item value="SCST-CBFS"/>
+					<dropdown-item value="SCST-LES"/>
+					<dropdown-item value="SCST-MPC"/>
+					<dropdown-item value="WILK-PEAC"/>
+					<dropdown-item value="PHRM-BPS"/>
+					<dropdown-item value="PHRM-PHP"/>
+				</text>
+				<text default="Yes" identifier="photo" label="Show Photo" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<text default="Yes" identifier="bio-link" label="Link to Full Bio" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<text default="No" identifier="short-bio" label="Show Short Bio" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<text default="No" identifier="office-info" label="Show Office Info" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+				<text default="Yes" identifier="show-school-affiliations" label="Show School Affiliation(s)" required="true" type="radiobutton">
+					<radio-item value="Yes"/>
+					<radio-item value="No"/>
+				</text>
+			</group>
+		</group>
+	</group>
+	<group collapsed="true" identifier="meta" label="Supplemental Content">
+		<asset identifier="social_accounts" label="Social Accounts" render-content-depth="10" type="block"/>
+		<group collapsed="true" identifier="sharing" label="Sharing ">
+			<asset help-text="Image used for sharing on facebook (130px w, 110px h exactly)" identifier="og_image" label="OG Image" type="file"/>
+			<text help-text="Overrides title for when page is shared to facebook (defaults to Display Name)" identifier="og_title" label="OG Title"/>
+			<text help-text="Overrides description when page is shared to facebook" identifier="og_description" label="OG Description"/>
+			<text help-text="The text that prepopulates on twitter (followed by URL and hashtags)" identifier="twitter_text" label="Twitter Share Text"/>
+			<text help-text="Hashtags to get appended to tweet (no #!)" identifier="twitter_hashtag" label="Twitter Hashtag" maximum-number="3" multiple="true"/>
+		</group>
+		<group identifier="news-events-options" label="Featured / News / Events Feeds">
+			<asset identifier="feature" label="Feature" type="page"/>
+			<text default="Default" help-text="Default is stories from Newsroom maintained by Marketing Dept at Chapman" identifier="newsFeed" label="News Feed" type="dropdown">
+				<dropdown-item value="Default"/>
+				<dropdown-item value="Academics"/>
+				<dropdown-item value="Admissions"/>
+				<dropdown-item value="ASBE"/>
+				<dropdown-item value="Commencement"/>
+				<dropdown-item value="COPA"/>
+				<dropdown-item value="Crean"/>
+				<dropdown-item value="Dodge"/>
+				<dropdown-item value="Education"/>
+				<dropdown-item value="Information Systems"/>
+				<dropdown-item value="Law"/>
+				<dropdown-item value="Pharmacy"/>
+				<dropdown-item value="Schmid"/>
+				<dropdown-item value="SOC"/>
+				<dropdown-item value="Students"/>
+				<dropdown-item value="Thompson Policy Institute"/>
+				<dropdown-item value="Wilkinson"/>
+			</text>
+			<text default="Default" help-text="Default is today's events on events.chapman.edu" identifier="eventsFeed" label="Events Feed" type="dropdown">
+				<dropdown-item value="Default"/>
+				<dropdown-item value="ASBE"/>
+				<dropdown-item value="CDC"/>
+				<dropdown-item value="COPA"/>
+				<dropdown-item value="CREAN"/>
+				<dropdown-item value="DANCE"/>
+				<dropdown-item value="DODGE"/>
+				<dropdown-item value="Education"/>
+				<dropdown-item value="Information Systems"/>
+				<dropdown-item value="LAW"/>
+				<dropdown-item value="MUSIC"/>
+				<dropdown-item value="PHARMACY"/>
+				<dropdown-item value="SCHMID"/>
+				<dropdown-item value="SOC"/>
+				<dropdown-item value="STUDENTS"/>
+				<dropdown-item value="THEATRE"/>
+				<dropdown-item value="Thompson Policy Institute"/>
+				<dropdown-item value="WILKINSON"/>
+				<dropdown-item value="ESI"/>
+			</text>
+		</group>
+	</group>
 </system-data-structure>
