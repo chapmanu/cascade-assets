@@ -9,9 +9,13 @@
     #if ($displayCallToAction3Up == 'Yes')
         #set ($callToAction3Up = $element.getChild('callToAction3Up'))
         #set ($classStr = "call-to-action-3-up-widget")
+        #set ($sectionHeading = $callToAction3Up.getChild('heading').value)
 
         <div class="${classStr} #outputBgColorClass($callToAction3Up $classStr)">
             <div class="outer-container">
+                #if ($sectionHeading != '')
+                    <h2 class="section-heading">$_EscapeTool.xml($sectionHeading)</h2>
+                #end
                 #outputCtaColumn($callToAction3Up.getChild('cta1'))
                 #outputCtaColumn($callToAction3Up.getChild('cta2'))
                 #outputCtaColumn($callToAction3Up.getChild('cta3'))
@@ -33,7 +37,11 @@
             <img class="image" #outputSrc($media) alt="$alternateText"/>
         </div>
         <div class="text-wrap">
-            <h2 class="headline">$title</h2>
+            #if ($sectionHeading != '')
+                <h3 class="headline">$title</h3>
+            #else
+                <h2 class="headline">$title</h2>
+            #end
             <p class="text-content">$body</p>
             <a #outputHref($link) class="more-link"><span class="underline">$label</span></a>
         </div>

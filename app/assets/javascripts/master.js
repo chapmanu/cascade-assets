@@ -14,7 +14,7 @@
 //= require cascade/collapsed-nav
 //= require cascade/console-log
 //= require cascade/footer
-//= require cascade/new-home
+//= require cascade/homepage
 //= require cascade/ie7
 //= require cascade/main
 //= require cascade/form-validation

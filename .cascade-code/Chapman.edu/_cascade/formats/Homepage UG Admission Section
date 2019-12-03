@@ -43,23 +43,23 @@
                     #set ($factLabel = $fact.getChild('Label').value )
                     #if ($foreach.count == 1)
                         #set ($position = "120px" )
-                        <li class="fact1" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat">$factNumber</span> <span class="label"> $factLabel</span></p></li>
+                        <li class="fact1" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat" data-count="$factNumber">$factNumber</span> <span class="label"> $factLabel</span></p></li>
                     #end
                     #if ($foreach.count == 2)
                         #set ($position = "-50px" )
-                        <li class="fact2" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat">$factNumber</span> <span class="label"> $factLabel</span></p></li>
+                        <li class="fact2" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat" data-count="$factNumber">$factNumber</span> <span class="label"> $factLabel</span></p></li>
                     #end
                     #if ($foreach.count == 3)
                         #set ($position = "60px" )
-                        <li class="fact3" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat">$factNumber</span> <span class="label"> $factLabel</span></p></li>
+                        <li class="fact3" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat" data-count="$factNumber">$factNumber</span> <span class="label"> $factLabel</span></p></li>
                     #end
                     #if ($foreach.count == 4)
                         #set ($position = "-10px" )
-                        <li class="fact4" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat">$factNumber</span> <span class="label"> $factLabel</span></p></li>
+                        <li class="fact4" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat" data-count="$factNumber">$factNumber</span> <span class="label"> $factLabel</span></p></li>
                     #end
                     #if ($foreach.count == 5)
                         #set ($position = "70px" )
-                        <li class="fact5" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat">$factNumber</span> <span class="label"> $factLabel</span></p></li>
+                        <li class="fact5" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat" data-count="$factNumber">$factNumber</span> <span class="label"> $factLabel</span></p></li>
                     #end
                 #end            
             </ul>

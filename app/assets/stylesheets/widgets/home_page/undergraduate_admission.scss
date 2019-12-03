@@ -2,147 +2,204 @@
 * Statistics Blocks
 ***************************************************/
 .homepage {
-	ul.statistics {
-		list-style-type: none;
-		margin: 50px 0;
-		text-align: center;
-		overflow: auto;
-		box-sizing: initial;
-		/* max-width:50%; */
-		p {
-			margin: 0;
-		}
-		li {
-			max-width: 100%;
-			padding: 10px;
-			background: url('../img/gray_50.png');
+  ul.statistics {
+    list-style-type: none;
+    margin: 50px 0;
+    text-align: center;
+    overflow: auto;
+    box-sizing: initial;
 
-			/*
+    /* max-width:50%; */
+    p {
+      margin: 0;
+    }
+
+    li {
+      max-width: 100%;
+      padding: 10px;
+      background: url('../img/gray_50.png');
+
+      /*
        * This is required for IE since IE defaults to border-box, which will shrink
        * content to fit in width. For more info on this setting, see:
        * http://blog.teamtreehouse.com/box-sizing-secret-simple-css-layouts
        *
        * Fixed this issue: https://github.com/chapmanu/cascade-assets/issues/140
        */
-			box-sizing: content-box;
+      box-sizing: content-box;
 
-			&:last-of-type {
-				margin-right: 0;
-			}
-			.bigstat {
-				font-size: 32px;
-				line-height: 32px;
-				font-family: $font-stack-heading-emphasis;
-				color: #ffffff;
-				margin-top: 0px;
-				font-weight: 800;
-				white-space: nowrap;
-			}
-			.label {
-				font-size: 18px;
-				line-height: 18px;
-				font-family: $font-stack-heading;
-				color: #ffffff;
-				word-wrap: normal;
-			}
-		}
-	}
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      .bigstat {
+        font-size: 32px;
+        line-height: 32px;
+        font-family: $font-stack-heading-emphasis;
+        color: #ffffff;
+        margin-top: 0px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .label {
+        font-size: 18px;
+        line-height: 18px;
+        font-family: $font-stack-heading;
+        color: #ffffff;
+        word-wrap: normal;
+      }
+    }
+  }
+
+  // this becomes opaque via javscript. there's a fallback at the bottom of this file specifying .no-js .bigstat
+  .bigstat {
+    opacity: 0;
+  }
+
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  @keyframes fadeinout {
+
+    0%,
+    100% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
 }
 
 @media only screen and (min-width: 680px) {
-	.homepage {
-		.subheading {
-			margin: 0 75px;
-		}
-		/* Break stats and label onto two lines */
-		ul.statistics li {
-			.bigstat {
-				display: block;
-			}
-			.label {
-				display: block;
-				font-size: 16px;
-				line-height: 16px;
-			}
-		}
-		/* Centered <ul> */
-		#undergraduateAdmission ul.statistics {
-			overflow: visible;
-			float: right;
-			position: relative;
-			right: 50%;
-			li {
-				position: relative;
-				left: 50%;
-			}
-		}
-		/* Colored circles */
-		ul.statistics li {
-			float: left;
-			width: 85px;
-			height: 85px;
-			padding: 30px;
-			margin-right: -15px;
-			border-radius: 50%;
-			padding: 30px;
-			&.fact1 {
-				background: rgba(255, 142, 59, 0.6);
-			}
-			&.fact2 {
-				background: rgba(53, 109, 157, 0.6);
-			}
-			&.fact3 {
-				background: rgba(152, 172, 82, 0.6);
-			}
-			&.fact4 {
-				background: rgba(251, 208, 79, 0.6);
-			}
-			&.fact5 {
-				background: rgba(28, 141, 169, 0.6);
-			}
-		}
-	}
+  .homepage {
+    .subheading {
+      margin: 0 75px;
+    }
+
+    /* Break stats and label onto two lines */
+    ul.statistics li {
+      .bigstat {
+        display: block;
+      }
+
+      .label {
+        display: block;
+        font-size: 16px;
+        line-height: 16px;
+      }
+    }
+
+    /* Centered <ul> */
+    #undergraduateAdmission ul.statistics {
+      overflow: visible;
+      float: right;
+      position: relative;
+      right: 50%;
+
+      li {
+        position: relative;
+        left: 50%;
+      }
+    }
+
+    /* Colored circles */
+    ul.statistics li {
+      float: left;
+      width: 85px;
+      height: 85px;
+      padding: 30px;
+      margin-right: -15px;
+      border-radius: 50%;
+      padding: 30px;
+
+      &.fact1 {
+        background: rgba(255, 142, 59, 0.6);
+      }
+
+      &.fact2 {
+        background: rgba(53, 109, 157, 0.6);
+      }
+
+      &.fact3 {
+        background: rgba(152, 172, 82, 0.6);
+      }
+
+      &.fact4 {
+        background: rgba(251, 208, 79, 0.6);
+      }
+
+      &.fact5 {
+        background: rgba(28, 141, 169, 0.6);
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 980px) {
-	.homepage {
-		ul.statistics {
-			margin: 75px 0;
-		}
-		ul.statistics li {
-			.bigstat {
-				font-size: 38px;
-				line-height: 38px;
-			}
-			.label {
-				font-size: 18px;
-				line-height: 18px;
-				margin-top: 10px;
-			}
-			width: 100px;
-			height: 100px;
-			padding: 50px;
-			margin-right: -40px;
-		}
-	}
+  .homepage {
+    ul.statistics {
+      margin: 75px 0;
+    }
+
+    ul.statistics li {
+      .bigstat {
+        font-size: 38px;
+        line-height: 38px;
+      }
+
+      .label {
+        font-size: 18px;
+        line-height: 18px;
+        margin-top: 10px;
+      }
+
+      width: 100px;
+      height: 100px;
+      padding: 50px;
+      margin-right: -40px;
+    }
+  }
 }
 
 @media only screen and (min-width: 1180px) {
-	.homepage {
-		ul.statistics li {
-			.bigstat {
-				font-size: 60px;
-				line-height: 60px;
-			}
-			.label {
-				font-size: 22px;
-				line-height: 24px;
-			}
-			width: 150px;
-			height: 130px;
-			padding: 70px 50px 50px 50px;
-		}
-	}
+  .homepage {
+    ul.statistics li {
+      .bigstat {
+        font-size: 60px;
+        line-height: 60px;
+      }
+
+      .label {
+        font-size: 22px;
+        line-height: 24px;
+      }
+
+      width: 150px;
+      height: 130px;
+      padding: 70px 50px 50px 50px;
+    }
+  }
 }
 
 /***************************************************
@@ -150,56 +207,66 @@
 ***************************************************/
 
 #undergraduateAdmission {
-	background: #111111 image-url('undergrad-admissions.jpg') no-repeat center;
-	background-size: cover;
-	color: #ffffff;
-	.maxWidth {
-		margin: 0 auto;
-	}
-	.heading {
-		@include condensed-heading;
-		text-align: center;
-	}
-	.subheading {
-		margin: 0 50px;
-		text-align: center;
-		font-size: 35px; // To fit all text on one line -SH
-		line-height: 42px;
-	}
+  background: #111111 image-url('undergrad-admissions.jpg') no-repeat center;
+  background-size: cover;
+  color: #ffffff;
+
+  .maxWidth {
+    margin: 0 auto;
+  }
+
+  .heading {
+    @include condensed-heading;
+    text-align: center;
+  }
+
+  .subheading {
+    margin: 0 50px;
+    text-align: center;
+    font-size: 35px; // To fit all text on one line -SH
+    line-height: 42px;
+  }
 }
 
 .skrollr #undergraduateAdmission {
-	background-attachment: fixed;
+  background-attachment: fixed;
 }
 
 #undergraduateAdmission {
-	background: #111
-		url(//www.chapman.edu/_assets/undergrad-admissions-6b05436c3ff08330a37837dcf25b8c5c1749cc7456f32c7383593726a4125407.jpg)
-		no-repeat center;
-	background-size: cover;
-	color: #ffffff;
+  background: #111 url(//www.chapman.edu/_assets/undergrad-admissions-6b05436c3ff08330a37837dcf25b8c5c1749cc7456f32c7383593726a4125407.jpg) no-repeat center;
+  background-size: cover;
+  color: #ffffff;
 }
 
 .homepage ul.statistics li.fact1 {
-	background-color: rgba(0, 133, 95, 1);
+  background-color: rgba(0, 133, 95, 1);
 }
 
 .homepage ul.statistics li.fact2 {
-	background-color: rgba(0, 124, 133, 1);
+  background-color: rgba(0, 124, 133, 1);
 }
 
 .homepage ul.statistics li.fact3 {
-	background-color: rgba(165, 0, 52, .9);
+  background-color: rgba(165, 0, 52, .9);
 }
 
 .homepage ul.statistics li.fact4 {
-	background-color: rgba(110, 98, 89, .9);
+  background-color: rgba(110, 98, 89, .9);
 }
 
 .homepage ul.statistics li.fact5 {
-	background-color: rgba(2, 2, 1, .8);
+  background-color: rgba(2, 2, 1, .8);
 }
+
 p span.bigstat,
 p span.label {
-	color: white !important;
+  color: white !important;
+}
+
+.no-js {
+  .bigstat {
+    -webkit-animation: fadeIn 1s linear forwards;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 1s;
+  }
 }

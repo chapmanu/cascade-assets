@@ -693,6 +693,7 @@
 					<radio-item value="Yes"/>
 					<radio-item value="No"/>
 				</text>
+				<text help-text="Section Heading above all 3 photos" identifier="heading" label="Heading" required="false"/>
 				<text default="Light" identifier="bgColor" label="Background Color" type="radiobutton">
 					<radio-item value="Light"/>
 					<radio-item value="Medium"/>
