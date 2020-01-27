@@ -13,6 +13,7 @@ $(document).ready( function() {
   $sectionMenuButton          = $('#uninav .uninav__umbrella-nav-button-container button'),
   $offCanvasOverlay           = $('.off-canvas-overlay#js-off-canvas-overlay');
 
+  
 
   $sectionMenuButton.on('click', function() {
     $offCanvasNavContainer.css({ 
@@ -34,17 +35,22 @@ $(document).ready( function() {
   });
 
   $offCanvasNavContainer.find('.close.js-close-off-canvas-nav').on('keydown', function(e) {
-    if(e.key === "Enter" || e.key === "Space")
+    if(e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
       $offCanvasNavContainer.css({ 
         transform: "translateX(-" +  menuWidth + "px)",
         visibility: 'hidden'
       });
       $offCanvasOverlay.hide();
+    }
   });
 
-  $offCanvasNavContainer.find('.close.js-close-off-canvas-nav').on('click', function() {
-    $(this).parents('.off-canvas-menu').css({ transform: "translateX(-" +  menuWidth + "px)"});
-  });
+  // $offCanvasNavContainer.find('.close.js-close-off-canvas-nav').on('click', function() {
+  //   $(this).parents('.off-canvas-menu').css({ 
+  //     transform: "translateX(-" +  menuWidth + "px)",
+  //     visibility: 'hidden'
+  //   });
+  // });
 
   $rootUmbrellaDiv.find('.toggle-menu-label').on('click', function() {
     changeContextualMenus($(this));
@@ -54,14 +60,37 @@ $(document).ready( function() {
     changeContextualMenus($(this));
   });
 
-  $rootUmbrellaDiv.find('.close.js-close-off-canvas-nav').on('click', function() {
-    $offCanvasNavContainer.css({ transform: "translateX(-" +  menuWidth + "px)"});
-    $offCanvasOverlay.hide();
+  $rootUmbrellaDiv.find('.toggle-menu-label').on('keydown', function(e) {
+    if(e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      changeContextualMenus($(this));
+    }
+  });
+
+  $rootMainDiv.find('.toggle-menu-label').on('keydown', function(e) {
+    if(e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      changeContextualMenus($(this));
+    }
   });
 
   $('#uninav .uninav__hamburger-menu .hamburger-menu-button').on('click', function() {
-    $offCanvasNavContainer.css({ transform: "translateX(" + menuVisibleXVal + "px)"});
+    $offCanvasNavContainer.css({ 
+      transform: "translateX(" + menuVisibleXVal + "px)",
+      visibility: 'visible'
+    });
     $offCanvasOverlay.show();
+  });
+
+  $('#uninav .uninav__hamburger-menu .hamburger-menu-button').on('keydown', function(e) {
+    if(e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      $offCanvasNavContainer.css({ 
+        transform: "translateX(" + menuVisibleXVal + "px)",
+        visibility: 'visible'
+      });
+      $offCanvasOverlay.show();
+    }
   });
 
   $rootMainDiv.find('.menu-header .menu-label').on('click', function() {
@@ -73,13 +102,15 @@ $(document).ready( function() {
   });
 
   $rootMainDiv.find('.menu-header .menu-label').on('keydown', function(e) {
-    if(e.key === "Enter" || e.key === "Space") {
+    if(e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
       moveOffCanvasToRoot($(this));
     }
   });
 
   $rootUmbrellaDiv.find('.menu-header .menu-label').on('keydown', function(e) {
-    if(e.key === "Enter" || e.key === "Space") {
+    if(e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
       moveOffCanvasToRoot($(this));
     }
   });
@@ -105,7 +136,8 @@ $(document).ready( function() {
   $rootDrillDownNavMain.on('click', '.menu-back', drillMenuUp);
 
   $rootDrillDownNavUmbrella.on('keydown', '.drill-down-parent', function(e) {
-    if(e.key === "Enter" || e.key === "Space") {
+    if(e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
       var $nextTabableItem = $(this).siblings('.drilldown-menu').children('.menu-back')
       var drillDown = drillMenuDown.bind(this);
 
@@ -121,7 +153,8 @@ $(document).ready( function() {
   });
 
   $rootDrillDownNavMain.on('keydown', '.drill-down-parent', function(e) {
-    if(e.key === "Enter" || e.key === "Space") {
+    if(e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
       var $nextTabableItem = $(this).siblings('.drilldown-menu').children('.menu-back')
       var drillDown = drillMenuDown.bind(this);
 
@@ -137,7 +170,8 @@ $(document).ready( function() {
   });
 
   $rootDrillDownNavUmbrella.on('keydown', '.menu-back', function(e) {
-    if (e.key === "Enter" || e.key === "Space") {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
       var $nextTabableItem = $(this).closest('.drill-down-list-item').children('.drill-down-parent');
       var drillup = drillMenuUp.bind(this);
 
@@ -153,7 +187,8 @@ $(document).ready( function() {
   });
 
   $rootDrillDownNavMain.on('keydown', '.menu-back', function(e) {
-    if (e.key === "Enter" || e.key === "Space") {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
       var $nextTabableItem = $(this).closest('.drill-down-list-item').children('.drill-down-parent');
       var drillup = drillMenuUp.bind(this);
 
@@ -278,6 +313,7 @@ $(document).ready( function() {
     if (umbrellaDrillDown) {
       ulCurrentPos  = getTranslateXVal($rootDrillDownNavUmbrella),
       translateXVal = ulCurrentPos - menuWidth;
+      $rootDrillDownNavUmbrella.addClass('drilled-down');
       $rootDrillDownNavUmbrella.find('.drilldown-menu.active').removeClass('active');
       $menuToDrillDownTo.addClass('active');
 
@@ -301,6 +337,7 @@ $(document).ready( function() {
     $menuToDrillDownTo.addClass('active');
     $menuToDrillDownTo.show();
     $rootDrillDownNavMain.css({ transform: "translateX(" + translateXVal + "px)" });
+    $rootDrillDownNavMain.addClass('drilled-down');
     $rootElement.animate({ scrollTop: 0 }, 'slow');
     if ($menuToDrillDownTo.height() + headerHeight > $(window).height()) {
       $rootElement.css({ overflowY: 'scroll' });
@@ -311,7 +348,7 @@ $(document).ready( function() {
     return;
   }
   
-  function drillMenuUp(cb) {
+  function drillMenuUp() {
     var umbrellaDrillDown = $(this).parents('#off-canvas-umbrella').length,
     ulCurrentPos          = getTranslateXVal($rootDrillDownNavMain),
     translateXVal         = ulCurrentPos + menuWidth,
@@ -322,15 +359,13 @@ $(document).ready( function() {
       $parentDrillDownMenu.addClass('active');
       ulCurrentPos  = getTranslateXVal($rootDrillDownNavUmbrella),
       translateXVal = ulCurrentPos + menuWidth;
+
+      if (translateXVal === 0) {
+        $rootDrillDownNavUmbrella.removeClass('drilled-down');
+      }
       
       $rootDrillDownNavUmbrella.css({ transform: "translateX(" + translateXVal + "px)"  });
 
-      // $rootDrillDownNavUmbrella.animate({ transform: "translateX(" + translateXVal + "px)"  }, function() {
-      //   debugger
-      //   cb && cb();
-      // });
-
-      // cb && cb();
       $(this).parent().hide();
 
       if (translateXVal == 0) {
@@ -354,6 +389,10 @@ $(document).ready( function() {
       }
 
       return;
+    }
+
+    if (translateXVal === 0) {
+      $rootDrillDownNavMain.removeClass('drilled-down');
     }
 
     $rootDrillDownNavMain.find('.drilldown-menu.active').removeClass('active');
@@ -416,10 +455,12 @@ $(document).ready( function() {
       if (umbrellaDrillDown) {
         $rootUmbrellaDiv.show();
         $rootMainDiv.hide();
+
         $rootDrillDownNavUmbrella.css({ transform: "translateX(-" + (menuWidth * $drillDownParents.length) + "px" });
         $rootMainDiv.css({ transform: "translateX(-" + menuWidth + "px" });
 
         if ( $currentPathDrillDownMenu.length) {
+          $rootDrillDownNavUmbrella.addClass('drilled-down');
           if ($currentPathDrillDownMenu.height() + headerHeight >= $(window).height()) {
             $rootElement.css({ overflowY: 'scroll' });
           } else {
@@ -443,6 +484,7 @@ $(document).ready( function() {
       $rootUmbrellaDiv.css({ transform: "translateX(-" + menuWidth + "px" });
 
       if ($currentPathDrillDownMenu.length) {
+        $rootDrillDownNavMain.addClass('drilled-down');
         if ($currentPathDrillDownMenu.height() + headerHeight >= $(window).height()) {
           $rootElement.css({ overflowY: 'scroll' });
         } else {
@@ -618,8 +660,12 @@ $(document).ready( function() {
     });
 
     $umbrellaLastItem.on('keydown', function(e) {
-
+      
       if (e.key === "Tab") {
+        if (e.shiftKey) {
+          return;
+        }
+        
         $offCanvasNavContainer.css({ 
           transform: "translateX(-" +  menuWidth + "px)",
           visibility: 'hidden'
@@ -628,8 +674,13 @@ $(document).ready( function() {
       }
     });
 
+
+
     $mainLastItem.on('keydown', function(e) {
       if (e.key === "Tab") {
+        if (e.shiftKey) {
+          return;
+        }
 
         $offCanvasNavContainer.css({ 
           transform: "translateX(-" +  menuWidth + "px)",
@@ -708,6 +759,12 @@ $(document).ready( function() {
     });
   });
 
+  function addTopLevelDrillDownClasses() {
+    $rootDrillDownNavMain.children().addClass('top-drill-down-list-item');
+    $rootDrillDownNavUmbrella.children().addClass('top-drill-down-list-item');
+  }
+
+  addTopLevelDrillDownClasses();
   selectLastDrillDownElement();
   moveToCurrentSetHeight();
 });

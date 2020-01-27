@@ -1,5 +1,5 @@
 <nav class="branded" id="uninav">
-  <!-- pagePath: dodge/apply/index -->
+  <!-- pagePath: dodge/index -->
   <!-- pageUmbrellaCategory: [dodge, Dodge College] -->
   <!-- umbrellaAssets count: 13 -->
 
@@ -20,14 +20,23 @@
       <span class="sr-only">Menu</span>
     </button>
   </div>
+  <div class="uninav__hamburger-menu">
+    <button aria-label="Toggle site menu" class="hamburger-menu-button" type="button">
+      <svg class="hamburger-icon" height="32" viewBox="0 0 16 16" width="32">
+        <title>Toggle Mobile Menu</title>
+        <path d="M1 3h14v2h-14v-2z"></path>
+        <path d="M1 7h14v2h-14v-2z"></path>
+        <path d="M1 11h14v2h-14v-2z"></path>
+      </svg>
+      <span class="sr-only">Menu</span>
+    </button>
+  </div>
   <div class="off-canvas-overlay" id="js-off-canvas-overlay"></div>
-  <div class="off-canvas-nav-container" id="js-off-canvas-nav-container" style="overflow-y: hidden;">
+  <div class="off-canvas-nav-container" id="js-off-canvas-nav-container" style="overflow-y: scroll;">
     <div class="cu-off-canvas-header">
       <div class="cu-logo-wrapper">
         <div class="toggle-logo" id="main-logo">
-          <a class="default off-logo"
-            href="/entity/open.act?type=page&amp;id=7e7519b3c04d744c610b81da971fb9c9&amp;confId=15be14d7c0a81e4b7fe9660451d0f621"
-            target="_parent" title="Chapman University Website Home Page">
+          <a class="default off-logo" href="../index.aspx" title="Chapman University Website Home Page">
             <!-- logo set as background image by class -->
             Chapman University Logo
           </a>
@@ -41,45 +50,27 @@
       <div class="off-canvas-menu" id="off-canvas-umbrella">
         <div class="menu-header">
           <span class="menu-label" tabindex="0">Dodge College</span>
-          <a class="toggle-menu-label" href="#">Chapman Menu</a>
+          <span class="toggle-menu-label" tabindex="0">Chapman Menu</span>
         </div>
 
         <div id="off-canvas-umbrella-navigation">
-          <ul class="root-umbrella-nav" style="transform: translateX(-410px);">
-            <script>
-              if (window.location.href.indexOf("//dev-") > -1) {
-                console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Dodge College - Home")
-              }
-            </script>
+          <ul class="root-umbrella-nav" style="transform: translateX(0px);">
 
 
 
-            <li class="drill-down-list-item home-menu">
+            <li class="drill-down-list-item current home-menu top-drill-down-list-item">
               <i class="fas fa-home"></i>
-              <a href="/entity/open.act?type=page&amp;id=1fd5862fc04d744c580ddf89ccaf49f5&amp;confId=8667bb00c0a81e4b7fe96604eff4cff5"
-                target="_parent">Dodge College - Home</a>
+              <a href="index.aspx">Dodge College - Home</a>
             </li>
-            <script>
-              if (window.location.href.indexOf("//dev-") > -1) {
-                console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Academic Programs")
-              }
-            </script>
 
 
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
               <span class="drill-down-parent" tabindex="0">Academic Programs</span>
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Academic Programs</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=3eb73a8ac04d744c580ddf89ed2280a6&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                    target="_parent">Academic Programs</a></li>
-                <script>
-                  if (window.location.href.indexOf("//dev-") > -1) {
-                    console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Undergraduate Programs")
-                  }
-                </script>
+                <li class="drill-down-list-item"><a href="programs/index.aspx">Academic Programs</a></li>
 
 
 
@@ -88,49 +79,31 @@
                   <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
                   <ul class="drilldown-menu">
                     <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Undergraduate Programs</li>
+                    <li class="drill-down-list-item"><a href="programs/undergraduate/index.aspx">Undergraduate
+                        Programs</a></li>
+                    <li class="drill-down-list-item"><a href="programs/undergraduate/bfa-news-doc.aspx">B.F.A. in
+                        Broadcast Journalism &amp; Documentary</a></li>
+                    <li class="drill-down-list-item"><a href="programs/undergraduate/bfa-creative-producing.aspx">B.F.A.
+                        in Creative Producing</a></li>
+                    <li class="drill-down-list-item"><a href="programs/undergraduate/bfa-digital-arts.aspx">B.F.A. in
+                        Digital Arts - Animation and Visual Effects</a></li>
+                    <li class="drill-down-list-item"><a href="programs/undergraduate/bfa-film-production.aspx">B.F.A. in
+                        Film Production</a></li>
+                    <li class="drill-down-list-item"><a href="programs/undergraduate/ba-film-studies.aspx">B.A. in Film
+                        Studies</a></li>
+                    <li class="drill-down-list-item"><a href="programs/undergraduate/ba-pr-advertising.aspx">B.A. in
+                        Public Relations &amp; Advertising</a></li>
+                    <li class="drill-down-list-item"><a href="programs/undergraduate/ba-screenwriting.aspx">B.F.A. in
+                        Screenwriting</a></li>
+                    <li class="drill-down-list-item"><a href="programs/undergraduate/bfa-screen-acting.aspx">B.F.A. in
+                        Screen Acting</a></li>
+                    <li class="drill-down-list-item"><a href="programs/undergraduate/bfa-tv-writing-prod.aspx">B.F.A. in
+                        Television Writing and Production</a></li>
+                    <li class="drill-down-list-item"><a href="programs/undergraduate/minors.aspx">Minors</a></li>
                     <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cfa04dd0c04d744c7b41aa2527377f23&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Undergraduate Programs</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=b16136d9c04d744c3462fc6cde931f67&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">B.F.A. in Broadcast Journalism &amp; Documentary</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cfa15742c04d744c7b41aa25e12cd3e0&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">B.F.A. in Creative Producing</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cfa0feb6c04d744c7b41aa25ab824b34&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">B.F.A. in Digital Arts - Animation and Visual Effects</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cfa0b9f6c04d744c7b41aa2537081639&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">B.F.A. in Film Production</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cfa088d4c04d744c7b41aa2559e3f8f4&amp;confId=8674dfbac0a81e4b7fe966041db75098"
-                        target="_parent">B.A. in Film Studies</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cfa220afc04d744c7b41aa258dfcf9ee&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">B.A. in Public Relations &amp; Advertising</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cfa18670c04d744c7b41aa253d917fdd&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">B.F.A. in Screenwriting</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cfdf16e2c04d744c7b41aa25cfcde051&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">B.F.A. in Screen Acting</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cfe3c320c04d744c7b41aa2565614279&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">B.F.A. in Television Writing and Production</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cfe57d25c04d744c7b41aa25f480e12f&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Minors</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=40959538c04d744c220fee850752bc96&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">International Programs</a></li>
+                        href="programs/undergraduate/international-initiatives.aspx">International Programs</a></li>
                   </ul>
                 </li>
-                <script>
-                  if (window.location.href.indexOf("//dev-") > -1) {
-                    console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Graduate Programs")
-                  }
-                </script>
 
 
 
@@ -139,97 +112,63 @@
                   <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
                   <ul class="drilldown-menu">
                     <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Graduate Programs</li>
+                    <li class="drill-down-list-item"><a href="programs/graduate/mfa-documentary.aspx">M.F.A. in
+                        Documentary Filmmaking</a></li>
+                    <li class="drill-down-list-item"><a href="programs/graduate/mfa-film-production.aspx">M.F.A. in Film
+                        Production</a></li>
+                    <li class="drill-down-list-item"><a href="programs/graduate/ma-film-studies.aspx">M.A. in Film
+                        Studies</a></li>
                     <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=d970df0ec04d744c7cf56489aee1d162&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">M.F.A. in Documentary Filmmaking</a></li>
+                        href="programs/graduate/integrated-undergrad-ma-film-studies.aspx">Integrated Undergrad-M.A. in
+                        Film Studies</a></li>
+                    <li class="drill-down-list-item"><a href="programs/graduate/mfa-film-tv-producing.aspx">M.F.A. in
+                        Film and TV Producing</a></li>
+                    <li class="drill-down-list-item"><a href="programs/graduate/mfa-production-design.aspx">M.F.A. in
+                        Production Design</a></li>
+                    <li class="drill-down-list-item"><a href="programs/graduate/mfa-screenwriting.aspx">M.F.A. in
+                        Screenwriting</a></li>
+                    <li class="drill-down-list-item"><a href="programs/graduate/mfa-tv-writing-producing.aspx">M.F.A. in
+                        Television Writing and Producing</a></li>
                     <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cba69393c04d744c7b41aa2518b65717&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">M.F.A. in Film Production</a></li>
+                        href="programs/graduate/jd-mfa-film-tv-producing.aspx">J.D./M.F.A. in Film and TV Producing</a>
+                    </li>
                     <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cba5d48ec04d744c7b41aa258edd17ff&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">M.A. in Film Studies</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=706620a8c04d744c6e171c0d051b1587&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Integrated Undergrad-M.A. in Film Studies</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cba720fac04d744c7b41aa25bb3db5de&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">M.F.A. in Film and TV Producing</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cba79173c04d744c7b41aa254d5535cb&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">M.F.A. in Production Design</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cba8736cc04d744c7b41aa2524015747&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">M.F.A. in Screenwriting</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=366d2491c04d744c086780a86aeafdcc&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">M.F.A. in Television Writing and Producing</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cba967b5c04d744c7b41aa250169bfba&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">J.D./M.F.A. in Film and TV Producing</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cbaa6b07c04d744c7b41aa251f72db09&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">M.B.A./M.F.A in Film and TV Producing</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=cbaca0e5c04d744c7b41aa2521822ab0&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Graduate Programs</a></li>
+                        href="programs/graduate/mba-mfa-film-tv-producing.aspx">M.B.A./M.F.A in Film and TV
+                        Producing</a></li>
+                    <li class="drill-down-list-item"><a href="programs/graduate/index.aspx">Graduate Programs</a></li>
                   </ul>
                 </li>
               </ul>
             </li>
-            <script>
-              if (window.location.href.indexOf("//dev-") > -1) {
-                console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Industry Programs")
-              }
-            </script>
 
 
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
               <span class="drill-down-parent" tabindex="0">Industry Programs</span>
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Industry Programs</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=3f8a16e4c04d744c580ddf897333ebef&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                    target="_parent">Industry Programs</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=c620e2a7c04d744c7b41aa25dbb6c9e1&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Filmmaker-in-Residence</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=3f969e5bc04d744c580ddf89ad078eb1&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Women in Focus</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=3f8a87eec04d744c580ddf89d6eb2141&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Leo Freedman Foundation First Cut</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=dce0a901c04d744c6e6e1053cfb98b6e&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Institute for Creative Reality</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=ccad7387c04d744c1743fa4a0cbeb1cb&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">CNA Sound and Storytelling Conference</a></li>
+                <li class="drill-down-list-item"><a href="industry/index.aspx">Industry Programs</a></li>
+                <li class="drill-down-list-item"><a href="industry/filmmaker-residence.aspx">Filmmaker-in-Residence</a>
+                </li>
+                <li class="drill-down-list-item"><a href="industry/women-focus.aspx">Women in Focus</a></li>
+                <li class="drill-down-list-item"><a href="industry/first-cut.aspx">Leo Freedman Foundation First Cut</a>
+                </li>
+                <li class="drill-down-list-item"><a href="industry/institute-creative-reality.aspx">Institute for
+                    Creative Reality</a></li>
+                <li class="drill-down-list-item"><a href="industry/cna-conference.aspx">CNA Sound and Storytelling
+                    Conference</a></li>
               </ul>
             </li>
-            <script>
-              if (window.location.href.indexOf("//dev-") > -1) {
-                console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Summer Programs")
-              }
-            </script>
 
 
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
               <span class="drill-down-parent" tabindex="0">Summer Programs</span>
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Summer Programs</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=d828d6e6c04d744c421e6b1c7849b389&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                    target="_parent">Summer Programs</a></li>
-                <script>
-                  if (window.location.href.indexOf("//dev-") > -1) {
-                    console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Summer Film Academy")
-                  }
-                </script>
+                <li class="drill-down-list-item"><a href="summer-programs/index.aspx">Summer Programs</a></li>
 
 
 
@@ -239,48 +178,30 @@
                   <ul class="drilldown-menu">
                     <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Summer Film Academy</li>
                     <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=c096492cc04d744c2d059fd67553d79d&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">About</a></li>
+                        href="summer-programs/summer-film-academy/sfa-about.aspx">About</a></li>
                     <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=c081d984c04d744c2d059fd602fe84b3&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Apply</a></li>
+                        href="summer-programs/summer-film-academy/sfa-apply.aspx">Apply</a></li>
+                    <li class="drill-down-list-item"><a href="summer-programs/summer-film-academy/index.aspx">Summer
+                        Film Academy</a></li>
+                    <li class="drill-down-list-item"><a href="summer-programs/summer-film-academy/sfa-team.aspx">Meet
+                        the Team</a></li>
                     <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3f8205d4c04d744c580ddf89c3a570fd&amp;confId=fcd2c74bc0a81e416c36856d55741d8c"
-                        target="_parent">Summer Film Academy</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=c0b6f3eac04d744c2d059fd6618140ba&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Meet the Team</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=f55cd358c04d744c14afc3c5f39d5606&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">FAQs</a></li>
+                        href="summer-programs/summer-film-academy/sfa-faqs.aspx">FAQs</a></li>
                   </ul>
                 </li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=0776d8b9c04d744c75db237341fc8665&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Chapman University Summer Film Academy, China</a></li>
+                <li class="drill-down-list-item"><a href="summer-programs/china.aspx">Chapman University Summer Film
+                    Academy, China</a></li>
               </ul>
             </li>
-            <script>
-              if (window.location.href.indexOf("//dev-") > -1) {
-                console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Apply")
-              }
-            </script>
 
 
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
               <span class="drill-down-parent" tabindex="0">Apply</span>
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
-              <ul class="drilldown-menu active" style="display: block;">
+              <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Apply</li>
-                <li class="drill-down-list-item current"><a
-                    href="/entity/open.act?type=page&amp;id=3f9ce98ec04d744c580ddf895fade70a&amp;confId=89371a0ec0a81e4b7fe96604c69524c9"
-                    target="_parent">Apply</a></li>
-                <script>
-                  if (window.location.href.indexOf("//dev-") > -1) {
-                    console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Undergraduate Applications")
-                  }
-                </script>
+                <li class="drill-down-list-item"><a href="apply/index.aspx">Apply</a></li>
 
 
 
@@ -290,52 +211,36 @@
                   <ul class="drilldown-menu">
                     <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Undergraduate Applications
                     </li>
+                    <li class="drill-down-list-item"><a href="apply/undergraduate/index.aspx">Undergraduate
+                        Applications</a></li>
+                    <li class="drill-down-list-item"><a href="apply/undergraduate/film-studies.aspx">Apply - Film
+                        Studies</a></li>
+                    <li class="drill-down-list-item"><a href="apply/undergraduate/creative-producing.aspx">Apply –
+                        Creative Producing</a></li>
+                    <li class="drill-down-list-item"><a href="apply/undergraduate/film-production.aspx">Apply - Film
+                        Production</a></li>
+                    <li class="drill-down-list-item"><a href="apply/undergraduate/digital-arts.aspx">Apply – Digital
+                        Arts</a></li>
                     <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3f9ec21ec04d744c580ddf895e86a66e&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Undergraduate Applications</a></li>
+                        href="apply/undergraduate/public-relations-advertising.aspx">Apply - PR and Advertising</a></li>
                     <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fa0df76c04d744c580ddf89f563760b&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Apply - Film Studies</a></li>
+                        href="apply/undergraduate/television-writing-production.aspx">Apply - TV Writing and
+                        Production</a></li>
                     <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fb84bd4c04d744c580ddf8995bfc261&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Apply – Creative Producing</a></li>
+                        href="apply/undergraduate/broadcast-journalism-documentary.aspx">Apply - Broadcast Journalism
+                        and Documentary</a></li>
+                    <li class="drill-down-list-item"><a href="apply/undergraduate/screenwriting.aspx">Apply -
+                        Screenwriting</a></li>
+                    <li class="drill-down-list-item"><a href="apply/undergraduate/screenacting.aspx">Apply – Screen
+                        Acting</a></li>
                     <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fb8a554c04d744c580ddf89745a5dc0&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Apply - Film Production</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fb9adc1c04d744c580ddf8911d3244f&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Apply – Digital Arts</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fba0eefc04d744c580ddf8952b0bc5a&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Apply - PR and Advertising</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbac4b7c04d744c580ddf89baabd73b&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Apply - TV Writing and Production</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=9728cc3ac04d744c309e7e21f702baf4&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Apply - Broadcast Journalism and Documentary</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbba28bc04d744c580ddf89636a5004&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Apply - Screenwriting</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbbfb2fc04d744c580ddf89cc9cb05f&amp;confId=a42fc477c04d744c08ea7a550ea719ad"
-                        target="_parent">Apply – Screen Acting</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbd451ec04d744c580ddf89dd8d7fcf&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Tuition, Aid and Scholarships</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbe2d9dc04d744c580ddf89bffc0697&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Undergraduate Admission FAQs</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=ca4da684c04d744c363ed80b493ba70b&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Transfer Admission FAQs</a></li>
+                        href="apply/undergraduate/tuition-aid-scholarships.aspx">Tuition, Aid and Scholarships</a></li>
+                    <li class="drill-down-list-item"><a href="apply/undergraduate/undergraduate-faq.aspx">Undergraduate
+                        Admission FAQs</a></li>
+                    <li class="drill-down-list-item"><a href="apply/undergraduate/transfer-faq.aspx">Transfer Admission
+                        FAQs</a></li>
                   </ul>
                 </li>
-                <script>
-                  if (window.location.href.indexOf("//dev-") > -1) {
-                    console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Graduate Applications")
-                  }
-                </script>
 
 
 
@@ -344,85 +249,51 @@
                   <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
                   <ul class="drilldown-menu">
                     <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Graduate Applications</li>
+                    <li class="drill-down-list-item"><a href="apply/graduate/index.aspx">Graduate Applications</a></li>
+                    <li class="drill-down-list-item"><a href="apply/graduate/documentary.aspx">Apply - Documentary
+                        Filmmaking</a></li>
+                    <li class="drill-down-list-item"><a href="apply/graduate/film-studies.aspx">Apply - Film Studies</a>
+                    </li>
                     <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=edb1b439c04d744c7cf56489aa1c0d73&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Apply - Documentary Filmmaking</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbf1a28c04d744c580ddf89db817f15&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Graduate Applications</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbf1ef9c04d744c580ddf8915e4c87e&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Apply - Film Studies</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=74fef79cc04d744c6e171c0dfc69e053&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Apply - Integrated Undergrad Film Studies</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbf1f9cc04d744c580ddf89c29ac82e&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Apply - Film Production/emphasis Directing</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbf2041c04d744c580ddf8982e5f56e&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Apply - Film Production/Cinematography Emphasis</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbf20f3c04d744c580ddf89c18a2c16&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Apply - Film Production/Editing Emphasis</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbf228dc04d744c580ddf89fdfdaef9&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Apply - Film Production/Sound Design Emphasis</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbf26a3c04d744c580ddf896523f7b7&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Apply - Film/TV Producing</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbf2764c04d744c580ddf89baac3c0e&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Apply - Production Design</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbf2832c04d744c580ddf89cd6f513d&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Apply - Screenwriting</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=7a26e2a2c04d744c3e7847ff8faaba91&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                        target="_parent">Apply - Television Writing and Producing</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbf2967c04d744c580ddf897ba650e3&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Apply - Joint MBA/MFA Film &amp; TV Producing</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=db505fc9c04d744c69132e2bc3e30dbb&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Apply - Joint JD/MFA Film &amp; TV Producing</a></li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fbf2f61c04d744c580ddf892981007b&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Graduate Admission FAQs</a></li>
+                        href="apply/graduate/integrated-undergrad-film-studies.aspx">Apply - Integrated Undergrad Film
+                        Studies</a></li>
+                    <li class="drill-down-list-item"><a href="apply/graduate/production-directing.aspx">Apply - Film
+                        Production/emphasis Directing</a></li>
+                    <li class="drill-down-list-item"><a href="apply/graduate/production-cinematography.aspx">Apply -
+                        Film Production/Cinematography Emphasis</a></li>
+                    <li class="drill-down-list-item"><a href="apply/graduate/production-editing.aspx">Apply - Film
+                        Production/Editing Emphasis</a></li>
+                    <li class="drill-down-list-item"><a href="apply/graduate/production-sound.aspx">Apply - Film
+                        Production/Sound Design Emphasis</a></li>
+                    <li class="drill-down-list-item"><a href="apply/graduate/film-television-producing.aspx">Apply -
+                        Film/TV Producing</a></li>
+                    <li class="drill-down-list-item"><a href="apply/graduate/production-design.aspx">Apply - Production
+                        Design</a></li>
+                    <li class="drill-down-list-item"><a href="apply/graduate/screenwriting.aspx">Apply -
+                        Screenwriting</a></li>
+                    <li class="drill-down-list-item"><a href="apply/graduate/television-writing-producing.aspx">Apply -
+                        Television Writing and Producing</a></li>
+                    <li class="drill-down-list-item"><a href="apply/graduate/mba-mfa-ftv-producing.aspx">Apply - Joint
+                        MBA/MFA Film &amp; TV Producing</a></li>
+                    <li class="drill-down-list-item"><a href="apply/graduate/jd-mfa-ftv-producing.aspx">Apply - Joint
+                        JD/MFA Film &amp; TV Producing</a></li>
+                    <li class="drill-down-list-item"><a href="apply/graduate/faq.aspx">Graduate Admission FAQs</a></li>
                   </ul>
                 </li>
               </ul>
             </li>
-            <script>
-              if (window.location.href.indexOf("//dev-") > -1) {
-                console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH About Dodge")
-              }
-            </script>
 
 
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
               <span class="drill-down-parent" tabindex="0">About Dodge</span>
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>About Dodge</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=3fd1fe84c04d744c580ddf89823cdbd3&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Dean's Message</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=3fd29795c04d744c580ddf89efbeb79a&amp;confId=a77a9a9ac0a81e4b7fe96604253ca8d2"
-                    target="_parent">Administrative Team</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=09e0a25bc04d744c2006c9b27609ed99&amp;confId=3f178e24c04d744c580ddf89c9543b92"
-                    target="_parent">Faculty Directory</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=3fd18a81c04d744c580ddf892a48eb34&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                    target="_parent">About Dodge</a></li>
-                <script>
-                  if (window.location.href.indexOf("//dev-") > -1) {
-                    console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Press Room")
-                  }
-                </script>
+                <li class="drill-down-list-item"><a href="about/message.aspx">Dean's Message</a></li>
+                <li class="drill-down-list-item"><a href="about/administrative-team.aspx">Administrative Team</a></li>
+                <li class="drill-down-list-item"><a href="about/faculty-directory.aspx">Faculty Directory</a></li>
+                <li class="drill-down-list-item"><a href="about/index.aspx">About Dodge</a></li>
 
 
 
@@ -431,177 +302,103 @@
                   <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
                   <ul class="drilldown-menu">
                     <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Press Room</li>
-                    <li class="drill-down-list-item"><a
-                        href="/entity/open.act?type=page&amp;id=3fd599cdc04d744c580ddf895a827d45&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                        target="_parent">Press Room</a></li>
+                    <li class="drill-down-list-item"><a href="about/press/index.aspx">Press Room</a></li>
                   </ul>
                 </li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=6d7bc059c04d744c768f334b72cfa868&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Chapman Filmed Entertainment</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=d771c76dc04d744c4142aef8f18ad6b2&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Honorary Degree Recipients </a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=1a7d004bc04d744c10d75ebe4910e9ee&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Trustee Professors</a></li>
+                <li class="drill-down-list-item"><a href="about/chapman-filmed-entertainment.aspx">Chapman Filmed
+                    Entertainment</a></li>
+                <li class="drill-down-list-item"><a href="about/honorary-degree.aspx">Honorary Degree Recipients </a>
+                </li>
+                <li class="drill-down-list-item"><a href="about/trustees-dodge.aspx">Trustee Professors</a></li>
               </ul>
             </li>
-            <script>
-              if (window.location.href.indexOf("//dev-") > -1) {
-                console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Facilities")
-              }
-            </script>
 
 
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
               <span class="drill-down-parent" tabindex="0">Facilities</span>
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Facilities</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=3fcefd0cc04d744c580ddf89cd0642a8&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Marion Knott Studios</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=c059ada6c04d744c246c8634e41d3f5e&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                    target="_parent">Facilities</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=df5da7c4c04d744c1d8becb26065eaf2&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Digital Media Arts Center</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=89fc1364c04d744c32d8329c270e7aae&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Chapman Studios West</a></li>
+                <li class="drill-down-list-item"><a href="facilities/marion-knott-studios.aspx">Marion Knott Studios</a>
+                </li>
+                <li class="drill-down-list-item"><a href="facilities/index.aspx">Facilities</a></li>
+                <li class="drill-down-list-item"><a href="facilities/dmac.aspx">Digital Media Arts Center</a></li>
+                <li class="drill-down-list-item"><a href="facilities/chapman-studios-west.aspx">Chapman Studios West</a>
+                </li>
               </ul>
             </li>
-            <script>
-              if (window.location.href.indexOf("//dev-") > -1) {
-                console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Student Life")
-              }
-            </script>
 
 
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
               <span class="drill-down-parent" tabindex="0">Student Life</span>
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Student Life</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=3ca86df5c04d744c220fee85be226e71&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                    target="_parent">Student Life</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=5231bbe4c04d744c220fee85b68800f8&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                    target="_parent">Clubs and Organizations</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=523860a5c04d744c220fee852ad9c85b&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Film Festival Office</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=01628469c04d744c768f334bc0c18ed4&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                    target="_parent">Social Media Links</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=3fdf1ff4c04d744c580ddf89de6bab75&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Live Event Streaming</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=b251d55ec04d744c421e6b1c1decbe9b&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Awards and Grants</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=3fbc91fdc04d744c580ddf89f7ba3046&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Change or Add Majors or Minors</a></li>
+                <li class="drill-down-list-item"><a href="student-life/index.aspx">Student Life</a></li>
+                <li class="drill-down-list-item"><a href="student-life/clubs-orgs.aspx">Clubs and Organizations</a></li>
+                <li class="drill-down-list-item"><a href="student-life/festivals.aspx">Film Festival Office</a></li>
+                <li class="drill-down-list-item"><a href="student-life/social-media-links.aspx">Social Media Links</a>
+                </li>
+                <li class="drill-down-list-item"><a href="student-life/live-event-streaming.aspx">Live Event
+                    Streaming</a></li>
+                <li class="drill-down-list-item"><a href="student-life/awards-grants.aspx">Awards and Grants</a></li>
+                <li class="drill-down-list-item"><a href="student-life/minors.aspx">Change or Add Majors or Minors</a>
+                </li>
               </ul>
             </li>
-            <script>
-              if (window.location.href.indexOf("//dev-") > -1) {
-                console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Student Work Showcase")
-              }
-            </script>
 
 
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
               <span class="drill-down-parent" tabindex="0">Student Work Showcase</span>
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Student Work Showcase</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=3fdeb32bc04d744c580ddf89b8141b9c&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                    target="_parent">Student Work Showcase</a></li>
+                <li class="drill-down-list-item"><a href="showcase/index.aspx">Student Work Showcase</a></li>
               </ul>
             </li>
-            <script>
-              if (window.location.href.indexOf("//dev-") > -1) {
-                console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Alumni Life")
-              }
-            </script>
 
 
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
               <span class="drill-down-parent" tabindex="0">Alumni Life</span>
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Alumni Life</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=0ce57b94c04d744c2006c9b2c7682c43&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                    target="_parent">Alumni Life</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=3fd0a101c04d744c580ddf89fde037ec&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Stay Connected</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=54d2fd82c04d744c220fee857800f98f&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                    target="_parent">Alumni Support</a></li>
+                <li class="drill-down-list-item"><a href="alumni-life/index.aspx">Alumni Life</a></li>
+                <li class="drill-down-list-item"><a href="alumni-life/stay-connected.aspx">Stay Connected</a></li>
+                <li class="drill-down-list-item"><a href="alumni-life/alumni-support.aspx">Alumni Support</a></li>
               </ul>
             </li>
-            <script>
-              if (window.location.href.indexOf("//dev-") > -1) {
-                console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Support Dodge")
-              }
-            </script>
 
 
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
               <span class="drill-down-parent" tabindex="0">Support Dodge</span>
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Support Dodge</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=3fd4560dc04d744c580ddf89bd64ee1c&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Support Dodge</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=eb34b1f3c04d744c1a53929cb6839e9c&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">International Initiatives</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=ec4c1120c04d744c1a53929cb48db886&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Dean’s Initiative Fund</a></li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=ebc2f136c04d744c1a53929cb7013169&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Ways to Give</a></li>
+                <li class="drill-down-list-item"><a href="support-dodge/index.aspx">Support Dodge</a></li>
+                <li class="drill-down-list-item"><a href="support-dodge/int-initiatives.aspx">International
+                    Initiatives</a></li>
+                <li class="drill-down-list-item"><a href="support-dodge/deans-init-fund.aspx">Dean’s Initiative Fund</a>
+                </li>
+                <li class="drill-down-list-item"><a href="support-dodge/ways-to-give.aspx">Ways to Give</a></li>
               </ul>
             </li>
-            <script>
-              if (window.location.href.indexOf("//dev-") > -1) {
-                console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Visit Dodge")
-              }
-            </script>
 
 
 
-            <li class="drill-down-list-item">
-              <a href="/entity/open.act?type=page&amp;id=3fd3b5a7c04d744c580ddf89a89844f3&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                target="_parent">Visit Dodge</a>
+            <li class="drill-down-list-item top-drill-down-list-item">
+              <a href="visit.aspx">Visit Dodge</a>
             </li>
-            <script>
-              if (window.location.href.indexOf("//dev-") > -1) {
-                console.log("(ง •̀_•́)ง VELOCITY: IM THE ASSET PATH Contact Us")
-              }
-            </script>
 
 
 
-            <li class="drill-down-list-item">
-              <a href="/entity/open.act?type=page&amp;id=3fd4baafc04d744c580ddf89fbb86f26&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                target="_parent">Contact Us</a>
+            <li class="drill-down-list-item top-drill-down-list-item">
+              <a href="contact-us.aspx">Contact Us</a>
             </li>
           </ul>
         </div>
@@ -610,9 +407,9 @@
 
       <div class="off-canvas-menu" id="off-canvas-main" style="display: none; transform: translateX(-410px);">
         <div class="menu-header">
-          <span class="menu-label" tabindex="0">Main Menu</span>
+          <span class="menu-label" tabindex="0">Chapman Menu</span>
 
-          <a class="toggle-menu-label" href="#">Dodge College Menu</a>
+          <span class="toggle-menu-label" tabindex="0">Dodge College Menu</span>
         </div>
 
 
@@ -620,21 +417,18 @@
         <div id="off-canvas-main-navigation">
           <ul class="root-main-nav">
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
 
               <span class="drill-down-parent" tabindex="0">Ross is great</span>
 
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Ross is great - Menu</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=1fe3c8cdc04d744c580ddf895f0ee499&amp;confId=c2f6c072c0a81e4b7075cabaa2270eaf"
-                    target="_parent">Ross is great</a></li>
+                <li class="drill-down-list-item"><a href="../about/index.aspx">Ross is great</a></li>
 
 
                 <li class="drill-down-list-item">
-                  <a href="/entity/open.act?type=page&amp;id=83140acec04d744c4cce81079bab559d&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                    target="_parent">Maps &amp; Directions</a>
+                  <a href="../about/maps-directions/index.aspx">Maps &amp; Directions</a>
                 </li>
 
 
@@ -642,21 +436,18 @@
 
             </li>
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
 
               <span class="drill-down-parent" tabindex="0">Academics</span>
 
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Academics - Menu</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=ec36e97fc04d744c580ddf89561fb8e1&amp;confId=84e36aaac04d744c3c858d8551dbe282"
-                    target="_parent">Academics</a></li>
+                <li class="drill-down-list-item"><a href="../academics/index.aspx">Academics</a></li>
 
 
                 <li class="drill-down-list-item">
-                  <a href="/entity/open.act?type=page&amp;id=ce06cdd4c04d744c64d6b6765c849731&amp;confId=ccf4e99ac04d744c64d6b6765ca5de6b"
-                    target="_parent">Degrees &amp; Programs</a>
+                  <a href="../academics/degrees-and-programs.aspx">Degrees &amp; Programs</a>
                 </li>
 
 
@@ -667,65 +458,55 @@
 
             </li>
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
 
               <span class="drill-down-parent" tabindex="0">Admission</span>
 
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Admission - Menu</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=eca500f7c04d744c580ddf893c3683fe&amp;confId=f71a5d64c0a81e4b18acb605ce9af32e"
-                    target="_parent">Admission</a></li>
+                <li class="drill-down-list-item"><a href="../admission/index.aspx">Admission</a></li>
 
 
                 <li class="drill-down-list-item">
-                  <a href="/entity/open.act?type=page&amp;id=77e4d3d0c04d744c193499fd894e280f&amp;confId=d8fc0749c0a81e416c36856d4360daf6"
-                    target="_parent">Undergraduate Admission</a>
+                  <a href="../admission/undergraduate/index.aspx">Undergraduate Admission</a>
                 </li>
               </ul>
 
             </li>
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
 
               <span class="drill-down-parent" tabindex="0">Alumni</span>
 
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Alumni - Menu</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=22edac35c04d744c3c1abb0328b036b7&amp;confId=c77cf9f8c04d744c4832d6754a210df7"
-                    target="_parent">Alumni</a></li>
+                <li class="drill-down-list-item"><a href="../alumni/index.aspx">Alumni</a></li>
 
 
                 <li class="drill-down-list-item">
-                  <a aria-label="Events for Alumni"
-                    href="/entity/open.act?type=page&amp;id=22ff180ac04d744c3c1abb0327dad54b&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                    target="_parent">Events</a>
+                  <a aria-label="Events for Alumni" href="../alumni/events/index.aspx">Events</a>
                 </li>
               </ul>
 
             </li>
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
 
-              <a href="/entity/open.act?type=page&amp;id=e9e952cdc04d744c7b41aa25d1f0fd7a&amp;confId=33e2c470c04d744c08fa99224a72b9a4"
-                target="_parent">Arts</a>
+              <a href="../arts/index.aspx">Arts</a>
 
 
             </li>
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
 
               <span class="drill-down-parent" tabindex="0">Campus Life</span>
 
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Campus Life - Menu</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=4faa9194c04d744c133582366d86cc45&amp;confId=59cf06b2c04d744c4a95bcc60c83100a"
-                    target="_parent">Campus Life</a></li>
+                <li class="drill-down-list-item"><a href="../campus-life/index.aspx">Campus Life</a></li>
 
 
                 <li class="drill-down-list-item">
@@ -735,46 +516,40 @@
 
             </li>
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
 
               <span class="drill-down-parent" tabindex="0">Research</span>
 
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Research - Menu</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=7d731986c04d744c19cdbc8344c958c1&amp;confId=c77cf9f8c04d744c4832d6754a210df7"
-                    target="_parent">Research</a></li>
+                <li class="drill-down-list-item"><a href="../research/index.aspx">Research</a></li>
 
 
                 <li class="drill-down-list-item">
-                  <a href="/entity/open.act?type=page&amp;id=1fe07cb5c04d744c580ddf892ad24881&amp;confId=c3ff138ec04d744c002d61cb08699ae3"
-                    target="_parent">Instititutes &amp; Centers</a>
+                  <a href="../research/institutes-and-centers/index.aspx">Instititutes &amp; Centers</a>
                 </li>
               </ul>
 
             </li>
 
-            <li class="drill-down-list-item">
+            <li class="drill-down-list-item top-drill-down-list-item">
 
               <span class="drill-down-parent" tabindex="0">Support</span>
 
               <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
               <ul class="drilldown-menu">
                 <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Support - Menu</li>
-                <li class="drill-down-list-item"><a
-                    href="/entity/open.act?type=page&amp;id=b5b69ddac04d744c421e6b1ccb951f40&amp;confId=21a94b43c0a81e416c36856dcd904543"
-                    target="_parent">Support</a></li>
+                <li class="drill-down-list-item"><a href="../support-chapman/index.aspx">Support</a></li>
 
 
                 <li class="drill-down-list-item">
-                  <a href="/entity/open.act?type=page&amp;id=e095f57bc04d744c7f7f5281daff97e9&amp;confId=d8d76e31c04d744c64d6b676ade5beca"
-                    target="_parent">Get Involved</a>
+                  <a href="../support-chapman/get-involved.aspx">Get Involved</a>
                 </li>
               </ul>
 
             </li>
-            <li id="off-canvas-utility-item">
+            <li id="off-canvas-utility-item" class="top-drill-down-list-item">
               <div class="off-canvas-menu-container">
 
                 <!-- _audiences.vtl -->
@@ -792,13 +567,14 @@
                     <ul class="drilldown-menu">
                       <li class="menu-back" tabindex="0"><i class="fas fa-chevron-left"></i>Staff - Menu</li>
                       <li
-                        class="uninav__offCanvas-menu-item--audiences uninav__offCanvas-audiences-menu-item--staff uninav__offCanvas-menu-item-audiences--1 uninav__offCanvas-audiences-menu-item--dropdown-parent">
-                        <a href="/entity/open.act?type=page&amp;id=f2247fd2c0a81e4b22b523b8ad4cf4a2&amp;confId=f2247fd9c0a81e4b22b523b8edd9ff2b"
-                          id="uninav-OffCanvas-audiences-staff" target="_parent">
+                        class="drill-down-list-item uninav__offCanvas-menu-item--audiences uninav__offCanvas-audiences-menu-item--staff uninav__offCanvas-menu-item-audiences--1 uninav__offCanvas-audiences-menu-item--dropdown-parent">
+                        <a href="../communication/omni_nav_v3_secondary_logo_chris.aspx"
+                          id="uninav-OffCanvas-audiences-staff">
                           Staff
                         </a>
                       </li>
-                      <li>
+                      <li
+                        class="drill-down-list-item uninav__offCanvas-menu-item--audiences uninav__offCanvas-audiences-menu-item--staff uninav__offCanvas-menu-item-audiences--1 uninav__offCanvas-audiences-menu-item--dropdown-parent">
                         <a class="icon icon-utilnav-sub-class new-toy" href="/">
                           New Staff
                         </a>
@@ -809,9 +585,9 @@
 
 
                   <li
-                    class="off-canvas-menu-item uninav__offCanvas-menu-item--audiences uninav__offCanvas-audiences-menu-item--students uninav__offCanvas-menu-item-audiences--2 uninav__offCanvas-audiences-menu-item--dropdown-parent">
-                    <a href="/entity/open.act?type=page&amp;id=636b2ec2c04d744c193499fdba4408b9&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                      id="uninav-offCanvas-audiences-students" target="_parent">
+                    class="drill-down-list-item uninav__offCanvas-menu-item--audiences uninav__offCanvas-audiences-menu-item--students uninav__offCanvas-menu-item-audiences--2 uninav__offCanvas-audiences-menu-item--dropdown-parent">
+                    <a href="../students/academic-resources/registrar/student-services/course-registration/new-student/index.aspx"
+                      id="uninav-offCanvas-audiences-students">
                       Students
                     </a>
 
@@ -819,14 +595,13 @@
                 </ul>
               </div>
             </li>
-            <li id="off-canvas-cta-item">
+            <li id="off-canvas-cta-item" class="top-drill-down-list-item">
               <div class="off-canvas-menu-container">
 
                 <ul class="off-canvas-cta">
                   <li
                     class="drill-down-list-item uninav__menu-item-cta uninav__cta-menu-item--visit-int uninav__cta-menu-item--1">
-                    <a href="/entity/open.act?type=page&amp;id=830949e1c04d744c4cce81072ec9f657&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                      id="uninav-cta-visit-int" target="_parent">
+                    <a href="../about/visit/index.aspx" id="uninav-cta-visit-int">
                       Visit (int)
                     </a>
                   </li>
@@ -838,8 +613,7 @@
                   </li>
                   <li
                     class="drill-down-list-item uninav__menu-item-cta uninav__cta-menu-item--give-pdf uninav__cta-menu-item--3">
-                    <a href="/renderfile/6fef14a3c04d744c610b81dac0a8d082/support-chapman/_files/2015-donor-impact-report.pdf"
-                      id="uninav-cta-give-pdf">
+                    <a href="../support-chapman/_files/2015-donor-impact-report.pdf" id="uninav-cta-give-pdf">
                       Give (pdf)
                     </a>
                   </li>
@@ -856,17 +630,7 @@
       </div>
     </div>
   </div>
-  <div class="uninav__hamburger-menu">
-    <button aria-label="Toggle site menu" class="hamburger-menu-button" type="button">
-      <svg class="hamburger-icon" height="32" viewBox="0 0 16 16" width="32">
-        <title>Toggle Mobile Menu</title>
-        <path d="M1 3h14v2h-14v-2z"></path>
-        <path d="M1 7h14v2h-14v-2z"></path>
-        <path d="M1 11h14v2h-14v-2z"></path>
-      </svg>
-      <span class="sr-only">Menu</span>
-    </button>
-  </div>
+
 
 
   <div class="uninav__logo uninav__logo--contextual">
@@ -920,8 +684,8 @@
           </li>
 
           <li class="uninav__menu-item--audiences">
-            <a href="/entity/open.act?type=page&amp;id=636b2ec2c04d744c193499fdba4408b9&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-              target="_parent">
+            <a
+              href="../students/academic-resources/registrar/student-services/course-registration/new-student/index.aspx">
               Students
             </a>
           </li>
@@ -1185,16 +949,14 @@
         <div class="uninav__menu-item-dropdown-child">
           <ul>
             <li class="uninav__global--dropdown-child--1-overview uninav__global--ross-is-great-overview">
-              <a href="/entity/open.act?type=page&amp;id=1fe3c8cdc04d744c580ddf895f0ee499&amp;confId=c2f6c072c0a81e4b7075cabaa2270eaf"
-                id="uninav-global-ross-is-great-overview" target="_parent">
+              <a href="../about/index.aspx" id="uninav-global-ross-is-great-overview">
                 <span class="uninav__underline--center">Ross is great Overview</span></a>
             </li>
 
 
             <li class="uninav__global--dropdown-child--1 uninav__global--dropdown-child--maps-directions">
-              <a class="icon icon-location"
-                href="/entity/open.act?type=page&amp;id=83140acec04d744c4cce81079bab559d&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-                id="uninav-global-maps-directions" target="_parent">
+              <a class="icon icon-location" href="../about/maps-directions/index.aspx"
+                id="uninav-global-maps-directions">
                 <span class="uninav__underline--center">Maps &amp; Directions</span>
               </a>
             </li>
@@ -1213,16 +975,14 @@
         <div class="uninav__menu-item-dropdown-child">
           <ul>
             <li class="uninav__global--dropdown-child--2-overview uninav__global--academics-overview">
-              <a href="/entity/open.act?type=page&amp;id=ec36e97fc04d744c580ddf89561fb8e1&amp;confId=84e36aaac04d744c3c858d8551dbe282"
-                id="uninav-global-academics-overview" target="_parent">
+              <a href="../academics/index.aspx" id="uninav-global-academics-overview">
                 <span class="uninav__underline--center">Academics Overview</span></a>
             </li>
 
 
             <li class="uninav__global--dropdown-child--1 uninav__global--dropdown-child--degrees-programs">
-              <a class="icon icon-graduation"
-                href="/entity/open.act?type=page&amp;id=ce06cdd4c04d744c64d6b6765c849731&amp;confId=ccf4e99ac04d744c64d6b6765ca5de6b"
-                id="uninav-global-degrees-programs" target="_parent">
+              <a class="icon icon-graduation" href="../academics/degrees-and-programs.aspx"
+                id="uninav-global-degrees-programs">
                 <span class="uninav__underline--center">Degrees &amp; Programs</span>
               </a>
             </li>
@@ -1246,16 +1006,14 @@
         <div class="uninav__menu-item-dropdown-child">
           <ul>
             <li class="uninav__global--dropdown-child--3-overview uninav__global--admission-overview">
-              <a href="/entity/open.act?type=page&amp;id=eca500f7c04d744c580ddf893c3683fe&amp;confId=f71a5d64c0a81e4b18acb605ce9af32e"
-                id="uninav-global-admission-overview" target="_parent">
+              <a href="../admission/index.aspx" id="uninav-global-admission-overview">
                 <span class="uninav__underline--center">Admission Overview</span></a>
             </li>
 
 
             <li class="uninav__global--dropdown-child--1 uninav__global--dropdown-child--undergraduate-admission">
-              <a class="icon icon-"
-                href="/entity/open.act?type=page&amp;id=77e4d3d0c04d744c193499fd894e280f&amp;confId=d8fc0749c0a81e416c36856d4360daf6"
-                id="uninav-global-undergraduate-admission" target="_parent">
+              <a class="icon icon-" href="../admission/undergraduate/index.aspx"
+                id="uninav-global-undergraduate-admission">
                 <span class="uninav__underline--center">Undergraduate Admission</span>
               </a>
             </li>
@@ -1273,16 +1031,13 @@
         <div class="uninav__menu-item-dropdown-child">
           <ul>
             <li class="uninav__global--dropdown-child--4-overview uninav__global--alumni-overview">
-              <a href="/entity/open.act?type=page&amp;id=22edac35c04d744c3c1abb0328b036b7&amp;confId=c77cf9f8c04d744c4832d6754a210df7"
-                id="uninav-global-alumni-overview" target="_parent">
+              <a href="../alumni/index.aspx" id="uninav-global-alumni-overview">
                 <span class="uninav__underline--center">Alumni Overview</span></a>
             </li>
 
 
             <li class="uninav__global--dropdown-child--1 uninav__global--dropdown-child--events">
-              <a class="icon icon-calendar4"
-                href="/entity/open.act?type=page&amp;id=22ff180ac04d744c3c1abb0327dad54b&amp;confId=f8de6ceac04d744c54334ecadcc06792"
-                id="uninav-global-events" target="_parent">
+              <a class="icon icon-calendar4" href="../alumni/events/index.aspx" id="uninav-global-events">
                 <span class="uninav__underline--center">Events</span>
               </a>
             </li>
@@ -1292,8 +1047,7 @@
 
 
       <li class="uninav__global--menu-item--no-dropdown uninav__global--arts uninav__global--menu-item--no-dropdown--5">
-        <a href="/entity/open.act?type=page&amp;id=e9e952cdc04d744c7b41aa25d1f0fd7a&amp;confId=33e2c470c04d744c08fa99224a72b9a4"
-          id="uninav-global-arts" target="_parent">
+        <a href="../arts/index.aspx" id="uninav-global-arts">
           <span class="uninav__underline--center">Arts</span></a>
       </li>
 
@@ -1307,8 +1061,7 @@
         <div class="uninav__menu-item-dropdown-child">
           <ul>
             <li class="uninav__global--dropdown-child--6-overview uninav__global--campus-life-overview">
-              <a href="/entity/open.act?type=page&amp;id=4faa9194c04d744c133582366d86cc45&amp;confId=59cf06b2c04d744c4a95bcc60c83100a"
-                id="uninav-global-campus-life-overview" target="_parent">
+              <a href="../campus-life/index.aspx" id="uninav-global-campus-life-overview">
                 <span class="uninav__underline--center">Campus Life Overview</span></a>
             </li>
 
@@ -1332,16 +1085,14 @@
         <div class="uninav__menu-item-dropdown-child">
           <ul>
             <li class="uninav__global--dropdown-child--7-overview uninav__global--research-overview">
-              <a href="/entity/open.act?type=page&amp;id=7d731986c04d744c19cdbc8344c958c1&amp;confId=c77cf9f8c04d744c4832d6754a210df7"
-                id="uninav-global-research-overview" target="_parent">
+              <a href="../research/index.aspx" id="uninav-global-research-overview">
                 <span class="uninav__underline--center">Research Overview</span></a>
             </li>
 
 
             <li class="uninav__global--dropdown-child--1 uninav__global--dropdown-child--instititutes-centers">
-              <a class="icon icon-library4"
-                href="/entity/open.act?type=page&amp;id=1fe07cb5c04d744c580ddf892ad24881&amp;confId=c3ff138ec04d744c002d61cb08699ae3"
-                id="uninav-global-instititutes-centers" target="_parent">
+              <a class="icon icon-library4" href="../research/institutes-and-centers/index.aspx"
+                id="uninav-global-instititutes-centers">
                 <span class="uninav__underline--center">Instititutes &amp; Centers</span>
               </a>
             </li>
@@ -1359,16 +1110,13 @@
         <div class="uninav__menu-item-dropdown-child">
           <ul>
             <li class="uninav__global--dropdown-child--8-overview uninav__global--support-overview">
-              <a href="/entity/open.act?type=page&amp;id=b5b69ddac04d744c421e6b1ccb951f40&amp;confId=21a94b43c0a81e416c36856dcd904543"
-                id="uninav-global-support-overview" target="_parent">
+              <a href="../support-chapman/index.aspx" id="uninav-global-support-overview">
                 <span class="uninav__underline--center">Support Overview</span></a>
             </li>
 
 
             <li class="uninav__global--dropdown-child--1 uninav__global--dropdown-child--get-involved">
-              <a class="icon icon-hand"
-                href="/entity/open.act?type=page&amp;id=e095f57bc04d744c7f7f5281daff97e9&amp;confId=d8d76e31c04d744c64d6b676ade5beca"
-                id="uninav-global-get-involved" target="_parent">
+              <a class="icon icon-hand" href="../support-chapman/get-involved.aspx" id="uninav-global-get-involved">
                 <span class="uninav__underline--center">Get Involved</span>
               </a>
             </li>
@@ -1382,8 +1130,7 @@
 
 
       <li class="uninav__menu-item-cta uninav__cta-menu-item--visit-int uninav__cta-menu-item--1">
-        <a href="/entity/open.act?type=page&amp;id=830949e1c04d744c4cce81072ec9f657&amp;confId=f90d2d91c04d744c54334eca7dcdc0d8"
-          id="uninav-cta-visit-int" target="_parent">
+        <a href="../about/visit/index.aspx" id="uninav-cta-visit-int">
           Visit (int)
         </a>
       </li>
@@ -1399,8 +1146,7 @@
 
 
       <li class="uninav__menu-item-cta uninav__cta-menu-item--give-pdf uninav__cta-menu-item--3">
-        <a href="/renderfile/6fef14a3c04d744c610b81dac0a8d082/support-chapman/_files/2015-donor-impact-report.pdf"
-          id="uninav-cta-give-pdf">
+        <a href="../support-chapman/_files/2015-donor-impact-report.pdf" id="uninav-cta-give-pdf">
           Give (pdf)
         </a>
       </li>

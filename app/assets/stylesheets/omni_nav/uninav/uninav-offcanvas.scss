@@ -33,6 +33,12 @@
           /* WAVE error reports empty anchor tag because logo is a background image.
            * Use color:transparent to add text that users can't see, to give context. */
           color: transparent;
+
+          &:focus {
+            outline-color: $cu-red;
+            outline-style: auto;
+            outline-width: 5px;
+          }
         }
       }
 
@@ -46,6 +52,12 @@
 
     .close {
       margin-left: 5rem;
+
+      &:focus {
+        outline-color: $cu-red;
+        outline-style: auto;
+        outline-width: 5px;
+      }
     }
   }
 
@@ -58,6 +70,12 @@
       &:hover {
         cursor: pointer;
       }
+
+      &:focus {
+        outline-color: $cu-red;
+        outline-style: auto;
+        outline-width: 5px;
+      }
     }
 
     .toggle-menu-label {
@@ -69,6 +87,14 @@
       font-size: 1.2rem;
       text-transform: uppercase;
       border-radius: .5rem;
+
+      cursor: pointer;
+
+      &:focus {
+        outline-color: $cu-red;
+        outline-style: auto;
+        outline-width: 5px;
+      }
     }
   }
 
@@ -136,6 +162,50 @@
             height: 100%;
             transform: translateX(0);
             transition: all .5s linear;
+
+            .top-drill-down-list-item.drill-down-list-item {
+              &:focus-within {
+                outline-color: $cu-red;
+                outline-style: auto;
+                outline-width: 5px;
+              }
+            }
+
+            &.drilled-down .top-drill-down-list-item.drill-down-list-item {
+              &:focus-within {
+                outline: none;
+              }
+            }
+
+            #off-canvas-utility-item .drill-down-list-item {
+              &:focus-within {
+                outline-color: $cu-red;
+                outline-style: auto;
+                outline-width: 5px;
+              }
+            }
+
+            &.drilled-down #off-canvas-utility-item .drill-down-list-item {
+              &:focus-within {
+                outline: none;
+              }
+
+              .drill-down-list-item {
+                &:focus-within {
+                  outline-color: $cu-red;
+                  outline-style: auto;
+                  outline-width: 5px;
+                }
+              }
+            }
+
+            #off-canvas-cta-item .drill-down-list-item {
+              &:focus-within {
+                outline-color: $cu-red;
+                outline-style: auto;
+                outline-width: 5px;
+              }
+            }
           }
 
         }
@@ -173,6 +243,7 @@
       color: $white;
       height: 16rem;
       border-radius: 0 8rem 8rem 0;
+      border: none;
       width: 8rem;
       background-color: rgba($cu-red, .9);
       text-align: left;
@@ -214,4 +285,16 @@
   }
 
 
+}
+
+html.two-column-template #uninav .uninav__umbrella-nav-button-container {
+  display: none;
+}
+
+html.three-column-template #uninav .uninav__umbrella-nav-button-container {
+  display: none;
+}
+
+html.school-dept-listing-template #uninav .uninav__umbrella-nav-button-container {
+  display: none;
 }

@@ -534,6 +534,11 @@ ORDER: Base + typography > general layout + grid > page layout > components
     &:hover { cursor: pointer; }
   }
 
+  // .drill-down-menu {
+    
+  // }
+
+
   ul li {
     display: flex;
     justify-content: space-between;
@@ -543,8 +548,15 @@ ORDER: Base + typography > general layout + grid > page layout > components
       font-family: "futura-pt", arial, sans-serif;
       line-height: 1.8rem;
       color: #231f20;
-      padding: 20px 50px 20px 30px;
+      padding: 15px 50px 15px 30px;
       width: 100%;
+
+      &:focus {
+        // outline-color: $cu-red;
+        // outline-style: auto;
+        // outline-width: 5px;
+        outline: none;
+      }
     }
 
     span.toggle-drilldown {
@@ -552,8 +564,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
       justify-content: center;
       align-items: center;
       position: relative;
-      width: 4rem;
-      background-color: #EAEAEA;
+      width: 7rem;
 
       .fas {
         display: flex;
@@ -572,6 +583,25 @@ ORDER: Base + typography > general layout + grid > page layout > components
       transform: translateX(0);
       transition: all 1s;
 
+      &.active {
+        .drill-down-list-item {
+
+          &:focus-within {
+            outline-color: $cu-red;
+            outline-style: auto;
+            outline-width: 5px;
+          }
+
+          &.home-menu {
+            &:focus-within {
+              outline-color: $cu-red;
+              outline-style: auto;
+              outline-width: 5px;
+            }
+          }
+        }
+      }
+
       .menu-back {
         justify-content: start;
         align-items: center;
@@ -584,6 +614,12 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
         .fas {
           margin-right: 2rem;
+        }
+
+        &:focus {
+          outline-color: $cu-red;
+          outline-style: auto;
+          outline-width: 5px;
         }
       }
     }
