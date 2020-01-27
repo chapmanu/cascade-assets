@@ -56,7 +56,7 @@ html {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.1);
-  z-index: 2000;
+  z-index: 999999999;
 
   a {
     cursor: pointer;
@@ -420,16 +420,12 @@ html {
   }
 }
 
-
 html.off-canvas__blur {
-
   #js-off-canvas-overlay {
-
     animation: increaseOpacity;
     animation-direction: normal;
-    animation-duration: 350ms;
-    animation-delay: 50ms;
-    animation-timing-function: linear;
+    animation-duration: 450ms;
+    animation-timing-function: ease-in-out;
     -webkit-animation-fill-mode: forwards;
     -moz-animation-fill-mode: forwards;
     -o-animation-fill-mode: forwards;
@@ -444,37 +440,23 @@ html.off-canvas__blur {
       }
 
       25% {
-        background-color: rgba(0, 0, 0, .25);
-
+        background-color: rgba(0, 0, 0, 0.25);
       }
 
       50% {
-        background-color: rgba(0, 0, 0, .50);
-
+        background-color: rgba(0, 0, 0, 0.5);
       }
 
       75% {
-        background-color: rgba(0, 0, 0, .75);
-
+        background-color: rgba(0, 0, 0, 0.75);
       }
 
       100% {
-        background-color: rgba(0, 0, 0, .95);
+        background-color: rgba(0, 0, 0, 0.9);
       }
     }
   }
 
-  .uninav__logo,
-  .uninav__utility-nav--wrapper,
-  .uninav--global-nav,
-  .uninav--cta {
-    @include qbal-slideRight-exit;
-
-  }
-
-  #main {
-    @include qbal-slideRight-exit;
-  }
 }
 
 .uninav__animation--exit {
