@@ -149,6 +149,7 @@ html {
     display: flex;
     justify-content: center;
     border-right: 1px solid $uninav-light-grey;
+    color: $panther-black;
   }
 
   .uninav__dropdown-wrapper>a::after {
