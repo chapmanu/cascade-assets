@@ -1,0 +1,10 @@
+.img {
+  --imgSize: 200px;
+
+  &--circle {
+    border-radius: 50%;
+    height: var(--imgSize);
+    width: var(--imgSize);
+    object-fit: cover;
+  }
+}

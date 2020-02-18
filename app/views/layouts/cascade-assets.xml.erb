@@ -1,6 +1,6 @@
 <system-xml>    
-<!-- <%= "Branch: " + `git rev-parse --abbrev-ref HEAD`.strip + " Build: " + Time.now.strftime('%m-%d-%Y_%H-%M-%S')  -%> -->
-
+<!-- <%= "Branch: " + `git rev-parse --abbrev-ref HEAD`.strip + " Build: " + Time.now.strftime('%I:%M%p')  -%> -->
+ 
   <!-- Preload CSS & JS -->
   <%= stylesheet_link_tag 'master', rel: 'preload', as: 'style', media: 'all' %>
   <%= preload_js_link 'master', rel: 'preload', as: 'script', media: 'all'  %>

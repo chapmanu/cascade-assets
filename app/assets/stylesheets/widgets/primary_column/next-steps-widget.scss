@@ -1,0 +1,160 @@
+@import "base/base";
+
+.next-steps-widget {
+  $defaultPadding: 32px;
+
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  background-color: $white;
+
+  margin-top: $wmtop;
+
+
+  .faux-h2.next-steps-widget__heading {
+    justify-self: center;
+    color: $cu-red;
+    margin-top: 0;
+    padding-top: $defaultPadding;
+    margin-bottom: .5rem;
+
+    &~.next-steps-widget__text {
+      justify-self: center;
+
+      &~.next-steps-widget__buttons {
+        padding-top: unset;
+      }
+    }
+
+    &~.next-steps-widget__buttons {
+
+      padding-top: 10px;
+      padding-bottom: $defaultPadding;
+      padding-right: $defaultPadding;
+    }
+  }
+
+  .next-steps-widget__text {
+    padding-left: $defaultPadding;
+
+    padding-right: $defaultPadding;
+
+    padding-top: 0;
+
+    padding-bottom: 5px;
+  }
+
+  .next-steps-widget__buttons {
+    display: block;
+    justify-self: center;
+    padding-top: $defaultPadding;
+    padding-bottom: $defaultPadding;
+  }
+
+  .next-steps-widget__button {
+    @include button-bg($cu-red);
+    border: none;
+  }
+
+
+  &.next-steps-widget--left-aligned {
+    $defaultPadding: 32px;
+    display: grid;
+    justify-content: flex-start;
+    align-content: flex-start;
+
+    margin-top: $wmtop;
+
+    .faux-h2.next-steps-widget__heading {
+      justify-self: flex-start;
+      color: $cu-red;
+      margin-top: 0;
+      padding-top: $defaultPadding;
+      padding-left: $defaultPadding;
+
+      &~.next-steps-widget__text {
+        // padding-top: 2.$defaultPadding;
+        max-width: unset;
+        justify-self: flex-start;
+        padding-left: $defaultPadding;
+
+        &~.next-steps-widget__buttons {
+          padding-top: unset;
+        }
+      }
+
+      &~.next-steps-widget__buttons {
+        padding-left: $defaultPadding;
+        padding-top: $defaultPadding;
+        padding-bottom: $defaultPadding;
+
+      }
+    }
+
+    .next-steps-widget__text {
+      padding-left: $defaultPadding;
+      padding-right: $defaultPadding;
+    }
+
+    .next-steps-widget__buttons {
+      display: block;
+      justify-self: flex-start;
+      padding-top: $defaultPadding;
+      padding-bottom: $defaultPadding;
+    }
+
+    .next-steps-widget__button {
+      @include button-bg($cu-red);
+    }
+  }
+
+  &.next-steps-widget--black {
+    background-color: $panther-black;
+    color: $white;
+
+    .faux-h2.next-steps-widget__heading {
+      color: $white;
+    }
+  }
+
+  &.next-steps-widget--white {
+    background-color: $white;
+    border: 1px solid $cu-light-grey;
+  }
+
+  &.next-steps-widget--sand {
+    background-color: $sand;
+  }
+
+  &.next-steps-widget--red {
+    background-color: $red;
+    color: $white;
+
+    .faux-h2.next-steps-widget__heading {
+      color: $white;
+    }
+
+    .next-steps-widget__buttons {
+      color: $panther-black;
+
+      a.button.next-steps-widget__button {
+        background: $cu-light-grey;
+        color: $panther-black;
+
+        &:hover {
+          background: $white;
+          transition: all 0.3s ease;
+        }
+      }
+    }
+
+  }
+
+  &.next-steps-widget--grey {
+    background-color: $cu-light-grey;
+
+    .faux-h2.next-steps-widget__heading {
+      color: $panther-black;
+    }
+  }
+}

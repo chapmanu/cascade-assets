@@ -12,19 +12,19 @@
                         <xsl:choose>
                             <xsl:when test="not(internalLink/path='/')">
                                 <xsl:attribute name="href"><xsl:value-of select="internalLink/path"/></xsl:attribute>
-                                <img alt="{altText}" src="{posterImage/path}"/>         
+                                <img alt="{altText}" src="{posterImage/path}"/>
                                 <div class="playButton"></div>
                             </xsl:when>
                             <xsl:when test="link/text()">
                                 <xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute>
-                                <img alt="{altText}" src="{posterImage/path}"/>         
+                                <img alt="{altText}" src="{posterImage/path}"/>
                                 <div class="playButton"></div>
                             </xsl:when>
                             <xsl:otherwise>
                                 <img alt="{altText}" src="{posterImage/path}"/>
                             </xsl:otherwise>
                         </xsl:choose>
-                    </a>                        
+                    </a>
             </xsl:for-each>
             
             <div class="copy">
@@ -58,9 +58,9 @@
             </fieldset>
         </div>
 
-    </div>         
+    </div>
     
-    <div class="facultyList clearfix">    
+    <div class="facultyList clearfix">
         <div class="summary">
             <h2 class="resultsFor">
                 <span class="totalResults"></span> Results
@@ -77,6 +77,5 @@
         </div> 
     </div>  
 
-</xsl:template>  
-    
+</xsl:template>    
 </xsl:stylesheet>

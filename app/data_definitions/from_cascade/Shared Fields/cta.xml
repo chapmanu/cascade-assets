@@ -1,0 +1,25 @@
+<system-data-structure>
+  <group identifier="link" label="Call to Action" maximum-number="3" multiple="true">
+    <text default="Text Link" identifier="linkStyle" label="Link Style" type="radiobutton">
+      <radio-item value="Text Link"/>
+      <radio-item value="Button Link"/>
+    </text>
+    <text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+      <radio-item show-fields="link/internalLink" value="Internal Link"/>
+      <radio-item show-fields="link/externalLink" value="External Link"/>
+      <radio-item show-fields="link/fileLink" value="File Link"/>
+    </text>
+    <text help-text="full url (including HTTPS) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+    <asset identifier="internalLink" label="Internal Link" type="page"/>
+    <asset identifier="fileLink" label="File Link" type="file"/>
+    <text identifier="label" label="Label"/>
+    <group identifier="accessibility" label="Accessibility">
+      <text identifier="ariaLabel" label="Aria Label"/>
+      <text identifier="title" label="Title"/>
+    </group>
+    <group identifier="tracking" label="Analytics Tracking">
+      <text help-text="Replace or add custom link ID for tracking." identifier="customID" label="Override HTML ID"/>
+      <text help-text="Replace or add custom data-attr for tracking. Entering 'my-custom-thing' will result in 'data-my-custom-thing'" identifier="dataAttr" label="Data Attribute" multiple="true"/>
+    </group>
+  </group>
+</system-data-structure>

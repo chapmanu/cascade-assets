@@ -1,37 +1,51 @@
 .newbutton {
   margin: 0 0 20px 0;
+
   .rightColumn & {
-  	@include bp(m) {
+    @include bp(m) {
       margin-top: 0;
     }
   }
+
   ul {
     list-style: none;
   }
+
   li {
     padding-bottom: 2px;
     margin: 0;
   }
-  a, a:link { // a:link selector added by SH
+
+  a,
+  a:link {
+    // a:link selector added by SH
+    $bg: $cu-red;
     position: relative;
     text-align: left;
     padding: 10px 38px 10px 20px;
     color: $white;
     font-weight: 600;
     display: block;
-    
-    background-color: $cu-red;
+
+    background-color: $bg;
     font-size: 1em;
     clear: both;
+
     &:after {
       content: '»';
       margin-left: 3px;
     }
+
     &:hover {
-    	background: $red-hover;
+      background: $red-hover;
     }
+
     &:active {
       background: $red-active;
+    }
+
+    &:visited {
+      @include dc($bg)
     }
   }
 }

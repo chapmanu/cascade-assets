@@ -2,24 +2,35 @@
   width: 100%;
   margin: 0 0 0 0;
   float: left;
+
   .social {
     margin: 0 0 0 25px;
   }
+
   .newsEventsNav li.active {
     padding-left: 20px;
     padding-right: 20px;
   }
+
   .calls-to-action-widget a:focus {
     outline-color: $cu-black;
   }
+
   .callout {
-    background-color:#d8d8d8;
-    border: 1px solid #c1c1c1;
-    vertical-align: top;
+    display: grid;
+    justify-content: space-between;
+
+    h2 {
+      font-size: 2.8rem;
+      font-family: $futura-regular;
+      // color: $white;
+    }
+
     .border {
       height: 7px;
       background-color: #c1c1c1;
     }
+
     .contact-widget {
       ul.left-social-icons {
         background-color: transparent;
@@ -31,19 +42,23 @@
         float: left;
         position: relative;
         list-style: none;
+
         li {
           float: left;
           position: relative;
           padding-right: 12px;
           font-size: 16px;
           margin-bottom: 4px;
+
           &.last {
-            padding-right:0;
+            padding-right: 0;
           }
+
           a {
             text-decoration: none;
             border-bottom: none;
           }
+
           .icon {
             display: inline-block;
             color: $cu-red;
@@ -54,44 +69,53 @@
           }
         }
       }
+
       .view-more-expander {
         line-height: 10px;
-        text-align:center;
+        text-align: center;
         padding: 0;
         min-height: 35px;
         cursor: pointer;
+
         .active {
-          display:block;
+          display: block;
         }
+
         .inactive {
           display: none;
         }
+
         .view-more {
           background-color: $cu-red;
         }
+
         .view-more-link {
           height: 21px;
-          padding: 0 0 5px 0; 
+          padding: 0 0 5px 0;
           margin: 0;
           background-color: $cu-red;
         }
+
         .view-less-link {
           height: 30px;
           padding: 10px 0 0 0;
           margin-bottom: -4px;
           background-color: $cu-red;
         }
+
         a {
           color: $white;
           font-size: 1.6rem;
           font-weight: 700;
           letter-spacing: 1px;
-          text-transform:uppercase;
+          text-transform: uppercase;
           padding: 0;
-          &:hover  {
+
+          &:hover {
             color: $cu-warm-light-grey;
           }
         }
+
         .icon {
           display: inline-block;
           color: #444444;
@@ -100,60 +124,75 @@
           fill: currentColor;
           padding: 0;
         }
+
         .icon-triangle-down {
           color: #d8d8d8;
           font-size: 18px;
           margin-top: -4px;
         }
+
         .icon-triangle-up {
           color: $cu-red;
-          width:100%;
+          width: 100%;
           padding: 0;
           font-size: 22px;
           margin-bottom: -9px;
         }
       }
     }
+
     .editableContent {
       .inactive {
         display: none;
       }
+
       .active {
         display: block;
       }
+
       .social-follow-us {
-        margin-bottom: 65px;    
+        margin-bottom: 65px;
+
         @include bp(l) {
           margin-bottom: 38px;
         }
       }
+
       a {
         display: inline;
       }
-      ul { 
-        margin-top :10px;
+
+      ul {
+        margin-top: 10px;
       }
-      .buttonLinks > li > a {
+
+      .buttonLinks>li>a {
         display: inline-block;
       }
+
       ul.buttonLinks {
         margin-left: 0;
         padding: 0 0;
+
         a {
           border-bottom: none;
         }
       }
+
       .redLeftColButton {
         margin: 0 0 0 0;
+
         ul {
           list-style: none;
           width: 234px;
           margin: 0 0 0 -15px;
           padding: 0;
         }
+
         li {
           padding-bottom: 2px;
         }
+
         a {
           position: relative;
           text-align: right;
@@ -170,14 +209,16 @@
           background-image: -moz-linear-gradient(top, #a12756, $cu-red);
           background-image: -o-linear-gradient(top, #a12756, $cu-red);
           background-image: linear-gradient(to bottom, #a12756, $cu-red);
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a12756', endColorstr='#{$cu-red}',GradientType=1 );
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a12756', endColorstr='#{$cu-red}', GradientType=1);
           font-size: 1.1em;
+
           .arrow {
             position: absolute;
             top: 50%;
             right: 16px;
             margin-top: -25px;
           }
+
           &:hover {
             background: $cu-dark-red;
             background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2E2ZDBkZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1MDliYjIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
@@ -187,17 +228,27 @@
             background: -o-linear-gradient(top, $cu-dark-red 0%, $cu-red 100%);
             background: -ms-linear-gradient(top, $cu-dark-red 0%, $cu-red 100%);
             background: linear-gradient(to bottom, $cu-dark-red 0%, $cu-red 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$cu-dark-red}', endColorstr='#{$cu-red}',GradientType=0 );
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$cu-dark-red}', endColorstr='#{$cu-red}', GradientType=0);
           }
+
           &.long {
             line-height: 14px;
             padding: 10px 30px 10px 5px;
+
             .arrow {
               margin-top: -12px;
             }
           }
         }
-      } // end redleftbutton
-    } // end editableContent
-  } // end callout
-} //end leftnavsubcontent
+      }
+
+      // end redleftbutton
+    }
+
+    // end editableContent
+  }
+
+  // end callout
+}
+
+//end leftnavsubcontent

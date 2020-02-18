@@ -1,0 +1,31 @@
+#import( "/_cascade/formats/helpers.velocity" )
+
+#macro(outputQuickFactBlocks $element) 
+#set ( $facts = $_XPathTool.selectNodes($element, 'quickFactBlocksWidget/fact') )
+
+#set ($widgetXPath = 'quickFactBlocksWidget')
+#set ($widgetXPath = ${_EscapeTool.xml($widgetXPath)})
+
+## STYLE
+#set ($display = $element.getChild($widgetXPath).getChild('display').value)
+#bgColorChooser($widgetXPath)
+
+## use snake-case here for BEM naming convention
+#camelToSnake($widgetXPath)
+
+<div class="quick-fact-blocks-widget__container">
+    #foreach ($fact in $facts)
+        ## TEXT
+        #set ($text = $_SerializerTool.serialize($fact.getChild('text'), true))
+        #set ($icon = $_SerializerTool.serialize($fact.getChild('icon'), true))
+
+        #set ( $widgetXPath = $snakeCase ) 
+        <div class="${_EscapeTool.xml($widgetXPath)} $bgColor">
+            <div class="${_EscapeTool.xml($widgetXPath)}__text" tabindex="0" >
+                <span class="${_EscapeTool.xml($icon)} ${_EscapeTool.xml($widgetXPath)}__icon"></span>
+                ${_DisplayTool.truncate($text,15,"...")}
+            </div>
+        </div>
+    #end
+</div>
+#end

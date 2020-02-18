@@ -1,0 +1,62 @@
+## UTILITY NAV LINKS:
+#set ( $menuItems = $_XPathTool.selectNodes($contentRoot, "/system-data-structure/uninav/cta/link") )
+#set ( $pagePath = $currentPage.path )
+
+<ul class="off-canvas-cta">
+    #if ($menuItems.size() >= 1)
+        #foreach ($menuItem in $menuItems)
+            #set ($label = $menuItem.getChild('label').value )
+            #set ( $menuID = $label.replaceAll(" ", "-").replaceAll("[^a-zA-Z-]", "").replaceAll("--", "-").toLowerCase() )
+            #set ($linkType = $menuItem.getChild('linkType').value )
+            #if ($linkType == 'Internal Link')
+                #set ($linkURL = $menuItem.getChild('internalLink').getChild('path').value )
+            #elseif ($linkType == 'External Link')
+                #set ($linkURL = $menuItem.getChild('externalLink').value )
+            #else 
+                #set ($linkURL = $menuItem.getChild('fileLink').getChild('path').value )
+            #end
+            #set ($iconType = $menuItem.getChild('icon').value )
+            #if ($linkURL != '' && $label != '')
+                #if ( $pagePath == $linkURL ) 
+                    #set( $isCurrentPage = "drill-down-list-item current" )
+                #else
+                    #set( $isCurrentPage = "drill-down-list-item")
+                #end
+                <li class="${isCurrentPage} uninav__menu-item-cta uninav__cta-menu-item--$menuID uninav__cta-menu-item--${_MathTool.add($foreach.index, 1)}">
+                    <a href="${_EscapeTool.xml($linkURL)}" id="uninav-cta-${_EscapeTool.xml($menuID)}"
+                        #if ($iconType == "CSS Class" && $menuItem.getChild('icon_cssClass').value != "")
+                            ## class="icon icon-${_EscapeTool.xml($menuItem.getChild('icon_cssClass').value)}"
+                        #end
+                    >
+                    #if ($iconType == "SVG" && $menuItem.getChild('icon_svg').value != "")
+                        ## $menuItem.getChild('icon_svg').value
+                    #end
+                    ${_EscapeTool.xml($label)}
+                    </a>
+                </li>
+            #end
+        #end
+    #else
+        #if ( $pagePath == $linkURL ) 
+            #set( $isCurrentPage = "drill-down-list-item current" )
+        #else
+            #set( $isCurrentPage = "drill-down-list-item")
+        #end
+        <li class="${isCurrentPage} uninav__menu-item-cta uninav__cta-menu-item--$menuID uninav__cta-menu-item--${_MathTool.add($foreach.index, 1)}">
+            <a href="${_EscapeTool.xml($linkURL)}" id="uninav-cta-${_EscapeTool.xml($menuID)}"
+                #if ($iconType == "CSS Class" && $menuItem.getChild('icon_cssClass').value != "")
+                    ## class="icon icon-${_EscapeTool.xml($menuItem.getChild('icon_cssClass').value)}"
+                #end
+            >
+                #if ($iconType == "SVG" && $menuItem.getChild('icon_svg').value != "")
+                    ## $menuItem.getChild('icon_svg').value
+                #end
+                ${_EscapeTool.xml($label)}
+            </a>
+        </li>
+    #end
+</ul>
+
+
+    
+   

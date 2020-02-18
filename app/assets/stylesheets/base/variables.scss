@@ -1,19 +1,16 @@
+@import "mixins.scss";
+$uninav-div-height: 60px;
+$utility-button-width: 60px;
 // Colors
 /* These are colors commonly found on the site.
 Typically, if a color is used more than once or twice,
 it should be added here as a variable. Changing the value
 of these variables will affect the colors sitewide. */
-$futura-regular: "futura-pt",
-Arial,
-sans-serif;
-$futura-condensed: "futura-pt-condensed",
-Arial,
-sans-serif;
-$arial: Arial,
-sans-serif;
-$minion: "minion-pro",
-Arial,
-serif;
+$futura-regular: "futura-pt", Arial, sans-serif;
+$futura: $futura-regular;
+$futura-condensed: "futura-pt-condensed", Arial, sans-serif;
+$arial: Arial, sans-serif;
+$minion: "minion-pro", Arial, serif;
 $font-stack-body: $arial;
 $font-stack-heading: $futura-regular;
 $font-stack-heading-emphasis: $futura-condensed;
@@ -26,16 +23,18 @@ $cu-light-grey-2: #ddd;
 $cu-warm-light-grey: #eaeaea;
 $cardinal: #a50034;
 $cardinal-hover: #810029;
+$red-hover: $cardinal-hover;
 $pillar: #686259;
 $panther-black: #231f20;
+$pb: $panther-black;
 $theme-bg-color-alpha: transparent;
 $cardinal-hover: #810029;
 $panther-black: #231f20;
 $cu-black: $panther-black;
 $content-padding: 2%;
 $line-height: 2.4rem;
-$red-button-hover: #C8003F;
-$red-button-active: #88002B;
+$red-button-hover: #c8003f;
+$red-button-active: #88002b;
 $white: #ffffff;
 $brown: #896d49;
 $teal: #25b6a5;
@@ -44,6 +43,8 @@ $teal2: #02bac2;
 $teal2-hover: #01cdd4;
 $teal2-light: #a6ddd1;
 $red: $cu-red;
+$red-secondary: lighten($red, 8%);
+$red-tertiary: darken($red, 8%);
 $red-hover: #ba183e;
 $red-active: #7f0026;
 $grey: #2f2f2f;
@@ -55,7 +56,7 @@ $cu-font-color: $grey;
 $cu-link-hover: #bb223c;
 $cu-link-down: $cu-dark-red;
 $cu-form-shadow: #797564;
-$cu-border: #A58F75;
+$cu-border: #a58f75;
 /* These colors are specifically for the class "newbutton". */
 $new-button-primary: $teal2-hover;
 $new-button-secondary: $teal2;
@@ -68,44 +69,47 @@ all in one place. Variables prefixed with "theme" are
 colors found in multiple themes. The others are specific
 to a theme. */
 $theme-light-grey: #dbdfcf; // Light grey found in multiple themes
+$grey-light: #ccc;
+$light-grey: $grey-light;
+$uninav-light-grey: #ddd;
 $theme-yellow: #d4e13c; // Yellow found in multiple themes
 $theme-blue: #006185; // Blue found in multiple themes
-$asbe-primary: #006185;
-$asbe-secondary: #276b87;
-$asbe-tertiary: #005270;
-$education-primary: #003764;
-$education-secondary: #00457d;
-$education-tertiary: #012746;
-$communication-primary: $cardinal;
-$communication-secondary: $red-hover;
-$communication-tertiary: $cardinal-hover;
-$copa-primary: #69465c;
-$copa-secondary: #705466;
-$copa-tertiary: #552c46;
-$crean-primary: #1f8a84;
-$crean-secondary: #38928d;
-$crean-tertiary: #0a7a74;
-$dance-primary: #007165;
-$dance-secondary: #0e8377;
-$dance-tertiary: #005e54;
-$dodge-primary: #2f2f2f;
-$dodge-secondary: #3b3b3b;
-$dodge-tertiary: #181818;
-$music-primary: #793141;
-$music-secondary: #89394b;
-$music-tertiary: #671b2c;
-$pharmacy-primary: #959300;
-$pharmacy-secondary: #a4a215;
-$pharmacy-tertiary: #858300;
-$scst-primary: #4A5E0F;
-$scst-secondary: #576b1c;
-$scst-tertiary: #3d4f09;
-$theatre-primary: #002e5f;
-$theatre-secondary: #063b74;
-$theatre-tertiary: #001f41;
-$wilkinson-primary: #008ec1;
-$wilkinson-secondary: #209cc9;
-$wilkinson-tertiary: #007ba7;
+$asbe-primary: $red;
+$asbe-secondary: $red-secondary;
+$asbe-tertiary: $red-tertiary;
+$education-primary: $red;
+$education-secondary: $red-secondary;
+$education-tertiary: $red-tertiary;
+$communication-primary: $red;
+$communication-secondary: $red-secondary;
+$communication-tertiary: $red-tertiary;
+$copa-primary: $red;
+$copa-secondary: $red-secondary;
+$copa-tertiary: $red-tertiary;
+$crean-primary: $red;
+$crean-secondary: $red-secondary;
+$crean-tertiary: $red-tertiary;
+$dance-primary: $red;
+$dance-secondary: $red-secondary;
+$dance-tertiary: $red-tertiary;
+$dodge-primary: $red;
+$dodge-secondary: $red-secondary;
+$dodge-tertiary: $red-tertiary;
+$music-primary: $red;
+$music-secondary: $red-tertiary;
+$music-tertiary: $red-secondary;
+$pharmacy-primary: $red;
+$pharmacy-secondary: $red-secondary;
+$pharmacy-tertiary: $red-tertiary;
+$scst-primary: $red;
+$scst-secondary: $red-secondary;
+$scst-tertiary: $red-tertiary;
+$theatre-primary: $red;
+$theatre-secondary: $red-secondary;
+$theatre-tertiary: $red-tertiary;
+$wilkinson-primary: $red;
+$wilkinson-secondary: $red-secondary;
+$wilkinson-tertiary: $red-tertiary;
 $law-primary: $cardinal;
 $law-secondary: $cardinal-hover;
 /* Our Base Spacing Unit: Use multiples of this variable */
@@ -113,17 +117,158 @@ $base-spacing: 16px;
 
 /* Widget specific colors */
 $cardinal: #a50034;
+// $cardinal-alpha: rgba(165, 0, 52, .5);
 $pillar: #686259;
-$sand: #ddcba4;
 $panther-black: #231f20;
 $white-alpha: rgba(255, 255, 240, 0.8);
 $white-alpha-50: rgba(255, 255, 240, 0.5);
-$sand: #ddcba4;
-$sand-alpha: rgba($sand, .8);
-$panther-black-alpha: rgba($panther-black, .8);
+$panther-black-alpha: rgba($panther-black, 0.8);
 $pillar: #686259;
-$sand: #ddcba4;
+$sand: #f6f2e8;
+$sand-alpha: rgba($sand, 0.8);
 
+// spacing
+$widget-margin-top: 30px;
+$wmtop: $widget-margin-top;
+
+$red-dots: 2px dotted $cu-red;
 /* Omninav height. Be sure to cross reference getOmninavHeight() in omni-nav-2.js if changes are made to the height*/
 $omniNavHeightDesktop: 60px;
 $omniNavHeightMobile: 123px;
+
+// css vars
+:root {
+  // Colors
+  /* These are colors commonly found on the site.
+  Typically, if a color is used more than once or twice,
+  it should be added here as a variable. Changing the value
+  of these variables will affect the colors sitewide. */
+  --futura-regular: "futura-pt", Arial, sans-serif;
+  --futura-condensed: "futura-pt-condensed", Arial, sans-serif;
+  --arial: Arial, sans-serif;
+  --minion: "minion-pro", Arial, serif;
+  --font-stack-body: --arial;
+  --font-stack-heading: --futura-regular;
+  --font-stack-heading-emphasis: --futura-condensed;
+  --cu-red: #a50034;
+  --cu-red-rgb-transparent: rgba(--cu-red, 0.95);
+  --cu-dark-red: #851c2b;
+  --cu-off-white: #f7f6f0;
+  --cu-light-grey: #eaeaea;
+  --cu-light-grey-2: #ddd;
+  --cu-warm-light-grey: #eaeaea;
+  --cardinal: #a50034;
+  --cardinal-hover: #810029;
+  --pillar: #686259;
+  --panther-black: #231f20;
+  --theme-bg-color-alpha: transparent;
+  --cardinal-hover: #810029;
+  --panther-black: #231f20;
+  --cu-black: --panther-black;
+  --content-padding: 2%;
+  --line-height: 2.4rem;
+  --red-button-hover: #c8003f;
+  --red-button-active: #88002b;
+  --white: #ffffff;
+  --brown: #896d49;
+  --teal: #25b6a5;
+  --teal-hover: #24d4bf;
+  --teal2: #02bac2;
+  --teal2-hover: #01cdd4;
+  --teal2-light: #a6ddd1;
+  --red: --cu-red;
+  --red-hover: #ba183e;
+  --red-active: #7f0026;
+  --grey: #2f2f2f;
+  --grey-hover: #4c4b45;
+  --grey2: #6e6e66;
+  --grey2-hover: #918e87;
+  /* These are colors of common elements or states. */
+  --cu-font-color: --grey;
+  --cu-link-hover: #bb223c;
+  --cu-link-down: --cu-dark-red;
+  --cu-form-shadow: #797564;
+  --cu-border: #a58f75;
+  /* These colors are specifically for the class "newbutton". */
+  --new-button-primary: --teal2-hover;
+  --new-button-secondary: --teal2;
+  --new-button-hover-primary: --teal2-light;
+  --new-button-hover-secondary: --teal2;
+  // Theme Specific Colors
+  /* These are theme specific colors. I moved them here
+  to make it easier to edit the colors for each theme
+  all in one place. Variables prefixed with "theme" are
+  colors found in multiple themes. The others are specific
+  to a theme. */
+  --theme-light-grey: #dbdfcf; // Light grey found in multiple themes
+  --theme-yellow: #d4e13c; // Yellow found in multiple themes
+  --theme-blue: #006185; // Blue found in multiple themes
+  --asbe-primary: #006185;
+  --asbe-secondary: #276b87;
+  --asbe-tertiary: #005270;
+  --education-primary: #003764;
+  --education-secondary: #00457d;
+  --education-tertiary: #012746;
+  --communication-primary: --cardinal;
+  --communication-secondary: --red-hover;
+  --communication-tertiary: --cardinal-hover;
+  --copa-primary: #69465c;
+  --copa-secondary: #705466;
+  --copa-tertiary: #552c46;
+  --crean-primary: #1f8a84;
+  --crean-secondary: #38928d;
+  --crean-tertiary: #0a7a74;
+  --dance-primary: #007165;
+  --dance-secondary: #0e8377;
+  --dance-tertiary: #005e54;
+  --dodge-primary: #2f2f2f;
+  --dodge-secondary: #3b3b3b;
+  --dodge-tertiary: #181818;
+  --music-primary: #793141;
+  --music-secondary: #89394b;
+  --music-tertiary: #671b2c;
+  --pharmacy-primary: #959300;
+  --pharmacy-secondary: #a4a215;
+  --pharmacy-tertiary: #858300;
+  --scst-primary: #4a5e0f;
+  --scst-secondary: #576b1c;
+  --scst-tertiary: #3d4f09;
+  --theatre-primary: #002e5f;
+  --theatre-secondary: #063b74;
+  --theatre-tertiary: #001f41;
+  --wilkinson-primary: #008ec1;
+  --wilkinson-secondary: #209cc9;
+  --wilkinson-tertiary: #007ba7;
+  --law-primary: --cardinal;
+  --law-secondary: --cardinal-hover;
+  /* Our Base Spacing Unit: Use multiples of this variable */
+  --base-spacing: 16px;
+
+  /* Widget specific colors */
+  --cardinal: #a50034;
+  --pillar: #686259;
+
+  --panther-black: #231f20;
+  --white-alpha: rgba(255, 255, 240, 0.8);
+  --white-alpha-50: rgba(255, 255, 240, 0.5);
+  --sand: $sand;
+  --sand-alpha: rgba(--sand, 0.8);
+  --panther-black-alpha: rgba(--panther-black, 0.8);
+  --pillar: #686259;
+
+  /* Omninav height. Be sure to cross reference getOmninavHeight() in omni-nav-2.js if changes are made to the height*/
+  --omniNavHeightDesktop: 60px;
+  --omniNavHeightMobile: 123px;
+}
+
+$slate: #666;
+
+// Widget spacing
+// widget margin top
+$wmtop: 30px;
+$widget-margin-top: $wmtop;
+/* Omninav height. Be sure to cross reference getOmninavHeight() in omni-nav-2.js if changes are made to the height*/
+$omniNavHeightDesktop: 60px;
+$omniNavHeightMobile: 123px;
+$uninav-div-height: 60px;
+$uninav-total-height: 120px;

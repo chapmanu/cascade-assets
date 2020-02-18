@@ -112,7 +112,7 @@
       },
       {
         'text': 'Campus Tours',
-        'link': '/admission/undergraduate/visit',
+        'link': '/admission/undergraduate/visit/index',
         'iconClass': 'icon-office'
       }
     ]
@@ -206,6 +206,11 @@
         'text': 'Center for Undergraduate Excellence',
         'link': '/research/center-for-undergraduate-excellence/index',
         'iconClass': 'icon-lamp8'
+      },
+      {
+        'text': 'Industry Alliances and Commercialization',
+        'link': '/research/industry-alliances-commercialization/index',
+        'iconClass': 'icon-office'
       }
     ]
   },

@@ -1,0 +1,39 @@
+#import( "/_cascade/formats/helpers.velocity" )
+## #import( "/_cascade/formats/cta_macro.vtl" )
+
+#macro(outputNextStepsWidget $element) 
+#set ($wxp = 'next-steps-widget')
+#set ($display = $element.getChild($wxp).getChild('display').value)
+
+## TEXT
+#set ($heading = $element.getChild($wxp).getChild('heading').value)
+#set ($text = $element.getChild($wxp).getChild('body').value)
+
+## LAYOUT
+#set ($layout = $element.getChild($wxp).getChild('layout').value)
+#if ($layout == "left-aligned")
+    #set ($style = 'next-steps-widget--left-aligned')
+#end
+
+#bgColorChooser($wxp)
+
+<div class="next-steps-widget $style $bgColor">
+    <div class="faux-h2 next-steps-widget__heading">
+        ${_EscapeTool.xml($heading)}
+    </div>
+    #if ($text != "")
+        <div class="next-steps-widget__text">
+            <p>
+                ${_EscapeTool.xml($text)}
+            </p>
+        </div>
+    #end
+
+    ## CTA
+    #set ( $linkItems = $_XPathTool.selectNodes($element, 'next-steps-widget/link') )
+    <div class="next-steps-widget__buttons">
+        #cta($element, 'next-steps-widget/link')
+    </div>
+</div>
+
+#end

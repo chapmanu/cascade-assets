@@ -1,0 +1,512 @@
+#*
+ * OmniNav v3 format.
+ * Chapman.edu/_cascade/formats/modular/uninav/uninav.vtl
+ *
+ * Note: the site://Chapman.edu/ seen in most href is not a hardcoded subdomain but a Cascade variable 
+ * that allows path to render correctly even when a page published to other webservers not www
+ - the format is configured via its respective block at:
+    Chapman.edu/_cascade/blocks/html/uninav  (https://dev-cascade.chapman.edu/entity/open.act?id=a94c5727c0a81e4b22b523b8699a6359&type=block_STRUCTUREDDATA)
+
+On a page level, configure via:
+  1) edit
+  2) configure
+  3) 'Omni-Nav' 
+    a) select block: Chapman.edu/_cascade/blocks/html/uninav
+    b) select (this) format: Chapman.edu: Chapman.edu: /_cascade/formats/modular/uninav/uninav.vtl
+ *#
+
+##
+## Imports
+##
+#import( "/_config/global_nav.vm" )
+#import( "/_config/global_nav_law.vm" )
+#import( "/_cascade/formats/helpers.velocity" )
+#import ("/_cascade/formats/modular/uninav/_offCanvas_umbrella_nav_button.vtl")
+
+## Log velocity variables in the browser console on dev
+
+##
+## Hardcoded Params
+##
+## umbrellaCategories
+## These are locations for which OmniNav should build the secondary off-canvas-nav menu.
+## umbrellaCategory is the term product owners use.
+## I would prefer that each inner array item within the array were only 2 items and
+## all other vars be derived from those:
+## [$umbrellaFolderId, $umbrellaLabel]
+## Current inner array values:
+## [ $umbrellaDirectory, $umbrellaLabel/$umbrellaBrandLabel ]
+#set ( $umbrellaCategories = [
+  [ 'business', 'Argyros School' ],
+  [ 'education', 'Attallah College' ],
+  [ 'dodge', 'Dodge College' ],
+  [ 'crean', 'Crean College' ],
+  [ 'wilkinson', 'Wilkinson College' ],
+  [ 'copa', 'College of Performing Arts' ],
+  [ 'engineering', 'Fowler School of Engineering' ],
+  [ 'pharmacy', 'School of Pharmacy' ],
+  [ 'law', 'Fowler School of Law' ],
+  [ 'library', 'Leatherby Libraries' ],
+  [ 'scst', 'Schmid College' ],
+  [ 'communication', 'School of Communication' ],
+  [ 'about', 'About' ],
+  [ 'academics', 'Academics' ],
+  [ 'admission', 'Admission' ],
+  [ 'alumni', 'Alumni' ],
+  [ 'campus-services', 'Campus Services' ],
+  [ 'campus-services/career-professional-development', 'Career' ],
+  [ 'faculty-staff', 'Faculty and Staff' ],
+  [ 'families', 'Families' ],
+  [ 'research', 'Research' ],
+  [ 'students', 'Students' ],
+  [ 'support-chapman', 'Support Chapman' ]
+])
+
+##
+## Vars
+##
+## Cascade provides a $currentPage object to every format.
+#set ( $pagePath = $currentPage.path )
+
+## This will be set by data macros below.
+#set ( $pageUmbrellaCategory = [] )
+#set ( $isUmbrellaCategory = false )
+#set ( $umbrellaDirectory = '' )
+#set ( $umbrellaDirectoryPath = '' )
+#set ( $umbrellaLabel = '' )
+#set ( $umbrellaBrandLabel = '' )
+#set ( $umbrellaAssets = [] )
+#set ( $brandClass = '' )
+#set ( $globalNavLinks = [] )
+
+##
+## Var Macros
+##
+#macro ( setVars )
+  #setPageUmbrellaCategory()
+
+  #set ( $isUmbrellaCategory = $pageUmbrellaCategory.size() > 0 )
+
+  #if ( $isUmbrellaCategory )
+    #set ( $umbrellaDirectory = $pageUmbrellaCategory[0] )
+
+    ## These 2 were originally different values and could differ in the future.
+    #set ( $umbrellaLabel = $pageUmbrellaCategory[1] )
+    #set ( $umbrellaBrandLabel = $pageUmbrellaCategory[1] )
+
+    #set ( $umbrellaDirectoryPath = "/${umbrellaDirectory}" )
+    #setUmbrellaAssets()
+    #set ( $brandClass = 'branded' )
+  #else
+    #set ( $brandClass = 'unbranded' )
+  #end
+
+  ## Currently law is the only page with different global nav content
+  #if( $umbrellaDirectory == 'law' )
+    #set( $globalNavLinks = $GLOBAL_NAV_LAW_CONFIG )
+  #else
+    #set( $globalNavLinks = $GLOBAL_NAV_CONFIG )
+  #end
+#end
+
+#macro ( setPageUmbrellaCategory )
+  ## Is current path under one of specified $umbrellaCategories?
+  #foreach ( $umbrellaCategory in $umbrellaCategories )
+    #set ( $dirName = $umbrellaCategory[0] )
+
+    ## Define substr range to compare umbrella dir with current page path.
+    ## pagePath does not include leading /.
+    #set ( $startSubStr = 0 )
+    #set ( $endSubStr = $dirName.length() )
+
+    ## Make sure endSubStr not long than pagePath else will throw exception
+    #if ( $endSubStr > $pagePath.length() )
+      #set ( $endSubStr = $pagePath.length() )
+    #end
+
+    #set ( $pagePathDir = $pagePath.substring($startSubStr, $endSubStr) )
+
+    ## Is current page directory $pagePathDir under this $navDirectory? If so,
+    ## we found our $navDirectory.
+    #if ( $pagePath.contains($dirName) && $pagePathDir == $dirName )
+      ## A page can enter this loop more than once if it falls under multiple umbrella categories
+      ## e.g. a page under both Campus Services and Career umbrellas
+      ## First check if it hasn't been set yet
+      #if ( $pageUmbrellaCategory.size() == 0 )
+        #set ( $pageUmbrellaCategory = $umbrellaCategory )
+      ## If it has been set, pages should use the umbrella category that's more specific
+      ## This ensures the page uses the closest matching directory out of all the umbrella categories
+      ## e.g. a page under Career should use campus-services/career umbrella not campus-services
+      #elseif ( $pagePathDir.length() > $pageUmbrellaCategory[0].length() )
+        #set ( $pageUmbrellaCategory = $umbrellaCategory )
+      #end
+    #end
+  #end
+#end
+
+#macro ( setUmbrellaAssets )
+  ## umbrellaAssets equal Umbrella directory's visible (non-index) children. These
+  ## are used in OffCanvasNav secondary menu. This must be called after
+  ## $umbrellaDirectoryPath is set.
+  #set ( $umbrellaFolder = $_.locateFolder($umbrellaDirectoryPath) )
+  
+  #foreach( $childAsset in $umbrellaFolder.children )
+    ## When the 'Hide from navigation' box is not checked, and it has never been checked, the metadata
+    ## field doesn't exist for that asset. When the box is not checked, but it was at one point, it exists with a value of ''.
+    ## See Github issue: https://github.com/chapmanu/cascade-assets/issues/262
+    ## By default, set visibility to false
+    #set ( $isVisibleChild = false )
+    ## Since a symLink (External Link added to folders) can't be set by user to Hidden, set visibility to true:
+    #if ( $childAsset.assetType == 'symlink' )
+        #set ( $isVisibleChild = true ) 
+    #end
+    #if ( $childAsset.assetType == 'folder')
+      ## Both the folder and index page must be visible
+      #set ( $folderVisible = $childAsset.metadata.getDynamicField('Hide from navigation').value != "Yes" )
+      #set ( $folderIndexPage = $_.locatePage("${childAsset.path}/index" ) )
+      #set ( $folderIndexVisible = $folderIndexPage.metadata.getDynamicField('Hide from navigation').value != "Yes" )
+
+      #if ( $folderIndexVisible && $folderVisible )
+          #set ( $isVisibleChild = true )
+      #end
+    #elseif ( $childAsset.assetType == 'page' )
+      #set ( $isVisibleChild = $childAsset.metadata.getDynamicField('Hide from navigation').value != "Yes" )
+    #end
+
+    #if ( $isVisibleChild )
+      #set ( $discard = $umbrellaAssets.add($childAsset) )
+    #end
+  #end
+#end
+##
+## Template Macros
+##
+## start uninav begin 
+#macro ( buildOmniNav )
+<nav id="uninav" class="$brandClass">
+  <!-- pagePath: $pagePath -->
+  <!-- pageUmbrellaCategory: $pageUmbrellaCategory -->
+  <!-- umbrellaAssets count: $umbrellaAssets.size() -->
+
+  ## Uncomment to list pageUmbrella child assets.
+  ##debugUmbrellaAssets()
+
+#uninavUmbrellaToggleButton()
+#uninavMobileIcon()
+#buildOffCanvasNav()
+#uninavLogo()
+#uninavUtility()
+#uninavGlobal()
+#uninavCTA()
+
+
+  <!-- Page overlay for when search results are displayed -->
+  <div id="search-results-overlay"></div>
+</nav>
+#end
+
+
+##
+## Primary Nav Macros
+##
+## #macro ( buildPrimaryNav )
+  
+##     #buildPrimaryNavLeftContainer()
+##     #buildPrimaryNavLogoContainer()
+    
+##     #buildPrimaryNavRightContainer()
+    
+##     #buildGlobalNav()
+    
+##     #buildPrimaryNavSearchBox()
+  
+## #end
+
+## #macro ( buildPrimaryNavLogoContainer )
+
+##       #import ( "/_cascade/formats/modular/uninav/_logo_container.vtl" )
+
+##       #if ( $isUmbrellaCategory )
+##       <div class="secondary-logo">
+##         <a class="branded-logo" href="site://Chapman.edu/${umbrellaDirectoryPath}/index">${umbrellaBrandLabel}</a>
+##       </div>
+##       #end
+
+## #end
+
+#macro (uninavUmbrellaToggleButton)
+    #if ( $isUmbrellaCategory )
+        #offCanvasUmbrellaNavButton($umbrellaLabel)
+    #end
+#end
+
+#macro ( uninavMobileIcon)
+    #import ("/_cascade/formats/modular/uninav/_mobile_hamburger_toggle_icon.vtl")
+#end
+
+#macro ( uninavLogo )
+      #import ( "/_cascade/formats/modular/uninav/_logo.vtl" )
+#end
+
+#macro ( uninavUtility ) 
+  #import ( "/_cascade/formats/modular/uninav/_utilityNav.vtl" )
+#end
+
+#macro ( uninavAudiences ) 
+      #import ( "/_cascade/formats/modular/uninav/_audiences.vtl" )
+#end
+#macro ( uninavCTA ) 
+      #import ( "/_cascade/formats/modular/uninav/_cta.vtl" )
+#end
+
+#macro ( uninavSeach ) 
+      #import ( "/_cascade/formats/modular/uninav/_search.vtl" )
+#end
+
+#macro ( uninavGlobal ) 
+      #import ( "/_cascade/formats/modular/uninav/_global.vtl" )
+#end
+
+## #macro ( buildPrimaryNavRightContainer )
+## <div class="uninav__utility-nav--wrapper">
+##   <div class="uninav__utility-nav">
+##     <ul class="uninav__menu-item-flex">
+##       <li class="uninav__menu-item--audiences"><a href="#">Students</a></li>
+##       <li class="uninav__menu-item--audiences"><a href="#">Staff</a></li>
+##       <li class="uninav__menu-item--audiences"><a href="#">Faculty</a></li>
+##       <li class="uninav__menu-item--audiences"><a href="#">Industry Partners</a></li>
+##       <span class="uninav__utility-nav--search-wrapper">
+##         <li class="uninav__search-input uninav__search-input--desktop">
+##           <div class="gcse-search"></div>
+##           <!-- <div class="gcse-searchresults-only"></div> -->
+##         </li>
+##       </span>
+##       <li class="uninav__menu-item-dropdown-parent" tabindex="0"><span class="uninav__menu-item-login">
+##           <i class="fas fa-paw"></i>
+##         </span>
+##         <div class="uninav__menu-item-dropdown-child uninav__login-button">
+##           <ul>
+
+##         #import("/_cascade/formats/modular/uninav/_login.vtl" )
+
+
+
+##           </ul>
+##         </div>
+##       </li>
+
+
+##     </ul>
+##   </div>
+## </div>
+## #end
+
+## #macro ( buildPrimaryNavSearchBox )
+##   <div class="nav-container" id="primary-nav-search">
+##     #buildSearchBox()
+##   </div>
+## #end
+
+##
+## Global Nav Macros
+##
+## #macro( buildGlobalNav )
+##   #import( "/_cascade/formats/modular/uninav/_globalNav_menu.vtl" )
+## #end
+
+#macro( buildGlobalNavDropdown $dropdownLinks $overviewLink)
+  ## Law global nav dropdowns don't have icons
+  #if( $umbrellaDirectory != 'law' )
+    #set ( $overviewIconClass = "icon-file-text" )
+  #else
+    #set ( $overviewIconClass = "" )
+  #end
+
+  <div class="global-nav-dropdown">
+    <ul>
+      ## First list item is always Overview
+      ## REMOVING THIS UNTIL WE CAN ADD ICON TO FIRST ITEM
+    ##   <li>
+    ##     #set ( $parentPage = "" )
+    ##         #foreach ( $word in $overviewLink.split("/")[1].split("-") )
+    ##           #if ( $parentPage != "" )
+    ##             #set ( $parentPage = $parentPage + " " )
+    ##           #end
+          
+    ##         #if( $umbrellaDirectory != 'law' )
+    ##           #set ( $parentPage = $parentPage + $word.substring(0,1).toUpperCase() + $word.substring(1) )
+    ##         #else
+    ##           #set ( $parentPage = $link.sectionTitle )
+    ##         #end
+    ##     #end
+    ##     <a class="icon $overviewIconClass" href="site://Chapman.edu/$overviewLink">$parentPage Overview</a>
+    ##   </li>
+      #foreach( $dropdownLink in $dropdownLinks )
+        #set ($defaultLinkName = "${_EscapeTool.xml( $dropdownLink.text )}")
+          <li>
+          #if($dropdownLink.link.toString().contains("http"))
+            <a class="icon $dropdownLink.iconClass" href="$dropdownLink.link">
+          #elseif($dropdownLink.link.toString().contains("alumni/events/index"))
+            <a class="icon $dropdownLink.iconClass" href="$dropdownLink.link" aria-label="Alumni events">
+          #elseif($dropdownLink.link.toString().contains("alumni/get-involved/index"))
+            <a class="icon $dropdownLink.iconClass" href="$dropdownLink.link" aria-label="Alumni: Get Involved">
+          #elseif($dropdownLink.link.toString().contains("support-chapman/get-involved"))
+            <a class="icon $dropdownLink.iconClass" href="$dropdownLink.link" aria-label="Support Chapman: Get Involved">
+          #elseif($dropdownLink.link.toString().contains("about/connect/index"))
+            <a class="icon $dropdownLink.iconClass" href="$dropdownLink.link" aria-label="Connect with Chapman">
+          #else
+            <a class="icon $dropdownLink.iconClass" href="site://Chapman.edu/$dropdownLink.link">          
+          #end
+            ${_EscapeTool.xml( $dropdownLink.text )}
+          </a>
+        </li>
+      #end
+    </ul>
+  </div>
+#end
+
+##
+## Utility Nav Macros
+##
+#macro ( buildUtilityNav )
+  <div class="utility-nav">
+    <nav aria-label="utility navigation bar">
+      #buildUtilityNavLinks()
+      #buildSearchComponent()
+    </nav>
+  </div>
+#end
+
+#macro ( buildUtilityNavLinks )
+  <div class="utility-nav-container utility-links">
+    <ul class="utility-list">
+        #import ( "/_cascade/formats/modular/uninav/_utility_nav_findInfoFor_menu.vtl" )
+        #import ( "/_cascade/formats/modular/uninav/_utility_nav_links.vtl" )
+        #import ( "/_cascade/formats/modular/uninav/_utility_nav_social_menu.vtl" )
+    </ul>
+  </div>
+#end
+
+#macro ( buildSearchComponent )
+  #set ($searchFilters = ["All", "Blog Stories", "Faculty Directory", "Events", "Main Website"])
+
+  <div class="utility-nav-container utility-search" id="utility-nav-search">
+    <ul class="utility-list">
+      <li class="utility-cell search-type utility-has-dropdown">
+        <a tabindex="0" class="selected-search-filter">Search From</a>
+        <div class="utility-dropdown dropdown">
+          <ul>
+            #foreach ($filter in $searchFilters)
+              <li class="search-filter-option"><a tabindex="0">$filter</a></li>
+            #end
+          </ul>
+        </div>
+      </li>
+      <li class="utility-cell">
+        #buildSearchBox()
+      </li>
+    </ul>
+  </div>
+#end
+
+##
+## Off-Canvas Nav Macros
+##
+#macro ( buildOffCanvasNav )
+  <div class="off-canvas-overlay" id="js-off-canvas-overlay"></div>
+  <div class="off-canvas-nav-container" id="js-off-canvas-nav-container">
+    #buildOffCanvasNavHeader()
+    #buildOffCanvasNavMenus()
+  </div>
+#end
+
+#macro ( buildOffCanvasNavHeader )
+  <div class="cu-off-canvas-header">
+    <div class="cu-logo-wrapper">
+      <div id="main-logo" class="toggle-logo">
+        <a class="default off-logo" href="site://Chapman.edu/index" title="Chapman University Website Home Page">
+          <!-- logo set as background image by class -->
+          Chapman University Logo
+        </a>
+        #buildOffCanvasNavCloseIcon()
+      </div>
+    </div>
+  </div>
+#end
+
+#macro ( buildOffCanvasNavMenus )
+  ## For umbrella cats, build secondary menu.
+  <div class="off-canvas-nav clearfix" id="js-off-canvas-nav">
+    #if ( $isUmbrellaCategory )
+      #buildOffCanvasNavSecondaryMenu()
+      
+    #end
+
+    #buildOffCanvasNavMainMenu()
+  </div>
+#end
+
+#macro ( buildOffCanvasNavMainMenu )
+  <div id="off-canvas-main" class="off-canvas-menu">
+    <div class="menu-header">
+      <span tabindex="0" class="menu-label">Chapman Menu</span>
+
+      #if ( $isUmbrellaCategory )
+        <span tabindex="0" class="toggle-menu-label">${umbrellaLabel} Menu</span>
+      #end
+    </div>
+    
+  #import( "/_cascade/formats/modular/uninav/_offCanvas_main_menu.vtl" )
+
+  </div>
+#end
+
+#macro ( buildOffCanvasNavSecondaryMenu )
+  <div id="off-canvas-umbrella" class="off-canvas-menu">
+    <div class="menu-header">
+      <span tabindex="0" class="menu-label">${umbrellaLabel}</span>
+      <span tabindex="0" class="toggle-menu-label">Chapman Menu</span>
+    </div>
+
+    <div id="off-canvas-umbrella-navigation">
+        <ul class="root-umbrella-nav">
+          #foreach ( $asset in $umbrellaAssets )
+            #buildDrillDownList( $asset )
+          #end
+        </ul>
+    </div>
+  </div>
+#end
+
+#import ( "/_cascade/formats/modular/uninav/_buildToggleIcon_macro.vtl")
+
+#macro ( buildOffCanvasNavCloseIcon )
+  <span tabindex="0" class="close js-close-off-canvas-nav">
+    <i class="fas fa-times-circle"></i>
+  </span>
+#end
+
+
+##
+## Helper Macros
+##
+#macro( buildSearchBox )
+  <div class="cu-search-box"></div>
+  <div class="search-results-container">
+    <div class="cu-search-results"></div>
+  </div>
+#end
+
+#macro( debugUmbrellaAssets )
+  #foreach ( $asset in $umbrellaAssets )
+    <!-- $asset.name : $asset.path ($asset.children.size()) -->
+  #end
+#end
+
+
+##
+## Main OmniNav HTML Block
+##
+#setVars()
+#buildOmniNav()
+

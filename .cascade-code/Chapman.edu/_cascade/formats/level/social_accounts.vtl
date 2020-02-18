@@ -1,0 +1,62 @@
+#* 
+* This block is used for the social "Follow Us" ribbon at the top of pages. * * It is currently
+supporting two different xml page structures. * 1. The Standard templates * 2. The Modular templates
+* * The goal is to migrate completely to the modular templates, in which case, we * will be able to
+modify this code's conditional. * * Note: A similar file exists in
+_cascade/formats/modular/meta/social_accounts (NOT BEING USED)
+*******************************************************************************# ## ## Get the data
+for the page ## #set ( $currentPage = $_XPathTool.selectSingleNode($contentRoot,
+"//system-page[@current]") ) #set ( $data = $currentPage.getChild('system-data-structure') ) ## Get
+the data for the social accounts ## ## The modular templates social accounts use data defs at
+//system-data-structure/meta/social_accounts ## The standard templates social accounts use data defs
+at //system-data-structure/social_accounts ## ## this format used for both old templates and new
+Modular templates. ## New modular templates have social_accounts under a new parent node called meta
+so check for that before proceeding so get right node ## #if
+($data.getChild('meta').getChild('social_accounts')) #set ( $social_node =
+$data.getChild('meta').getChild('social_accounts') ) #else #set ( $social_node =
+$data.getChild('social_accounts') ) #end ## #set ( $accounts =
+$social_node.getChild('content').getChild('system-data-structure').getChildren('account') ) #set (
+$length = $accounts.size() ) #set ( $socialAccounts = $social_node.getChild('path').value ) ## ##
+Output the html for the accounts ## #if ( $accounts )
+<div id="social_follow_us" class="school-social-media-icons">
+    <ul>
+        <li class="school-social-media-icons__follow">Follow</li>
+        #foreach ($account in $accounts)
+            #set ( $name = $account.getChild('account_type').text )
+
+            #if ( $name == 'facebook')
+                #set ( $fontAwesomeClass = "fab fa-facebook-square")
+                #elseif ( $name == 'flickr')
+                #set ( $fontAwesomeClass = "fab fa-flickr")
+                #elseif ( $name == 'instagram')
+                #set ( $fontAwesomeClass = "fab fa-instagram")
+                #elseif ( $name == 'twitter')
+                #set ( $fontAwesomeClass = "fab fa-twitter-square")
+                #elseif ( $name == 'vimeo')
+                #set ( $fontAwesomeClass = "fab fa-vimeo-square") 
+                #elseif ( $name == 'youtube')
+                #set ( $fontAwesomeClass = "fab fa-youtube-square") 
+            #end
+
+            #set ( $url = $_SerializerTool.serialize( $account.getChild('account_url'), true) )
+            #if ( $velocityCount == 1 and $length == 1)
+                <a href="$url">
+                    <li class="$name $fontAwesomeClass first-last"></li>
+                </a>
+                #elseif ( $velocityCount == 1 )
+                <a href="$url">
+                    <li class="$name ${_EscapeTool.xml($fontAwesomeClass)} first"></li>
+                </a>
+                #elseif ( $velocityCount == $length)
+                <a href="$url">
+                    <li class="$name $fontAwesomeClass last"></li>
+                </a>
+            #else
+                <a href="$url">
+                    <li class="$name $fontAwesomeClass"></li>
+                </a>
+            #end
+        #end
+    </ul>
+</div>
+#end

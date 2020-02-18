@@ -1,0 +1,28 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+ORDER: Base + typography > general layout + grid > page layout > components
+1em = 16px
+*/
+/* These are colors commonly found on the site.
+Typically, if a color is used more than once or twice,
+it should be added here as a variable. Changing the value
+of these variables will affect the colors sitewide. */
+/* These are colors of common elements or states. */
+/* These colors are specifically for the class "newbutton". */
+/* These are theme specific colors. I moved them here
+to make it easier to edit the colors for each theme
+all in one place. Variables prefixed with "theme" are
+colors found in multiple themes. The others are specific
+to a theme. */
+/* Our Base Spacing Unit: Use multiples of this variable */
+/* Widget specific colors */
+/* Omninav height. Be sure to cross reference getOmninavHeight() in omni-nav-2.js if changes are made to the height*/

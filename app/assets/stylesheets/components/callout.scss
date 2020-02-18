@@ -1,21 +1,345 @@
-.callout {
-  @include clearfix;
-  background-color: $white;
-  border: 1px solid #c1c1c1;
-  line-height: 20px;
-  margin: 0 0 20px 0;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
+.leftNav {
+  .callout-box-widget--left {
+    margin-bottom: 30px;
+  }
 
-  .editableContent, h2 {
-    padding: 0 $base-spacing;
-    margin: $base-spacing 0;
-    line-height: 20px;
-    a {
-      border-bottom: 2px dotted #a8a8a8;
+  .callout {
+    --ml: 16px;
+    --text-light: $white;
+    --text-dark: $panther-black;
+    --preheaderLight: $white;
+    --preheaderDark: $grey;
+
+    // DEFAULTS
+    span {
+      a {
+        @include underline($cu-red);
+      }
+    }
+
+    .editableContent,
+    h2,
+    hr {
+      padding: 0 $base-spacing;
+      margin: $base-spacing 0;
+    }
+
+    h2 {
+      font-weight: 500;
+      max-width: 200px;
+      line-height: 1.2em;
+    }
+
+    hr {
+      width: 50px;
+      margin-left: v(ml);
+      height: 3px;
+      border: none;
+      background-color: currentColor;
+      color: currentColor;
+    }
+
+    img {
+      display: block;
+    }
+
+    .preheader {
+      font-size: 1.4rem;
+      font-family: $futura;
+      text-transform: uppercase;
+      margin: 25px $base-spacing $base-spacing $base-spacing;
+    }
+
+    @include respond(tab-port) {
+      h2 {
+        max-width: 100%;
+      }
+
+      hr {
+        -webkit-transition: width 3s ease-in-out;
+        -moz-transition: width 3s ease-in-out;
+        -o-transition: width 3s ease-in-out;
+        transition: width 3s ease-in-out;
+        width: auto;
+        margin-right: $base-spacing;
+        -ms-transition: width 3s ease-in-out;
+      }
+
+      .buttonLinks li a {
+        padding: 4%;
+        margin-top: 2%;
+      }
     }
   }
-  
-  img { display: block; }
+
+  // RED
+  .callout-box-widget--red {
+    $bg: $cu-red;
+    background-color: $bg;
+    color: $white;
+
+    .preheader {
+      color: currentColor;
+    }
+
+    .editableContent {
+      font-weight: 100;
+
+      span {
+        font-family: $arial;
+        color: currentColor;
+      }
+    }
+
+    .buttonLinks li {
+      margin-bottom: 20px;
+
+      a {
+        color: $panther-black;
+        @include button-bg($cu-light-grey);
+        text-align: center;
+        font-weight: 600;
+        font-family: $futura;
+        font-size: 1.8rem;
+
+        &:after {
+          content: none;
+        }
+      }
+    }
+
+    span,
+    li,
+    a {
+      color: currentColor;
+      @include dotted-underline($cu-red, 2px);
+    }
+  }
+
+  // BLACK
+  .callout-box-widget--black {
+    background-color: $panther-black;
+    color: $white;
+
+    .preheader {
+      color: v(preheaderLight);
+    }
+
+    .editableContent {
+      font-weight: 100;
+
+      span {
+        font-family: $arial;
+        color: currentColor;
+      }
+    }
+
+    .buttonLinks li {
+      margin-bottom: 20px;
+
+      a {
+        background-color: $cu-light-grey;
+        color: $panther-black;
+        @include button-bg($cu-light-grey);
+        text-align: center;
+        font-weight: 600;
+        font-family: $futura;
+        font-size: 1.8rem;
+
+        &:after {
+          content: none;
+        }
+      }
+    }
+
+    span,
+    li,
+    a {
+      color: currentColor;
+    }
+  }
+
+  // GREY
+  .callout-box-widget--grey {
+    background-color: $cu-light-grey;
+    color: $panther-black;
+
+    .preheader {
+      color: v(preheaderDark);
+    }
+
+    h2 {
+      color: currentColor;
+    }
+
+    .editableContent {
+      font-weight: 100;
+
+      span {
+        font-family: $arial;
+        color: currentColor;
+      }
+    }
+
+    span,
+    li,
+    a {
+      color: currentColor;
+    }
+
+    .buttonLinks li {
+      margin-bottom: 20px;
+
+      a {
+        @include button-bg($cu-red);
+        color: $white;
+        background-color: $cu-red;
+        text-align: center;
+        font-weight: 600;
+        font-family: $futura;
+        font-size: 1.8rem;
+
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+
+  // SAND
+  .callout-box-widget--sand {
+    // sand is listed as #DDCBA4 at https://brand.chapman.edu/?page_id=4464 but appears to be #f6f2e8 in the design and elsewhere. We need secondary/tertiary naming schemes for this + a SASS mixin
+    --sand: #f6f2e8;
+    $bg: $sand;
+    @include dc($bg);
+
+    .preheader {
+      color: v(preheaderDark);
+    }
+
+    h2 {
+      color: currentColor;
+    }
+
+    .editableContent {
+      font-weight: 100;
+
+      span {
+        font-family: $arial;
+        color: currentColor;
+      }
+    }
+
+    span,
+    li,
+    a {
+      color: $panther-black;
+    }
+
+    .buttonLinks li {
+      margin-bottom: 20px;
+
+      a {
+        @include button-bg($cu-red);
+        background-color: $cu-red;
+        text-align: center;
+        font-weight: 600;
+        font-family: $futura;
+        font-size: 1.8rem;
+
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+
+  // WHITE
+  .callout-box-widget--white {
+    $bg: $white;
+    border: 1px solid $cu-light-grey-2;
+    color: $panther-black;
+
+    h2 {
+      color: currentColor;
+    }
+
+    .editableContent {
+      font-weight: 100;
+
+      span {
+        font-family: $arial;
+        color: currentColor;
+      }
+    }
+
+    span,
+    li,
+    a {
+      color: currentColor;
+    }
+
+    .buttonLinks li {
+      margin-bottom: 20px;
+
+      a {
+        @include button-bg($cu-red);
+        color: $white;
+        background-color: $cu-red;
+        text-align: center;
+        font-weight: 600;
+        font-family: $futura;
+        font-size: 1.8rem;
+
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+}
+
+.rightColumn {
+  .callout-box-widget {
+    margin-bottom: 20px;
+    max-width: 206px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .callout-box-widget {
+      max-width: 25%;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .callout-box-widget {
+      max-width: 100%;
+    }
+  }
+
+  .callout-box-widget.styleOne .editableContent,
+  .callout-box-widget.styleTwo .editableContent,
+  h2 {
+    line-height: 20px;
+    margin: 16px 0;
+    overflow-wrap: break-word;
+    padding: 0 16px;
+  }
+
+  .callout-box-widget,
+  .simple-form-widget .callout {
+    h2 {
+      line-height: 1.2em;
+    }
+  }
+}
+
+.rightColumn .callout-box-widget.styleTwo .editableContent,
+.rightColumn h2 {
+  line-height: 1.2em;
+}
+
+.callout-box-widget--left.callout.callout-box-widget--contact-widget {
+  background-color: var(--cu-light-grey);
+  color: var(--panther-black);
 }

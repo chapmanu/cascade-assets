@@ -1,0 +1,204 @@
+// uninav list items
+
+@mixin linear-300 {
+  transition: 300ms linear;
+}
+
+@mixin display-none {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 500ms linear,
+    visibility 3s linear;
+}
+
+@mixin caret {
+  font-family: FontAwesome;
+  font-weight: 900;
+  content: "\f0d7";
+  padding-left: 1rem;
+}
+
+@mixin underline-animation-white {
+  a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 50%;
+    position: relative;
+    border-bottom: 2px solid $white;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+    opacity: 0;
+  }
+
+  a:hover,
+  a:focus,
+  a:focus-within {
+    &:after {
+      opacity: 1;
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+@mixin underline-animation-black {
+  a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 50%;
+    position: relative;
+    border-bottom: 2px solid $panther-black;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+    opacity: 0;
+  }
+
+  a:hover,
+  a:focus,
+  a:focus-within {
+    &:after {
+      opacity: 1;
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+@mixin red {
+  background-color: $red;
+  transition: background-color 500ms linear;
+
+  &:hover {
+    background-color: $red-button-hover;
+  }
+
+  &:focus {
+    background-color: $red-button-active;
+  }
+}
+
+@mixin hover-drop-shadow-red {
+
+  &:hover,
+  &:focus,
+  &:focus-within {
+    box-shadow: 0 37.125px 70px -12.125px $cardinal-alpha;
+    transition: box-shadow 100ms linear;
+  }
+}
+
+@mixin hover-drop-shadow {
+
+  &:hover,
+  &:focus,
+  &:focus-within {
+    box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 300ms linear;
+  }
+}
+
+@mixin list-item-pipe {
+  li {
+    position: relative;
+    float: left;
+    padding: 0 10px;
+    list-style: none;
+  }
+
+  // pipe
+  .uninav--menu-item-pipe {
+    ul>li+li:after {
+      content: "";
+      background: $light-grey;
+      position: absolute;
+      bottom: 25%;
+      left: 0;
+      height: 50%;
+      width: 1px;
+    }
+  }
+
+
+}
+
+@mixin list-item-no-pipe {
+  li {
+    position: relative;
+    float: left;
+    padding: 0 10px;
+    list-style: none;
+  }
+
+  ul>li+li:after {
+    content: "";
+    background: $light-grey;
+    position: absolute;
+    bottom: 25%;
+    left: 0;
+    height: 50%;
+    width: 1px;
+  }
+}
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      uninav__phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+$breakpoint arguement choices:
+- uninav__phone
+- uninav__tab-port
+- uninav__tab-land
+- uninav__big-desktop
+ORDER: Base + typography > general layout + grid > page layout > components
+1em = 16px
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint==uninav__tiny {
+    @media only screen and (max-width: 450px) {
+      @content
+    }
+
+    ; //300px
+  }
+
+  @if $breakpoint==uninav__phone {
+    @media only screen and (max-width: 800px) {
+      @content
+    }
+
+    ; //600px
+  }
+
+  @if $breakpoint==uninav__tab-port {
+    @media only screen and (max-width: 900px) {
+      @content
+    }
+
+    ; //900px
+  }
+
+  @if $breakpoint==uninav__tab-land {
+    @media only screen and (max-width: 1200px) {
+      @content
+    }
+
+    ; //1200px
+  }
+
+  @if $breakpoint==uninav__big-desktop {
+    @media only screen and (min-width: 1800px) {
+      @content
+    }
+
+    ; //1800
+  }
+}

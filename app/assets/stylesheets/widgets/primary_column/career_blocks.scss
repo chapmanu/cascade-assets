@@ -1,0 +1,417 @@
+.career-block-widget {
+  display: grid;
+  height: auto;
+  justify-content: start;
+  grid-template-rows: 300px;
+  @include qbal-slideUp-enter;
+
+  &--hidden {
+    .career-block-widget {
+      &__text {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__text {
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    max-height: 300px;
+    margin: 10px 30px 10px 30px;
+    font-family: $futura-regular;
+    font-size: 1.8rem;
+    opacity: 0;
+    animation-delay: 300ms;
+    animation: fadein 3s forwards;
+    -moz-animation: fadein 3s forwards;
+    -webkit-animation: fadein 3s forwards;
+    -o-animation: fadein 3s forwards;
+    animation-direction: forwards;
+    -webkit-animation: fadein 3s forwards;
+  }
+
+  &__title {
+    font-weight: 400;
+    max-width: 200px;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation-delay: 1s;
+    animation: fadein 3s forwards;
+    -moz-animation: fadein 3s forwards;
+    -webkit-animation: fadein 3s forwards;
+    -o-animation: fadein 3s forwards;
+    animation-direction: forwards;
+    -webkit-animation: fadein 3s forwards;
+  }
+
+  &__scroll-indicator {
+    display: flex;
+    justify-content: center;
+    cursor: default;
+    margin-top: 1rem;
+    // this needs to come after the first animation above
+    opacity: 0;
+    animation-delay: 5s;
+    animation: fadein 3s forwards;
+    -moz-animation: fadein 3s forwards;
+    -webkit-animation: fadein 3s forwards;
+    -o-animation: fadein 3s forwards;
+    animation-direction: forwards;
+    -webkit-animation: fadein 3s forwards;
+
+    .fas {
+      animation: scrollHint 3s 3 ease-in-out;
+    }
+
+    &--stop-hint {
+      // animation: none;
+      opacity: 0;
+    }
+
+    &:after {
+
+      // content: '↓ scroll ↓ ';
+      // content: '\f078';
+      // position: absolute;
+      // display: grid;
+      // justify-content: center;
+      // width: 300px;
+      // font-family: "Font Awesome 5 Free";
+      // font-weight: 900;
+      // content: "\f0d7";
+      // margin-left: 2px;
+      // font-size: 1.4rem;
+      &:hover {
+        &:after {
+          content: 'scroll';
+        }
+      }
+    }
+  }
+
+  &:hover,
+  &:focus-within {
+    * {
+      // background-color: red !important
+    }
+
+    &__scroll-indicator {
+      animation: scrollHint 5s 3 ease-in-out;
+    }
+  }
+
+  @keyframes scrollHint {
+
+    20%,
+    50% {
+      // -webkit-transform: translate(0)
+      -webkit-transform: translate(0px, 1px)
+    }
+
+    50% {
+      -webkit-transform: translate(0px, 0px)
+    }
+
+    100% {
+      -webkit-transform: translate(0px, 0px)
+    }
+  }
+
+  &__body {
+    opacity: 0;
+    animation-delay: 3s;
+    animation: fadein 3s forwards;
+    -moz-animation: fadein 3s forwards;
+    -webkit-animation: fadein 3s forwards;
+    -o-animation: fadein 3s forwards;
+    animation-direction: forwards;
+    -webkit-animation: fadein 3s forwards;
+
+
+    &--scrollable {
+      &:hover {
+        // -webkit-line-clamp: 25;
+        // overflow-y: auto;
+      }
+
+      &:after {
+
+        // content: '↓ scroll ↓ ';
+        // position: absolute;
+        // display: grid;
+        // justify-content: center;
+        // width: 300px;
+        &:after {
+          @include qbal-slideUp-enter;
+        }
+      }
+    }
+
+    &:not(.career-block-widget__body--scrollable) {
+
+      +.career-block-widget__scroll-indicator,
+      .fas {
+        display: none;
+      }
+    }
+
+    // &--no-scroll {
+
+    //   +.career-block-widget__scroll-indicator,
+    //   .fas {
+    //     // display: none;
+    //   }
+    // }
+
+    &--line-clamp {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+      overflow-y: scroll;
+      max-height: 100px;
+    }
+
+    &--remove-line-clamp {
+      -webkit-line-clamp: 25;
+      overflow-y: auto;
+
+      &:after {
+        content: '';
+        @include qbal-shrinkSubtle-exit;
+        // display: none;
+      }
+
+      +.career-block-widget__scroll-indicator .fas {
+        // @include qbal-shrinkSubtle-exit;
+        // animation: 300ms fadeOut forwards;
+      }
+    }
+  }
+
+  &__salary {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    opacity: 0;
+    animation-delay: 5s;
+    animation: fadein 3s forwards;
+    -moz-animation: fadein 3s forwards;
+    -webkit-animation: fadein 3s forwards;
+    -o-animation: fadein 3s forwards;
+    animation-direction: forwards;
+    -webkit-animation: fadein 3s forwards;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 35px;
+    min-height: 300px;
+    margin-bottom: 30px;
+
+    @for $i from 1 through 20 {
+      :nth-child(#{$i}) {
+        animation-delay: #{$i * .05s};
+      }
+    }
+
+    &--3-or-more-items {
+      // prevents unsightly jump from display:none, while retaining animation
+      min-height: 650px;
+
+      .career-block-widget {
+        max-height: 300px;
+      }
+    }
+
+    +[class*="-widget"] {
+      margin: 20px 0 20px 0;
+    }
+  }
+
+  @include respond(tab-port) {
+    @include qbal-drop-enter;
+    animation-delay: -1s;
+    height: auto;
+
+    &__container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  .fadeOut {
+    animation-delay: 5s;
+    animation: 3s fadeOut linear forwards;
+  }
+
+
+  /* Add this attribute to the element that needs a tooltip */
+  [data-tooltip] {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Hide the tooltip content by default */
+  [data-tooltip]:before,
+  [data-tooltip]:after {
+    visibility: hidden;
+    // -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    // filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Position tooltip above the element */
+  [data-tooltip]:before {
+    font-family: $futura-regular;
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -80px;
+    padding: 7px;
+    width: 160px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  /* Triangle hack to make tooltip look like a speech bubble */
+  [data-tooltip]:after {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-top: 5px solid #000;
+    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+  }
+
+  /* Show tooltip content on hover */
+  [data-tooltip]:hover:before,
+  [data-tooltip]:hover:after {
+    visibility: visible;
+    // -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    // filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+
+  .fadeInUp {
+    // @include qbal-fade-enter;
+    // @include qbal-slideLeft-enter;
+    // @include qbal-grow-enter;
+    // @include qbal-slideDown-enter;
+  }
+
+  .staggerChildren {
+    @for $i from 1 through 3 {
+      :nth-child(#{$i}) {
+        animation-delay: #{$i * .13s};
+      }
+    }
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-moz-keyframes fadein {
+
+    /* Firefox */
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes fadein {
+
+    /* Safari and Chrome */
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-o-keyframes fadein {
+
+    /* Opera */
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  @-moz-keyframes fadeOut {
+
+    /* Firefox */
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes fadeOut {
+
+    /* Safari and Chrome */
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  @-o-keyframes fadeOut {
+
+    /* Opera */
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+}

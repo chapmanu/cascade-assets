@@ -1,0 +1,61 @@
+## UTILITY NAV LINKS:
+#set ( $menuItems = $_XPathTool.selectNodes($contentRoot, "/system-data-structure/omninav/utilityNav/menuItem") )
+
+#if ($menuItems.size() >= 1)
+    #foreach ($menuItem in $menuItems)
+        #set ($label = $menuItem.getChild('label').value )
+        #set ($linkType = $menuItem.getChild('linkType').value )
+        #if ($linkType == 'Internal Link')
+            #set ($linkURL = $menuItem.getChild('internalLink').getChild('path').value )
+        #elseif ($linkType == 'External Link')
+            #set ($linkURL = $menuItem.getChild('externalLink').value )
+        #else 
+            #set ($linkURL = $menuItem.getChild('fileLink').getChild('path').value )
+        #end
+        #set ($iconType = $menuItem.getChild('icon').value )
+        #if ($linkURL != '' && $linkURL != '/' && $label != '')
+            ##before do primary-link OR dropdown, find out if there are submenu items:
+            #set ($submenuItems = $_XPathTool.selectNodes($menuItems, "//menuItem[label='${label}']/submenuItem[label!='']") )
+            #if ($submenuItems.size() >= 1)
+                <li class="utility-cell utility-has-dropdown">
+                    <a href="#">${_EscapeTool.xml($label)}</a>
+                    <span class="uninav__dropdown-wrapper">
+                                
+                        <ul>
+                            #foreach ($submenuItem in $submenuItems)
+                                        #set ($linkType = $submenuItem.getChild('linkType').value )
+                                        #if ($linkType == 'Internal Link')
+                                            #set ($linkURL = $submenuItem.getChild('internalLink').getChild('path').value )
+                                        #elseif ($linkType == 'External Link')
+                                            #set ($linkURL = $submenuItem.getChild('externalLink').value )
+                                        #else 
+                                            #set ($linkURL = $submenuItem.getChild('fileLink').getChild('path').value )
+                                        #end
+                                        #set ($label = $submenuItem.getChild('label').value )
+                                        #set ($iconClass = $submenuItem.getChild('iconClass').value )
+                                        #if ($linkURL != '' && $linkURL != '/' && $label != '')
+                                            <li><a class="icon icon-$iconClass" href="${_EscapeTool.xml($linkURL)}">${_EscapeTool.xml($label)}</a></li>
+                                        #end
+                                    #end
+                        </ul>
+                    
+                    </span>
+                </li>
+            #else
+                <li class="utility-cell">
+                    <a href="${_EscapeTool.xml($linkURL)}"
+                        #if ($iconType == "CSS Class" && $menuItem.getChild('icon_cssClass').value != "")
+                            class="icon icon-${_EscapeTool.xml($menuItem.getChild('icon_cssClass').value)}"
+                        #end
+                    >
+                    #if ($iconType == "SVG" && $menuItem.getChild('icon_svg').value != "")
+                        $menuItem.getChild('icon_svg').value
+                    #end
+                    ${_EscapeTool.xml($label)}
+                    </a>
+                </li>
+            #end
+        #end
+    #end
+#end
+## UTILITY NAV LINKS (END)

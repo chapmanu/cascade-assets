@@ -1,3 +1,8 @@
 {
-    "autoprefixer.formatOnSave": false
+    "autoprefixer.formatOnSave": false,
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#40047E",
+      "titleBar.activeBackground": "#5A05B0",
+      "titleBar.activeForeground": "#FBF8FF"
+    }
 }

@@ -1,0 +1,51 @@
+#import( "/_cascade/formats/helpers.velocity" )
+
+#macro(outputContactProfile $element) 
+#set ($widgetXPath = 'contact-profile-widget')
+#set ($widgetXPath = ${_EscapeTool.xml($widgetXPath)})
+## todo: automate camelcase to snakecase
+
+#set ($display = $element.getChild($widgetXPath).getChild('display').value)
+#bgColorChooser($widgetXPath)
+
+## TEXT
+#set ($heading = $element.getChild($widgetXPath).getChild('heading').value)
+#set ($name = $element.getChild($widgetXPath).getChild('name').value)
+#set ($dept = $element.getChild($widgetXPath).getChild('dept').value)
+#set ($phone = $element.getChild($widgetXPath).getChild('phone').value)
+#set ($email = $element.getChild($widgetXPath).getChild('email').value)
+
+## use snake-case here for BEM naming convention
+## todo: automate camelcase to snakecase
+#set ($widgetXPathSnakeCase= 'contact-profile-widget')
+#set ($widgetXPath = $widgetXPathSnakeCase)
+
+#set ($widgetXPath = 'contact-profile-widget')
+<div class="#escape($widgetXPath) $bgColor">
+    <div class="faux-h2 ${_EscapeTool.xml($widgetXPath)}__heading">
+        ${_EscapeTool.xml($heading)}
+    </div>
+
+    #image()
+
+    #if ($text != "")
+        <div class="${_EscapeTool.xml($widgetXPath)}__name">
+            ${_EscapeTool.xml($name)}
+        </div>
+        <div class="${_EscapeTool.xml($widgetXPath)}__dept">
+            ${_EscapeTool.xml($dept)}
+        </div>
+        <div class="${_EscapeTool.xml($widgetXPath)}__phone-number">
+            <a
+                href="tel:${_EscapeTool.xml($phone)}"
+                title="${_EscapeTool.xml($phone)}"
+                aria-label="${_EscapeTool.xml($phone)}">${_EscapeTool.xml($phone)}</a>
+        </div>
+        <div class="${_EscapeTool.xml($widgetXPath)}__email">
+            <a href="mailto:${_EscapeTool.xml($email)}" title="${_EscapeTool.xml($email)}">${_EscapeTool.xml($email)}</a>
+        </div>
+    #end
+
+</div>
+
+#end

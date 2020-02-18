@@ -1,0 +1,95 @@
+#import ( "/_cascade/formats/modular/uninav/_OffCanvas_drilldown_icon_macro.vtl")
+#import ( "/_cascade/formats/modular/uninav/_OffCanvas_menu_back_icon_macro.vtl")
+#import( "/_cascade/formats/helpers.velocity" )
+
+## OFF CANVAS NAV: Main Menu:
+#set ( $menuItems = $_XPathTool.selectNodes($contentRoot, "/system-data-structure/uninav/globalNav/menuItem/label") )
+## Cascade provides a $currentPage object to every format.
+#set ( $pagePath = $currentPage.path )
+#set ( $isCurrentPage = "drill-down-list-item")
+
+## outer loop loops over just the menuItem labels eg About, Academics 
+## then inner loop goes against same array, getting submenu links for only those where the 
+## label for submenu matches the current value
+#if ($menuItems.size() >= 1)
+    <div id="off-canvas-main-navigation">
+        <ul class="root-main-nav">    
+            ## Outer Loop (main menu items)
+            #foreach ($menuItem in $menuItems)
+                ## main link for this menu item. If menu has submenu items then there will be an expander to show items in menu
+                ## but if main link has no submenu items then no expander:
+                #set ($menuItemLink = $_XPathTool.selectSingleNode($menuItems, "//menuItem[label='${menuItem.value}']/menuLink") )
+
+                ##before do primary-link find out if there are submenu items:
+                #set ($submenuItems = $_XPathTool.selectNodes($menuItems, "//menuItem[label='${menuItem.value}']/submenuItem[label!='']") )
+                #if ( $pagePath == $menuItemLink.getChild('path').value ) 
+                    #set( $isCurrentPage = "drill-down-list-item current" )
+                #else
+                    #set( $isCurrentPage = "drill-down-list-item")
+                #end
+                <li class="${isCurrentPage}">
+                    #if ( $pagePath == $menuItemLink.getChild('path').value ) 
+                        #set( $isCurrentPage = "drill-down-list-item current" )
+                    #else
+                        #set( $isCurrentPage = "drill-down-list-item")
+                    #end
+                    
+                    #if ($submenuItems.size() != 0)
+                        <span tabindex="0" class="drill-down-parent">${menuItem.value}</span>    
+                    #else
+                        <a href="${menuItemLink.getChild('path').value}">${menuItem.value}</a>
+                    #end
+                    
+                    #if ($submenuItems.size() != 0)
+        		        #offCanvasDrillDownIcon()
+        		        <ul class="drilldown-menu">
+        		            #offCanvasMenuBackIcon($menuItem.value)
+        		            <li class="${isCurrentPage}"><a href="${menuItemLink.getChild('path').value}">${menuItem.value}</a></li>
+                            ## Inner Loop (dropdown links for specific main menu item)
+                            #foreach ($submenuItem in $submenuItems)
+
+                                #set ($linkType = $submenuItem.getChild('linkType').value )
+                                #if ($linkType == 'Internal Link')
+                                    #set ($linkURL = $submenuItem.getChild('internalLink').getChild('path').value )
+                                #elseif ($linkType == 'External Link')
+                                    #set ($linkURL = $submenuItem.getChild('externalLink').value )
+                                #else 
+                                    #set ($linkURL = $submenuItem.getChild('fileLink').getChild('path').value )
+                                #end
+                                #set ($label = $submenuItem.getChild('label').value )
+
+                                #if ( $pagePath == $linkURL ) 
+                                    #set( $isCurrentPage = "drill-down-list-item current" )
+                                #else
+                                    #set( $isCurrentPage = "drill-down-list-item")
+                                #end
+                                #if ($linkURL != '' && $linkURL != '/' && $label != '')
+                                    <li class="${isCurrentPage}">
+                                        <a href="${_EscapeTool.xml($linkURL)}" 
+                                            #if ($submenuItem.getChild('ariaLabel').value != '' )
+                                                aria-label="${_EscapeTool.xml($submenuItem.getChild('ariaLabel').value)}"
+                                            #end
+                                        >${_EscapeTool.xml($label)}</a>
+                                    </li>
+                                #end
+                            #end
+                        </ul>
+        		    #end
+        		    
+                </li>
+            #end
+                <li id="off-canvas-utility-item">
+                    <div class="off-canvas-menu-container">
+                        #import ( "/_cascade/formats/modular/uninav/_offCanvas_utility.vtl" )
+                    </div>
+                </li>
+                <li id="off-canvas-cta-item">
+                    <div class="off-canvas-menu-container">
+                        #import ( "/_cascade/formats/modular/uninav/_offCanvas_cta.vtl" )
+                    </div>
+                </li>
+        </ul>
+    </div>
+#end
+
+## OFF CANVAS NAV: Main Menu (END)

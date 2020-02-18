@@ -78,7 +78,7 @@ $(function () {
     $(this).attr("hideFocus", "true").css("outline", "none");
   });
   // Pause the slider once the user interacts with the slider
-  $(".flex-direction-nav li a").live("click", function (event) {
+  $(".flex-direction-nav li a").on("click", function (event) {
     g_mySlider.pause();
     g_mySlider.resume = function () {};
   });

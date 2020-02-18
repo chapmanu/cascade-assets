@@ -1,0 +1,6 @@
+<system-data-structure>
+	<text default="Yes" identifier="display" label="Show" required="true" type="radiobutton">
+		<radio-item value="Yes"/>
+		<radio-item value="No"/>
+	</text>
+</system-data-structure>

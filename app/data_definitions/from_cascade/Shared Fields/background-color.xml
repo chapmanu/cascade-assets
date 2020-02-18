@@ -1,0 +1,9 @@
+<system-data-structure>
+	<text default="White" identifier="bgColor" label="Background Color" type="dropdown">
+		<dropdown-item value="Grey"/>
+		<dropdown-item value="Red"/>
+		<dropdown-item value="Black"/>
+		<dropdown-item value="Sand"/>
+		<dropdown-item value="White"/>
+	</text>
+</system-data-structure>

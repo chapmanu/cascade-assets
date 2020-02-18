@@ -4,6 +4,7 @@
 #import( "/_cascade/formats/modular/widgets/Shared Content - Dept Contacts Left Column" )
 #import( "/_cascade/formats/modular/widgets/Button Left Column" )
 #import( "/_cascade/formats/modular/widgets/Featured News Events Left Col" )
+#import( "/_cascade/formats/modular/widgets/Contact Profile" )
 ##
 #set ($currentPage = $_XPathTool.selectSingleNode($contentRoot, "//system-page[@current]") )
 #set ($leftColumn = $currentPage.getChild('system-data-structure').getChild('leftColumn') )
@@ -15,11 +16,18 @@
 #foreach ($widget in $widgets)
 ##
     #set ($widgetType = $widget.getChild('widgetType').value )
-##    
+##
     #if ($widgetType == 'Callout Box')
         #set ($displayCalloutBox = $widget.getChild('calloutBox').getChild('display-callout-box').value)
         #if ($displayCalloutBox == 'Yes')
         #outputCalloutBoxLeftColumn($widget)
+        #end
+    #end
+##  
+     #if ($widgetType == 'Contact Profile')
+        #set ($displayContactProfile = $widget.getChild('contact-profile-widget').getChild('display').value)
+        #if ($displayContactProfile == 'Yes')
+        #outputContactProfile($widget)
         #end
     #end
 ##    

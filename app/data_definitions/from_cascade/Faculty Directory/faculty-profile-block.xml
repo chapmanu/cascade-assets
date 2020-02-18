@@ -1,11 +1,15 @@
 <system-data-structure>
   <text default="0000001" help-text="7 digit ID number from PeopleSoft (old Datatel ID)" identifier="id" label="Employee ID" maxlength="7" regular-expression="\d{7}" required="true"/>
-  <asset identifier="thumbnailPhoto" label="Thumbnail Photo (110x130)" type="file"/>
-  <asset identifier="largePhoto" label="Large Photo (206px wide)" type="file"/>
-  <text help-text="name of photographer (if need to show credit on website)" identifier="photoCredit" label="photoCredit"/>
-  <text identifier="bio" label="Biography" wysiwyg="true"/>
+  <text identifier="pronouns" help-text="Examples: they/them/theirs or she/her/hers or he/him/his or Please use my name, etc." label="Pronouns"/>
+  <asset identifier="thumbnailPhoto" help-text="Used on listing pages (and profile page if a large one not supplied)" label="Thumbnail Photo (110x130)" type="file"/>
+  <asset identifier="largePhoto" help-text="Optional. Used only on profile page not listing pages" label="Large Photo (206px wide)" type="file"/>
+  <text identifier="photoCredit" help-text="name of photographer (if need to show credit on website)" label="photoCredit"/>
+  <text identifier="bio" help-text="A couple paragraphs summarizing their expertise or interests or accomplishments, NOT a repeat of CV" label="Biography" wysiwyg="true"/>
+  <text identifier="short-bio" help-text="one short paragraph summarizing bio. Used on some faculty listing pages" label="Synopsis or very brief Bio (1000 char limit)" wysiwyg="true"/>
+  <text identifier="researchInterests" help-text="short paragraph or bulleted list. Used on profile page and faculty widget listings" label="Teaching and Research Interests" wysiwyg="true"/>
+  <text identifier="coursesTaught" help-text="short paragraph or bulleted list. Used on profile page and faculty widget listings" label="Courses Taught" wysiwyg="true"/>
   <text identifier="websiteUrl" label="Website Link"/>
-  <text help-text="Choose one or leave blank and put full address in other field" identifier="officeBuilding" label="Office Building" type="dropdown">
+  <text help-text="Choose one or leave blank and put full address in other field. Used by Digital Signage also to identify faculty in a building directory slide." identifier="officeBuilding" label="Office Building" type="dropdown">
     <dropdown-item value=""/>
     <dropdown-item value="Building 9401, Rinker Campus"/>
     <dropdown-item value="Building 9501, Rinker Campus"/>
@@ -80,7 +84,7 @@
   <text help-text="area of specialty eg Molecular Biology or Opera" identifier="specialty" label="Specialty/Discipline"/>
   <text help-text="extra title such as Chair of..." identifier="additionalTitle2" label="Additional Title"/>
   <text help-text="Meta Keywords (2-3 words that will append to page Title tag for SEO)) " identifier="metaKeywords" label="Meta Keywords " maxlength="50"/>
-  <text help-text="youTube ID (from approved Chapman channel)" identifier="videoProfile" label="Video Profile (YouTube ID only)"/>
+  <text help-text="Must be from approved Chapman channel. Enter youTube ID only, not full url" identifier="videoProfile" label="Video Profile (YouTube ID only)"/>
   <text help-text="tag faculty as core for use in filters on listing pages" identifier="coreFacultyFlag" label="Core Faculty?" type="checkbox">
     <checkbox-item value="Yes"/>
   </text>
@@ -144,5 +148,4 @@
       <asset identifier="internalLink" label="Or Internal Link" type="page"/>
     </group>
   </group>
-  <text help-text="one short paragraph summarizing bio. Used on some faculty listing pages" identifier="short-bio" label="(FOR FUTURE USE) Synopsis (1000 char limit)" wysiwyg="true" wysiwyg-toolbar-remove="font assignment,insert image,insert table,"/>
 </system-data-structure>

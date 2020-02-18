@@ -1,0 +1,85 @@
+#import ( "_cascade/formats/modular/omni-nav/_buildToggleIcon_macro.vtl")
+
+## OFF CANVAS NAV: Utility Nav
+
+<div class="off-canvas-utility">
+    <ul>
+        
+    ## Find Info For section (audiences)
+    #set ( $audienceMenu = $_XPathTool.selectSingleNode($contentRoot, "/system-data-structure/omninav/audiences") )
+    #set ( $audienceMainLabel = $audienceMenu.getChild("label").value )
+    #set ( $audienceMainLink = $audienceMenu.getChild("menuLink").getChild('link').value )
+    #set ( $audienceMenuItems = $_XPathTool.selectNodes($audienceMenu, "/system-data-structure/omninav/audiences/link") )
+
+    #if ($audienceMenuItems.size() >= 1)
+        <li>
+            <a href="${_EscapeTool.xml($audienceMainLink)}">${_EscapeTool.xml($audienceMainLabel)}</a>
+            #buildToggleIcon("Find Information By Audience")
+            <ul>
+            #foreach ($menuItem in $audienceMenuItems)
+                #set ($label = $menuItem.getChild('label').value )
+                #set ($linkType = $menuItem.getChild('linkType').value )
+                #if ($linkType == 'Internal Link')
+                    #set ($linkURL = $menuItem.getChild('internalLink').getChild('link').value )
+                #elseif ($linkType == 'External Link')
+                    #set ($linkURL = $menuItem.getChild('externalLink').value )
+                #else 
+                    #set ($linkURL = $menuItem.getChild('fileLink').getChild('link').value )
+                #end
+                #set ($iconType = $menuItem.getChild('icon').value )
+                #if ($linkURL != '' && $linkURL != '/' && $label != '')
+                    <li>
+                        <a href="${_EscapeTool.xml($linkURL)}"
+                            #if ($iconType == "CSS Class" && $menuItem.getChild('icon_cssClass').value != "")
+                                class="icon icon-${_EscapeTool.xml($menuItem.getChild('icon_cssClass').value)}"
+                            #end
+                        >
+                        #if ($iconType == "SVG" && $menuItem.getChild('icon_svg').value != "")
+                            $menuItem.getChild('icon_svg').value
+                        #end
+                        ${_EscapeTool.xml($label)}
+                        </a>
+                    </li>
+                #end
+            #end
+            </ul>
+        </li>
+    #end
+    ## end of Find Info For section (audiences)
+    
+    ## Other Utility Nav Links:
+    #set ( $utilMenuItems = $_XPathTool.selectNodes($contentRoot, "/system-data-structure/omninav/utilityNav/menuItem") )
+
+    #if ($utilMenuItems.size() >= 1)
+        #foreach ($menuItem in $utilMenuItems)
+            #set ($label = $menuItem.getChild('label').value )
+            #set ($linkType = $menuItem.getChild('linkType').value )
+            #if ($linkType == 'Internal Link')
+                #set ($linkURL = $menuItem.getChild('internalLink').getChild('link').value )
+            #elseif ($linkType == 'External Link')
+                #set ($linkURL = $menuItem.getChild('externalLink').value )
+            #else 
+                #set ($linkURL = $menuItem.getChild('fileLink').getChild('link').value )
+            #end
+            #set ($iconType = $menuItem.getChild('icon').value )
+            #if ($linkURL != '' && $linkURL != '/' && $label != '')
+                <li>
+                    <a href="${_EscapeTool.xml($linkURL)}"
+                        #if ($iconType == "CSS Class" && $menuItem.getChild('icon_cssClass').value != "")
+                            class="icon icon-${_EscapeTool.xml($menuItem.getChild('icon_cssClass').value)}"
+                        #end
+                    >
+                    #if ($iconType == "SVG" && $menuItem.getChild('icon_svg').value != "")
+                        $menuItem.getChild('icon_svg').value
+                    #end
+                    ${_EscapeTool.xml($label)}
+                    </a>
+                </li>
+            #end
+        #end
+    #end
+    ## end of Other Utility Nav Links
+    
+    </ul>
+</div>
+## OFF CANVAS NAV: Utility Nav (END)

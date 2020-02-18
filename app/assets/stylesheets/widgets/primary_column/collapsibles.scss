@@ -9,9 +9,9 @@
 
 .collapsibles-widget .accordion {
   background-color: $white;
-  border: 1px solid #c1c1c1;
-  border-radius: 2px;
-  margin-bottom: 2px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  border: 1px solid $cu-light-grey-2;
 
   &.first {
     margin-top: 20px;
@@ -27,43 +27,65 @@
   }
 
   .header {
-    background-color: #d8d8d8;
+    background-color: $cu-light-grey;
     font-size: 16px;
     padding: 10px 45px 10px 20px;
     margin: 0;
     position: relative;
     cursor: pointer;
-    font-family: $font-stack-body;
+    font-family: $futura-regular;
     font-weight: 600;
     text-transform: none;
+    line-height: 2.2rem;
 
     .show,
     .hide {
-      background-image: image-url('miscButtons.png');
-      background-position: -23px 0;
-      background-repeat: no-repeat;
       position: absolute;
-      text-indent: -9999px;
-      // color: $white;
-      top: 8px;
-      right: 13px;
-      width: 27px;
-      height: 27px;
+      font-family: 'Font Awesome 5 Free';
+      visibility: visible;
+      font-weight: 900;
+      text-align: center;
+      height: 100%;
+      top: 0;
+      right: 20px;
+
+      &:after {
+        display: grid;
+        align-items: center !important;
+        height: 100%;
+        align-self: center !important;
+      }
+
     }
 
     .show {
-      background-position: -23px 0;
       display: block;
 
+      &:after {
+        content: "\f078";
+
+      }
+
       &:hover {
-        background-position: -51px 0;
         display: block;
       }
+    }
+
+    .show,
+    .hide {
+      position: absolute;
+      font-family: 'Font Awesome 5 Free';
+      visibility: visible;
+      font-weight: 900;
     }
 
     .hide {
       background-position: -23px -29px;
       display: none;
+
+      &:after {
+        content: "\f077";
+      }
 
       &:hover {
         background-position: -51px -29px;
@@ -80,12 +102,13 @@
 
   &.active {
     header {
-      background-color: $white;
+      background-color: $cu-light-grey;
     }
 
     .header {
       font-weight: 800;
-      background: $white;
+      background: $cu-light-grey;
+      color: $cu-red;
 
       .show {
         display: none;
@@ -101,7 +124,7 @@
     zoom: normal;
 
     &.active header {
-      background-color: $white;
+      background-color: $cu-light-grey;
     }
 
     h3 {
@@ -109,7 +132,7 @@
     }
 
     .header {
-      background-color: #d8d8d8;
+      background-color: $cu-light-grey;
       overflow: hidden;
       width: 100%;
     }
@@ -131,12 +154,15 @@
 }
 
 .toggle-expand-collapse {
-  margin-top: -25px;
+  margin-top: -32px;
   display: block;
   float: right;
   cursor: pointer;
   border-bottom: 2px dotted;
   color: $cu-red;
+  font-family: "futura-pt", Arial, sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
 
   &:focus {
     outline: unset;
@@ -164,4 +190,17 @@
   :focus {
     outline: 2px dotted $cu-red;
   }
+}
+
+.collapsibles-widget .accordion .header .show::after {
+  display: grid;
+  align-items: center !important;
+  height: 100%;
+  align-self: center !important;
+}
+
+.collapsibles-widget .accordion .header .show,
+.collapsibles-widget .accordion .header .hide {
+  height: 100%;
+  top: 0;
 }

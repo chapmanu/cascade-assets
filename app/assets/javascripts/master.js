@@ -1,12 +1,12 @@
 //= require_tree ../../../vendor/assets/javascripts
 //= require_tree ../../../lib/assets/javascripts
 
-//= require omni-nav
+
 //= require _helpers/chapDOM
 //= require_tree ./widgets
 //= require_tree ./components
 //= require_tree ./regions
-//= require_tree ./omni_nav
+//= require_tree ./uninav
 
 //= require cascade/analytics
 //= require cascade/carousel
@@ -41,7 +41,9 @@
 //= require cascade/plugins/super-pager
 //= require cascade/plugins/touchwipe
 //= require cascade/plugins/lightslider
+//= require cascade/plugins/slick
 //= require cascade/plugins/isOnScreen
+//= require cascade/plugins/mousetrap
 //= require cascade/level/plugins/tipsy
 //= require cascade/level/accordion
 //= require cascade/level/degrees-programs

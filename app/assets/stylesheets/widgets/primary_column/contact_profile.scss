@@ -1,0 +1,77 @@
+.leftNavSubContent {
+  >.contact-profile-widget {
+    margin-top: 0;
+  }
+}
+
+.contact-profile-widget {
+  --spacing: 20px;
+  text-align: center;
+  margin-top: v(spacing);
+  margin-bottom: v(spacing);
+
+  display: grid;
+  justify-content: center;
+  align-content: center;
+
+  a {
+    padding-top: 0;
+  }
+
+  .contact-profile-widget {
+
+    &__img {
+      --imgSize: 180px;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      max-width: 200px;
+      justify-self: center;
+    }
+
+    &__heading {
+      padding-top: 32px;
+      font-size: 2.8rem;
+      font-weight: 500;
+      max-width: 70%;
+      justify-self: center;
+      margin-top: 0;
+      margin-bottom: .5rem;
+
+      ~.contact-profile-widget {
+        &__name {
+          margin-top: 15px;
+        }
+
+        &__email {
+          padding-bottom: 20px;
+        }
+
+        &__dept {
+          margin-bottom: 15px;
+        }
+
+      }
+    }
+
+    &__name {
+      font-weight: 600;
+    }
+
+    &__name,
+    &__dept,
+    &__subheading,
+    &__phone-number {
+      font-size: 1.6rem;
+      padding-bottom: 2px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    &__email {
+      margin-bottom: v(spacing);
+      padding-bottom: 30px;
+    }
+  }
+
+
+}

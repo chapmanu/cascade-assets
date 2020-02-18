@@ -1,0 +1,53 @@
+#import( "/_cascade/formats/helpers.velocity" )
+
+#macro(outputTestimonialWidget $element) 
+
+#set ( $slides = $_XPathTool.selectNodes($element, 'testimonial-widget/testimonialSlide') )
+
+#set ( $wxp = 'testimonial-widget')
+#set ( $widgetXPath = $wxp)
+
+#bgColorChooser($wxp)
+
+<div class="testimonial-widget $bgColor">
+    #foreach ($slide in $slides)
+        ## TEXT
+        #set ($endorserName = $slide.getChild('endorserName').value)
+        #set ($endorserTitle = $slide.getChild('endorserTitle').value)
+        #set ($testimonyText = $_SerializerTool.serialize($slide.getChild('testimonyText'), true)
+        )
+
+        #if ($endorserName != "")
+            $endorserName
+            <div class=" testimonial-widget__slide" tabindex="0">
+
+        #imageInCollection($slide)
+
+                <div class="testimonial-widget__text">
+                    <div class="faux-h2 testimonial-widget__faux-h2">
+                        ${_DisplayTool.truncate($endorserName,100,"...")}
+                    </div>
+                    <div class="testimonial-widget__department-title">
+                        ${_EscapeTool.xml($endorserTitle)}
+                    </div>
+                    <div class="testimonial-widget__body">
+                        ${_DisplayTool.truncate($testimonyText,200,"...")}
+
+                        ## CTA
+                        <br/>
+                        #cta($slide 'link')
+                    </div>
+                </div>
+                <div class="testimonial-widget__buttons">
+                    <div
+                        class="testimonial-widget__button testimonial-widget__button--left"
+                        aria-label="Previous Testimonial"></div>
+                    <div
+                        class="testimonial-widget__button testimonial-widget__button--right"
+                        aria-label="Next Testimonial"></div>
+                </div>
+            </div>
+        #end
+    #end
+</div>
+#end

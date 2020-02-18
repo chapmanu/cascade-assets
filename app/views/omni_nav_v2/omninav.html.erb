@@ -20,7 +20,7 @@
 
     <div class="nav-container logo-container">
       <div class="cu-logo-wrapper">
-        <div class="primary-logo">
+        <div class="uninav__logo--primary">
           <a href="/" title="Chapman University Website Home Page">
             <svg class="chapman-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 273.7 28.1">
               <defs>
@@ -46,7 +46,7 @@
         </div>
 
         <% if @page_umbrella_category.present? %>
-        <div class="secondary-logo">
+        <div class="uninav__logo--secondary">
           <a class="branded-logo" href="#"><%= @page_umbrella_category[1] %></a>
         </div>
         <% end %>

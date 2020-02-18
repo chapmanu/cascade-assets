@@ -1,0 +1,132 @@
+#import ( "/_cascade/formats/modular/uninav/_OffCanvas_drilldown_icon_macro.vtl")
+#import ( "/_cascade/formats/modular/uninav/_OffCanvas_menu_back_icon_macro.vtl")
+#import( "/_cascade/formats/helpers.velocity" )
+
+<!-- _audiences.vtl -->
+## UTILITY NAV LINKS:
+#set ( $menuItems = $_XPathTool.selectNodes($contentRoot, "/system-data-structure/omninav/audienceNav/menuItem") )
+#set ( $validSubMenuItems = false )
+#set ( $pagePath = $currentPage.path )
+
+#if ($menuItems.size() >= 1)
+    <ul class="off-canvas-utility">
+        #foreach ($menuItem in $menuItems)
+            #set ($label = $menuItem.getChild('label').value )
+            #set ( $menuID = $label.replaceAll(" ", "-").replaceAll("[^a-zA-Z-]", "").replaceAll("--", "-").toLowerCase() )
+            #set ($linkType = $menuItem.getChild('linkType').value )
+            #if ($linkType == 'Internal Link')
+                #set ($linkURL = $menuItem.getChild('internalLink').getChild('path').value )
+            #elseif ($linkType == 'External Link')
+                #set ($linkURL = $menuItem.getChild('externalLink').value )
+            #else 
+                #set ($linkURL = $menuItem.getChild('fileLink').getChild('path').value )
+            #end
+            #set ($iconType = $menuItem.getChild('icon').value )
+            
+            #if ($linkURL != '' && $label != '')
+                ##before, do primary-link OR dropdown, find out if there are submenu items:
+                #set ($submenuItems = $_XPathTool.selectNodes($menuItems, "//menuItem[label='${label}']/submenuItem[label!='']") )
+                
+                ##before, do primary-link OR dropdown, find out if there are submenu items are valid:
+                #if ($submenuItems.size() >= 1)
+                    #foreach ($submenuItem in $submenuItems)
+                        #set ($subLinkType = $submenuItem.getChild('linkType').value )
+                        #if ($subLinkType == 'Internal Link')
+                            #set ($subLinkURL = $submenuItem.getChild('internalLink').getChild('path').value )
+                        #elseif ($subLinkType == 'External Link')
+                            #set ($subLinkURL = $submenuItem.getChild('externalLink').value )
+                        #else 
+                            #set ($subLinkURL = $submenuItem.getChild('fileLink').getChild('path').value )
+                        #end
+                        #set ($subLabel = $submenuItem.getChild('label').value )
+                        #if ($subLinkURL != '' && $subLabel != '')
+                            #set ( $validSubMenuItems = true )
+                        #end
+                    #end
+                #end
+                
+                #if ($submenuItems.size() >= 1 && $validSubMenuItems)
+                    #if ( $pagePath == $linkURL ) 
+                        #set( $isCurrentPage = "drill-down-list-item current" )
+                    #else
+                        #set( $isCurrentPage = "drill-down-list-item")
+                    #end
+                    <li class="${isCurrentPage} uninav__offCanvas-menu-item--audiences uninav__audiences-menu-item--${menuID} uninav__menu-item-audiences--${_MathTool.add($foreach.index, 1)} uninav__audiences-menu-item--dropdown-parent ">
+                        <span tabindex="0"
+                            #if ($iconType == "CSS Class" && $menuItem.getChild('icon_cssClass').value != "")
+                                class="drill-down-parent icon icon-${_EscapeTool.xml($menuItem.getChild('icon_cssClass').value)}"
+                            #else
+                                class="drill-down-parent"
+                            #end
+                        >
+                            #if ($iconType == "SVG" && $menuItem.getChild('icon_svg').value != "")
+                                $menuItem.getChild('icon_svg').value
+                            #end
+                            ${_EscapeTool.xml($label)}
+                        </span>
+                        #offCanvasDrillDownIcon()
+                        <ul class="drilldown-menu">
+                            #offCanvasMenuBackIcon(${_EscapeTool.xml($label)})
+                            <li class="${isCurrentPage} uninav__offCanvas-menu-item--audiences uninav__offCanvas-audiences-menu-item--${menuID} uninav__offCanvas-menu-item-audiences--${_MathTool.add($foreach.index, 1)} uninav__offCanvas-audiences-menu-item--dropdown-parent">
+                                <a id="uninav-OffCanvas-audiences-${menuID}" href="${_EscapeTool.xml($linkURL)}"
+                                    #if ($iconType == "CSS Class" && $menuItem.getChild('icon_cssClass').value != "")
+                                        class="icon icon-${_EscapeTool.xml($menuItem.getChild('icon_cssClass').value)}"
+                                    #end
+                                    >
+                                    #if ($iconType == "SVG" && $menuItem.getChild('icon_svg').value != "")
+                                        $menuItem.getChild('icon_svg').value
+                                    #end
+                                    ${_EscapeTool.xml($label)}
+                                </a>
+                            </li>
+                            #foreach ($submenuItem in $submenuItems)
+                                #set ($linkType = $submenuItem.getChild('linkType').value )
+                                #if ($linkType == 'Internal Link')
+                                    #set ($linkURL = $submenuItem.getChild('internalLink').getChild('path').value )
+                                #elseif ($linkType == 'External Link')
+                                    #set ($linkURL = $submenuItem.getChild('externalLink').value )
+                                #else 
+                                    #set ($linkURL = $submenuItem.getChild('fileLink').getChild('path').value )
+                                #end
+                                #set ($label = $submenuItem.getChild('label').value )
+                                #set ($iconClass = $submenuItem.getChild('iconClass').value )
+                                #if ( $pagePath == $linkURL ) 
+                                    #set( $isCurrentPage = "drill-down-list-item current" )
+                                #else
+                                    #set( $isCurrentPage = "drill-down-list-item")
+                                #end
+                                #if ($linkURL != '' && $label != '')
+                                    <li class="${isCurrentPage} uninav__offCanvas-menu-item--audiences uninav__offCanvas-audiences-menu-item--${menuID} uninav__offCanvas-menu-item-audiences--${_MathTool.add($foreach.index, 1)} uninav__offCanvas-audiences-menu-item--dropdown-parent">
+                                        <a class="icon icon-$iconClass" href="${_EscapeTool.xml($linkURL)}">
+                                            ${_EscapeTool.xml($label)}
+                                        </a>
+                                    </li>
+                                #end
+                            #end
+                        </ul>
+                    </li>
+                #else
+                    #if ( $pagePath == $linkURL ) 
+                        #set( $isCurrentPage = "drill-down-list-item current" )
+                    #else
+                        #set( $isCurrentPage = "drill-down-list-item")
+                    #end
+                    <li class="${isCurrentPage} uninav__offCanvas-menu-item--audiences uninav__offCanvas-audiences-menu-item--${menuID} uninav__offCanvas-menu-item-audiences--${_MathTool.add($foreach.index, 1)} uninav__offCanvas-audiences-menu-item--dropdown-parent">
+                        <a id="uninav-offCanvas-audiences-${menuID}" href="${_EscapeTool.xml($linkURL)}"
+                            #if ($iconType == "CSS Class" && $menuItem.getChild('icon_cssClass').value != "")
+                                ## class="icon icon-${_EscapeTool.xml($menuItem.getChild('icon_cssClass').value)}"
+                            #end
+                        >
+                            #if ($iconType == "SVG" && $menuItem.getChild('icon_svg').value != "")
+                                ## $menuItem.getChild('icon_svg').value
+                            #end
+                            ${_EscapeTool.xml($label)}
+                        </a>
+                        
+                    </li>
+                #end
+            #end
+        #end
+    </ul>
+#end
+## UTILITY NAV LINKS (END)

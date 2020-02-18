@@ -1,0 +1,1074 @@
+// UNINAV.SCSS
+@mixin futura-pt {
+  font-family: "futura-pt", arial, sans-serif;
+}
+
+@mixin uninav-border-top {
+  border-bottom: 1px solid $cu-light-grey;
+}
+
+@mixin uninav-border-bottom {
+  border-bottom: 1px solid $cu-light-grey;
+}
+
+@mixin uninav__menu-item--piped {
+  display: flex;
+  justify-content: center;
+  border-right: 1px solid #8a8a8a;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+@mixin uninav__menu-item--dropdown-parent {
+  content: "\f0d7";
+}
+
+@mixin uninav-drop-shadow {
+  // todo: https://tobiasahlin.com/blog/how-to-animate-box-shadow/
+  box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.5s ease;
+
+  &:hover,
+  &:focus,
+  &:focus-within {
+    box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// END MIXINS
+// RESETS
+html {
+  padding-top: $uninav-total-height;
+}
+
+@include respond(tab-port) {
+  html {
+    padding-top: $uninav-div-height;
+  }
+
+  .uninav {
+
+    &__logo,
+    #uninav-logo .chapman-logo {
+      width: 100%;
+      border-bottom: none;
+    }
+
+    &__logo {
+      &--secondary {
+        @include qbal-slideRight-exit;
+        // display: none;
+      }
+    }
+
+    &__utility-nav--wrapper {
+      border-bottom: none;
+    }
+  }
+}
+
+#uninav {
+  $uninavZindex: 2;
+  $uninavZindexPlusOne: $uninavZindex + 1;
+  font-family: $futura-regular;
+  position: fixed;
+  width: 100vw;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.02);
+  z-index: $uninavZindex;
+  border-bottom: 1px solid $cu-light-grey;
+
+  // debug
+
+  .gssb_c,
+  .gssb_c[style] {
+    // z-index: var(--uninavZindex) ;
+    z-index: calc($uninavZindex + 2);
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+  li {
+    margin: unset;
+    list-style: none;
+    font-family: $futura-regular;
+    will-change: background-color;
+  }
+}
+
+// END RESETS
+// UNINAV STRUCTURE
+#uninav {
+  display: grid;
+  grid-template-areas:
+    "logo secondaryLogo utility"
+    "global global cta";
+  grid-template-columns: 1fr;
+  background-color: $white;
+  top: 0;
+  z-index: 999999999;
+
+  .uninav {
+    &__hamburger-menu {
+      display: none;
+    }
+
+    &__logo {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      border-bottom: 1px solid $cu-light-grey;
+      padding-left: 2.5rem;
+      white-space: nowrap;
+      @include qbal-fade-enter;
+
+      &--secondary {
+        font-weight: 800;
+        font-size: 1.2em;
+        width: 100%;
+        border-left: 1px solid $cu-light-grey;
+        align-self: center;
+        margin-left: 2rem;
+        padding-left: 2rem;
+        grid-area: secondaryLogo;
+        @include qbal-fade-enter;
+      }
+
+      .chapman-logo {
+        width: 300px;
+      }
+    }
+
+    &__cta {
+      grid-area: cta;
+      width: 100%;
+      display: grid;
+      justify-content: flex-end;
+      align-content: center;
+      align-items: center;
+
+      // @include qbal-stagger-children;
+      // @include uninav-border-bottom;
+      ul {
+        display: flex;
+
+        &>li {
+          flex: 1 100%;
+          list-style: none;
+          color: $panther-black;
+          @include uninav-drop-shadow;
+          @include qbal-slideLeft-enter;
+
+          a {
+            @include button($red);
+            @include futura-pt;
+            padding: 5px;
+            margin-right: 10px;
+            display: block;
+            text-align: center;
+            font-weight: 300;
+            transition: 250ms ease-in-out;
+            will-change: background-color;
+            font-weight: 600;
+            min-width: 120px;
+            animation-duration: 3s;
+
+            @for $i from 1 to 5 {
+              &:nth-child(#{$i}) {
+                animation-delay: $i * 0.05s;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__utility-nav--wrapper {
+      grid-area: utility;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      justify-content: flex-end;
+      border-bottom: 1px solid $cu-light-grey;
+      height: $uninav-div-height;
+      align-items: center;
+
+      .uninav {
+        &__menu-item--audiences {
+          a {
+            color: $panther-black;
+            padding-left: 1.5em;
+            padding-right: 1.5em;
+          }
+
+          &:nth-child(4),
+          &:nth-child(5) {
+            border-right: none;
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+        }
+
+        &__utility-nav--search-wrapper {
+          margin-right: 1.5rem;
+        }
+      }
+
+      &__search-input {
+        @include qbal-fade-enter;
+        border-right: none;
+
+        #gsc-i-id1 {
+          height: 38px !important;
+        }
+      }
+
+      ul {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        li {
+          flex-grow: 1;
+          flex-basis: auto;
+          text-align: center;
+          border-right: 1px solid $cu-light-grey;
+
+          &:last-of-type {
+            flex-grow: 0;
+            flex-basis: unset;
+          }
+        }
+
+        &__utility-nav--search-wrapper input {
+          border: none;
+          box-shadow: none;
+          margin-bottom: 0;
+        }
+
+        .fas.fa-search {
+          color: $grey;
+          padding-right: 1.2rem;
+          padding-left: 1.2rem;
+          cursor: pointer;
+        }
+      }
+
+      .uninav__login {
+        border-right: none;
+
+        li {
+          border-right: none;
+        }
+      }
+    }
+
+    &__login {
+      .uninav {
+        &__dropdown--parent {
+          border-right: none;
+        }
+
+        &__dropdown--child {
+          border-right: none;
+          margin-top: 0;
+          background-color: $panther-black;
+          color: $white;
+          width: 300px;
+          right: 0;
+          position: absolute;
+          margin-left: auto;
+          @include uninav-drop-shadow;
+        }
+      }
+    }
+
+    &__login-button {
+      z-index: 2;
+
+      a {
+        color: $white;
+        fill: $white;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+
+        svg {
+          height: 2rem;
+
+          &#Layer_1 {
+            margin-right: 0.8rem;
+            margin-left: 0.8rem;
+          }
+        }
+      }
+
+      ul li {
+        color: $white;
+        border-bottom: 1px solid $panther-black;
+      }
+    }
+
+    &__zIndexPlusOne {
+      z-index: 999999999999999;
+    }
+
+    &__menu-item-login {
+      background-color: $panther-black;
+      width: 80px;
+      height: 100%;
+      font-size: 1.2em;
+      color: $cu-light-grey;
+      text-align: center;
+      height: 50px;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      @include linear-300;
+      cursor: pointer;
+      height: $uninav-div-height;
+
+      &__menu-item-dropdown-child ul a {
+        color: $white;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+      }
+
+      &:hover {
+        color: $white;
+
+        a,
+        i {
+          transition: 100ms ease-in-out;
+          transform: scale(1);
+          -webkit-transform: scale(1);
+          -moz-transform: scale(1);
+          -ms-transform: scale(1);
+          -o-transform: scale(1);
+          -webkit-transition: 100ms ease-in-out;
+          -moz-transition: 100ms ease-in-out;
+          -ms-transition: 100ms ease-in-out;
+          -o-transition: 100ms ease-in-out;
+        }
+      }
+    }
+
+    &__utility-nav--audiences-container {
+      display: flex;
+      align-items: center;
+
+      li:last-of-type {
+        border-right: none;
+      }
+    }
+
+    // global nav
+    &__global-nav {
+      width: 900px;
+      border-bottom: none;
+
+      a {
+        color: $panther-black;
+      }
+    }
+
+    &__dropdown {
+      &--child {
+        // box-shadow: 1px -1px 1px rgba(50, 50, 50, 0.05);
+        margin-top: 10px;
+        min-width: 300px;
+
+        ul {
+          display: flex;
+          padding: 4rem;
+          -webkit-font-smoothing: antialiased;
+          color: $panther-black;
+          font-family: $futura-regular;
+          font-size: 1.6rem;
+          line-height: 2.4rem;
+          font-weight: 400;
+          cursor: pointer;
+          visibility: visible;
+          box-sizing: inherit;
+          word-wrap: break-word;
+          list-style: none;
+          list-style-image: none;
+          margin: 0;
+          padding: 0;
+
+          li {
+            width: 100%;
+            display: flex;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            padding-left: 2rem;
+            @include uninav-border-bottom;
+            animation-duration: 0.05s;
+            @include qbal-drop-enter;
+
+            @for $i from 1 to 10 {
+              &:nth-child(#{$i}) {
+                animation-delay: $i * 0.01s;
+              }
+            }
+          }
+        }
+
+        .icon::before {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+
+  input#gsc-i-id1 {
+    height: 30px !important;
+    box-shadow: none !important;
+  }
+
+  .off-canvas-overlay {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
+}
+
+.uninav__global-nav {
+  grid-area: global;
+  height: $uninav-div-height;
+  @include uninav-border-top;
+
+  a {
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid $cu-light-grey;
+  }
+
+  .uninav__dropdown-wrapper>a::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f0d7";
+    padding-left: 1rem;
+    font-size: 1.4rem;
+  }
+
+  &>ul {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    &>li {
+      flex: 100%;
+    }
+
+    ul li ul {
+      justify-content: start;
+    }
+
+    .uninav__dropdown--child a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+#uninav>nav {
+  grid-area: nav;
+}
+
+#uninav>global {
+  grid-area: global;
+}
+
+#uninav>div.uninav__logo--primary {
+  width: 300px;
+  grid-area: logo;
+}
+
+// UNINAV STRUCTURE
+// UNINAV DROPDOWNS
+.uninav__dropdown--child {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  background-color: $white;
+  flex-direction: column;
+  @include uninav-drop-shadow();
+
+  >ul {
+    flex-direction: column;
+    justify-content: start;
+    text-align: left;
+    align-items: start;
+
+    li,
+    a {
+      border-right: none;
+    }
+  }
+}
+
+.uninav__dropdown--parent {
+  display: block;
+  flex-direction: column;
+  position: relative;
+
+  &[aria-expanded="false"] {
+    .uninav {
+      &__dropdown-wrapper {
+        &>a {
+          &:after {
+            content: "\f0d7";
+            transform: rotate(0deg);
+            transition: all linear 0.25s;
+          }
+        }
+      }
+    }
+  }
+
+  &[aria-expanded="true"] {
+    .uninav {
+      &__dropdown-wrapper {
+        &>a {
+          &:after {
+            content: "\f0d7";
+            transform: rotate(180deg) translateX(-1rem);
+            transition: all linear 0.25s;
+          }
+        }
+      }
+    }
+
+    .uninav__dropdown--child {
+      z-index: 99999999;
+      display: flex;
+      @include qbal-dropdown-enter;
+    }
+  }
+
+  &[aria-expanded="false"] {
+
+    // TODO: refactor first .uninav__dropdown--child... display: none is not animitable.
+    .uninav__dropdown--parent,
+    .uninav__dropdown--child {
+      @include qbal-shrink-exit;
+    }
+  }
+}
+
+// END UNINAV DROPDOWNS
+@include respond(big-desktop) {
+  div.uninav__cta {
+    @include qbal-slideLeft-enter;
+  }
+
+  .uninav__logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    align-content: center;
+    grid-auto-flow: column;
+
+    #uninav-logo {
+      // min-width: 300px;
+    }
+  }
+}
+
+// MEDIA QUERIES
+@media only screen and (max-width: 1300px) {
+  #uninav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .uninav__logo {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    #uninav-logo {
+      width: 100%;
+    }
+  }
+
+  .uninav__menu-item--audiences {
+    // need a slicker preferably non-js fadeout solution since display: none is not animatable
+    @include qbal-slideLeft-exit;
+    display: none;
+  }
+
+  #uninav {
+    display: grid;
+    grid-template-areas:
+      "logo cta utility"
+      "global global global";
+    background-color: $white;
+
+    .uninav__global-nav {
+      @include qbal-growExaggerated-enter;
+
+      ul li,
+      &>a {
+        color: $panther-black;
+      }
+    }
+
+    #uninav__cta {
+      @include uninav-border-bottom;
+      @include qbal-drop-enter;
+    }
+  }
+
+  .uninav__utility-nav--wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  #uninav {
+    .uninav {
+      &__cta {
+        ul {
+          @include qbal-slideUp-exit;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1148px) {
+  #uninav {
+    .uninav {
+      &__cta {
+        &--wrapper {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// TABLET LANDSCAPE
+@include respond(tab-land) {
+  #uninav {
+    .uninav {
+      &__logo {
+        width: 100%;
+        height: $uninav-div-height;
+
+        &--secondary {
+          @include qbal-slideRight-exit;
+        }
+      }
+
+      &__menu-item-dropdown-child:hover>ul {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: start;
+        text-align: left;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: start;
+      }
+
+      &__utility-nav--wrapper {
+        &__utility-nav {
+          min-width: auto;
+        }
+
+        .uninav {
+          &__utility-nav--search-wrapper {
+            margin-right: 0;
+
+            .uninav__search-button--mobile {
+              border-right: none;
+            }
+          }
+        }
+      }
+
+      .gsc-search-box table tbody tr {
+        border: none !important;
+      }
+
+      tr {
+        border-image: none !important;
+        border: none !important;
+      }
+
+      .gsc-search-box {
+        border: none !important;
+      }
+
+      #___gcse_0 {
+        border: 1px solid grey;
+      }
+
+      &__global-nav {
+        min-width: unset;
+        width: 100vw;
+      }
+
+      &__search-input--desktop {
+
+        // @include qbal-slideLeft-enter;
+        display: none;
+
+
+
+        &.slide-left {
+          // @include qbal-grow-enter;
+          @include qbal-slideLeft-enter;
+          // animation-delay: 150ms;
+          // animation-duration: 150ms;
+          margin-right: 15px;
+        }
+      }
+    }
+
+    .uninav__search-button--mobile {
+      width: 80px;
+      height: 60px;
+      border-left: 1px solid $cu-light-grey;
+      border-right: none !important;
+      display: grid;
+      cursor: pointer;
+
+      &:after {
+        // border-right-style: solid;
+        // border-right-width: 1px;
+        border-right: none;
+        display: grid;
+        content: "\f002";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        align-items: center;
+      }
+
+      &:active {
+        @include qbal-fade-exit;
+
+        animation-duration: 150ms;
+
+        &:after {
+          transform: rotate(-260deg);
+          transition-duration: 150ms;
+          border-right: none;
+          -webkit-transform: rotate(-260deg);
+          -moz-transform: rotate(-260deg);
+          -ms-transform: rotate(-260deg);
+          -o-transform: rotate(-260deg);
+        }
+      }
+    }
+  }
+
+  .uninav__global-nav {
+    .uninav__dropdown--parent:last-of-type {
+      .uninav {
+        &__dropdown--child {
+          min-width: 300px;
+          position: absolute;
+          right: 0;
+          margin-left: -100px;
+        }
+      }
+    }
+  }
+}
+
+// TABLET PORTRAIT
+@include respond(tab-port) {
+  #uninav {
+    grid-template-areas: "hamburger logo utility";
+    grid-template-columns: 10% 40% 50%;
+    height: 60px;
+
+    .uninav {
+      &__logo {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 0;
+        @include qbal-fade-enter;
+      }
+
+      &__logo--secondary {
+        font-weight: 800;
+        font-size: 1.2em;
+        width: 100%;
+        border-left: 1px solid $cu-red;
+        align-self: center;
+        margin-left: 2rem;
+        padding-left: 2rem;
+        grid-area: secondaryLogo;
+      }
+
+      &__hamburger-menu {
+        grid-area: "hamburger";
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        @include qbal-slideRight-enter;
+
+        .hamburger-menu-button {
+          background-color: $white;
+          border: none;
+        }
+      }
+
+      &__menu-item-login {
+        @include qbal-slideLeft-enter;
+      }
+
+      &__menu-item-login {
+        @include qbal-slideLeft-enter;
+      }
+    }
+
+    &__utility-nav {
+      width: 100%;
+
+      &--wrapper ul {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: flex-end;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: start;
+        // all: unset;
+        display: unset;
+        justify-content: unset;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    &__logo {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      width: auto;
+      @include qbal-grow-enter;
+      border-bottom: none;
+    }
+
+    &__utility-nav--wrapper {
+      border-bottom: none;
+    }
+
+    .uninav__cta {
+      display: none;
+    }
+
+    &__global-nav {
+      display: none;
+    }
+
+    &__utility-nav--wrapper ul li {
+      border-right: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  #uninav {
+    .uninav {
+
+      &__logo,
+      .chapman-logo {
+        border-bottom: none;
+
+        &--secondary {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@include respond(phone) {
+  #uninav {
+    grid-template-columns: 10% 2fr 1fr;
+    grid-gap: 10px;
+
+    .uninav {
+      &__global-nav {
+        display: none;
+      }
+
+      &__logo {
+        display: grid;
+
+        &--primary {
+          display: grid;
+        }
+
+        .chapman-logo {
+          border-bottom: none;
+          width: 100%;
+
+          &--secondary {
+            @include qbal-slideRight-exit;
+            display: none;
+          }
+        }
+      }
+
+      &__utility-nav--wrapper {
+        border-bottom: none;
+      }
+
+      &__hamburger-menu {
+        justify-content: start;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #uninav {
+    grid-template-areas: "logo hamburger utility";
+    grid-template-rows: 60px;
+    grid-template-columns: 0.5fr 2fr 2fr;
+
+    .uninav {
+      &__global-nav {
+        display: none;
+      }
+
+      &__hamburger-menu {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  #uninav {
+    grid-template-areas: "hamburger utility";
+    grid-template-rows: 60px;
+    grid-template-columns: 1fr 1fr;
+
+    .uninav {
+
+      &__global-nav,
+      &__logo {
+        display: none;
+      }
+    }
+  }
+}
+
+html.off-canvas__blur {
+  #js-off-canvas-overlay {
+    animation: increaseOpacity;
+    animation-direction: normal;
+    animation-duration: 450ms;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    z-index: 1;
+
+    @keyframes increaseOpacity {
+      0% {
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      25% {
+        background-color: rgba(0, 0, 0, 0.25);
+      }
+
+      50% {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      75% {
+        background-color: rgba(0, 0, 0, 0.75);
+      }
+
+      100% {
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+    }
+  }
+
+  .uninav {
+
+    &__logo,
+    &__utility-nav--wrapper,
+    &__global-nav,
+    &__cta {
+      // @include qbal-slideRight-exit;
+    }
+  }
+
+  #main {
+    // @include qbal-slideRight-exit;
+  }
+}
+
+.uninav__animation--exit {
+  @include qbal-slideRight-exit;
+}
+
+.uninav {
+  &__slide-right {
+    &--exit {
+      @include qbal-slideRight-exit;
+    }
+
+    &--enter {
+      @include qbal-slideRight-enter;
+    }
+  }
+
+  &__slide-left {
+    &--exit {
+      @include qbal-slideLeft-exit;
+    }
+
+    &--enter {
+      @include qbal-slideLeft-enter;
+    }
+  }
+}
+
+// END TABLET PORTRAIT
+// END MEDIA QUERIES
+
+.uninav {
+  &__hidden {
+    display: none !important;
+  }
+
+  &__reveal {
+    display: grid !important;
+  }
+}

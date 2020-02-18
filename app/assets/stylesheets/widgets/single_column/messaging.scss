@@ -31,7 +31,9 @@
     height: auto;
   }
 
-  .video-links-title { font-size: 26px; }
+  .video-links-title {
+    font-size: 26px;
+  }
 
   .fluid-width-video-container {
     @include fluid-width-video-container;
@@ -40,7 +42,7 @@
 
   .text-widget-select {
     position: relative;
-    margin-top: 10px; 
+    margin-top: 10px;
     width: 100%;
 
     .select-arrow {
@@ -79,7 +81,7 @@
       margin: 0;
       box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.2);
       width: 100%;
-      background-color: #FFF;
+      background-color: #fff;
       top: 0px;
       z-index: 667;
 
@@ -91,12 +93,12 @@
         padding: $base-spacing/2 $base-spacing;
 
         &:hover,
-        &.selected { 
-          background-color: #E5E5E5;
+        &.selected {
+          background-color: #e5e5e5;
         }
       }
     }
-  }  
+  }
 }
 
 /* One Column Variation */
@@ -112,9 +114,8 @@
   }
 
   &.messaging-widget__has-fact-cards {
-
     .text-actions {
-      @include pad($base-spacing * 4  0 0 0);
+      @include pad($base-spacing * 4 0 0 0);
       text-align: center;
     }
 
@@ -127,7 +128,6 @@
     }
 
     @include media($medium-screen) {
-
       .text-column {
         margin-bottom: 0;
         margin-bottom: $base-spacing * 2;
@@ -140,14 +140,12 @@
   }
 
   @include media($medium-screen) {
-
     .text-column {
       margin: 0 auto;
       width: 75%;
     }
   }
   @include media($large-screen) {
-
     .text-column {
       width: 60%;
     }
@@ -175,7 +173,6 @@
     width: 100%;
 
     .theme-button {
-  
       &:nth-child(2) {
         margin-top: 15px;
       }
@@ -188,14 +185,12 @@
   }
 
   &.messaging-widget__has-fact-cards {
-
     .text-column {
       text-align: center;
     }
   }
 
   @include media($medium-screen) {
-
     .media-column {
       margin-bottom: 0;
     }
@@ -206,7 +201,6 @@
     }
 
     &.messaging-widget__has-fact-cards {
-
       .text-column {
         text-align: left;
       }
@@ -215,10 +209,8 @@
 
   /* Text Right Variation */
   &.messaging-widget__text-right {
-
     /* Medium Screen */
     @include media($medium-screen) {
-
       .media-column {
         @include span-columns(8);
       }
@@ -235,7 +227,6 @@
 
     /* Large Screen */
     @include media($large-screen) {
-
       .media-column {
         @include span-columns(10);
       }
@@ -249,12 +240,9 @@
 
   /* Text Left Variation */
   &.messaging-widget__text-left {
-
     @include direction-context(right-to-left) {
-
       /* Medium Screen */
       @include media($medium-screen) {
-
         .media-column {
           @include span-columns(8);
         }
@@ -271,7 +259,6 @@
 
       /* Large Screen */
       @include media($large-screen) {
-
         .media-column {
           @include span-columns(10);
         }
@@ -285,9 +272,7 @@
   }
 
   &.messaging-widget__text-right.messaging-widget__has-fact-cards {
-
     @include media($medium-screen) {
-
       .text-column {
         float: right;
       }
@@ -295,9 +280,7 @@
   }
 
   &.messaging-widget__text-left.messaging-widget__has-fact-cards {
-
     @include media($medium-screen) {
-
       .text-column {
         float: left;
       }
@@ -324,7 +307,7 @@
 
   .title,
   .category,
-  .body { 
+  .body {
     color: white;
   }
 
@@ -338,7 +321,6 @@
   }
 
   .theme-button {
-
     #theme.dodge & {
       background-color: $white;
       backface-visibility: hidden;
@@ -353,14 +335,13 @@
 
   // Restyle the dropdown when displayed on darker backgrounds for legibility
   .text-widget-select {
-
     .select-button {
-
+      border: $white;
       #theme & {
-        color: white;
+        @include dc($white);
 
         .select-arrow.theme-border-color {
-          border-color: white;
+          border-color: $white;
         }
       }
 
@@ -381,18 +362,17 @@
       #theme.dodge & {
         border-color: darken($dodge-primary, 7%);
       }
-    }   
+    }
 
     a {
       border-bottom: 0;
-      color: $cu-red;      
+      color: $cu-red;
     }
   }
 }
 
 /* Fact Card Media */
 .messaging-widget .media-column {
-
   .fact-card-container {
     white-space: normal;
   }
@@ -405,7 +385,6 @@
 
 /* Circle image with Text */
 .primary-content.one-column {
-
   .messaging-widget.messaging-widget__2-column.messaging-widget__text-right.circle,
   .messaging-widget.messaging-widget__2-column.messaging-widget__text-left.circle,
   .messaging-widget.messaging-widget__1-column.messaging-widget__text-right.circle,
@@ -486,9 +465,10 @@
 
             .theme-button {
               width: 49%;
-              
-              &:nth-child(2) { margin-top: 0px; }
 
+              &:nth-child(2) {
+                margin-top: 0px;
+              }
 
               @include bp(wildcard-max, 480px) {
                 width: 100%;
@@ -505,13 +485,11 @@
   }
 
   .messaging-widget__dark-bg {
-
     .section-message {
-      
-      .category { color: white !important; }
+      .category {
+        color: white !important;
+      }
     }
-
-    
 
     .select-button.theme-border-color {
       color: $cu-red;
@@ -522,7 +500,9 @@
       }
     }
 
-    .video-links-title { color: white;}
+    .video-links-title {
+      color: white;
+    }
 
     p {
       a {
@@ -537,7 +517,6 @@
 
   .messaging-widget.messaging-widget__2-column.messaging-widget__text-left.circle,
   .messaging-widget.messaging-widget__1-column.messaging-widget__text-left.circle {
-    
     .outer-container {
       flex-direction: row-reverse;
 

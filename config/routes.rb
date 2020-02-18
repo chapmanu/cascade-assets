@@ -4,12 +4,13 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
   # TODO: these probably should got their own PagesController.
-  get 'one_column/:page',      to: 'dashboard#one_column'
-  get 'two_column/:page',      to: 'dashboard#two_column'
-  get 'three_column/:page',    to: 'dashboard#three_column'
-  get 'home_page/:page',       to: 'dashboard#home_page'
-  get 'ad_landing_page/:page', to: 'dashboard#ad_landing_page'
-  get 'image_slider', to: 'dashboard#image_slider'
+  get 'one_column/:page',       to: 'dashboard#one_column'
+  get 'two_column/:page',       to: 'dashboard#two_column'
+  get 'three_column/:page',     to: 'dashboard#three_column'
+  get 'home_page/:page',        to: 'dashboard#home_page'
+  get 'ad_landing_page/:page',  to: 'dashboard#ad_landing_page'
+  get 'image_slider',           to: 'dashboard#image_slider'
+  get 'uninav',                 to: 'uninav#uninav'
 
   # Mock routes
   get '/home_page/_hero_stories/listing_order.json.txt', to: 'dashboard#mock_success'
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
     get '/modular/one_column_business_graduate', to: 'modular#one_column_business_graduate'
     get '/modular/subbrand_default', to: 'modular#one_column_subbrand'
     get '/modular/subbrand_business', to: 'modular#one_column_subbrand_business'
+    get '/modular/communications', to: 'modular#two_column_communications'
     get '/modular/subbrand_grad_business', to: 'modular#one_column_subbrand_grad_business'
     get '/modular/subbrand_fowler_law', to: 'modular#one_column_subbrand_fowler_law'
     get '/modular/image_slider', to: 'modular#one_column_image_slider'

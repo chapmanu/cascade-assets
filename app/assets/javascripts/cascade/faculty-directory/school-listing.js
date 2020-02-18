@@ -102,8 +102,6 @@ $(function () {
                         return "PSYC";
                     case "/crean/academic-programs/undergraduate-programs/bs-kinesiology/faculty".toLowerCase():
                         return "KINE";
-                    case "/wilkinson/peace-studies/faculty-directory".toLowerCase():
-                        return "PCST";
                     case "/wilkinson/philosophy/faculty-directory".toLowerCase():
                         return "PHIL";
                     case "/wilkinson/political-science/faculty-directory".toLowerCase():

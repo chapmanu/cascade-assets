@@ -1,0 +1,212 @@
+#uninav {
+  .uninav__search-input {
+    border-right: none;
+  }
+
+  .gsc-positioningWrapper {
+    display: none;
+  }
+
+  #___gcse_0 {
+    height: $uninav-div-height;
+    display: flex;
+    align-items: center;
+  }
+
+  .gsc-control-cse.gsc-control-cse-en {
+    padding: 0;
+    margin: 0;
+  }
+
+  .gsc-modal-background-image {
+    background-color: $panther-black;
+  }
+
+  .uninav__utility-nav--search-wrapper {
+    // display: flex;
+    // align-content: center;
+    // align-items: center;
+    // margin-right: 2rem;
+  }
+
+  .uninav__search-input {
+    // display: flex;
+    // align-items: center;
+  }
+
+  .gsc-control-cse.gsc-control-cse-en {
+    /* padding: 0; */
+    padding: unset;
+    padding-top: 5px;
+  }
+
+  .gsc-completion-container {
+    background: transparent !important;
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+
+  .gsc-search-button {
+    background-color: $white;
+    background: $white;
+    border: none;
+    fill: black;
+  }
+
+  .gsc-input-box {
+    border: unset;
+  }
+
+  .gsc-search-box.gsc-search-box-tools {
+    border: 1px solid $uninav-light-grey;
+  }
+
+  .gsc-search-button.gsc-search-button-v2 {
+    width: 55px;
+  }
+
+  .gsc-search-box tbody {
+    // border: 1px solid #ddd;
+  }
+
+  #gs_tti50 {
+    border: none !important;
+  }
+
+  tr {
+    display: flex !important;
+    align-items: center;
+  }
+
+  .uninav__utility-nav--search-wrapper {
+    .gsc-search-button-v2 svg {
+      /* fill: #fff; */
+      fill: $panther-black;
+      height: 2rem;
+      width: 1.8rem;
+    }
+
+    .gsc-input {
+      min-width: 150px;
+      padding-right: 0 !important;
+    }
+
+    input.gsc-input {
+      background: none !important;
+    }
+
+    input.gsc-input {
+      opacity: 0;
+      text-indent: 0 !important;
+      transition: all 1s;
+      -webkit-transition: all 1s;
+      // animation: fadeInPlaceholder 3s forwards;
+      // animation-delay: 1s;
+      // animation-iteration-count: 1;
+    }
+
+    .gsst_a {
+      display: none;
+    }
+
+    // @keyframes fadeInPlaceholder {
+    //   0% {
+    //     opacity: 0;
+    //   }
+    //   /* Finish changes by here */
+    //   20% {
+    //     opacity: 0.2;
+    //   }
+    //   50% {
+    //     opacity: 0.5;
+    //   }
+    //   100% {
+    //     opacity: 1
+    //   }
+    // }
+    // inserts icon into google search
+    // #gs_st50::before {
+    //   content: "\f002";
+    //   font-family: 'Font Awesome 5 Free';
+    //   font-weight: 900;
+    // }
+  }
+
+  .gsc-search-box-tools .gsc-clear-button {
+    // display: block;
+  }
+
+  .gstl_50.gssb_c {
+    // @include qbal-stagger-children;
+    @include qbal-slideUp-enter;
+
+    td {
+      font-size: 1.6rem;
+      font-family: $font-stack-body;
+      -webkit-font-smoothing: antialiased;
+      // text-transform: capitalize;
+      // padding-bottom: 1rem;
+      padding-top: 2% !important;
+      padding-bottom: 2% !important;
+      cursor: pointer;
+      @include uninav-drop-shadow;
+    }
+  }
+
+  @media only screen and (max-width: 1300px) {
+
+    .gsc-search-box.gsc-search-box-tools {
+      // border: none;
+    }
+
+    .gsc-search-box.gsc-search-box-tools {
+      // height: $uninav-div-height;
+      // display: grid;
+      // align-items: center;
+    }
+
+    .uninav__utility-nav--search-wrapper {
+      margin-right: 0;
+    }
+
+
+    .uninav__utility-nav--search-wrapper,
+    #___gcse_0 {
+      @include qbal-slideRight-enter;
+    }
+
+    .uninav__search-input--desktop {
+      // @include qbal-slideLeft-enter;
+
+      .uninav__utility-nav--search-wrapper {
+        // @include qbal-slideRight-enter;
+        // height: 100%;
+        // width: 80px;
+        // display: flex;
+        // justify-content: center;
+        // margin-right: -1.5px !important;
+      }
+
+      .uninav__utility-nav--wrapper ul .uninav__utility-nav--search-wrapper {
+        justify-content: start;
+      }
+
+      .gsc-search-button.gsc-search-button-v2 {
+
+        // width: auto;
+        // display: flex;
+        // height: $uninav-div-height;
+      }
+
+      // #gsc-i-id1
+      #gs_tti50 {
+        // @include qbal-collapseHorizontal164-exit;
+        // @include qbal-tabContent-exit;
+      }
+
+      .gsc-input {
+        // display: none;
+        // @include qbal-collapseHorizontal164-exit;
+      }
+    }
+  }
+}

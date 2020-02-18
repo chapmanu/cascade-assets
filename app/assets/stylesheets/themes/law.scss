@@ -1,19 +1,24 @@
 #theme.law {
   @include theme-color-classes($law-primary);
-  
+
   .bigMasthead header {
-    @include media(1024px) { margin: 0; }
-    @include media(1120px) { margin: 30px 0; }
+    margin-top: 0;
   }
 
   .logo {
-    background: image-url('logo_law_alternate.svg') ;
+    background: image-url("logo_law_alternate.svg");
     background-repeat: no-repeat;
     height: 57px;
     width: 200px;
     margin: 0 auto $base-spacing auto;
-    @include bp(m) { margin: 0 $base-spacing $base-spacing $base-spacing;}
-    @include media(1120px) { margin: -13px $base-spacing 0 0; }
+
+    @include bp(m) {
+      margin: 0 $base-spacing $base-spacing $base-spacing;
+    }
+
+    @include media(1120px) {
+      margin: -13px $base-spacing 0 0;
+    }
   }
 
   .collapsedNav {
@@ -62,16 +67,16 @@
   }
 
   #social_follow_us .banner {
-    background-image: image-url('law_follow_us.png');
+    background-image: image-url("law_follow_us.png");
   }
-  
+
   #social_follow_us li span.hover_state,
   #social_follow_us li span.inactive_state {
-    background-image: image-url('law_icons.png');
+    background-image: image-url("law_icons.png");
   }
 
   .ie8 .slideDescription,
-  .ie9 .slideDescription{
+  .ie9 .slideDescription {
     display: none !important;
   }
 
@@ -85,9 +90,8 @@
 
   /* ==|== media queries ====================================================== */
   @include bp(m) {
-
     header {
-      padding: 0 0 15px 0;
+      padding: 0 0 0 0;
     }
 
     .infoFor {
@@ -95,15 +99,15 @@
     }
 
     .mainNavLinks {
-      background-image: image-url('ribbon_tails_law.png');
+      background-image: image-url("ribbon_tails_law.png");
     }
 
     .mainNavLinks > li.noSubNav > a {
-      padding:0 !important;
+      padding: 0 !important;
     }
 
-    .mainNavLinks > li:hover{
-      background-color:transparent;
+    .mainNavLinks > li:hover {
+      background-color: transparent;
     }
 
     .mainNavLinks > li > a > span {
@@ -116,78 +120,126 @@
     .mainNavLinks > li.noSubNav:hover {
       background-color: $law-primary;
     }
-
   }
 
   @include media(1120px) {
-
-    .mainNavLinks{
+    .mainNavLinks {
       background-color: transparent;
     }
   }
 
-  .smallMasthead .masthead, .smallMasthead .masthead-old, .bigMasthead .mastheadPlaceholder, .bigMasthead .masthead, .bigMasthead .masthead-old, .nameBar, .rightColumn .styleTwo {
-  background: $law-primary; /* Old browsers */
+  .smallMasthead .masthead,
+  .smallMasthead .masthead-old,
+  .bigMasthead .mastheadPlaceholder,
+  .bigMasthead .masthead,
+  .bigMasthead .masthead-old,
+  .nameBar,
+  .rightColumn .styleTwo {
+    background: $law-primary;
+    /* Old browsers */
   }
-  
-  .rightColumn .styleTwo .border { background-color: #002663; }
-  .styleTwo p {color: $white;}
-  .styleTwo li {color: $white;}
-  .styleTwo div {color: $white;}
-  .styleTwo h2 {color: $white;}
-  .styleTwo h3 {color: $white;}
-  .rightColumn .styleTwo a {color: $white; border-bottom: 2px dotted #61728d;}
 
-  .nameBarButtons li a { color: $law-primary;}
-  .expandedNameBarContainer h2, .expandedNameBarContainer a, div.styleTwo a { color: #99afda; }
+  .rightColumn .styleTwo .border {
+    background-color: #002663;
+  }
+
+  .styleTwo p {
+    color: $white;
+  }
+
+  .styleTwo li {
+    color: $white;
+  }
+
+  .styleTwo div {
+    color: $white;
+  }
+
+  .styleTwo h2 {
+    color: $white;
+  }
+
+  .styleTwo h3 {
+    color: $white;
+  }
+
+  .rightColumn .styleTwo a {
+    color: $white;
+    border-bottom: 2px dotted #61728d;
+  }
+
+  .nameBarButtons li a {
+    color: $law-primary;
+  }
+
+  .expandedNameBarContainer h2,
+  .expandedNameBarContainer a,
+  div.styleTwo a {
+    color: #99afda;
+  }
 
   #social_follow_us .banner {
-    background-image: image-url('law_follow_us.png');
-  }
-  
-  #social_follow_us li span.hover_state, #social_follow_us li span.inactive_state {
-    background-image: image-url('law_icons.png');
+    background-image: image-url("law_follow_us.png");
   }
 
-  .rounded-slider .info-container .blue{
+  #social_follow_us li span.hover_state,
+  #social_follow_us li span.inactive_state {
+    background-image: image-url("law_icons.png");
+  }
+
+  .rounded-slider .info-container .blue {
     background-color: $law-primary;
-    background-image: -webkit-gradient(linear, left top, left bottom, from($law-primary), to($law-secondary));
-    background-image: -webkit-linear-gradient(top, $law-primary, $law-secondary);
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from($law-primary),
+      to($law-secondary)
+    );
+    background-image: -webkit-linear-gradient(
+      top,
+      $law-primary,
+      $law-secondary
+    );
     background-image: -moz-linear-gradient(top, $law-primary, $law-secondary);
     background-image: -o-linear-gradient(top, $law-primary, $law-secondary);
     background-image: linear-gradient(to bottom, $law-primary, $law-secondary);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f7c', endColorstr='#01235b',GradientType=1 );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#002f7c', endColorstr='#01235b', GradientType=1);
   }
 
   .newbutton a {
     background-color: $law-primary;
+
     &:hover {
       background-color: #063a8f;
     }
+
     &:active {
       background-color: #002562;
     }
   }
-  
+
   .midPhotoCallouts .photoCallout .caption,
   .photoCallouts .caption,
-  .photoCallouts .rollover{
+  .photoCallouts .rollover {
     background-color: $law-primary;
   }
 
-  
   .leftNavSubContent .callout .view-more-expander {
     .view-more {
-      background-color: $law-primary;;
+      background-color: $law-primary;
     }
+
     .view-more-link {
-      background-color: $law-primary;;
+      background-color: $law-primary;
     }
+
     .view-less-link {
-      background-color: $law-primary;;
+      background-color: $law-primary;
     }
+
     .icon-triangle-up {
-      color: $law-primary;;
+      color: $law-primary;
     }
   }
 
@@ -207,6 +259,6 @@
   }
 
   .link-container-after {
-    background-image: image-url('ribbon_tails_law.png');
+    background-image: image-url("ribbon_tails_law.png");
   }
 }

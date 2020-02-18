@@ -1,0 +1,23 @@
+#import( "/_cascade/formats/helpers.velocity" )
+
+#macro(outputBannerNotification $element) 
+#set ($widgetXPath = 'bannerNotificationWidget')
+#set ($widgetXPath = ${_EscapeTool.xml($widgetXPath)})
+
+## TEXT
+#set ($text = $_SerializerTool.serialize($element.getChild($widgetXPath).getChild('text'), true))
+## STYLE
+#set ($display = $element.getChild($widgetXPath).getChild('display').value)
+#bgColorChooser($widgetXPath)
+
+## use snake-case here for BEM naming convention
+#camelToSnake($widgetXPath)
+
+#set ( $widgetXPath = $snakeCase ) 
+<div class="#escape($widgetXPath) $bgColor">
+    <div class="text ${_EscapeTool.xml($widgetXPath)}__text">
+        ${_DisplayTool.truncate($text,100,"...")}
+    </div>
+</div>
+
+#end

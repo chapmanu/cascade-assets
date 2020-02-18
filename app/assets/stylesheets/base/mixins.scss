@@ -38,8 +38,16 @@ ORDER: Base + typography > general layout + grid > page layout > components
     ; //600px
   }
 
+  @if $breakpoint==small {
+    @media only screen and (max-width: 47em) {
+      @content
+    }
+
+    ; // 767px
+  }
+
   @if $breakpoint==tab-port {
-    @media only screen and (max-width: 56.25em) {
+    @media only screen and (max-width: 56.50em) {
       @content
     }
 
@@ -380,7 +388,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
 @mixin fluid-width-video-container() {
   position: relative;
-  padding-bottom: 56.25%;
+  padding-bottom: 56.50%;
   /* 16:9 */
   height: 0;
 
@@ -435,13 +443,13 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
   &:hover,
   &:focus {
-    background-color: darken($bg-color, 7%);
+    background-color: lighten($bg-color, 8%);
     @include transition(background-color);
   }
 
   &:active {
     transition: none;
-    background-color: darken($bg-color, 7%);
+    background-color: lighten($bg-color, 7%);
   }
 }
 
@@ -495,4 +503,223 @@ ORDER: Base + typography > general layout + grid > page layout > components
   font-family: $font-stack-heading-emphasis;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+
+// write CSS variables without like "v(thevariable);"
+@function v($var) {
+  @return var(--#{$var});
+}
+
+// @include dotted-underline($cu-red, 2px);
+@mixin dotted-underline($color, $spacing, $position: bottom) {
+  background-position: $position;
+  background-repeat: repeat-x;
+  background-size: $spacing 5px;
+  background-image: linear-gradient(to right, $color 10%, rgba(165, 0, 52, 1.0) 0%);
+  background-image: -webkit-linear-gradient(to right, $color 10%, rgba(165, 0, 52, 1.0) 0%);
+}
+
+// button mixin
+@mixin button-bg($bg) {
+  --padding: 15px;
+  background-color: $bg;
+  border-radius: 4px;
+  font-size: 2rem;
+  font-family: $futura-regular;
+  font-weight: 400;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  @include dc($bg);
+
+  &:hover {
+    background-color: lighten($bg, 8%);
+    transition: all 0.3s ease;
+  }
+
+  &:active {
+    background-color: lighten($bg, 25%);
+    @include dc($bg);
+  }
+}
+
+
+@mixin underline($color) {
+  border-bottom: 2px dotted ($color);
+
+}
+
+
+// automatic text contrast https://codepen.io/kevinpowell/pen/45ed86610f4fbdb2d05c8d6261e45b75
+@function text($bg) {
+  @if(lightness($bg) > 50) {
+    @return $panther-black;
+  }
+
+  @else {
+    @return $white;
+  }
+}
+
+@mixin dc($color) {
+  // dc is short for dynamic color
+  background: $color;
+  color: text($color);
+}
+
+// example: 
+// $bg: white;
+// body {
+//   height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   @include dc($bg);
+// }
+// }
+
+@mixin slide-in-out($type, $from, $to, $duration: 1s ) {
+  @if $type == in {
+    &.slide-in {
+      animation: #{$type} $duration forwards;
+      @keyframes #{$type} {
+        0% { transform: translateX($from); }
+        100% { transform: translateX($to); }
+      }
+    }
+  }
+
+  @if $type == out {
+    &.slide-out {
+      animation: #{$type} $duration forwards;
+
+      @keyframes #{$type} {
+        0% { transform: translateX($from); }
+        100% { transform: translateX($to); }
+      }
+    }
+  }
+}
+
+@mixin drill-down-menu-style($width: 410px) {
+
+  li {
+    &:hover { cursor: pointer; }
+  }
+
+  ul li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #CFCFCF;
+
+    a, .drill-down-parent {
+      font-family: "futura-pt", arial, sans-serif;
+      line-height: 1.8rem;
+      color: #231f20;
+      padding: 15px 15px 15px 30px;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    span.toggle-drilldown {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 7rem;
+
+      .fas {
+        display: flex;
+        font-weight: 900;
+        font-size: 1.4rem;
+      }
+    }
+
+    ul.drilldown-menu {
+      display: none;
+      position: absolute;
+      // height: 100%;
+      width: 100%;
+      left: $width;
+      top: 0;
+      transform: translateX(0);
+      transition: all .40s;
+
+      &.active {
+        .drill-down-list-item {
+
+          &:focus-within {
+            outline-color: $cu-red;
+            outline-style: auto;
+            outline-width: 5px;
+          }
+
+          &.home-menu {
+            &:focus-within {
+              outline-color: $cu-red;
+              outline-style: auto;
+              outline-width: 5px;
+            }
+          }
+        }
+      }
+
+      .menu-back {
+        justify-content: start;
+        align-items: center;
+        background: $cu-red;
+        color: $white;
+        font-weight: bold;
+        line-height: 1.6rem;
+        font-family: $futura-regular;
+        padding: 20px 15px 20px 20px;
+
+        .fas {
+          margin-right: 2rem;
+        }
+
+        &:focus {
+          outline-color: $cu-red;
+          outline-style: auto;
+          outline-width: 5px;
+        }
+      }
+    }
+
+    &.current {
+      position: relative;
+      
+      a,
+      span {
+        font-weight: 800;
+
+        &::before {
+          content: "\25CF";
+          color: $cu-red;
+          position: absolute;
+          left: 10px;
+        }
+      }
+    }
+
+    &.home-menu {
+      background: $cu-red;
+      font-weight: bold;
+      color: $white;
+      i {
+        padding: 20px 0px 20px 30px;
+      }
+      a { 
+        color: $white;
+        padding: 20px 50px 20px 10px;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
 }

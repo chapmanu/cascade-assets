@@ -147,7 +147,7 @@ $(function () {
 
     $('#cse-search-form form input, #cse-search-form-small form input').removeAttr('disabled');
 
-    $('#cse-search-form form input, #cse-search-form-small form input').live('keydown', function(e){
+    $('#cse-search-form form input, #cse-search-form-small form input').on('keydown', function(e){
      
         if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
             e.preventDefault();
@@ -156,15 +156,15 @@ $(function () {
 
     }); 
 
-    $('#cse-search-form-small form input').live('focus', function(){
+    $('#cse-search-form-small form input').on('focus', function(){
         $('.rotatorContainer').css("visibility", "hidden");
     });
 
-    $('#cse-search-form-small form input').live('blur', function(){
+    $('#cse-search-form-small form input').on('blur', function(){
         $('.rotatorContainer').css("visibility", "visible");
     });
 
-    $('#cse-search-form form input, #cse-search-form-small form input').live('keydown', function(e){
+    $('#cse-search-form form input, #cse-search-form-small form input').on('keydown', function(e){
         
         if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
             BREI.Personalization.pushToRecentSearches($(this).val());

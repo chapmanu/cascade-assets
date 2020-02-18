@@ -1,27 +1,187 @@
-##
-## helpers.velocity
-## Master Version: Chapman.edu/_cascade/formats/helpers.velocity
-##
-## Pass a certain XML structure into this macro, and get a string that looks
-## like "background-image: url('https://mycoolimage.com/file1.png')
-##
-## Useage: <div style=#addBackgroundImage($content) >
-##
-## The xml in the $content variable passed in must look like the following:
-## <media>
-##     <fileLink>
-##         <path>/_files/image1.png</path>
-##     </fileLink>
-## </media>
-#macro(addBackgroundImage $content)
-    #set ($linkUrl = $content.getChild('fileLink').getChild('path').value)
-    #if ($linkUrl != '')
-        "background-image: url('[system-asset]${linkUrl}[/system-asset]')"
-    #else
-        ""
+#*
+--------------------------------------------------------------------------------
+helpers.velocity
+Master Version: Chapman.edu/_cascade/formats/helpers.velocity
+--------------------------------------------------------------------------------
+*#
+
+#*
+--------------------------------------------------------------------------------
+ Converts camelCase to SNAKE_CASE
+ USAGE: #camelToSnake( $var )
+--------------------------------------------------------------------------------
+*#
+
+#macro(camelToSnake $camelCase)
+    #set( $regex = "([a-z])([A-Z]+)")
+    #set( $replacement = "$1-$2")
+    #set( $snakeCase = $camelCase.replaceAll($regex, $replacement).toLowerCase())
+    
+    ## set widget value to this-widget for BEM conventions
+    ## example: this-widget--red 
+    #set ( $widgetXPath = $snakeCase)
+    ## $wxp is just an acronym for $widgetXPath
+    #set ( $wxp = $snakeCase)
+#end
+
+#*
+--------------------------------------------------------------------------------
+ OUTPUTS IMAGES IN A COLLECTION (AN IMAGE WITHIN A SLIDE IN A SERIES OF SLIDES)
+ USAGE: #imageInCollection( $slide )
+--------------------------------------------------------------------------------
+*#
+#macro(imageInCollection $elem)
+     #set ($imageType = $elem.getChild('image').getChild('imageType').value.toLowerCase())
+    #set ($imageShape =
+    $elem.getChild('image').getChild('imageShape').value.toLowerCase())
+    #set ($imageUrlInt =
+    $elem.getChild('image').getChild('imageUrlInt').getChild('path').value )
+    #set ($imageUrlExt =
+    $elem.getChild('image').getChild('imageUrlExt').getChild('path').value )
+    #set ($altText =
+    $elem.getChild('image').getChild('altText').value)
+    #set ($objectPositionX = $elem.getChild('image').getChild('objectPositionX').value.toLowerCase())
+    #set ($objectPositionY = $elem.getChild('image').getChild('objectPositionY').value.toLowerCase())
+    
+    #if (!$imageType.contains("none"))
+        <div
+            class="${_EscapeTool.xml($widgetXPath)}__img--${_EscapeTool.xml($imageShape)} ${_EscapeTool.xml($widgetXPath)}__img"
+            style="width: ${_EscapeTool.xml($imgSize)}; height: ${_EscapeTool.xml($imgSize)}; ">
+                <img class="${_EscapeTool.xml($widgetXPath)}__img img--${_EscapeTool.xml($imageShape)} "
+                    src="[system-asset]${_EscapeTool.xml($imageUrlInt)}[/system-asset]"
+                    alt="${_EscapeTool.xml($altText)}" title="${_EscapeTool.xml($altText)}" style="object-position:${_EscapeTool.xml($objectPositionX)} ${_EscapeTool.xml($objectPositionY)}"/>
+        </div>
     #end
 #end
-## Log velocity variables in the browser console on dev
+
+#*
+--------------------------------------------------------------------------------
+IMAGE CHOOSER
+USAGE: #image()
+--------------------------------------------------------------------------------
+*#
+
+#macro(image)
+    ## $widgetXPath is just a verbose alias for $wxp 
+    #set ($imageType =
+    $element.getChild($widgetXPath).getChild('image').getChild('imageType').value.toLowerCase())
+    #set ($imageShape =
+    $element.getChild($widgetXPath).getChild('image').getChild('imageShape').value.toLowerCase())
+    #set ($imageUrlInt =
+    $element.getChild($widgetXPath).getChild('image').getChild('imageUrlInt').getChild('path').value )
+    #set ($imageUrlExt =
+    $element.getChild($widgetXPath).getChild('image').getChild('imageUrlExt').getChild('path').value )
+    #set ($altText =
+    $element.getChild($widgetXPath).getChild('image').getChild('altText').value)
+    #set ($objectPositionX = $element.getChild($widgetXPath).getChild('image').getChild('objectPositionX').value.toLowerCase())
+    #set ($objectPositionY = $element.getChild($widgetXPath).getChild('image').getChild('objectPositionY').value.toLowerCase())
+
+    #if (!$imageType.contains("none"))
+        <div
+            class="${_EscapeTool.xml($widgetXPath)}__img--${_EscapeTool.xml($imageShape)} ${_EscapeTool.xml($widgetXPath)}__img"
+            style="width: ${_EscapeTool.xml($imgSize)}; height: ${_EscapeTool.xml($imgSize)}; ">
+                <img class="${_EscapeTool.xml($widgetXPath)}__img img--${_EscapeTool.xml($imageShape)} "
+                    src="[system-asset]${_EscapeTool.xml($imageUrlInt)}[/system-asset]"
+                    alt="${_EscapeTool.xml($altText)}" title="${_EscapeTool.xml($altText)}" style="object-position:${_EscapeTool.xml($objectPositionX)} ${_EscapeTool.xml($objectPositionY)}"/>
+        </div>
+    #end
+#end
+
+#*
+--------------------------------------------------------------------------------
+BACKGROUND COLOR CHOOSER
+Outputs shared field 'background-color'
+You just need to pass your respective top level path eg 'next-steps-widget'
+USAGE: #bgColorChooser('next-steps-widget'). $bgColor will result in a class such as 'next-steps-widget--red'. 
+--------------------------------------------------------------------------------
+*#
+
+#macro(bgColorChooser $wxp)
+    #set ($bgColor = $element.getChild($wxp).getChild('bgColor').value.toLowerCase())
+    #camelToSnake($wxp)
+    #set ($bgColor = $wxp + '--' + $bgColor)
+#end
+
+#*
+--------------------------------------------------------------------------------
+3 CTA BUTTONS
+Outputs shared field 'CTA' (https://dev-cascade.chapman.edu/entity/open.act?id=6ccc49b1c0a81e4b7fe96604d9f0dee2&type=sharedfield).
+EXAMPLE: #cta($element, 'next-steps-widget/link') ... see https://dev-cascade.chapman.edu/entity/open.act?id=866641d7c0a81e4b7fe96604393cd7cb&type=format
+EXAMPLE 2: Collection (slides) within a collection (slider): #wtf($slide 'link') ... see https://dev-cascade.chapman.edu/entity/open.act?id=11e3bb1ac0a81e4b7fe96604d894fc25&type=format
+--------------------------------------------------------------------------------
+*#
+#macro(cta $elem $linkXPath $wxp)
+    ## this will create 'next-steps-widget__button' down below
+    #set ($bemButtonClass = $wxp + '__button')
+    #set ($bemButtonClass = $bemButtonClass.value)
+    
+    #set ( $linkItems = $_XPathTool.selectNodes($elem, $linkXPath) )
+    #foreach ($link in $linkItems)
+        #set ($linkStyle = $link.getChild('linkStyle').value) 
+        #set ($linkType =  $link.getChild('linkType').value)
+        #set ($linkLabel = $link.getChild('label').value)
+        
+        ## ACCESSIBILITY
+        #set ($ariaLabel = $link.getChild('accessibility').getChild('ariaLabel').value)
+        #set ($title = $link.getChild('accessibility').getChild('title').value)
+
+        ## ANALYTICS
+        #set ($customID = $link.getChild('tracking').getChild('customID').value)
+        #set ($dataAttr = $link.getChild('tracking').getChild('dataAttr').value)
+
+        #if ($customID != '')
+            #set ($customID = $link.getChild('customID').value)
+        #else
+            #set ( $customID = $linkLabel.replaceAll(" ", "-").replaceAll("[^a-zA-Z-]", "").replaceAll("--", "-").toLowerCase() )
+        #end
+        
+        #if ($dataAttr != '')
+            #set ($dataAttr = $link.getChild('dataAttr').value)
+            #set ($dataAttr = $dataAttr)
+        #else
+            #set ($dataAttr = '')
+        #end
+            
+        #if ($linkType == 'Internal Link')
+            #set ($linkURL = $link.getChild('internalLink').getChild('path').value )
+            #elseif ($linkType == 'External Link')
+                #set ($linkURL = $link.getChild('externalLink').value )
+        #else 
+            #set ($linkURL = $link.getChild('fileLink').getChild('path').value )
+        #end
+    
+        
+   
+        #if ($linkLabel != '')
+            #if ($linkStyle == 'Text Link')
+                <a tabindex="1" href="$linkURL" id="$customID" data-attribute="$dataAttr" aria-label="$ariaLabel" title="$title" class="text--link">#escape($linkLabel)</a>
+            #elseif (($linkStyle == 'Button Link') && ($bemButtonClass != '$bemButtonClass'))
+                <a tabindex="0" href="$linkURL" id="$customID" data-attribute="$dataAttr" aria-label="$ariaLabel" title="$title" class="button $bemButtonClass">#escape($linkLabel)</a>
+            #else 
+                <a tabindex="0" href="$linkURL" id="$customID" data-attribute="$dataAttr" aria-label="$ariaLabel" title="$title" class="button">#escape($linkLabel)</a>
+            #end    
+        #end
+    #end
+#end
+
+#*
+--------------------------------------------------------------------------------
+SIMPLIFIED ESCAPE TOOL 
+USAGE: #escape($variable)
+--------------------------------------------------------------------------------
+*#
+
+#macro(escape $escapeOutput)
+    ${_EscapeTool.xml($escapeOutput)}
+#end
+
+
+#*
+--------------------------------------------------------------------------------
+LOG VELOCITY VARIABLES IN THE BROWSER CONSOLE ON DEV
+--------------------------------------------------------------------------------
+*#
+
 #macro(log $v)
   <script>
       <![CDATA[#protect
@@ -30,6 +190,96 @@
           }
       #protect]]>
   </script>
+#end
+
+
+#*
+--------------------------------------------------------------------------------
+LOG VELOCITY VARIABLES IN THE BROWSER CONSOLE ON DEV
+--------------------------------------------------------------------------------
+*#
+
+#macro ( buildDrillDownList $asset )
+  #set ( $drillDownPagePath = $currentPage.path )
+  #set ( $isVisible         = $asset.metadata.getDynamicField('Hide from navigation').value != "Yes")
+  #set ( $rootPageName      = $asset.path.replaceAll("^[\w]+\/", "") )
+
+  #if ( $drillDownPagePath == $asset.path ) 
+    #set( $isCurrentDrillDownPage = "drill-down-list-item current" )
+  #else
+    #set( $isCurrentDrillDownPage = "drill-down-list-item")
+  #end
+  
+  
+  #if ($asset.assetType == "folder" && $isVisible)
+    #set ( $visibleChildren = false )
+    #foreach( $childAsset in $asset.children )
+      #if ($visibleChildren == false)
+        #if ( $childAsset.assetType == 'symlink' )
+          #set ( $visibleChildren = true ) 
+        #end
+        #if ( $childAsset.assetType == 'page' )
+          #set ( $visibleChildren = $childAsset.metadata.getDynamicField('Hide from navigation').value != "Yes" )
+        #end
+        #if ( $childAsset.assetType == 'folder')
+          #foreach ($childAsset in $childAsset.children)
+            #if ( $visibleChildren != true )
+              #set ( $visibleChildren = $childAsset.metadata.getDynamicField('Hide from navigation').value != "Yes" )
+            #end
+          #end
+        #end
+      #end
+    #end
+    #if ($visibleChildren)
+      <li class="${isCurrentDrillDownPage}">
+        <span tabindex="0" class="drill-down-parent">${_EscapeTool.xml($asset.metadata.displayName)}</span>
+        <span class="toggle-drilldown"><i class="fas fa-chevron-right"></i></span>
+        <ul class="drilldown-menu">
+          <li tabindex="0" class="menu-back"><i class="fas fa-chevron-left"></i>${_EscapeTool.xml($asset.label)}</li>
+          #foreach( $childAsset in $asset.children)
+            #if ( $drillDownPagePath == $childAsset.path ) 
+              #set( $isCurrentDrillDownPage = "drill-down-list-item current" )
+            #else
+              #set( $isCurrentDrillDownPage = "drill-down-list-item")
+            #end
+            #set ( $isVisible = $childAsset.metadata.getDynamicField('Hide from navigation').value != "Yes")
+            #if ($childAsset.assetType == 'page' && $isVisible)
+              <li class="${isCurrentDrillDownPage}"><a href="site://Chapman.edu/${childAsset.path}">${_EscapeTool.xml($childAsset.metadata.displayName)}</a></li>
+            #elseif ($childAsset.assetType == 'symlink')
+              <li class="${isCurrentDrillDownPage}"><a href="site://Chapman.edu/${childAsset.path}">${_EscapeTool.xml($childAsset.label)} <span class="fas fa-external-link-alt"></span></a></li>
+            #elseif ($childAsset.assetType == 'folder' && $isVisible)
+              #buildDrillDownList($childAsset)
+            #end
+          #end
+        </ul>
+      </li>
+    #end
+  #elseif ($asset.assetType == 'page' && $isVisible)
+    #if ($rootPageName == "index")
+        <li class="${isCurrentDrillDownPage} home-menu">
+            <i class="fas fa-home"></i>
+            <a href="site://Chapman.edu/${asset.path}">${_EscapeTool.xml($asset.metadata.displayName)}</a>
+        </li>
+    #else
+        <li class="${isCurrentDrillDownPage}">
+            <a href="site://Chapman.edu/${asset.path}">${_EscapeTool.xml($asset.metadata.displayName)}</a>
+        </li>
+    #end
+  #elseif ($asset.assetType == 'symlink')
+    <li class="${isCurrentDrillDownPage}"><a href="site://Chapman.edu/${asset.path}">${_EscapeTool.xml($asset.label)} <span class="fas fa-external-link-alt"></span></a></li>
+##   #testing for sym link 
+##   #else
+##     <li class="${isCurrentDrillDownPage}"><a href="site://Chapman.edu/${asset.path}">${_EscapeTool.xml($asset.label)} <span class="fas fa-external-link-alt"></span></a></li>
+  #end
+#end
+
+#macro(addBackgroundImage $content)
+    #set ($linkUrl = $content.getChild('fileLink').getChild('path').value)
+    #if ($linkUrl != '')
+        "background-image: url('[system-asset]${linkUrl}[/system-asset]')"
+    #else
+        ""
+    #end
 #end
 
 #macro(alert $v)
@@ -185,3 +435,15 @@
     #set($colorClass = "${widgetClass}__#if($bgColor == 'Light')light-bg#{elseif}($bgColor == 'Medium')medium-bg#{else}dark-bg#end")
     $colorClass
 #end
+
+## Pass a certain XML structure into this macro, and get a string that looks
+## like "background-image: url('https://mycoolimage.com/file1.png')
+##
+## Useage: <div style=#addBackgroundImage($content) >
+##
+## The xml in the $content variable passed in must look like the following:
+## <media>
+##     <fileLink>
+##         <path>/_files/image1.png</path>
+##     </fileLink>
+## </media>

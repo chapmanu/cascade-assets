@@ -1,0 +1,159 @@
+@mixin delay($rule, $number, $value) {
+  @for $i from 1 to ($number + 1) {
+    &:nth-child(#{$i}) {
+      -webkit-#{$rule}-delay: (#{$i*$value});
+      #{$rule}-delay: (#{$i*$value});
+    }
+  }
+}
+
+span.underline {
+  position: relative;
+}
+
+// todo: cycle through color keyframes https://codepen.io/metagrapher/pen/tgcLl
+
+span.uninav__underline {
+  position: relative;
+}
+
+span.uninav__underline::before,
+span.uninav__underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #a50034;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+span.uninav__underline::before {
+  top: 0;
+  transform-origin: center right;
+}
+
+span.uninav__underline:hover::before {
+  transform-origin: center left;
+  transform: scaleX(1);
+}
+
+span.uninav__underline::after {
+  bottom: 0;
+  transform-origin: center left;
+}
+
+span.uninav__underline:hover::after {
+  transform-origin: center right;
+  transform: scaleX(1);
+}
+
+/*pillar underlines*/
+span.uninav__underline--pillar {
+  position: relative;
+}
+
+span.uninav__underline--pillar::before,
+span.uninav__underline--pillar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: $red;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+span.uninav__underline--pillar::before {
+  left: -8px;
+  transform-origin: center top;
+}
+
+span.uninav__underline--pillar:hover::before {
+  transform-origin: center bottom;
+  transform: scaleY(1);
+}
+
+span.uninav__underline--pillar::after {
+  right: -8px;
+  transform-origin: center bottom;
+}
+
+span.uninav__underline--pillar:hover::after {
+  transform-origin: center top;
+  transform: scaleY(1);
+}
+
+span.uninav {
+  &__underline--center {
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #a50034;
+      transform-origin: center;
+      transform: translate(-50%, 0) scaleX(0);
+      transition: transform 200ms ease-in-out;
+    }
+
+    &:hover::before,
+    &:focus::before,
+    &:focus-within::before {
+      transform: translate(-50%, 0) scaleX(1);
+    }
+  }
+}
+
+a:focus,
+a:focus-within {
+  span.uninav__underline--center {
+    &::before {
+      transform: translate(-50%, 0) scaleX(1);
+    }
+  }
+}
+
+
+
+span.uninav__overline--bars {
+  position: relative;
+}
+
+span.uninav__overline--bars::before,
+span.uninav__overline--bars::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: $cu-red;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+span.uninav__overline--bars::before {
+  top: 0;
+  transform-origin: center right;
+}
+
+span.uninav__overline--bars:hover::before {
+  transform-origin: center left;
+  transform: scaleX(1);
+}
+
+span.uninav__overline--bars::after {
+  bottom: 0;
+  transform-origin: center left;
+}
+
+span.uninav__overline--bars:hover::after {
+  transform-origin: center right;
+  transform: scaleX(1);
+}

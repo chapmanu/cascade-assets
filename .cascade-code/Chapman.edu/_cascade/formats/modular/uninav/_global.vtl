@@ -1,0 +1,87 @@
+## GLOBAL NAV:
+#set ( $menuItems = $_XPathTool.selectNodes($contentRoot, "/system-data-structure/uninav/globalNav/menuItem/label") )
+#set ($pageTitle = $currentPage.metadata.title )
+#set ($pageTitle = $pageTitle.replaceAll(" ", "-").replaceAll("[^a-zA-Z-]", "").replaceAll("--", "-").toLowerCase() )
+
+<div class="uninav__global-nav">
+    <ul class="uninav__include-in-mobile-menu">
+        ## outer loop loops over just the menuItem labels eg About, Academics 
+        ## then inner loop goes against same array, getting submenu links for only those where the 
+        ## label for submenu matches the current value
+        #if ($menuItems.size() >= 1)
+            ## Outer Loop (main menu items)
+            #foreach ($menuItem in $menuItems)
+                #set ( $menuID = $menuItem.value.replaceAll(" ", "-").replaceAll("[^a-zA-Z-]", "").replaceAll("--", "-").toLowerCase() )
+                ## main link for this menu item. If menu has dropdowns then it will be used as first "Overview" link in dropdown
+                ## but if main link has no dropdown then the main menu item becomes a link to that page eg Arts:
+                #set ($menuItemLink = $_XPathTool.selectSingleNode($menuItems, "//menuItem[label='${menuItem.value}']/menuLink") )
+
+                ##before do primary-link OR dropdown, find out if there are submenu items:
+                #set ($submenuItems = $_XPathTool.selectNodes($menuItems, "//menuItem[label='${menuItem.value}']/submenuItem[label!='']") )
+
+                #if ($submenuItems.size() == 0)
+                    ##main menu item with no dropdown eg Arts:
+                    <li
+                        class="uninav__global--menu-item--no-dropdown uninav__global--${_EscapeTool.xml($menuID)} uninav__global--menu-item--no-dropdown--${_MathTool.add($foreach.index, 1)}">
+                        <a
+                            id="uninav-global-${_EscapeTool.xml($menuID)}"
+                            href="${menuItemLink.getChild('path').value}">
+                            <span class="uninav__underline--center">${menuItem.value}</span></a>
+                    </li>
+                #else
+                ## main menu item eg. About, Academics followed by dropdown of sub items:
+                    <li
+                        class="uninav__dropdown--parent ">
+                        <span class="uninav__dropdown-wrapper">
+                            <a id="uninav-global-${_EscapeTool.xml($menuID)}" tabindex="0">
+                                <span class="uninav__underline--center">${_EscapeTool.xml($menuItem.value)}</span></a>
+                        </span>
+                        <div class="uninav__dropdown--child">
+                            <ul>
+                                ## REMOVING UNTIL WE CAN ADD ICON TO ITEM
+                                ## first item in dropdown = OVERVIEW; links to main menu item's landing page:
+                                ## <li
+                                ##     class="uninav__global--dropdown-child--${_MathTool.add($foreach.index, 1)}-overview uninav__global--${_EscapeTool.xml($menuID)}-overview">
+                                ##     <a
+                                ##         id="uninav-global-${_EscapeTool.xml($menuID)}-overview"
+                                ##         href="${menuItemLink.getChild('path').value}">
+                                ##         <span class="uninav__underline--center">${menuItem.value} Overview</span></a>
+                                ## </li>
+                                ## Inner Loop (dropdown links for specific main menu item)
+
+                                #foreach ($submenuItem in $submenuItems)
+
+                                    #set ($linkType = $submenuItem.getChild('linkType').value )
+                                    #if ($linkType == 'Internal Link')
+                                        #set ($linkURL = $submenuItem.getChild('internalLink').getChild('path').value )
+                                        #elseif ($linkType == 'External Link')
+                                        #set ($linkURL = $submenuItem.getChild('externalLink').value )
+                                    #else 
+                                        #set ($linkURL = $submenuItem.getChild('fileLink').getChild('path').value )
+                                    #end
+                                    #set ($label = $submenuItem.getChild('label').value )
+                                    #set ( $menuID = $label.replaceAll(" ", "-").replaceAll("[^a-zA-Z-]", "").replaceAll("--",
+                                    "-").toLowerCase() )
+                                    ##   #set ( $menuID = $menuID.replaceAll("--", "-") )
+                                    #set ($iconClass = $submenuItem.getChild('iconClass').value )
+                                    #if ($linkURL != '' && $linkURL != '/' && $label != '')
+                                        <li
+                                            class="uninav__global--dropdown-child--${_MathTool.add($foreach.index, 1)} uninav__global--dropdown-child--$menuID">
+                                            <a
+                                               id="uninav-global-${_EscapeTool.xml($menuID)}"
+                                                class="icon icon-$iconClass"
+                                                href="${_EscapeTool.xml($linkURL)}">
+                                                <span class="uninav__underline--center">${_EscapeTool.xml($label)}</span>
+                                            </a>
+                                        </li>
+                                    #end
+                                #end
+                            </ul>
+                        </div>
+                    </li>
+                #end
+            #end
+        #end
+    </ul>
+</div>
+## GLOBAL NAV (END)

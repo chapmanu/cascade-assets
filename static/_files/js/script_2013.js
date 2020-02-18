@@ -147,7 +147,7 @@ $(function () {
     });
 
     // Pause the slider once the user interacts with the slider
-    $(".flex-direction-nav li a").live("click", function (event) {
+    $(".flex-direction-nav li a").on("click", function (event) {
         g_mySlider.pause();
         g_mySlider.resume = function () { };
     });
@@ -235,7 +235,7 @@ $(function () {
     /* Video overlay
     ------------------------------------------------------------------------------------------------*/
 
-    $(".videoLink").live("click", function (event) {
+    $(".videoLink").on("click", function (event) {
         event.preventDefault();
         var src = $(this).attr("data-video");
         $("#videoContainer .video").attr('src', src);
@@ -249,7 +249,7 @@ $(function () {
         $(".overlay").prepend('<p style="position:absolute;top:15px;text-align:center;width:100%;">This video requires at least version 9.0.115 of <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank">Adobe Flash Player</a></p>');
     }
 
-    $(".closeButton").live("click", function () {
+    $(".closeButton").on("click", function () {
         $(".overlay").animate({ top: "700px" }, 1e3, function () { }).hide(0);
         var videoClone = $('#videoContainer').html();
         $('#videoContainer div').remove();
@@ -510,7 +510,7 @@ function pad2(number) {
 
             $('#cse-search-form form input, #cse-search-form-small form input').removeAttr('disabled');
 
-            $('#cse-search-form form input, #cse-search-form-small form input').live('keydown', function(e){
+            $('#cse-search-form form input, #cse-search-form-small form input').on('keydown', function(e){
              
                 if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
                     e.preventDefault();
@@ -519,15 +519,15 @@ function pad2(number) {
 
             }); 
 
-            $('#cse-search-form-small form input').live('focus', function(){
+            $('#cse-search-form-small form input').on('focus', function(){
                 $('.rotatorContainer').css("visibility", "hidden");
             });
 
-            $('#cse-search-form-small form input').live('blur', function(){
+            $('#cse-search-form-small form input').on('blur', function(){
                 $('.rotatorContainer').css("visibility", "visible");
             });
 
-            $('#cse-search-form form input, #cse-search-form-small form input').live('keydown', function(e){
+            $('#cse-search-form form input, #cse-search-form-small form input').on('keydown', function(e){
                 
                 if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
                     BREI.Personalization.pushToRecentSearches($(this).val());

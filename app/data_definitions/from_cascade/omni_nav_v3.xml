@@ -1,0 +1,162 @@
+<system-data-structure>
+	<group identifier="omninav" label="Omninav">
+		<group collapsed="true" identifier="logo" label="Logo">
+			<text default="None" help-text="Icon or image for Logo" identifier="icon" label="Icon" type="radiobutton">
+				<radio-item label="None" value="None"/>
+				<radio-item show-fields="omninav/logo/icon_svg" value="SVG"/>
+				<radio-item show-fields="omninav/logo/icon_cssClass" value="CSS Class"/>
+			</text>
+			<text help-text="enter full svg/html markup to create icon" identifier="icon_svg" label="SVG" multi-line="true"/>
+			<text help-text="enter name of CSS class for an icon eg. cu_logo" identifier="icon_cssClass" label="CSS Class"/>
+			<text default="Internal Link" help-text="The link to the homepage" identifier="linkType" label="Link Type" type="radiobutton">
+				<radio-item show-fields="omninav/logo/internalLink" value="Internal Link"/>
+				<radio-item show-fields="omninav/logo/externalLink" value="External Link"/>
+				<radio-item show-fields="omninav/logo/fileLink" value="File Link"/>
+			</text>
+			<text help-text="full url (including https) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+			<asset help-text="link to a page in Cascade" identifier="internalLink" label="Internal Link" type="page"/>
+			<asset help-text="link to a pdf or other document file in Cascade" identifier="fileLink" label="File Link" type="file"/>
+			<text help-text="Title, like Alternate Text for an image, for link eg Chapman University Website Home Page" identifier="title" label="Link Title"/>
+		</group>
+		<group collapsed="true" identifier="audiences" label="Audience Links (Find Info For)">
+			<text help-text="main label for Audience menu eg Find Info For..." identifier="label" label="Main Menu Label" required="true"/>
+			<asset help-text="link for main label of Audience menu" identifier="menuLink" label="Main Menu Link" type="page"/>
+			<group collapsed="true" identifier="submenuItem" label="Sub-menu Item" multiple="true">
+				<text identifier="label" label="Label"/>
+				<text help-text="(optional) Alternative label for accessibility to distinguish common or duplicate labels within omniNav i.e. if two Event links give one a label of Alumni Events and one Campus Events" identifier="ariaLabel" label="Aria Label"/>
+				<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+					<radio-item show-fields="omninav/audiences/submenuItem/internalLink" value="Internal Link"/>
+					<radio-item show-fields="omninav/audiences/submenuItem/externalLink" value="External Link"/>
+					<radio-item show-fields="omninav/audiences/submenuItem/fileLink" value="File Link"/>
+				</text>
+				<text help-text="full url (including https) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+				<asset help-text="link to a page in Cascade" identifier="internalLink" label="Internal Link" type="page"/>
+				<asset help-text="link to a pdf or other document file in Cascade" identifier="fileLink" label="File Link" type="file"/>
+				<text default="None" identifier="icon" label="Icon" type="radiobutton">
+					<radio-item label="None" value="None"/>
+					<radio-item show-fields="omninav/audiences/submenuItem/icon_svg" value="SVG"/>
+					<radio-item show-fields="omninav/audiences/submenuItem/icon_cssClass" value="CSS Class"/>
+				</text>
+				<text help-text="enter full svg/html markup to create icon" identifier="icon_svg" label="SVG" multi-line="true"/>
+				<text help-text="enter name of CSS class for an icon eg. book4" identifier="icon_cssClass" label="CSS Class"/>
+			</group>
+		</group>
+		<group collapsed="true" identifier="social" label="Social Menu">
+			<text help-text="main label for Social menu eg Social Hub" identifier="label" label="Main Menu Label" required="true"/>
+			<text default="Internal Link" identifier="linkType" label="Main Menu Link Type" type="radiobutton">
+				<radio-item show-fields="omninav/social/internalLink" value="Internal Link"/>
+				<radio-item show-fields="omninav/social/externalLink" value="External Link"/>
+				<radio-item show-fields="omninav/social/fileLink" value="File Link"/>
+			</text>
+			<text help-text="full url (including https) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+			<asset identifier="internalLink" label="Internal Link" type="page"/>
+			<asset identifier="fileLink" label="File Link" type="file"/>
+			<group collapsed="true" identifier="submenuItem" label="Sub-menu Item" multiple="true">
+				<text identifier="label" label="Label"/>
+				<text help-text="(optional) Alternative label for accessibility to distinguish common or duplicate labels within omniNav i.e. if two Event links give one a label of Alumni Events and one Campus Events" identifier="ariaLabel" label="Aria Label"/>
+				<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+					<radio-item show-fields="omninav/social/submenuItem/internalLink" value="Internal Link"/>
+					<radio-item show-fields="omninav/social/submenuItem/externalLink" value="External Link"/>
+					<radio-item show-fields="omninav/social/submenuItem/fileLink" value="File Link"/>
+				</text>
+				<text help-text="full url (including https) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+				<asset help-text="link to a page in Cascade" identifier="internalLink" label="Internal Link" type="page"/>
+				<asset help-text="link to a pdf or other document file in Cascade" identifier="fileLink" label="File Link" type="file"/>
+				<text default="None" identifier="icon" label="Icon" type="radiobutton">
+					<radio-item label="None" value="None"/>
+					<radio-item show-fields="omninav/social/submenuItem/icon_svg" value="SVG"/>
+					<radio-item show-fields="omninav/social/submenuItem/icon_cssClass" value="CSS Class"/>
+				</text>
+				<text help-text="enter full svg/html markup to create icon" identifier="icon_svg" label="SVG" multi-line="true"/>
+				<text help-text="enter name of CSS class for an icon eg. book4" identifier="icon_cssClass" label="CSS Class"/>
+			</group>
+		</group>
+		<group collapsed="true" identifier="utilityNav" label="Utility Menu">
+			<group collapsed="true" identifier="menuItem" label="Main Menu Item" maximum-number="8" multiple="true">
+				<text help-text="label for main menu item of Utility navigation section" identifier="label" label="Main Menu Label" required="true"/>
+				<text default="Internal Link" identifier="linkType" label="Main Menu Link Type" type="radiobutton">
+					<radio-item show-fields="omninav/utilityNav/menuItem/internalLink" value="Internal Link"/>
+					<radio-item show-fields="omninav/utilityNav/menuItem/externalLink" value="External Link"/>
+					<radio-item show-fields="omninav/utilityNav/menuItem/fileLink" value="File Link"/>
+				</text>
+				<text help-text="full url (including https) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+				<asset identifier="internalLink" label="Internal Link" type="page"/>
+				<asset identifier="fileLink" label="File Link" type="file"/>
+				<group collapsed="true" identifier="submenuItem" label="Sub-menu Item" multiple="true">
+					<text help-text="label for dropdown item in menu" identifier="label" label="Label"/>
+					<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+						<radio-item show-fields="omninav/utilityNav/menuItem/submenuItem/internalLink" value="Internal Link"/>
+						<radio-item show-fields="omninav/utilityNav/menuItem/submenuItem/externalLink" value="External Link"/>
+						<radio-item show-fields="omninav/utilityNav/menuItem/submenuItem/fileLink" value="File Link"/>
+					</text>
+					<text help-text="full url (including https) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+					<asset identifier="internalLink" label="Internal Link" type="page"/>
+					<asset identifier="fileLink" label="File Link" type="file"/>
+					<text help-text="The CSS class name for the icon" identifier="iconClass" label="Icon Class"/>
+					<text help-text="(optional) Alternative label for accessibility to distinguish duplicate labels within omniNav i.e. if two Events links in different submenus, give one an Aria Label e.g. of Events for Alumni" identifier="ariaLabel" label="Aria Label"/>
+				</group>
+			</group>
+		</group>
+		<group collapsed="true" identifier="globalNav" label="Global Nav Menu">
+			<group collapsed="true" identifier="menuItem" label="Main Menu Item" maximum-number="8" multiple="true">
+				<text help-text="label for main menu item in global navigation section" identifier="label" label="Main Menu Label" required="true"/>
+				<asset identifier="menuLink" label="Main Menu Link" type="page"/>
+				<group collapsed="true" identifier="submenuItem" label="Sub-menu Item" multiple="true">
+					<text help-text="label for dropdown item in menu" identifier="label" label="Label"/>
+					<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+						<radio-item show-fields="omninav/globalNav/menuItem/submenuItem/internalLink" value="Internal Link"/>
+						<radio-item show-fields="omninav/globalNav/menuItem/submenuItem/externalLink" value="External Link"/>
+						<radio-item show-fields="omninav/globalNav/menuItem/submenuItem/fileLink" value="File Link"/>
+					</text>
+					<text help-text="full url (including https) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+					<asset identifier="internalLink" label="Internal Link" type="page"/>
+					<asset identifier="fileLink" label="File Link" type="file"/>
+					<text help-text="The CSS class name for the icon" identifier="iconClass" label="Icon Class"/>
+					<text help-text="(optional) Alternative label for accessibility to distinguish duplicate labels within omniNav i.e. if two Events links in different submenus, give one an Aria Label e.g. of Events for Alumni" identifier="ariaLabel" label="Aria Label"/>
+				</group>
+			</group>
+		</group>
+		<group collapsed="true" identifier="cta" label="Calls to Action">
+			<group collapsed="true" identifier="link" label="Link" multiple="true">
+				<text identifier="label" label="Label"/>
+				<text help-text="(optional) Alternative label for accessibility to distinguish common or duplicate labels within omniNav i.e. if two Event links give one a label of Alumni Events and one Campus Events" identifier="ariaLabel" label="Aria Label"/>
+				<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+					<radio-item show-fields="omninav/cta/link/internalLink" value="Internal Link"/>
+					<radio-item show-fields="omninav/cta/link/externalLink" value="External Link"/>
+					<radio-item show-fields="omninav/cta/link/fileLink" value="File Link"/>
+				</text>
+				<text help-text="full url (including https) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+				<asset help-text="link to a page in Cascade" identifier="internalLink" label="Internal Link" type="page"/>
+				<asset help-text="link to a pdf or other document file in Cascade" identifier="fileLink" label="File Link" type="file"/>
+				<text default="None" identifier="icon" label="Icon" type="radiobutton">
+					<radio-item label="None" value="None"/>
+					<radio-item show-fields="omninav/cta/link/icon_svg" value="SVG"/>
+					<radio-item show-fields="omninav/cta/link/icon_cssClass" value="CSS Class"/>
+				</text>
+				<text help-text="enter full svg/html markup to create icon" identifier="icon_svg" label="SVG" multi-line="true"/>
+				<text help-text="enter name of CSS class for an icon eg. book4" identifier="icon_cssClass" label="CSS Class"/>
+			</group>
+		</group>
+		<group collapsed="true" identifier="login" label="Logins Menu">
+			<group collapsed="true" identifier="submenuItem" label="Sub-menu Item" multiple="true">
+				<text identifier="label" label="Label"/>
+				<text help-text="(optional) Alternative label for accessibility to distinguish common or duplicate labels within omniNav i.e. if two Event links give one a label of Alumni Events and one Campus Events" identifier="ariaLabel" label="Aria Label"/>
+				<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+					<radio-item show-fields="omninav/login/submenuItem/internalLink" value="Internal Link"/>
+					<radio-item show-fields="omninav/login/submenuItem/externalLink" value="External Link"/>
+					<radio-item show-fields="omninav/login/submenuItem/fileLink" value="File Link"/>
+				</text>
+				<text help-text="full url (including https) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+				<asset help-text="link to a page in Cascade" identifier="internalLink" label="Internal Link" type="page"/>
+				<asset help-text="link to a pdf or other document file in Cascade" identifier="fileLink" label="File Link" type="file"/>
+				<text default="None" identifier="icon" label="Icon" type="radiobutton">
+					<radio-item label="None" value="None"/>
+					<radio-item show-fields="omninav/login/submenuItem/icon_svg" value="SVG"/>
+					<radio-item show-fields="omninav/login/submenuItem/icon_cssClass" value="CSS Class"/>
+				</text>
+				<text help-text="enter full svg/html markup to create icon" identifier="icon_svg" label="SVG" multi-line="true"/>
+				<text help-text="enter name of CSS class for an icon eg. book4" identifier="icon_cssClass" label="CSS Class"/>
+			</group>
+		</group>
+	</group>
+</system-data-structure>

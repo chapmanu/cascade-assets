@@ -1,11 +1,14 @@
 #macro (displayFacultyInfo $fWidget $hSize $count)
-    <script src="/_files/js/facultyWidget.js"></script>
+    <script src="/_files/js/facultyWidget.js" type="text/javascript"></script>
+    
     #if ($_XPathTool.selectSingleNode($fWidget, "faculty/type").value == "Individual Faculty")
         #set ($faculty = $_XPathTool.selectNodes($fWidget, "faculty/person"))
         #set ($names = "")
         #set ($showPhoto = "")
         #set ($showLink = "")
         #set ($showBio ="")
+        #set ($showResearch ="")
+        #set ($showCourses ="")
         #set ($showOffice = "")
         #set ($showSchoolAffiliations = "")
         #foreach ($person in $faculty)
@@ -13,6 +16,8 @@
             #set ($showPhoto = $showPhoto + $person.getChild("photo").value)
             #set ($showLink = $showLink + $person.getChild("bio-link").value)
             #set ($showBio = $showBio + $person.getChild("short-bio").value)
+            #set ($showResearch = $showResearch + $person.getChild("show-research-interests").value)
+            #set ($showCourses = $showCourses + $person.getChild("show-courses-taught").value)
             #set ($showOffice = $showOffice + $person.getChild("office-info").value)
             #set ($showSchoolAffiliations = $showSchoolAffiliations + $person.getChild("show-school-affiliations").value)
             #if ($foreach.hasNext)
@@ -20,6 +25,8 @@
                 #set ($showPhoto = $showPhoto + " ")
                 #set ($showLink = $showLink + " ")
                 #set ($showBio = $showBio + " ")
+                #set ($showResearch = $showResearch + " ")
+                #set ($showCourses = $showCourses + " ")
                 #set ($showOffice = $showOffice + " ")
                 #set ($showSchoolAffiliations = $showSchoolAffiliations + " ")
             #end
@@ -30,25 +37,27 @@
                 var showPhoto = "${showPhoto}".split(" ");
                 var showLink = "${showLink}".split(" ");
                 var showBio = "${showBio}".split(" ");
+                var showResearch = "${showResearch}".split(" ");
+                var showCourses = "${showCourses}".split(" ");
                 var showOffice = "${showOffice}".split(" ");
                 var showSchoolAffiliations = "${showSchoolAffiliations}".split(" ");
-                getFacultyInfo(names, showPhoto, showLink, showBio, showOffice, showSchoolAffiliations, "faculty${count}");
+                getFacultyInfo(names, showPhoto, showLink, showBio, showResearch, showCourses, showOffice, showSchoolAffiliations, "faculty${count}");
             })
         </script>
-        <!-- removed from div below: faculty-widget  editableContent -->
-        <div id="faculty${count}" class="personnel-listing-widget">
+
+        <div id="faculty${count}" class="personnel-listing-widget faculty-widget">
             <span class="loadingText">Loading faculty member..</span>
         </div>
         <div style="clear:both"></div>
     #elseif ($_XPathTool.selectSingleNode($fWidget, "faculty/type").value == "Faculty Listing")
         #set ($school = $_XPathTool.selectSingleNode($fWidget, 'faculty/school').value)
         #if ($school == "")
-            #set $school = "All"
+            #set ($school = "All")
         #end
         ##
         #set ($dept = $_XPathTool.selectSingleNode($fWidget, 'faculty/dept').value)
         #if ($dept == "")
-            #set $dept = "All"
+            #set ($dept = "All")
         #end
         ##
         #set ($filterOptions = { "All" : "All", "Emeriti only" : "EmeritiFlag", "Presidential Fellows only" : "PresidentialFellowFlag", "Tenured/Tenure-Track only" : "TenureTrackFlag", "Core Faculty only" : "CoreFacultyFlag"})
@@ -56,21 +65,22 @@
         ##
         #set ($facultyUnit = $_XPathTool.selectSingleNode($fWidget, 'faculty/facultyUnit').value)
         #if ($facultyUnit == "")
-            #set $facultyUnit = "All"
+            #set ($facultyUnit = "All")
         #end
         ##
         #set ($showPhoto = $_XPathTool.selectSingleNode($fWidget, "faculty/photo").value)
         #set ($showLink = $_XPathTool.selectSingleNode($fWidget, "faculty/bio-link").value)
         #set ($showBio = $_XPathTool.selectSingleNode($fWidget, "faculty/short-bio").value)
+        #set ($showResearch = $_XPathTool.selectSingleNode($fWidget, "faculty/show-research-interests").value)
+        #set ($showCourses = $_XPathTool.selectSingleNode($fWidget, "faculty/show-courses-taught").value)
         #set ($showOffice = $_XPathTool.selectSingleNode($fWidget, "faculty/office-info").value)
         #set ($showSchoolAffiliations = $_XPathTool.selectSingleNode($fWidget, "faculty/show-school-affiliations").value)
         <script type="text/javascript">
             $(document).ready(function(){
-                getFacultyListing("${school}", "${dept}", "${filter}", "${facultyUnit}", "${showPhoto}", "${showLink}", "${showBio}", "${showOffice}", "${showSchoolAffiliations}", "faculty${count}");
+                getFacultyListing("${school}", "${dept}", "${filter}", "${facultyUnit}", "${showPhoto}", "${showLink}", "${showBio}", "${showResearch}", "${showCourses}", "${showOffice}", "${showSchoolAffiliations}", "faculty${count}");
             })
         </script>
-        <!-- removed from div below: faculty-widget  editableContent -->
-        <div id="faculty${count}" class="personnel-listing-widget">
+        <div id="faculty${count}" class="personnel-listing-widget faculty-widget">
             <span class="loadingText">Loading faculty member(s)..</span>
         </div>
         <div style="clear:both"></div>

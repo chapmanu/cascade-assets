@@ -1,55 +1,56 @@
-#macro(outputCollapsibles $element)  
+#macro(outputCollapsibles $element) 
 ##    
-    ##NOTE: there are 2 headers, one main one above set of collapsibles, then individual ones for each collapsible
-    #set ($mainheader = $element.getChild('collapsibleRegions').getChild('header').value)
-    #set ($sectionCopy = $_SerializerTool.serialize( $element.getChild('collapsibleRegions').getChild('copy'), true ) )
-    #set ($collapsibles = $_XPathTool.selectNodes($element.getChild('collapsibleRegions'), "collapsibleRegion") )
-
-##
-    <div class="collapsibles-widget">
-##
+##NOTE: there are 2 headers, one main one above set of collapsibles, then individual ones for each collapsible
+#set ($mainheader = $element.getChild('collapsibleRegions').getChild('header').value)
+#set ($sectionCopy = $_SerializerTool.serialize(
+$element.getChild('collapsibleRegions').getChild('copy'), true ) )
+#set ($collapsibles = $_XPathTool.selectNodes($element.getChild('collapsibleRegions'),
+"collapsibleRegion") ) ##
+<div class="collapsibles-widget">
+    ##
     #if ($mainheader != '')
         <h2 class="sectionHeader">${_EscapeTool.xml($mainheader)}</h2>
     #end 
-    #if ($element.getChild('collapsibleRegions').getChild('copy').value != "" or $element.getChild('collapsibleRegions').getChild('copy').getChildren().size() > 0)
+    #if ($element.getChild('collapsibleRegions').getChild('copy').value != "" or
+        $element.getChild('collapsibleRegions').getChild('copy').getChildren().size() > 0)
         <div class="editableContent summaryText">$sectionCopy</div>
     #end
-##
+    ##
     <br/>
     <div class="row">
-          <div data-toggle="collapsibles-widget__toggle" class="toggle-expand-collapse expand" tabindex="0">Toggle Section</div>
+        <div data-toggle="collapsibles-widget__toggle" class="toggle-expand-collapse expand" tabindex="0">Toggle Section</div>
     </div>
     #foreach ($collapsible in $collapsibles)
         #if ($collapsible.getChild('active').value == 'Yes')
             <div class="accordion active">
-        #else 
-            <div class="accordion">
+            #else 
+                <div class="accordion">
+                #end
+                ## if main widget header is not blank then it's H2 and collapsible headers are H3; if blank then collapsibles are H2
+                #if ($mainheader != '')
+                    <h3 tabindex="0" role="button" class="header">
+                    #else
+                        <h2 tabindex="0" role="button" class="header">
+                        #end
+                        ##                    
+                        <span class="show"></span>
+                        <span class="hide"></span>
+                        #set ($header = $collapsible.getChild('header').value )
+                        ${_EscapeTool.xml($header)}
+
+                        #if ($mainheader != '')
+                        </h3>
+                    #else
+                    </h2>
+                #end
+
+                <div class="content editableContent">
+                    #set ($content = $_SerializerTool.serialize($collapsible.getChild('copy'), true) )
+                    $content
+                </div>
+
+            </div>
         #end
-        ## if main widget header is not blank then it's H2 and collapsible headers are H3; if blank then collapsibles are H2
-        #if ($mainheader != '')
-            <h3 tabindex="0" role="button" class="header">
-        #else
-            <h2 tabindex="0" role="button" class="header">
-        #end
-##                    
-        <span class="show">+</span>
-        <span class="hide">-</span>
-        #set ($header = $collapsible.getChild('header').value )
-        ${_EscapeTool.xml($header)}
-        
-        #if ($mainheader != '')
-            </h3>
-        #else
-            </h2>
-        #end
-        
-        <div class="content editableContent">
-            #set ($content = $_SerializerTool.serialize($collapsible.getChild('copy'), true) )
-            $content
-        </div>
-        
-        </div>
-    #end
     </div>
-##
+    ##
 #end

@@ -813,11 +813,11 @@ html.omni-nav-v2 {
 	}
 
 	// Used in branded pages (e.g. /law). See &.branded section below.
-	.secondary-logo {
+	.uninav__logo--secondary {
 		display: none;
 	}
 
-	.primary-logo {
+	.uninav__logo--primary {
 		display: table-cell;
 		vertical-align: middle;
 
@@ -920,7 +920,7 @@ html.omni-nav-v2 {
   *************************************/
 	&.branded {
 		@include media($medium-screen) {
-			.primary-logo {
+			.uninav__logo--primary {
 				padding-right: 20px;
 			}
 		}
@@ -928,7 +928,7 @@ html.omni-nav-v2 {
 		@include media($large-screen) {
 		}
 
-		.secondary-logo {
+		.uninav__logo--secondary {
 			display: none;
 			vertical-align: middle;
 			padding: 1px 0 0 20px;

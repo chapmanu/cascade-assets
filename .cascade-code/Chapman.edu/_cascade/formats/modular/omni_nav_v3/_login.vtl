@@ -1,0 +1,68 @@
+## LOGIN NAV:
+
+#set ( $menuItems = $_XPathTool.selectNodes($contentRoot, "/system-data-structure/omninav/login/submenuItem") )
+
+<li class="uninav__login uninav__dropdown--parent" tabindex="0" aria-expanded="false">
+        <span class="uninav__menu-item-login">
+          <i class="fas fa-paw"></i>
+        </span>
+      <div class="uninav__login--wrapper uninav__dropdown--child uninav__login-button">
+    #if ($menuItems.size() >= 1)
+        <ul>
+            [system-view:internal]
+            <li class="uninav__internal--info">
+                <a href="https://dev-cascade.chapman.edu/entity/open.act?id=a94c5727c0a81e4b22b523b8699a6359&amp;type=block">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" height="32" role="presentation" viewBox="0 0 28.1 28.1" width="32">
+                    <style type="text/css">
+                      .st0{fill:#ffffff;}
+                    </style>
+                    <polygon class="st0" points="13 14.5 0 27.5 0 14.5 "></polygon>
+                    <polygon class="st0" points="0 13.6 0 0.6 13 13.6 "></polygon>
+                    <polygon class="st0" points="27.5 0 14.5 13 14.5 0 "></polygon>
+                    <polygon class="st0" points="13.6 13 0.6 0 13.6 0 "></polygon>
+                    <polygon class="st0" points="15.1 13.6 28.1 0.6 28.1 13.6 "></polygon>
+                    <polygon class="st0" points="28.1 14.5 28.1 27.5 15.1 14.5 "></polygon>
+                    <polygon class="st0" points="13.6 15 0.6 28.1 13.6 28.1 "></polygon>
+                    <polygon class="st0" points="14.5 15 14.5 28.1 27.5 28.1 "></polygon>
+                  </svg>
+                    <span class="uninav__underline--center">
+                      Edit Uninav
+                    </span>
+                </a>
+            </li>
+            [/system-view:internal]
+        #foreach ($menuItem in $menuItems)
+            #set ($label = $menuItem.getChild('label').value )
+            #set ( $menuID = $label.replaceAll(" ", "-").replaceAll("[^a-zA-Z-]", "").replaceAll("--", "-").toLowerCase() )
+            #set ($linkType = $menuItem.getChild('linkType').value )
+            #if ($linkType == 'Internal Link')
+                #set ($linkURL = $menuItem.getChild('internalLink').getChild('path').value )
+            #elseif ($linkType == 'External Link')
+                #set ($linkURL = $menuItem.getChild('externalLink').value )
+            #else 
+                #set ($linkURL = $menuItem.getChild('fileLink').getChild('path').value )
+            #end
+            #set ($iconType = $menuItem.getChild('icon').value )
+            #if ($linkURL != '' && $linkURL != '/' && $label != '')
+                <li>
+                    <a id="uninav__login--$menuID" href="${_EscapeTool.xml($linkURL)}"
+                        #if ($iconType == "CSS Class" && $menuItem.getChild('icon_cssClass').value != "")
+                            class="icon icon-${_EscapeTool.xml($menuItem.getChild('icon_cssClass').value)}"
+                        #end
+                    >
+                    #if ($iconType == "SVG" && $menuItem.getChild('icon_svg').value != "")
+                        $menuItem.getChild('icon_svg').value
+                    #end
+                    <span class="uninav__underline--center">${_EscapeTool.xml($label)}</span>
+                    </a>
+                </li>
+            #end
+            
+        #end
+        </ul>
+    #end
+    </div>
+</li>
+## LOGIN NAV (END)
+
+
