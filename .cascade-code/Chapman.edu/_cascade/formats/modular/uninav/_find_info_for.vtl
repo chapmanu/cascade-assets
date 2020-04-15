@@ -5,7 +5,7 @@
 
 #if ($menuItems.size() >= 1)
     <li class="uninav--cta">
-        <a href="#">${mainMenuLabel}</a>
+        <a href="#">${_EscapeTool.xml(mainMenuLabel)}</a>
         <div class="utility-dropdown dropdown uninav__menu-item--drilldown-only">
             <ul>
             #foreach ($menuItem in $menuItems)

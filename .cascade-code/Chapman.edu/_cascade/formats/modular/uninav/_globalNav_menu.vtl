@@ -19,7 +19,7 @@
 
           #if ($submenuItems.size() == 0)
               ##main menu item with no dropdown eg Arts:
-              <li class="uninav__menu-item--no-dropdown"><a href="${menuItemLink.getChild('path').value}"><span class="uninav__underline--center">${menuItem.value}</span></a></li>
+              <li class="uninav__menu-item--no-dropdown"><a href="${_EscapeTool.xml($menuItemLink.getChild('path').value)}"><span class="uninav__underline--center">${_EscapeTool.xml($menuItem.value)}</span></a></li>
           #else
               <li class="uninav__menu-item-dropdown-parent">
                   ## main menu item eg. About, Academics followed by dropdown of sub items:
@@ -29,7 +29,7 @@
                   <div class="uninav__menu-item-dropdown-child">
                       <ul>
                           ## first item in dropdown is overview and links to main menu item's landing page:
-                          <li><a href="${menuItemLink.getChild('path').value}">${menuItem.value} Overview</a></li>
+                          <li><a href="${_EscapeTool.xml($menuItemLink.getChild('path').value)}">${_EscapeTool.xml($menuItem.value)} Overview</a></li>
                           ## Inner Loop (dropdown links for specific main menu item)
                           #foreach ($submenuItem in $submenuItems)
                               #set ($linkType = $submenuItem.getChild('linkType').value )

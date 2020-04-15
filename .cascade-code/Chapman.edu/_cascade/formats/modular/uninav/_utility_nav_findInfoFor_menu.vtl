@@ -5,7 +5,7 @@
 
 #if ($menuItems.size() >= 1)
     <li class="utility-cell utility-has-dropdown">
-        <a href="#">${mainMenuLabel}</a>
+        <a href="#">${_EscapeTool.xml(mainMenuLabel)}</a>
         <div class="utility-dropdown dropdown">
             <ul>
             #foreach ($menuItem in $menuItems)

@@ -30,8 +30,8 @@
                         class="uninav__global--menu-item--no-dropdown uninav__global--${_EscapeTool.xml($menuID)} uninav__global--menu-item--no-dropdown--${_MathTool.add($foreach.index, 1)}">
                         <a
                             id="uninav-global-${_EscapeTool.xml($menuID)}"
-                            href="site://Chapman.edu/${menuItemLink.getChild('path').value}">
-                            <span class="uninav__underline--center">${menuItem.value}</span></a>
+                            href="${_EscapeTool.xml($menuItemLink.getChild('path').value)}">
+                            <span class="uninav__underline--center">${_EscapeTool.xml($menuItem.value)}</span></a>
                     </li>
                     <span class="uninav__pipe"></span>
                 #else

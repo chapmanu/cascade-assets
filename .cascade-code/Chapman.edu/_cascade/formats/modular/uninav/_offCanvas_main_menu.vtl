@@ -35,16 +35,16 @@
                     #end
                     
                     #if ($submenuItems.size() != 0)
-                        <span tabindex="0" class="drill-down-parent">${menuItem.value}</span>    
+                        <span tabindex="0" class="drill-down-parent">${_EscapeTool.xml($menuItem.value)}</span>
                     #else
-                        <a href="site://Chapman.edu/${menuItemLink.getChild('path').value}">${menuItem.value}</a>
+                        <a href="site://Chapman.edu/${_EscapeTool.xml($menuItemLink.getChild('path').value)}">${_EscapeTool.xml($menuItem.value)}</a>
                     #end
                     
                     #if ($submenuItems.size() != 0)
         		        #offCanvasDrillDownIcon()
         		        <ul class="drilldown-menu">
         		            #offCanvasMenuBackIcon()
-        		            <li class="${isCurrentPage}"><a href="site://Chapman.edu/${menuItemLink.getChild('path').value}">${menuItem.value}</a></li>
+        		            <li class="${isCurrentPage}"><a href="site://Chapman.edu/${_EscapeTool.xml($menuItemLink.getChild('path').value)}">${_EscapeTool.xml($menuItem.value)})</a></li>
                             ## Inner Loop (dropdown links for specific main menu item)
                             #foreach ($submenuItem in $submenuItems)
 
