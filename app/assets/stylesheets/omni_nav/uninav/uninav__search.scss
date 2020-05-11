@@ -209,20 +209,21 @@
 
 
 
-.gs-result .gs-title, .gs-result .gs-title * {
-  color: $cu-red;
-  color: var(--cu-red);
-}
+  .gs-result .gs-title,
+  .gs-result .gs-title * {
+    color: $cu-red;
+    color: v(cu-red);
+  }
 
 
 
-.gs-bidi-start-align.gs-visibleUrl.gs-visibleUrl-long {
-  color: $panther-black;
-  color: var(--panther-black);
-}
+  .gs-bidi-start-align.gs-visibleUrl.gs-visibleUrl-long {
+    color: $panther-black;
+    color: v(panther-black);
+  }
 
-.gsc-results-wrapper-overlay.gsc-results-wrapper-visible {
-  font-family: $futura-regular;
-}
+  .gsc-results-wrapper-overlay.gsc-results-wrapper-visible {
+    font-family: $futura-regular;
+  }
 
 }

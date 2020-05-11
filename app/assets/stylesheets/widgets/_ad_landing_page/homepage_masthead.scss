@@ -64,7 +64,7 @@
     color: v(white);
     padding-right: 2vw;
     cursor: pointer;
-    top: calc(var(--videoHeight) - 12.5rem);
+    top: calc(v(videoHeight) - 12.5rem);
     fill-opacity: 0.9;
     bottom: 60px;
 
@@ -1044,7 +1044,7 @@ video {
     -webkit-mask-image: image-url("masthead-wave");
     -webkit-mask-size: 100% 100%;
     will-change: filter;
-    max-height: var(--videoHeight);
+    max-height: v(videoHeight);
     position: absolute;
     background: none;
   }

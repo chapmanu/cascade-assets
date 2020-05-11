@@ -3,8 +3,8 @@
 
   &--circle {
     border-radius: 50%;
-    height: var(--imgSize);
-    width: var(--imgSize);
+    height: v(imgSize);
+    width: v(imgSize);
     object-fit: cover;
   }
 }
