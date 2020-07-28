@@ -1,0 +1,141 @@
+#*
+* side_panel_hero(.vm) * Master Version:
+Chapman.edu/_cascade/formats/modular/mastheads/side_panel_hero *# #import(
+"/_cascade/formats/helpers.velocity" ) #macro(outputSubbrandMasthead $element) ## Panel Variables
+#set ( $primaryHeadline = $element.getChild('panel').getChild('title').value ) #set (
+$secondaryHeadline = $element.getChild('panel').getChild('subtitle').value ) #set ( $panelBody =
+$_SerializerTool.serialize($element.getChild('panel').getChild('body'), true ) ) #set (
+$dropdownLabel = $element.getChild('panel').getChild('dropdownNav').getChild('dropdownLabel').value
+) #set ( $dropdownLinks =
+$_XPathTool.selectNodes($element,'//subbrandMasthead/panel/dropdownNav/dropdownLink') ) #set (
+$buttons = $_XPathTool.selectNodes($element, '//subbrandMasthead/panel/callsToAction/button') ) ##
+Featured Content Slides #set ( $slides = $_XPathTool.selectNodes($element,
+'//subbrandMasthead/featuredContent') )
+
+<div class="subrand-masthead-wrapper">
+    <div class="brochure-masthead">
+        <div class="foreground-content">
+            <div class="headline-container">
+                #if($secondaryHeadline != '')
+                    <h2 class="headline secondary subhead">$_EscapeTool.xml($secondaryHeadline)</h2>
+                #end
+                <h1 class="headline escapey title">$_EscapeTool.xml($primaryHeadline)</h1>
+                #if ($secondaryHeadline != "")
+                    <h2>$_EscapeTool.xml($secondaryHeadline)</h2>
+                #end
+            </div>
+            #foreach($button in $buttons)
+                <a #outputhref($button)="#outputHref($button)" class="theme-button">$_EscapeTool.xml($button.getChild('label').value)</a>
+            #end
+
+            <div class="dropdown">
+                <div onclick="dropdownToggle()" class="dropdown-inner theme-border-color">$_EscapeTool.xml($dropdownLabel)
+                    <span class="select-arrow"></span>
+                </div>
+                <div id="myDropdown" class="dropdown-content">
+                    #foreach( $link in $dropdownLinks )
+                        <span class="link-underline">
+                            <a #outputhref($link)="#outputHref($link)">$_EscapeTool.xml($link.getChild('label').value)</a>
+                        </span>
+                    </div>
+                #end
+            </div>
+        </div>
+
+        <div class="cd-slide-container">
+            <ul class="cd-hero-slider autoplay">
+                #foreach($slide in $slides)
+                    ## Background Variables
+                    #set ( $backgroundType = $slide.getChild('featuredBackgroundMedia').getChild('type').value )
+                    #set ( $backgroundImage =
+                    $slide.getChild('featuredBackgroundMedia').getChild('imageFile').getChild('path').value )
+                    #set ( $backgroundImageAlignY = $slide.getChild('featuredBackgroundMedia').getChild('alignY').value)
+                    #set ( $backgroundVideo =
+                    $slide.getChild('featuredBackgroundMedia').getChild('videoFile').getChild('path').value ) 
+                    #set ( $backgroundFallbackImage =
+                    $slide.getChild('featuredBackgroundMedia').getChild('fallbackImageFile').getChild('path').value )
+                    #set ( $backgroundAltText =
+                    $slide.getChild('featuredBackgroundMedia').getChild('alternateText').value ) 
+                    ## Featured Content Variables 
+                    #set ( $featuredCategory = $slide.getChild('featuredPanel').getChild('category').value )
+                    #set ( $featuredTitle = $slide.getChild('featuredPanel').getChild('title').value ) 
+                    #set ( $featuredSubtitle = $slide.getChild('featuredPanel').getChild('subtitle').value ) 
+                    #set ($featuredBody = $_SerializerTool.serialize($slide.getChild('featuredPanel').getChild('body'),
+                    true)) 
+                    #set ( $featuredLink = $slide.getChild('featuredPanel').getChild('link') ) 
+                #set ($featuredContentExists = "#if($featuredCategory != '' || $featuredTitle != '' || $featuredSubtitle != '' || $slide.getChild('featuredPanel').getChild('body').value.length() != 0 || $featuredLink.getChild('label').value != '')true#{else}false#end") #set ( $featuredLinkExists = $featuredLink.getChild('label').value != '' )
+
+                    <li class="#if($foreach.index == 0)selected#end">
+                        <div class="theme-bg-color slider-bottom-border"></div>
+                        #if ( $backgroundType == 'Image' )
+                            <div
+                                class="background-image"
+                                style="background-image: url('[system-asset]${backgroundImage}[/system-asset]'); background-position: center ${backgroundImageAlignY.toLowerCase()};">
+                                <article class="theme-bg-color-alpha">
+                                    <img
+                                        src="[system-asset]${backgroundImage}[/system-asset]"
+                                        alt="${_EscapeTool.xml($backgroundAltText)}"/>
+                                    #if ( $featuredContentExists == 'true' )
+                                        <div class="content">
+                                            <span class="category">$_EscapeTool.xml($featuredCategory)</span>
+                                            <h2 class="title">$_EscapeTool.xml($featuredTitle)</h2>
+                                            <h3 class="subtitle">$_EscapeTool.xml($featuredSubtitle)</h3>
+                                            <p class="body">$featuredBody</p>
+                                            #if ( $featuredLinkExists )
+                                                <a #outputhref($featuredlink)="#outputHref($featuredLink)">$_EscapeTool.xml($featuredLink.getChild('label').value)</a>
+                                            #end
+                                        </div>
+                                    #end
+                                </article>
+                            </div>
+                            #elseif ( $backgroundType == 'Video' )
+                            <div class="background-video-wrapper">
+                                <article class="theme-bg-color-alpha">
+                                    <video
+                                        autoplay="true"
+                                        loop="true"
+                                        poster="[system-asset]${_EscapeTool.xml($backgroundFallbackImage)}[/system-asset]">
+                                        <source src="[system-asset]${_EscapeTool.xml($backgroundVideo)}[/system-asset]" type="video/mp4"/>
+                                    </video>
+                                    #if ( $featuredContentExists == 'true' )
+                                        <div class="content">
+                                            <span class="category">$_EscapeTool.xml($featuredCategory)</span>
+                                            <h2 class="title">$_EscapeTool.xml($featuredTitle)</h2>
+                                            <h3 class="subtitle">$_EscapeTool.xml($featuredSubtitle)</h3>
+                                            <p class="body">$featuredBody</p>
+                                            #if ( $featuredLinkExists )
+                                                <a #outputhref($featuredlink)="#outputHref($featuredLink)">$_EscapeTool.xml($featuredLink.getChild('label').value)</a>
+                                            #end
+                                        </div>
+                                    #end
+                                </article>
+                                <video
+                                    id="background-video"
+                                    class="background-video"
+                                    autoplay="true"
+                                    loop="true"
+                                    poster="[system-asset]${_EscapeTool.xml($backgroundFallbackImage)}[/system-asset]">
+                                    <source src="[system-asset]${_EscapeTool.xml($backgroundVideo)}[/system-asset]" type="video/mp4"/>
+                                </video>
+                            </div>
+                        #end
+                    </li>
+                #end
+            </ul>
+        </div>
+        <div class="background-content">
+
+            <ul>
+                #foreach( $slide in $slides )
+                    <li class="#if($foreach.index == 0)selected#end">
+                        <a href="#0">$foreach.index</a>
+                    </li>
+                #end
+            </ul>
+
+        </div>
+    </div>
+    <div class="gradient-overlay"></div>
+
+</div>
+#end

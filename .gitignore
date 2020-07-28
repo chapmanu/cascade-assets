@@ -19,11 +19,16 @@
 .dev/
 .pseudo/
 .sass-cache/
-dist/
+dist/production/*
+dist/staging/*
+!dist/staging/
+!dist/netlify/*
+!dist/netlify/_assets/*
 node_modules
 /tmp/
 /public/_assets
 /public/_files
+/public/
 
 # Miscellaneous Files
 *.DS_Store

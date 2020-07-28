@@ -1,130 +1,6 @@
 require 'zip_file_generator'
-
-# rubocop:disable Metrics/BlockLength
-namespace :build do
-  namespace :omninav do
-    #
-    # Build static version: rake build:omninav:static
-    #
-    desc "Build static OmniNav navbar assets and markup."
-    task static: :environment do
-      # Params
-      target = 'static'
-
-      # Prep Builder
-      builder = Omninav::Builder.new(target: target)
-      builder.prep_build
-      builder.deploy_map = {
-        'omni-nav-*.css' => 'omni-nav.min.css',
-        'omni-nav-*.js' => 'omni-nav.min.js',
-        'omni-nav-*.css.gz' => 'omni-nav.css.gz',
-        'omni-nav-*.js.gz' => 'omni-nav.js.gz',
-        'omni-nav.html' => 'omni-nav.html'
-      }
-      puts format("\nBuilding OmniNav %s version:%s\n", target, builder.build_version)
-
-      # Why this? Setting Rails.env or ENV['RAILS_ENV'] didn't work.
-      # See http://stackoverflow.com/a/1090319/6763239.
-      system("rake build:omninav:assets RAILS_ENV=production")
-
-      builder.generate_markup_file
-      builder.move_output_files_to_build_directory
-      builder.cleanup
-
-      # Report
-      puts format("\nBuild complete. Find files in %s.", builder.output_dir)
-    end
-
-    #
-    # Build blogs version: rake build:omninav:blogs
-    #
-    # Blogs expects files here:
-    # https://github.com/chapmanu/blogs/tree/development/content/plugins/cu-wp-customization/omni-nav
-    #
-    # Loaded at runtime here:
-    # https://github.com/chapmanu/blogs/blob/development/content/plugins/cu-wp-customization/cu-wp-customization.php#L243
-    #
-    desc "Build OmniNav navbar assets and markup for Blogs site."
-    task blogs: :environment do
-      # Params
-      target = 'blogs'
-
-      # Prep Builder
-      builder = Omninav::Builder.new(target: target)
-      builder.prep_build
-      puts format("\nBuilding OmniNav %s version:%s\n", target, builder.build_version)
-
-      # Why this? Setting Rails.env or ENV['RAILS_ENV'] didn't work.
-      # See http://stackoverflow.com/a/1090319/6763239.
-      system("rake build:omninav:assets RAILS_ENV=production")
-
-      builder.generate_markup_file
-      builder.move_output_files_to_build_directory
-      builder.cleanup
-
-      # Report
-      puts format("\nBuild complete. Find files in %s.", builder.output_dir)
-    end
-
-    #
-    # Build inside version: rake build:omninav:inside
-    #
-    # Inside expects files here:
-    # https://github.com/chapmanu/inside/tree/development/lib/assets/omni-nav
-    #
-    # Loaded at runtime here:
-    # https://github.com/chapmanu/inside/blob/development/app/assets/javascripts/inside.js#L23
-    # https://github.com/chapmanu/inside/blob/development/app/assets/stylesheets/inside.css.scss#L2
-    #
-    desc "Build OmniNav navbar assets and markup for Inside site."
-    task inside: :environment do
-      # Params
-      target = 'inside'
-
-      # Prep Builder
-      builder = Omninav::Builder.new(target: target)
-      builder.prep_build
-      puts format("\nBuilding OmniNav %s version:%s\n", target, builder.build_version)
-
-      # Why this? Setting Rails.env or ENV['RAILS_ENV'] didn't work.
-      # See http://stackoverflow.com/a/1090319/6763239.
-      system("rake build:omninav:assets RAILS_ENV=production")
-
-      builder.generate_markup_file
-      builder.move_output_files_to_build_directory
-      builder.cleanup
-
-      # Report
-      puts format("\nBuild complete. Find files in %s.", builder.output_dir)
-    end
-
-    desc "Build OmniNav navbar assets."
-    task assets: :environment do
-      # Configure the asset pipeline to compile minified files.
-      # NOTE: Sprockets only minifies files in production environment so this assumes
-      # RAILS_ENV is set to production on the command line.
-      Rails.application.config.assets.prefix = "../build/omninav/staging"
-      Rails.application.config.assets.paths = [Rails.root.join('app', 'assets', 'javascripts'),
-                                               Rails.root.join('app', 'assets', 'stylesheets')]
-      Rails.application.config.assets.precompile -= ['master.js', 'master.css']
-      Rails.application.config.assets.precompile += ['omni-nav.js', 'omni-nav.css']
-
-      # Let it rip.
-      Rake::Task['assets:clobber'].invoke
-      Rake::Task['assets:precompile'].invoke
-    end
-  end
-
-  #
-  # Build all versions: rake build:omninav
-  #
-  desc "Build OmniNav navbar assets and markup for various Chapman websites."
-  task omninav: :environment do
-    Rake::Task['build:omninav:static'].invoke
-    Rake::Task['build:omninav:blogs'].invoke
-    Rake::Task['build:omninav:inside'].invoke
-  end
-end
+require 'render_anywhere'
+include RenderAnywhere
 # rubocop:enable Metrics/BlockLength
 
 desc "Build assets for deployment to Cascade."
@@ -135,21 +11,11 @@ task build: :environment do
     puts "  rake build RAILS_ENV=staging"
     puts "  rake build RAILS_ENV=production"
   else
-    # FIXME
-    # This is only needed here (AFAICT) and breaks things in test and elsewhere because it
-    # overrides the behavior of render. For more info, see
-    # http://stackoverflow.com/q/39396601/1093087.
-    #
-    # Bigger question: do we really need this gem just for this one call? Can't we leverage
-    # something already in Rails?
-    require 'render_anywhere'
-    include RenderAnywhere
-
     prep_dist
-
     zip rails_asset_path, dist_assets_path
     Rake::Task['changelog'].invoke
     File.write(dist_cascade_block_path, render(file: 'layouts/cascade-assets.xml', layout: false))
+    unzip('dist/netlify/_assets.zip', 'dist/netlify/_assets')
   end
 end
 
@@ -179,8 +45,6 @@ task :changelog do
     f.puts "--------------------------------------------------------------------------"
     f.puts `git status`
     }
-  `open -g #{git_log}`
-  system %(open -g "./dist")
 end 
 
 ####################
@@ -191,8 +55,48 @@ def prep_dist
   FileUtils.mkdir('dist') unless File.directory?('dist')
   FileUtils.rm_rf dist_folder
   FileUtils.mkdir dist_folder
+  prep_netlify
 end
 
+def prep_netlify
+  File.write(netlify_erb, render(file: 'layouts/netlify.html.erb', layout: false))
+  File.rename(netlify_erb, netlify_index)
+  File.delete('dist/staging/index.html') if File.exist?('dist/staging/index.html')
+  File.delete('dist/production/index.html') if File.exist?('dist/production/index.html')
+
+  File.delete('dist/netlify/readme.txt') if File.exist?('dist/netlify/readme.txt')
+  open('dist/netlify/readme.txt', 'w') { |f|
+    f.puts "-Why?
+    Previously, pushing requested changes to Cascade was a 15 minute process between bin/build,uploading the _assets.zip, publishing the extracted assets and pages, etc...
+    
+    The idea here is to use the provided Cascade-Assets.xml block once per story, and use the commandline to push changes. To start, this is only on dev-WWW, but we'd like to eventually use it on production. 
+    
+    -How?
+        This relies on the following files:
+            -config/environments/netlify.rb 
+            -app/views/layouts/netlify.html.erb
+            -lib/tasks/build.rake
+            -dist/netlify
+            -bin/build
+    
+        1) Netlify (https://app.netlify.com/sites/chapman/overview) automatically builds the changes in dist/netlify for each branch push.
+        2) https://chapman.netlify.app/ is the base URL. Individual branches are available at https://branch-name--chapman.netlify.app/
+        3) Development branch is set as Netlify's 'production' branch.
+        "    
+    }
+end
+
+def netlify_erb
+  Rails.root.join('dist', Rails.env, 'netlify.html.erb')
+end
+
+def netlify_index
+  Rails.root.join('dist', Rails.env, 'index.html')
+end
+
+def netlify_move_index
+  FileUtils.mv(netlify_index, 'dist/netlify/_assets/')
+end
 
 def rails_asset_path
   Rails.root.join('public', '_assets')
@@ -227,4 +131,35 @@ end
 def zip(input_folder, output_name)
   zf = ZipFileGenerator.new(input_folder, output_name)
   zf.write
+end
+
+def unzip(file, destination)
+  FileUtils.mkdir_p(destination)
+
+  Zip::File.open(file) do |zip_file|
+    zip_file.each do |f|
+      fpath = File.join(destination, f.name)
+      FileUtils.mkdir_p(File.dirname(fpath))
+      zip_file.extract(f, fpath) unless File.exist?(fpath)
+    end
+  end
+end
+
+task netlify: :environment do
+  Rake::Task['assets:clobber'].invoke
+  Rake::Task['assets:precompile'].invoke
+
+  prep_dist
+  zip rails_asset_path, dist_assets_path
+  unzip('dist/netlify/_assets.zip', 'dist/netlify/_assets')
+  prep_netlify
+
+  # Rake::Task['changelog'].invoke
+  # File.write(dist_cascade_block_path, render(file: 'layouts/cascade-assets.xml', layout: false))
+
+  # `git add dist/netlify .`
+  # `git commit -m 'rake netlify - add dist/netlify changes'`
+  # `git push`
+
+  puts "deploying assets to http://chapman.netlify.app"
 end

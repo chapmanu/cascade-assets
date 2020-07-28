@@ -1,4 +1,8 @@
 #!/bin/bash
+#netlify
+bundle exec rake do_precompile RAILS_ENV=netlify
+bundle exec rake build RAILS_ENV=netlify
+
 #staging
 bundle exec rake do_precompile RAILS_ENV=staging
 bundle exec rake build RAILS_ENV=staging

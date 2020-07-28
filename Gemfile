@@ -38,7 +38,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Rails 4 ignores assets.digest = false. This makes non-digested assets possible. For
 # Omninav build tasks.
-gem "non-stupid-digest-assets", group: :development
+gem "non-stupid-digest-assets"
 
 # Access an IRB console on exception pages or by using <%= console %> in views
 gem 'web-console', '~> 2.0', group: :development

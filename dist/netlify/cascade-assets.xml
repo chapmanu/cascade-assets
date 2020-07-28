@@ -1,0 +1,14 @@
+<system-xml>    
+
+<![CDATA[#protect
+  <!-- Branch: cdn Build: 12:55PM 07-10-2020 -->
+#protect]]> 
+ 
+  <!-- Preload CSS & JS -->
+  <link rel="preload" media="all" href="https://cdn--chapman.netlify.app/_assets/master.css" as="style" />
+  <link rel="preload" media="all" href="https://cdn--chapman.netlify.app/_assets/master.js" as="script" />
+ 
+  <!-- Carry on -->
+  <link rel="stylesheet" media="all" href="https://cdn--chapman.netlify.app/_assets/master.css" />
+  <script src="https://cdn--chapman.netlify.app/_assets/master.js" defer="defer"></script>
+</system-xml>
