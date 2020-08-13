@@ -66,11 +66,13 @@
       &.header {
         width: 100%;
         color: $white;
+        padding-bottom: 0;
         @include qbal-fade-enter;
         animation-duration: 2s;
 
         @include media($medium-screen) {
           vertical-align: bottom;
+          padding-bottom: 25px;
           width: 30%;
         }
 
@@ -92,6 +94,51 @@
           @include media($large-screen) {
             font-size: 36px;
             line-height: 44px;
+          }
+        }
+
+        .faux-h3,
+        h3 {
+          @include qbal-slideUp-enter;
+          animation-duration: 1s;
+   
+          margin: 0;
+          font-family: $font-stack-heading;
+          font-size: 32px;
+          line-height: 30px;
+          font-weight: normal;
+          padding: 0 32px;
+   
+          @include respond($medium-screen) {
+            padding: 0 32px;
+          }
+   
+          @include respond(tab-port) {
+            font-size: 20px;
+            line-height: 20px;
+          }
+   
+          @include respond(small) {
+           padding: 5px 20px 20px 20px;       }
+        }
+
+        .masthead-subtitle {
+          position: relative;
+          @include qbal-slideUp-enter;
+          animation-duration: 1s;
+     
+          &:before {
+            content: '';
+            width: 30%;
+            border-bottom: solid 2px #fff;
+            position: absolute;
+            left: 35px;
+            top: -10px;
+            z-index: 1;
+     
+            @include respond(small) {
+             left: 22px;
+           }
           }
         }
       }

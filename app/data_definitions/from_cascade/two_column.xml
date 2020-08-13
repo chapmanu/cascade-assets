@@ -4,15 +4,24 @@
 		<!-- radio-item show-fields map to groups below -->
 		<!-- radio-item values map to Masthead format selectors -->
 		<text field-id="ff6bcc10c0a81e5f43ef9b37a1878525" help-text="these are the new wider mastheads available" identifier="mastheadType" label="Masthead Type" type="radiobutton">
-			<radio-item show-fields="masthead/branded201611" value="Branded - New"/>
-			<radio-item show-fields="masthead/slider201611" value="Slider - New"/>
+			<radio-item show-fields="masthead/wide" value="Wide"/>
+			<radio-item show-fields="masthead/branded201611" label="Narrow" value="Branded - New"/>
+			<radio-item show-fields="masthead/slider201611" label="Slider" value="Slider - New"/>
 			<radio-item show-fields="masthead/boxes" value="Boxes"/>
 			<radio-item value="No Masthead"/>
 		</text>
 		<!-- New masthead formats (Nov 2016): Branded and Slider -->
 		<!-- These should mirror groups in three_column.xml -->
+		<group identifier="wide" label="Wide">
+			<text help-text="title that appears in masthead to the side of the photo" identifier="header" label="School or Dept Name" required="true"/>
+			<text help-text="sub-title that appears bellow the title" identifier="subTitle" label="Subtitle" required="false"/>
+			<asset identifier="image" label="Image (1200x400)" required="true" type="file"/>
+			<text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
+			<text help-text="short caption (70 chars max including blanks) to show on photo eg. Photo By: or other text" identifier="photoCaption" label="Caption (optional. 70 chars max)" maxlength="70"/>
+		</group>
 		<group identifier="branded201611" label="Branded - New">
 			<text field-id="ff6bcc10c0a81e5f43ef9b372a08aebb" help-text="title that appears in masthead to the side of the photo" identifier="header" label="School or Dept Name" required="true"/>
+			<text help-text="sub-title that appears bellow the title" identifier="subTitle" label="Subtitle" required="false"/>
 			<asset field-id="ff6bcc10c0a81e5f43ef9b375578ff00" identifier="image" label="Image (780x260)" required="true" type="file"/>
 			<text field-id="ff6bcc10c0a81e5f43ef9b3763e6000f" help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
 			<text field-id="ff6bcc10c0a81e5f43ef9b3719d59514" help-text="short caption (70 chars max including blanks) to show on photo eg. Photo By: or other text" identifier="photoCaption" label="Caption (optional. 70 chars max)" maxlength="70"/>

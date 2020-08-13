@@ -18,6 +18,28 @@ showBoxes = 'Yes'
 <% if mastheadType == 'No Masthead' %>
   <!-- mastheadType: "No Masthead" -->
 
+<% elsif mastheadType == 'Wide' %>
+  <%
+  brandedNewHeader = current_page.get_child_value(:branded_header)
+  brandedNewImagePath = current_page.get_child_value(:branded_image_path)
+  brandedNewAltText = current_page.get_child_value(:branded_alt_text)
+  %>
+
+  <div class="masthead wide">
+		<div class="masthead-content">
+			<div class="masthead-image">
+        <div class="masthead-background-img" style="background-image: url(<%= asset_pack_path brandedNewImagePath %>)"></div>
+        <div class="photo-by">
+          A hard-coded caption!
+        </div>
+      </div>
+			<div class="masthead-text theme-bg-color">
+				<div class="faux-h2 h2">School or Department Name</div>
+				<div class="faux-h3 h3 masthead-subtitle">Subtitle Text</div>
+			</div>
+		</div>
+	</div>
+
 <% elsif mastheadType == 'Branded - New' %>
   <!-- mastheadType: "Branded - New" -->
   <%
@@ -36,6 +58,7 @@ showBoxes = 'Yes'
       </div>
       <div class="column header theme-bg-color">
         <div class="faux-h2"><%= brandedNewHeader %></div>
+        <div class="faux-h3 h3 masthead-subtitle">Subtitle Text</div>
       </div>
     </div>
   </div>

@@ -292,6 +292,8 @@ module ContentTypes
         @data_definition.set_value(:masthead_type, 'Slider')
       elsif params[:masthead] == 'slider'
         @data_definition.set_value(:masthead_type, 'Slider - New')
+      elsif params[:masthead] == 'wide'
+        @data_definition.set_value(:masthead_type, 'Wide')
       else
         @data_definition.set_value(:masthead_type, 'Branded - New')
       end

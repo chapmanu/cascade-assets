@@ -693,3 +693,14 @@ def publish_asset(asset_type, asset_path)
   response = HTTParty.get(url)
   puts response.body
 end
+
+# ---------------------------------------------------------------------------- #
+#   edit format `Chapman.edu/_cascade/formats/level/Masthead`   #
+# ---------------------------------------------------------------------------- #
+desc 'Updates `Chapman.edu/_cascade/formats/level/Masthead` with `.cascade-code/Chapman.edu/_cascade/formats/level/Masthead.vtl`'
+task edit_2_3_col_masthead: :environment do
+  edit_format(
+    'Chapman.edu/_cascade/formats/level/Masthead',
+    '.cascade-code/Chapman.edu/_cascade/formats/level/Masthead.vtl'
+  )
+end

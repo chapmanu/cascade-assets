@@ -1,0 +1,137 @@
+ .masthead {
+   color: $white;
+   max-height: 400px;
+
+   @include respond(small) {
+    max-height: none;
+   }
+
+   &.wide {
+     position: relative;
+     width: 100%;
+     overflow: hidden;
+   }
+
+   &-content {
+     display: flex;
+
+     @include respond(small) {
+       flex-direction: column;
+     }
+   }
+
+   &-image {
+     width: 70%;
+     min-height: 400px;
+     display: flex;
+
+     @include respond(small) {
+       position: relative;
+       width: 100%;
+       min-height: 250px;
+     }
+
+     div.photo-by {
+       position: absolute;
+       bottom: 0;
+       left: 0;
+       padding: 16px;
+       font-size: 16px;
+       color: $white;
+       background-color: rgba(56, 56, 56, 0.70);
+     }
+   }
+
+   &-text {
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-end;
+     width: 30%;
+     max-height: 400px;
+     padding-bottom: 5%;
+     @include qbal-fade-enter;
+     animation-duration: 2s;
+
+     @include respond(small) {
+       width: 100%;
+       padding-bottom: 0;
+     }
+
+     .faux-h2,
+     h2 {
+       @include qbal-slideUp-enter;
+       animation-duration: 1s;
+
+       padding: 36px 22px;
+       margin: 0;
+       font-family: $font-stack-heading;
+       font-size: 36px;
+       line-height: 44px;
+
+       @include respond($medium-screen) {
+         padding: 32px;
+       }
+
+       @include respond(tab-port) {
+         font-size: 22px;
+         line-height: 30px;
+       }
+
+
+       @include respond(small) {
+        padding: 20px 20px 25px 22px;       
+      }
+     }
+
+     .faux-h3,
+     h3 {
+       @include qbal-slideUp-enter;
+       animation-duration: 1s;
+
+       margin: 0;
+       font-family: $font-stack-heading;
+       font-size: 32px;
+       line-height: 30px;
+       font-weight: normal;
+       padding: 0 22px;
+
+       @include respond($medium-screen) {
+         padding: 0 32px;
+       }
+
+       @include respond(tab-port) {
+         font-size: 20px;
+         line-height: 20px;
+       }
+
+       @include respond(small) {
+        padding: 5px 20px 20px 20px;       }
+     }
+   }
+
+   &-subtitle {
+     position: relative;
+     @include qbal-slideUp-enter;
+     animation-duration: 1s;
+
+     &:before {
+       content: '';
+       width: 30%;
+       border-bottom: solid 2px #fff;
+       position: absolute;
+       left: 24px;
+       top: -10px;
+       z-index: 1;
+
+       @include respond($medium-screen) {
+        // left: 22px;
+      }
+     }
+   }
+
+   &-background-img {
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+   }
+ }

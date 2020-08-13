@@ -7,7 +7,35 @@
 
 #if ( $mastheadType == 'No Masthead' )
 	<!-- mastheadType: "No Masthead" -->
+	
+## Branded Masthead design added Nov 2016.
+#elseif ( $mastheadType == 'Wide' )
+	<!-- mastheadType: "Branded - New" -->
+	#set ( $wideMastheadHeader = $masthead.getChild('wide').getChild('header').value )
+	#set ( $wideMastheadImagePath = $masthead.getChild('wide').getChild('image').getChild('path').value )
+	#set ( $wideMastheadAltText = $masthead.getChild('wide').getChild('altText').value )
+	#set ( $wideMastheadPhotoCaption = $masthead.getChild('wide').getChild('photoCaption').value )
+	#set ( $wideMastheadSubTitle = $masthead.getChild('wide').getChild('subTitle').value )
 
+	<div class="masthead wide">
+		<div class="masthead-content">
+			<div class="masthead-image">
+				<div class="masthead-background-img" style="background-image: url([system-asset]${wideMastheadImagePath}[/system-asset]"></div>
+				#if ($wideMastheadPhotoCaption != '')
+					<div class="photo-by">
+						${_EscapeTool.xml($wideMastheadPhotoCaption)}
+					</div>
+				#end
+			</div>
+			<div class="masthead-text theme-bg-color">
+				<div class="faux-h2 h2 header">$_EscapeTool.xml($wideMastheadHeader)</div>
+				#if ( $wideMastheadSubTitle != '' )
+					<div class="faux-h3 h3 header masthead-subtitle">$_EscapeTool.xml($wideMastheadSubTitle)</div>
+				#end
+			</div>
+		</div>
+	</div>
+	
 ## Branded Masthead design added Nov 2016.
 #elseif ( $mastheadType == 'Branded - New' )
 	<!-- mastheadType: "Branded - New" -->
@@ -15,14 +43,16 @@
 	#set ( $brandedMastheadImagePath = $masthead.getChild('branded201611').getChild('image').getChild('path').value )
 	#set ( $brandedMastheadAltText = $masthead.getChild('branded201611').getChild('altText').value )
 	#set ( $brandedMastheadPhotoCaption = $masthead.getChild('branded201611').getChild('photoCaption').value )
-    <div class="skip-masthead--2-3-col">
-        <a class="peekaboo next-section button red" tabindex="0" href="#breadcrumbs" aria-label="skip over carousel to next section">Skip
-          over carousel to next section</a>
-    </div>
+	#set ( $brandedMastheadSubTitle = $masthead.getChild('branded201611').getChild('subTitle').value )
+
+	<div class="skip-masthead--2-3-col">
+			<a class="peekaboo next-section button red" tabindex="0" href="#breadcrumbs" aria-label="skip over carousel to next section">Skip
+				over carousel to next section</a>
+	</div>
 	<div class="masthead-branded-v201611">
 		<div class="grid">
 			<div class="column image">
-				<img alt="${_EscapeTool.xml($brandedMastheadAltText)}" src="[system-asset]${brandedMastheadImagePath}[/system-asset]"/>
+				<img alt="${_EscapeTool.xml($brandedMastheadAltText)}" src="[system-asset]${brandedMastheadImagePath}[/system-asset]"  loading="lazy"/>
 				#if ($brandedMastheadPhotoCaption != '')
 					<div class="photo-by">
 						${_EscapeTool.xml($brandedMastheadPhotoCaption)}
@@ -31,6 +61,9 @@
 			</div>
 			<div class="column header theme-bg-color">
 				<div class="faux-h2 h2 header">$_EscapeTool.xml($brandedMastheadHeader)</div>
+				#if ( $brandedMastheadSubTitle != '' )
+					<div class="faux-h3 h3 header masthead-subtitle">$_EscapeTool.xml($brandedMastheadSubTitle)</div>
+				#end
 			</div>
 		</div>
 	</div>
@@ -42,10 +75,10 @@
 	#set ( $header = $_XPathTool.selectSingleNode($masthead, 'slider201611/header').value )
 	#set ( $firstSubtitle = $_XPathTool.selectSingleNode($slides[0], 'subTitle').value )
 
-<div class="skip-masthead--2-3-col">
-        <a class="peekaboo next-section button red" tabindex="0" href="#breadcrumbs" aria-label="skip over carousel to next section">Skip
-          over carousel to next section</a>
-    </div>
+	<div class="skip-masthead--2-3-col">
+		<a class="peekaboo next-section button red" tabindex="0" href="#breadcrumbs" aria-label="skip over carousel to next section">Skip
+			over carousel to next section</a>
+  </div>
 	<div class="slider version-201611">
 		<div class="hidden slideOptions">
 			<div class="autoRotate">On</div>
@@ -65,7 +98,7 @@
 									#set ( $slideImageAltText = $_XPathTool.selectSingleNode($slide, 'altText').value )
 									#set ( $slidePhotoCaption = $_XPathTool.selectSingleNode($slide, 'photoCaption').value )
 									<li class="slide">
-										<img alt="${_EscapeTool.xml($slideImageAltText)}" src="[system-asset]${slideImagePath}[/system-asset]"/>
+										<img alt="${_EscapeTool.xml($slideImageAltText)}" src="[system-asset]${slideImagePath}[/system-asset]"  loading="lazy"/>
 										## Subtitle will be swapped out dynamically upon slide change.
 										<input class="slideSubtitle" type="hidden" value="${_EscapeTool.xml($slideSubtitle).replace("\n", "<br/>")}"/>
 										#if ($slidePhotoCaption != '')
@@ -164,7 +197,7 @@
 						<img height="220"
 							 width="266"
 							 alt="${_EscapeTool.xml($slideImageAltText)}"
-							 src="[system-asset]${slideImagePath}[/system-asset]"/>
+							 src="[system-asset]${slideImagePath}[/system-asset]" loading="lazy"/>
 
 						<div class="caption ellipsis multiline">
 							<div class="inner">
