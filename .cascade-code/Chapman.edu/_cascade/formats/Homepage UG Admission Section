@@ -40,26 +40,30 @@
                         undergraduate makers and doers.</h3>
 
                     <ul class="statistics">
-                        <li class="fact1" data-bottom-top="top[sqrt]:120px" data-center="top:0px">
-                            <p><span class="bigstat" data-count="1790">1790</span> <span class="label"> projected first
-                                    year fall enrollment</span></p>
-                        </li>
-                        <li class="fact2" data-bottom-top="top[sqrt]:-50px" data-center="top:0px">
-                            <p><span class="bigstat" data-count="3.82">3.82</span> <span class="label"> average GPA for
-                                    admitted fall first years</span></p>
-                        </li>
-                        <li class="fact3" data-bottom-top="top[sqrt]:60px" data-center="top:0px">
-                            <p><span class="bigstat" data-count="1316">1316</span> <span class="label"> average SAT for
-                                    admitted fall first years</span></p>
-                        </li>
-                        <li class="fact4" data-bottom-top="top[sqrt]:-10px" data-center="top:0px">
-                            <p><span class="bigstat" data-count="28">28</span> <span class="label"> average ACT for
-                                    admitted fall first years</span></p>
-                        </li>
-                        <li class="fact5" data-bottom-top="top[sqrt]:70px" data-center="top:0px">
-                            <p><span class="bigstat" data-count="400">400</span> <span class="label"> projected transfer
-                                    fall enrollment</span></p>
-                        </li>
+                         #foreach ($fact in $factSet)
+                    #set ($factNumber = $fact.getChild('factNumber').value )
+                    #set ($factLabel = $fact.getChild('Label').value )
+                    #if ($foreach.count == 1)
+                        #set ($position = "120px" )
+                        <li class="fact1" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat" data-count="$factNumber">$factNumber</span> <span class="label"> $factLabel</span></p></li>
+                    #end
+                    #if ($foreach.count == 2)
+                        #set ($position = "-50px" )
+                        <li class="fact2" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat" data-count="$factNumber">$factNumber</span> <span class="label"> $factLabel</span></p></li>
+                    #end
+                    #if ($foreach.count == 3)
+                        #set ($position = "60px" )
+                        <li class="fact3" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat" data-count="$factNumber">$factNumber</span> <span class="label"> $factLabel</span></p></li>
+                    #end
+                    #if ($foreach.count == 4)
+                        #set ($position = "-10px" )
+                        <li class="fact4" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat" data-count="$factNumber">$factNumber</span> <span class="label"> $factLabel</span></p></li>
+                    #end
+                    #if ($foreach.count == 5)
+                        #set ($position = "70px" )
+                        <li class="fact5" data-bottom-top="top[sqrt]:$position" data-center="top:0px"><p><span class="bigstat" data-count="$factNumber">$factNumber</span> <span class="label"> $factLabel</span></p></li>
+                    #end
+                #end  
                     </ul>
 
                     <div class="actions">
