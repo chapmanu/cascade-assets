@@ -256,7 +256,7 @@ module ContentTypes
         'JQUERY' => cascade_block('_cascade/blocks/html/jquery'),
         'JUMP LINK' => cascade_block('_cascade/blocks/html/jump_link'),
         'LEFT COLUMN CONTENT' => render_static_two_column_left_column,
-        'MASTHEAD' => cascade_format('_cascade/formats/level/masthead'),
+        'MASTHEAD' => cascade_format('widgets/hero/side_panel_focal_point'),
         'META VIEWPORT' =>
           cascade_block('_cascade/blocks/html/global_meta_viewport'),
         'OG_TAGS' =>
