@@ -33,16 +33,24 @@ task edit_cascade_assets: :environment do
   # html = Nokogiri.HTML(URI.open(url, read_timeout: 300))
   # body = html.css('body')
 
+  webpack_manifest = File.read("dist/staging/_assets/manifest.json")
+  puts webpack_manifest = JSON.parse(webpack_manifest)
+
   html = Nokogiri.HTML(URI.open(local_file, read_timeout: 300))
   puts master_css = html.at('link[rel="stylesheet"]')['href']
+  puts webpack_manifest['application.css']
   puts master_js = html.at('link[as="script"]')['href']
+  puts webpack_manifest['application.js']
 
   uri_css = URI.parse(master_css)
+  uri_webpack_css = URI.parse(webpack_manifest['application.css'])
   puts uri_css = File.basename(uri_css.path)
+  puts uri_webpack_css = File.basename(uri_webpack_css.path)
 
   uri_js = URI.parse("#{master_js}")
+  uri_webpack_js = URI.parse(webpack_manifest['application.js'])
   puts uri_js = File.basename(uri_js.path)
-
+  puts uri_webpack_js = File.basename(uri_webpack_js.path)
 
   # def create_file(response_name, asset_path, update_source)
   puts ("#{uri_css}" + 'Chapman.edu/_assets/' + "dist/development/_assets/#{uri_css}")
@@ -50,18 +58,28 @@ task edit_cascade_assets: :environment do
   puts 
   puts create_file("#{uri_css}", 'Chapman.edu/_assets/', "dist/staging/_assets/#{uri_css}")
   puts
+  puts create_file("#{uri_webpack_css}", 'Chapman.edu/_assets/', "dist/staging/_assets/#{uri_webpack_css}")
+  puts
   puts create_file("#{uri_js}", 'Chapman.edu/_assets/', "dist/staging/_assets/#{uri_js}")
   puts
+  puts create_file("#{uri_webpack_js}", 'Chapman.edu/_assets/', "dist/staging/_assets/#{uri_webpack_js}")
 
   puts "publishing Chapman.edu/_assets/#{uri_css}"
   p
   publish_asset("file", "Chapman.edu/_assets/#{uri_css}")
   p
+  puts "publishing Chapman.edu/_assets/#{uri_webpack_css}"
+  p
+  publish_asset("file", "Chapman.edu/_assets/#{uri_webpack_css}")
+  p
   puts "publishing Chapman.edu/_assets/#{uri_js}"
   p
   publish_asset("file", "Chapman.edu/_assets/#{uri_js}")
   p
-# puts Rails.application.assets_manifest.assets["master.css"]
+  puts "publishing Chapman.edu/_assets/#{uri_webpack_js}"
+  p
+  publish_asset("file", "Chapman.edu/_assets/#{uri_webpack_js}")
+  p
 
   # TODO
   unless File.exist?("dist/_config/branch_settings.yml")

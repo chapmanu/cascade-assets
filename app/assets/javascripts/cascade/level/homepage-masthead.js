@@ -11,7 +11,7 @@ $(function () {
 });
 function fetchCuratorImages() {
     $.ajax({
-        url: 'https://api.curator.io/v1/feeds/ef183959-c3ad-4f2d-b90e-390c5d766fac/posts?api_key=11a4445f-6005-4040-9ff2-fd90d3aaa8a6',
+        url: 'https://api.curator.io/v1/feeds/c91835ec-e439-42c2-bd46-e5fb3899afe2/posts?api_key=11a4445f-6005-4040-9ff2-fd90d3aaa8a6',
         type: 'GET',
         success: manipulateCuratorImages,
         error: function (data, status, error) {

@@ -296,6 +296,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.0)
   jquery-rails
+  json
   nokogiri
   non-stupid-digest-assets
   poltergeist

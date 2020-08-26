@@ -8,6 +8,7 @@ gem 'nokogiri'
 gem 'render_anywhere', require: false
 gem 'rubyzip'
 gem 'tzinfo-data'
+gem 'json'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3'

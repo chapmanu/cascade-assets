@@ -8,7 +8,7 @@
   <%= stylesheet_link_tag 'master', rel: 'preload', as: 'style', media: 'all' %>
   <%= preload_js_link 'master', rel: 'preload', as: 'script', media: 'all'  %>
 
-  <script src="<%=asset_path(Webpacker.manifest.lookup('application.css')&.html_safe) %>" defer="true"></script>
+  <link src="<%=asset_path(Webpacker.manifest.lookup('application.css')&.html_safe) %>" defer="true"/>
   <script src="<%= asset_path(Webpacker.manifest.lookup('application.js')&.html_safe) %>" defer="true"></script>
  
   <!-- Carry on -->
