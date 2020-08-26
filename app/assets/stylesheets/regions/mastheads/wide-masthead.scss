@@ -66,7 +66,7 @@
        margin: 0;
        font-family: $font-stack-heading;
        font-size: 36px;
-       line-height: 44px;
+       line-height: 40px;
 
        @include respond($medium-screen) {
          padding: 32px;
@@ -90,8 +90,8 @@
 
        margin: 0;
        font-family: $font-stack-heading;
-       font-size: 32px;
-       line-height: 30px;
+       font-size: 28px;
+       line-height: 34px;
        font-weight: normal;
        padding: 0 22px;
 
