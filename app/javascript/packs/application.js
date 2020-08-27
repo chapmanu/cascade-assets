@@ -21,7 +21,8 @@ const images = require.context('../images', true);
 const imagePath = (name) => images(name, true);
 
 import navigation from '../src/navigation';
+import helpers from '../src/helpers';
 import '../stylesheets/master.scss';
 
 navigation.initialize();
-
+helpers.initialize();

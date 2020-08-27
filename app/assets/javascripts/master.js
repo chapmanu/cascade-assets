@@ -46,6 +46,9 @@
 //= require cascade/plugins/slick
 //= require cascade/plugins/isOnScreen
 //= require cascade/plugins/mousetrap
+//= require cascade/plugins/jquery.focuspoint.min
+//= require cascade/plugins/jquery.focuspoint.helpertool
+//= require cascade/plugins/jquery.focuspoint.helper-basic
 //= require cascade/level/plugins/tipsy
 //= require cascade/level/accordion
 //= require cascade/level/three_photo_callout

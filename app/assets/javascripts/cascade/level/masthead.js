@@ -5,5 +5,7 @@ $(function () {
   if ($(".masthead").length && $(".masthead img").length) {
     $("#container").addClass("bigMasthead").removeClass("smallMasthead");
   }
+  // debugger
+  $('.focuspoint').focusPoint();
 
 });

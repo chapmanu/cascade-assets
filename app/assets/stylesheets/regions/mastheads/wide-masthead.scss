@@ -1,6 +1,10 @@
  .masthead {
    color: $white;
    max-height: 400px;
+   
+  //  .focuspoint {
+  //    height: 100%;
+  //  }
 
    @include respond(small) {
     max-height: none;
@@ -22,11 +26,12 @@
 
    &-image {
      width: 70%;
+     height: 100%;
      min-height: 400px;
-     display: flex;
+    //  display: flex;
 
      @include respond(small) {
-       position: relative;
+      //  position: relative;
        width: 100%;
        min-height: 250px;
      }
@@ -49,6 +54,7 @@
      width: 30%;
      max-height: 400px;
      padding-bottom: 5%;
+     z-index: 10;
      @include qbal-fade-enter;
      animation-duration: 2s;
 
@@ -130,8 +136,16 @@
    }
 
    &-background-img {
-    width: 100%;
-    background-size: cover;
-    background-position: center center;
+    img {
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
+      font-family: 'object-fit: cover; object-position: 50% 50%;';
+
+      @include respond(small) {
+        object-position: 10% 10%;
+        font-family: 'object-fit: cover; object-position: 10% 10%;';
+      }
+    }
    }
  }

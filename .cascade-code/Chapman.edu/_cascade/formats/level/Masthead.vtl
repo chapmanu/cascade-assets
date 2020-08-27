@@ -20,7 +20,9 @@
 	<div class="masthead wide">
 		<div class="masthead-content">
 			<div class="masthead-image">
-				<div class="masthead-background-img" style="background-image: url([system-asset]${wideMastheadImagePath}[/system-asset]"></div>
+				<div class="masthead-background-img">
+					<img src="[system-asset]${wideMastheadImagePath}[/system-asset]"/>
+				</div>
 				#if ($wideMastheadPhotoCaption != '')
 					<div class="photo-by">
 						${_EscapeTool.xml($wideMastheadPhotoCaption)}
