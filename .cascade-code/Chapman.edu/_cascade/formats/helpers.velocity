@@ -258,10 +258,11 @@ LOG VELOCITY VARIABLES IN THE BROWSER CONSOLE ON DEV
           #end
           #if ( $childAsset.assetType == 'folder')
             #set ( $visibleSubFolder = $childAsset.metadata.getDynamicField('Hide from navigation').value != "Yes" )
-            #if ($visibleSubFolder && $childAsset.metadata.displayName != '_files')
+            #set ( $childAssetInCurrentPath    = $_StringTool.substringAfter($drillDownPagePath, $childAsset.path).length() )
+            #if ($childAssetInCurrentPath > 0 || ($visibleSubFolder && $childAsset.metadata.displayName != '_files'))
               #foreach ($lowerChildAsset in $childAsset.children)
                 #if ( $visibleChildren == false || $visibleChildrenCount < 2)
-                  #set ( $visibleSubChildren = $lowerChildAsset.metadata.getDynamicField('Hide from navigation').value == "Yes" )
+                  #set ( $visibleSubChildren = $lowerChildAsset.metadata.getDynamicField('Hide from navigation').value != "Yes" )
                   #if ($visibleSubChildren) 
                     #set ( $visibleChildren =  $visibleSubChildren )
                     #set ( $visibleChildrenCount = $visibleChildrenCount + 1)
@@ -273,7 +274,7 @@ LOG VELOCITY VARIABLES IN THE BROWSER CONSOLE ON DEV
         #end
       #end
     #end
-
+    
     #if ($visibleChildren && $visibleChildrenCount > 1 || ($isVisible && $assetInCurrentPath.length > 1))
       <li class="${isCurrentDrillDownPage}">
         <span tabindex="0" class="drill-down-parent">${_EscapeTool.xml($asset.metadata.displayName)}</span>
