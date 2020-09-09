@@ -1,7 +1,7 @@
 .wysiwyg-widget {
   padding: $primary-column-widget-spacing 0;
 
-  .content > p:last-child {
+  .content>p:last-child {
     margin-bottom: 0;
   }
 
@@ -13,7 +13,8 @@
     }
   }
 }
+
 // removes extraneous gap when wysiwyg widget is followed after h1
-h1 + .wysiwyg-widget {
+h1+.wysiwyg-widget {
   padding-top: 0;
 }

@@ -1,4 +1,4 @@
-.main > .banner-notification-widget {
+.main>.banner-notification-widget {
   margin-top: 0;
 }
 
@@ -30,8 +30,8 @@
       font-family: $futura-regular;
     }
 
-    & ~ .banner-notification-widget__button,
-    & ~ .text--link {
+    &~.banner-notification-widget__button,
+    &~.text--link {
       margin-bottom: 20px;
       margin-top: -5px;
     }

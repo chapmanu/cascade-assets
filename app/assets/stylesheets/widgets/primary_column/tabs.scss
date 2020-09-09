@@ -11,6 +11,7 @@
   display: block;
   height: auto;
   clear: both;
+
   @include bp(l) {
     padding: 0 0 10px 0;
   }
@@ -21,6 +22,7 @@
   .no-js & {
     display: none;
   }
+
   li {
     // When small, make the tabs collapse.
     @include v(background-color, solid-grey);
@@ -47,7 +49,9 @@
       background-color: #d8d8d8;
       color: $link-color;
     }
-    &.active { // The selected tab
+
+    &.active {
+      // The selected tab
       background-color: $tab-content-bg-color;
       font-weight: 600;
       color: $primary-color;
@@ -55,8 +59,12 @@
       border-right: 1px solid $tab-content-border-color;
       border-left: 1px solid $tab-content-border-color;
       border-bottom: 1px solid $tab-content-bg-color;
-      @include bp(l) { padding: 0 40px 0 40px; }
+
+      @include bp(l) {
+        padding: 0 40px 0 40px;
+      }
     }
+
     &:focus {
       outline: 2px dotted $cu-red;
       outline-offset: 5px;
@@ -72,22 +80,29 @@
   color: $text-color;
   clear: both;
   padding: 20px;
+
   div {
     margin: 0;
   }
-  > li {
+
+  >li {
     display: none;
-    > h2 { // Backup tab heading for no JS
+
+    >h2 {
+      // Backup tab heading for no JS
       display: none;
+
       .no-js & {
         display: block;
       }
     }
+
     .no-js & {
       display: block;
     }
   }
-  > li.active {
+
+  >li.active {
     display: block;
   }
 }

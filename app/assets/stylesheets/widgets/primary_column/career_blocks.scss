@@ -356,10 +356,12 @@
 }
 
 
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
   .career-block-widget__container {
     display: block;
   }
+
   .career-block-widget {
     &__text {
       display: block;

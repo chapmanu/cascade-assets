@@ -1,7 +1,9 @@
 .funnel-boxes-widget {
   padding: $primary-column-widget-spacing 0;
 
-  a { display: inline-block; }
+  a {
+    display: inline-block;
+  }
 }
 
 .funnel {
@@ -26,13 +28,13 @@
     .featureImage {
       text-align: center;
       line-height: 0;
-      
+
       img {
         height: 120px;
         -o-object-fit: cover;
-           object-fit: cover;
+        object-fit: cover;
         -o-object-position: center center;
-           object-position: center center;
+        object-position: center center;
       }
     }
 

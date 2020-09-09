@@ -319,10 +319,12 @@ li.jcarousel-item:active .button {
   outline: 2px dotted white !important;
 }
 
-.peekaboo {
-  margin-left: -9999999px;
-  z-index: -9999999;
-  opacity: 0;
+.peekaboo:not:focus {
+  display: none !important;
+}
+
+.peekaboo:focus {
+  margin: auto;
 }
 
 .peekaboo:focus,
@@ -335,12 +337,16 @@ li.jcarousel-item:active .button {
   outline: initial;
   font-family: $arial;
   font-weight: bold;
+  display: block;
 }
 
 .skip-masthead--2-3-col {
   width: 100%;
   text-align: center;
   padding-top: 10px;
+  max-width: 1130px;
+  display: block;
+  text-align: center;
 }
 
 .miniRotatorNav.next {
@@ -353,6 +359,8 @@ li.jcarousel-item:active .button {
   padding-top: 10px;
   position: absolute;
   z-index: -1;
+  display: block;
+  margin: auto;
 
   .peekaboo.next-section.button.red:focus {
     border: 2px dotted;
