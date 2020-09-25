@@ -484,7 +484,11 @@
     align-content: center;
     margin: 0;
     width: 100%;
+    max-width: 38ch;
+    padding-bottom: 30px;
+    padding-top: 30px;
   }
+
 
   .testimonial-widget__text {
     align-content: start;
