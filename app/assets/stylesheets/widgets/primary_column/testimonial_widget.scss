@@ -471,7 +471,7 @@
   }
 }
 
-@include respond(phone) {}
+
 
 .three-column-template {
   .testimonial-widget {
@@ -487,6 +487,19 @@
     max-width: 38ch;
     padding-bottom: 30px;
     padding-top: 30px;
+
+
+    @include respond(tab-land) {
+      padding-right: 30px;
+      padding-bottom: 0;
+
+    }
+
+    @include respond(tab-port) {
+      max-width: 100%;
+      padding-right: 0;
+      padding-bottom: 0;
+    }
   }
 
 
@@ -619,4 +632,8 @@ html body .button.testimonial-widget__button {
 
 h1+.testimonial-widget {
   margin-top: 20px;
+}
+
+.callout-box-widget--left.callout.callout-box-widget--white {
+  border: 1px solid var(--color-cu-light-grey) !important;
 }

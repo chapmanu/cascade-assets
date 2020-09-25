@@ -367,7 +367,6 @@ html {
 
 html.three-column-template body .text-with-cta-widget--cu-safely-back {
   .text-with-cta__text {
-    max-width: 38ch;
 
     @include respond(phone) {
       max-width: 100%;
