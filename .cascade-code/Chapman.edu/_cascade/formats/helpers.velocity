@@ -297,6 +297,51 @@ LOG VELOCITY VARIABLES IN THE BROWSER CONSOLE ON DEV
 #end
 
 
+
+/* -------------------------------------------------------------------------- */
+/*                            BUILD SINGLE LEFT NAV                           */
+/* -------------------------------------------------------------------------- */
+
+#macro ( buildSingleLeftNav $asset )
+  #set ( $drillDownPagePath         = $currentPage.path )
+  #set ( $isVisible                 = $asset.metadata.getDynamicField('Hide from navigation').value != "Yes")
+  #set ( $rootPageName              = $asset.path.replaceAll("^[\w]+\/|^[\w]+-[\w]+\/", "") )
+  #set ( $assetInCurrentPath        = $_StringTool.substringAfter($drillDownPagePath, $asset.path).length() )
+
+  #if ( $drillDownPagePath == $asset.path || $currentPage.parentFolder.path == $asset.path ) 
+    #set ( $isVisible = true )
+    #set ( $isCurrentDrillDownPage = "drill-down-list-item current" )
+  #else
+    #set( $isCurrentDrillDownPage = "drill-down-list-item")
+  #end
+
+  
+  ## setting the asset to visible regardless if its hidden in order to properly display drilldown paths parents
+  #if ( $assetInCurrentPath > 0 || $asset.name == 'index')
+    #set ( $isVisible = true )
+  #end
+
+  #if ($asset.assetType == "folder" && $isVisible)
+    
+    <li class="${isCurrentDrillDownPage}">
+        <a href="site://Chapman.edu/${asset.path}/index">${_EscapeTool.xml($asset.metadata.displayName)}</a>
+    </li>
+  #elseif ($asset.assetType == 'page' && $isVisible)
+    #if ($asset.name == 'index')
+        <li class="${isCurrentDrillDownPage} folder-item">
+            <a href="site://Chapman.edu/${asset.path}">${_EscapeTool.xml($asset.metadata.displayName)}</a>
+        </li>
+    #else
+        <li class="${isCurrentDrillDownPage}">
+            <a href="site://Chapman.edu/${asset.path}">${_EscapeTool.xml($asset.metadata.displayName)}</a>
+        </li>
+    #end
+  #elseif ($asset.assetType == 'symlink')
+    <li class="${isCurrentDrillDownPage}"><a href="site://Chapman.edu/${asset.path}">${_EscapeTool.xml($asset.label)} <span class="fas fa-external-link-alt"></span></a></li>
+  #end
+#end
+
+
 #*
 --------------------------------------------------------------------------------
 LOG VELOCITY VARIABLES IN THE BROWSER CONSOLE ON DEV
