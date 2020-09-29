@@ -48,7 +48,7 @@ task edit_cascade_assets: :environment do
   end
 
   edit_block(
-    "Chapman.edu/_cascade/blocks/html/#{cascade_assets_block_name}",
+    "Chapman.edu/_cascade/blocks/html/cascade-assets-testimonial",
     'dist/staging/cascade-assets.xml'
   )
   
