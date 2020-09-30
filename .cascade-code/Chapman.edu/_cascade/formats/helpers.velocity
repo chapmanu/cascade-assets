@@ -136,6 +136,9 @@ USAGE: #image()
       ## These CSS vars can be overridden in the 'code' section below
       #set ($imageWidth = '<style> --imgSize: 180px;  var(--smallIMgSize) </style>')
       #set ($imageHeight = '<style> --imgSize: 180px; var(--smallIMgSize) </style>')
+    #elseif ($imageShape == 'square')
+      #set ($imageWidth = '100%')
+      #set ($imageHeight = 'auto')
     #end
     
     ## SET INT or EXT URL 
