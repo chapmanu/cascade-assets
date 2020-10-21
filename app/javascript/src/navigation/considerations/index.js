@@ -1,9 +1,9 @@
 import { anchorOffset } from './navigation-fixes';
 
-const hotFixes = {
+const considerations = {
   initialize() {
     anchorOffset();
   }
 }
 
-export default hotFixes;
+export default considerations;
