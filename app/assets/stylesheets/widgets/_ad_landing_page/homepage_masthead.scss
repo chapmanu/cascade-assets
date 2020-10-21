@@ -11,6 +11,14 @@
   grid-gap: 25px;
   min-height: 800px;
 
+  h2 span.line-one, h2 span.line-two {
+    text-align: center;
+
+    @include respond(small) {
+      font-size: 9.25rem;
+    }
+  }
+
   .left {
     height: 100%;
     // Not sure what this is doing or how to replace the css variable I am leaving it
