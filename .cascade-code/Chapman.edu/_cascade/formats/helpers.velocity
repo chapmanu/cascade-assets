@@ -225,6 +225,7 @@ USAGE: #image()
         </div>
     #end
 #end
+
 #*
 --------------------------------------------------------------------------------
 BACKGROUND COLOR CHOOSER
@@ -477,11 +478,35 @@ LOG VELOCITY VARIABLES IN THE BROWSER CONSOLE ON DEV
   #end
 #end
 
+#macro ( setAssetVisibleChildren $asset )
+
+  #if ( $asset.assetType != 'file' )
+    #if ( $asset.assetType == 'folder')
+      #foreach ($childAsset in $asset.children)
+        #set ( $assetVisible = $childAsset.metadata.getDynamicField('Hide from navigation').value != "Yes") )
+        #if ($assetVisible && $childAsset.assetType != 'file')
+          #set ( $visibleChildren = true )
+          #break
+        #else
+          #set ( $visibleChildren = false )
+        #end
+      #end
+    #else
+      #set ( $assetVisible = $childAsset.metadata.getDynamicField('Hide from navigation').value != "Yes") )
+      #if ( $assetVisible && $childAsset.assetType != 'file' )
+        #set ( $visibleChildren = true )
+      #end
+    #end
+  #else
+    #set ( $visibleChildren = false )
+  #end
+#end
+
 #macro ( buildSingleLeftNav $asset )
-  #set ( $drillDownPagePath         = $currentPage.path )
-  #set ( $isVisible                 = $asset.metadata.getDynamicField('Hide from navigation').value != "Yes")
-  #set ( $rootPageName              = $asset.path.replaceAll("^[\w]+\/|^[\w]+-[\w]+\/", "") )
-  #set ( $assetInCurrentPath        = $_StringTool.substringAfter($drillDownPagePath, $asset.path).length() )
+  #set ( $drillDownPagePath  = $currentPage.path )
+  #set ( $isVisible          = $asset.metadata.getDynamicField('Hide from navigation').value != "Yes")
+  #set ( $rootPageName       = $asset.path.replaceAll("^[\w]+\/|^[\w]+-[\w]+\/", "") )
+  #set ( $assetInCurrentPath = $_StringTool.substringAfter($drillDownPagePath, $asset.path).length() )
 
   #if ( $drillDownPagePath == $asset.path || $currentPage.parentFolder.path == $asset.path ) 
     #set ( $isVisible = true )
@@ -497,10 +522,14 @@ LOG VELOCITY VARIABLES IN THE BROWSER CONSOLE ON DEV
   #end
 
   #if ($asset.assetType == "folder" && $isVisible)
-    
-    <li class="${isCurrentDrillDownPage}">
-        <a href="site://Chapman.edu/${asset.path}/index">${_EscapeTool.xml($asset.metadata.displayName)}</a>
-    </li>
+    #set ( $visibleChildren = false )
+    #set ( $output = "#setAssetVisibleChildren($asset)" )
+
+    #if ( $visibleChildren )
+      <li class="${isCurrentDrillDownPage}">
+          <a href="site://Chapman.edu/${asset.path}/index">${_EscapeTool.xml($asset.metadata.displayName)}</a>
+      </li>
+    #end
   #elseif ($asset.assetType == 'page' && $isVisible)
     #if ($asset.name == 'index')
         <li class="${isCurrentDrillDownPage} folder-item">

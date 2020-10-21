@@ -5,75 +5,46 @@ require 'nokogiri'
 require 'open-uri'
 require 'uri'
 require 'yaml'
-
-
-task debuggin: :environment do 
-  # def create_block(asset_name, parent_folder_path, update_source)
-  # p create_block("nick-test", "_cascade/blocks/html", Rails.root.join('dist', 'staging', 'cascade-assets.xml')
-
-
-  # p create_block("nick-test", "_cascade/blocks/html", "dist/staging/cascade-assets.xml")
-
-  puts HTTParty.post(
-    "https://dev-cascade.chapman.edu/api/v1/create/block/Chapman.edu/_cascade/blocks/html/wtf?u=cscddev01500&p=#{cascade_password}",
-    body: {
-      "asset": {
-        "xmlBlock": {
-          "xml": "    \r\n\r\n<![CDATA[#protect\r\n  <!-- Branch: breadcrumbs-redesign Build: 12:24AM 10-08-2020 -->\r\n#protect]]> \r\n \r\n  <!-- Preload CSS & JS -->\r\n  <link as=\"style\" href=\"//dev-www.chapman.edu/_assets/master-11f9ef72a057c39c1e724e792f7e6e848bdacd1896cbdf9218f9dbbbdfb9b3dc.css\" media=\"all\" rel=\"preload\"/>\r\n  <link as=\"script\" href=\"//dev-www.chapman.edu/_assets/master-edbddb1b835b325bec6e32481ba09b31e2ad5d6b349caf2fffab0e1b0fb6d688.js\" media=\"all\" rel=\"preload\"/>\r\n\r\n  <link defer=\"true\" src=\"//dev-www.chapman.edu/_assets/master-webpack-98e97d6cd07078870a1ba71c612ba3702471ad2b.css\"/>\r\n  <script defer=\"true\" src=\"//dev-www.chapman.edu/_assets/master-webpack-303b77bc90c47c099da5582b475d3fd8b358709f.js\"></script>\r\n \r\n  <!-- Carry on -->\r\n  <link href=\"//dev-www.chapman.edu/_assets/master-11f9ef72a057c39c1e724e792f7e6e848bdacd1896cbdf9218f9dbbbdfb9b3dc.css\" media=\"all\" rel=\"stylesheet\"/>\r\n  <script defer=\"defer\" src=\"//dev-www.chapman.edu/_assets/master-edbddb1b835b325bec6e32481ba09b31e2ad5d6b349caf2fffab0e1b0fb6d688.js\"></script>\r\n",
-          "expirationFolderRecycled": false,
-          "metadataSetId": "6fef14a3c04d744c610b81da9d165a27",
-          "metadataSetPath": "Default",
-          "metadata": {
-            "displayName": "",
-            "title": "",
-            "summary": "",
-            "teaser": "",
-            "keywords": "",
-            "metaDescription": "",
-            "author": ""
-          },
-          "reviewOnSchedule": false,
-          "reviewEvery": 0,
-          "parentFolderId": "8516f0a9c04d744c610b81da2d21be44",
-          "parentFolderPath": "_cascade/blocks/html",
-          "lastModifiedDate": "Oct 8, 2020 12:28:25 AM",
-          "lastModifiedBy": "cbryant",
-          "createdDate": "Apr 27, 2015 5:10:43 PM",
-          "createdBy": "mthomas",
-          "path": "_cascade/blocks/html/cascade-assets",
-          "siteId": "6fef14a3c04d744c610b81dac0a8d082",
-          "siteName": "Chapman.edu",
-          "tags": [],
-          "name": "cascade-assets-wtf",
-          "id": "fd5c8e3dc04d744c42ab23aad07d62a6"
-        }
-      },
-      "success": true
-    }.to_json
-  )
-end
-
+require 'fileutils'
 
 
 # ---------------------------------------------------------------------------- #
 #                            edit cascade-assets.xml                           #
 # ---------------------------------------------------------------------------- #
+# NOTE - the respective `cascade-assets.xml` file should exist before running `rake edit_cascade_assets` or it will fail. You can run `bin/build` (in build.rake) to handle creating the `cascade-assets-branch-name.xml` file. `bin/build` invokes this `edit_cascade_assets`
+
 desc 'Updates dev Chapman.edu/_cascade/blocks/html/cascade-assets with dist/staging/cascade-assets.xml'
 task edit_cascade_assets: :environment do
 
   FileUtils.mkdir('dist/_config') unless File.directory?('dist/_config')
+  current_branch = `git rev-parse --abbrev-ref HEAD`.strip
+  cascade_assets_block_name = 'cascade-assets-' + current_branch
 
-  cascade_assets_block_name = 'cacade-assets-' + `git rev-parse --abbrev-ref HEAD`.strip
+  if(File.exist?('dist/_config/branch_settings.yml'))
+    branch_settings = YAML.load_file('dist/_config/branch_settings.yml')
+    p branch_settings.inspect
+    last_used_branch =  branch_settings['branch']
+
+    if last_used_branch != current_branch
+      p
+      p "   🎋 Current branch is different from existing branch in branch_settings.yml. Replacing existing dist/_config/branch_settings.yml with a new one!"
+      p
+      FileUtils.rm_rf('dist/_config/run_once.txt')
+      FileUtils.rm_rf('dist/_config/branch_settings.yml')
+
+      File.open("dist/_config/branch_settings.yml", 'a') do |file|
+        file.puts "branch: #{current_branch}"
+      end
+
+    end
+  end
 
   unless File.exist?("dist/_config/run_once.txt")
-    puts  cascade_assets_feature_branch_filename = 'cacade-assets-' + `git rev-parse --abbrev-ref HEAD`.strip
+    p  cascade_assets_feature_branch_filename = 'cascade-assets-' + `git rev-parse --abbrev-ref HEAD`.strip
 
-    # def create_block(asset_name, parent_folder_path, update_source)
+    p create_block("#{cascade_assets_block_name}", "Chapman.edu/_cascade/blocks/html", "dist/staging/cascade-assets.xml")
 
-
-    puts create_block("#{cascade_assets_block_name}", "Chapman.edu/_cascade/blocks/html", "dist/staging/cascade-assets.xml")
-
-    puts "creating new cascade-assets-block ( #{cascade_assets_feature_branch_filename} )!!"
+    p "creating new cascade-assets-block ( #{cascade_assets_feature_branch_filename} )!!"
     File.write("dist/_config/run_once.txt", "ran `create_block` , created #{cascade_assets_feature_branch_filename} on dev-Chapman.edu/_cascade/blocks/html !!")
   end
 
@@ -83,87 +54,91 @@ task edit_cascade_assets: :environment do
   )
   
   local_file = 'dist/staging/cascade-assets.xml'
-  # url_path = URI.parse(local_file).path
-  # html = Nokogiri.HTML(URI.open(url, read_timeout: 300))
-  # body = html.css('body')
 
   webpack_manifest = File.read("dist/staging/_assets/manifest.json")
-  puts webpack_manifest = JSON.parse(webpack_manifest)
+  p webpack_manifest = JSON.parse(webpack_manifest)
 
   html = Nokogiri.HTML(URI.open(local_file, read_timeout: 300))
-  puts master_css = html.at('link[rel="stylesheet"]')['href']
-  puts webpack_manifest['application.css']
-  puts master_js = html.at('link[as="script"]')['href']
-  puts webpack_manifest['application.js']
+  p master_css = html.at('link[rel="stylesheet"]')['href']
+  p webpack_manifest['application.css']
+  p master_js = html.at('link[as="script"]')['href']
+  p webpack_manifest['application.js']
 
   uri_css = URI.parse(master_css)
   uri_webpack_css = URI.parse(webpack_manifest['application.css'])
-  puts uri_css = File.basename(uri_css.path)
-  puts uri_webpack_css = File.basename(uri_webpack_css.path)
+  p uri_css = File.basename(uri_css.path)
+  p uri_webpack_css = File.basename(uri_webpack_css.path)
 
   uri_js = URI.parse("#{master_js}")
   uri_webpack_js = URI.parse(webpack_manifest['application.js'])
-  puts uri_js = File.basename(uri_js.path)
-  puts uri_webpack_js = File.basename(uri_webpack_js.path)
+  p uri_js = File.basename(uri_js.path)
+  p uri_webpack_js = File.basename(uri_webpack_js.path)
 
-  # def create_file(response_name, asset_path, update_source)
-  puts ("#{uri_css}" + 'Chapman.edu/_assets/' + "dist/development/_assets/#{uri_css}")
+  p ("#{uri_css}" + 'Chapman.edu/_assets/' + "dist/development/_assets/#{uri_css}")
 
-  puts 
-  puts create_file("#{uri_css}", 'Chapman.edu/_assets/', "dist/staging/_assets/#{uri_css}")
+  p 
+  p create_file("#{uri_css}", 'Chapman.edu/_assets/', "dist/staging/_assets/#{uri_css}")
   puts
-  puts create_file("#{uri_webpack_css}", 'Chapman.edu/_assets/', "dist/staging/_assets/#{uri_webpack_css}")
+  p create_file("#{uri_webpack_css}", 'Chapman.edu/_assets/', "dist/staging/_assets/#{uri_webpack_css}")
   puts
-  puts create_file("#{uri_js}", 'Chapman.edu/_assets/', "dist/staging/_assets/#{uri_js}")
+  p create_file("#{uri_js}", 'Chapman.edu/_assets/', "dist/staging/_assets/#{uri_js}")
   puts
-  puts create_file("#{uri_webpack_js}", 'Chapman.edu/_assets/', "dist/staging/_assets/#{uri_webpack_js}")
+  p create_file("#{uri_webpack_js}", 'Chapman.edu/_assets/', "dist/staging/_assets/#{uri_webpack_js}")
 
-  puts "publishing Chapman.edu/_assets/#{uri_css}"
+  p "publishing Chapman.edu/_assets/#{uri_css}"
   p
   publish_asset("file", "Chapman.edu/_assets/#{uri_css}")
   p
-  puts "publishing Chapman.edu/_assets/#{uri_webpack_css}"
+  p "publishing Chapman.edu/_assets/#{uri_webpack_css}"
   p
   publish_asset("file", "Chapman.edu/_assets/#{uri_webpack_css}")
   p
-  puts "publishing Chapman.edu/_assets/#{uri_js}"
+  p "publishing Chapman.edu/_assets/#{uri_js}"
   p
   publish_asset("file", "Chapman.edu/_assets/#{uri_js}")
   p
-  puts "publishing Chapman.edu/_assets/#{uri_webpack_js}"
+  p "publishing Chapman.edu/_assets/#{uri_webpack_js}"
   p
   publish_asset("file", "Chapman.edu/_assets/#{uri_webpack_js}")
   p
 
-  # TODO
+  # TODO - it would be useful to:
+  # [ ] allow for an array of pages to publish
+  # [ ] allow for a folder to be published
+
   unless File.exist?("dist/_config/branch_settings.yml")
-    puts
-    puts "Done! Want to also automatically publish an associated page?"
-    puts
-    puts  "⚡️ If so enter the the asset path below WITHOUT https:// or .com"
-    puts " eg Chapman.edu/test-section/nick-test/two-col"
-    puts " 🎹 Enter the asset path (or press enter to ignore): "
+    p
+    p "     Done! Want to also automatically publish an associated page?"
+    p
+    p  "    ⚡️ If so enter the the asset path below WITHOUT https:// or .com"
+    p "     eg Chapman.edu/test-section/nick-test/two-col"
+    p "     🎹 Enter the asset path (or press enter to ignore): "
     
     page = STDIN.gets.chomp
-    puts `thor cascade:publish page #{page}`
 
+    # Run web.services.thor task to publish the specified page.
+    p `thor cascade:publish page #{page}`
+
+    
     FileUtils.mkdir('dist/_config') unless File.directory?('dist/_config')
 
     # File.write("dist/staging/branch_settings.yml", "page_to_publish #{page}")
     File.open("dist/_config/branch_settings.yml", 'a') do |file|
       file.puts "page_to_publish: #{page}"
+      file.puts "branch: #{current_branch}"
     end
 
-    puts "👼 Cool. This page can be reconfigured in dist/_config/branch_settings.yml"
+    p "     👼 Cool. This page can be reconfigured in dist/_config/branch_settings.yml"
+
   else 
 
     branch_settings = YAML.load(File.read("dist/_config/branch_settings.yml"))
     page = branch_settings["page_to_publish"]
-    puts 
-    puts "🔮 Automatically publishing #{page}. This can be reconfigured in dist/staging/_config/branch_settings.yml"
+    p 
+    p "🔮 Automatically publishing #{page}. This can be reconfigured in dist/staging/_config/branch_settings.yml"
 
     puts
-    puts `thor cascade:publish page #{page}`
+    p `thor cascade:publish page #{page}`
 
   end
 
@@ -261,7 +236,6 @@ task edit_three_col_data_def: :environment do
   )
 end
 
-
 # ---------------------------------------------------------------------------- #
 #                            edit shared image field                           #
 # ---------------------------------------------------------------------------- #
@@ -274,13 +248,12 @@ task edit_shared_field_image: :environment do
   )
 end
 
-
-
 # ---------------------------------------------------------------------------- #
 #           BASE METHODS - The methods above inherit from these tasks          #
 # ---------------------------------------------------------------------------- #
 
-#   edit format `Chapman.edu/_cascade/formats/level/left_nav_drilldown`   #
+# ---------------------------------------------------------------------------- #
+#      edit format `Chapman.edu/_cascade/formats/level/left_nav_drilldown`     #
 # ---------------------------------------------------------------------------- #
 desc 'Updates `Chapman.edu/_cascade/formats/level/left_nav_drilldown.vtl` with `.cascade-code/Chapman.edu/_cascade/formats/level/left_nav_drilldown.vtl`'
 task edit_left_nav_drilldown: :environment do
@@ -313,7 +286,9 @@ task edit_collapsibles: :environment do
 end
 
 # ---------------------------------------------------------------------------- #
-#   edit format `Chapman.edu/_cascade/formats/modular/uninav/_offCanvas_main_menu`   #
+#                                  edit format                                 #
+# ---------------------------------------------------------------------------- #
+#      `Chapman.edu/_cascade/formats/modular/uninav/_offCanvas_main_menu`      #
 # ---------------------------------------------------------------------------- #
 desc 'Updates `Chapman.edu/_cascade/formats/modular/uninav/_offCanvas_main_menu` with `.cascade-code/Chapman.edu/_cascade/formats/modular/uninav/_offCanvas_main_menu`'
 task edit_offcanvas_main_menu: :environment do
@@ -322,6 +297,7 @@ task edit_offcanvas_main_menu: :environment do
     '.cascade-code/Chapman.edu/_cascade/formats/modular/uninav/_offCanvas_main_menu.vtl'
   )
 end
+
 
 # ---------------------------------------------------------------------------- #
 #   edit format `Chapman.edu/_cascade/formats/modular/uninav/left_nav_drilldown`   #
@@ -356,8 +332,10 @@ task edit_homepage_hero: :environment do
   )
 end
 
+#                                 Publish Asset                                #
+# ---------------------------------------------------------------------------- #
 # USAGE: rake publish TYPE=page/ PATH=Chapman.edu/test-section/nick-test/test-publish
-# 👹note the trailing slash on the TYPE
+# 👹 note the trailing slash on the TYPE
 task :publish do
   # * 1) BASE URL
   base_url = 'https://dev-cascade.chapman.edu/api/v1/'.to_s
@@ -387,17 +365,21 @@ task :publish do
   url =
     base_url + rest_action + ENV['TYPE'] + ENV['PATH'] + cascade_username +
       cascade_password
-  puts url
+  p url
 
   # Inspect response for required details below 👇
   response = HTTParty.get(url)
-  puts response.body
+  p response.body
 end
 
 def birth(file)
   Time.at(`stat -f%B "#{file}"`.chomp.to_i)
 end
 
+
+# ---------------------------------------------------------------------------- #
+#                                  Edit Format                                 #
+# ---------------------------------------------------------------------------- #
 def edit_format(asset_path, update_source)
   # * 1) BASE URL
   base_url = 'https://dev-cascade.chapman.edu/api/v1/'.to_s
@@ -428,11 +410,11 @@ def edit_format(asset_path, update_source)
   url =
     base_url + rest_action + asset_type + asset_path + cascade_username +
       cascade_password
-  #  puts url
+  #  p url
 
   # Inspect response for required details below 👇
   response = HTTParty.get(url)
-  #  puts response.body
+  #  p response.body
   response_xml = response['asset']['scriptFormat']['script']
 
   response_xml = response['asset']['scriptFormat']['xml']
@@ -448,22 +430,22 @@ def edit_format(asset_path, update_source)
 
   backup_strategy(response_path_full, response, site_name)
 
-  #  puts response_xml
+  #  p response_xml
   update_source = "#{update_source}"
   data = File.read(update_source)
   response_body = data.gsub('"', "'")
-  puts data
+  p data
 
   #  # Change URL for edit request
   url_post =
     base_url + 'edit/' + asset_type + asset_path + cascade_username +
       cascade_password
-  puts url_post
-  puts "📝 Replacing #{response_path} with #{update_source}"
+  p url_post
+  p "📝 Replacing #{response_path} with #{update_source}"
 
   #  # 👹Editing assets unfortunately requires PATH, SITENAME, ID. This can be obtained by reading the asset's response.body 👆
 
-  puts HTTParty.post(
+  p HTTParty.post(
          url_post,
          body: {
            "asset": {
@@ -482,12 +464,14 @@ def edit_format(asset_path, update_source)
          }.to_json
        )
 
-  puts "🎉        View changes at https://dev-cascade.chapman.edu/entity/open.act?id=#{
+  p "🎉        View changes at https://dev-cascade.chapman.edu/entity/open.act?id=#{
          asset_id
        }&type=#{asset_type}".chomp('/')
 end
 
-
+# ---------------------------------------------------------------------------- #
+#                             Edit Data Definition                             #
+# ---------------------------------------------------------------------------- #
 def edit_data_def(asset_path, update_source)
   # * 1) BASE URL
   base_url = 'https://dev-cascade.chapman.edu/api/v1/'.to_s
@@ -505,7 +489,7 @@ def edit_data_def(asset_path, update_source)
   # * 4) ASSET PATH OR ID
   # you can also use its path (ie "Chapman.edu/_cascade/formats/modular/widgets/1-column")... but Cascade's naming scheme whitespace makes it annoying.
   asset_path = "#{asset_path}" # ! NO TRAILING SLASH
-  puts asset_path
+  p asset_path
   # * 5) SECRETS
   # set these in environment_variables.yml
   cascade_username = '?u=' + ENV['CASCADE_USERNAME']
@@ -517,11 +501,11 @@ def edit_data_def(asset_path, update_source)
   url =
     base_url + rest_action + asset_type + asset_path + cascade_username +
       cascade_password
-  #  puts url
+  #  p url
 
   # Inspect response for required details below 👇
   response = HTTParty.get(url)
-  #  puts response.body
+  #  p response.body
 
   response_xml = response['asset']['dataDefinition']['xml']
   site_name = response['asset']['dataDefinition']['siteName']
@@ -534,10 +518,10 @@ def edit_data_def(asset_path, update_source)
 
   backup_strategy(response_path_full, response, site_name)
 
-  puts "📝 Replacing #{response_path_full} with #{update_source}"
+  p "📝 Replacing #{response_path_full} with #{update_source}"
   update_source = "#{update_source}"
   data = File.read(update_source)
-  # puts data
+  # p data
   response_body = data
 
   #  # Change URL for edit request
@@ -546,7 +530,7 @@ def edit_data_def(asset_path, update_source)
       cascade_password
 
   #  # 👹Editing assets unfortunately requires PATH, SITENAME, ID. This can be obtained by reading the asset's response.body 👆
-  puts HTTParty.post(
+  p HTTParty.post(
          url_post,
          body: {
            asset: {
@@ -560,11 +544,14 @@ def edit_data_def(asset_path, update_source)
            }
          }.to_json
        )
-  puts "🎉        View changes at https://dev-cascade.chapman.edu/entity/open.act?id=#{
+  p "🎉        View changes at https://dev-cascade.chapman.edu/entity/open.act?id=#{
          asset_id
        }&type=#{asset_type}".chomp('/')
 end
 
+# ---------------------------------------------------------------------------- #
+#                                  Edit Block                                  #
+# ---------------------------------------------------------------------------- #
 def edit_block(asset_path, update_source)
   # * 1) BASE URL
   base_url = 'https://dev-cascade.chapman.edu/api/v1/'.to_s
@@ -592,29 +579,29 @@ def edit_block(asset_path, update_source)
     base_url + rest_action + asset_type + asset_path + cascade_username +
       cascade_password
 
-  puts url
+  p url
 
   response = HTTParty.get(url)
-  puts response.body
+  p response.body
 
-  puts response_xml = response['asset']['xmlBlock']['xml']
-  puts asset_id = response['asset']['xmlBlock']['id']
-  puts site_name = response['asset']['xmlBlock']['siteName']
-  puts response_name = response['asset']['xmlBlock']['name']
-  puts response_path = response['asset']['xmlBlock']['path']
-  puts parent_folder_id = response['asset']['xmlBlock']['parentFolderId']
+  p response_xml = response['asset']['xmlBlock']['xml']
+  p asset_id = response['asset']['xmlBlock']['id']
+  p site_name = response['asset']['xmlBlock']['siteName']
+  p response_name = response['asset']['xmlBlock']['name']
+  p response_path = response['asset']['xmlBlock']['path']
+  p parent_folder_id = response['asset']['xmlBlock']['parentFolderId']
 
   response_path_full = site_name + '/' + response_path
 
   response_xml = response['asset']['xmlBlock']['xml']
-  puts response_xml
+  p response_xml
 
   backup_strategy(response_path_full, response, site_name)
 
   cascade_assets_changes = 'dist/staging/cascade-assets.xml'
 
   data = File.read(cascade_assets_changes)
-  puts data
+  p data
 
   response_body = data
 
@@ -625,7 +612,7 @@ def edit_block(asset_path, update_source)
   # 👹Editing assets unfortunately requires PATH, SITENAME, ID. This can be obtained by reading the asset's response.body 👆
   # HTTParty.post(url_post, body: { asset: { xmlBlock: { xml: data, path: "_cascade/blocks/html/0-write-test", parentFolderId: parent_folder_id, siteName: "Chapman.edu", id: "365ae5dec0a81e8a20b1d746fd3e0778" } } }.to_json)
 
-  puts HTTParty.post(
+  p HTTParty.post(
          url_post,
          body: {
            asset: {
@@ -639,12 +626,14 @@ def edit_block(asset_path, update_source)
            }
          }.to_json
        )
-  puts "🎉        View changes at https://dev-cascade.chapman.edu/entity/open.act?id=#{
+  p "🎉        View changes at https://dev-cascade.chapman.edu/entity/open.act?id=#{
          asset_id
        }&type=#{asset_type}".chomp('/')
 end
 
-
+# ---------------------------------------------------------------------------- #
+#                               Edit Shared Field                              #
+# ---------------------------------------------------------------------------- #
 def edit_shared_field(asset_path, update_source)
   # * 1) BASE URL
   base_url = 'https://dev-cascade.chapman.edu/api/v1/'.to_s
@@ -674,11 +663,11 @@ def edit_shared_field(asset_path, update_source)
   url =
     base_url + rest_action + asset_type + asset_path + cascade_username +
       cascade_password
-  #  puts url
+  #  p url
 
   # Inspect response for required details below 👇
   response = HTTParty.get(url)
-  #  puts response.body
+  #  p response.body
   response_xml = response['asset']['sharedField']['script']
 
   response_xml = response['asset']['sharedField']['xml']
@@ -696,22 +685,22 @@ def edit_shared_field(asset_path, update_source)
 
   backup_strategy(response_path_full, response, site_name)
 
-  #  puts response_xml
+  #  p response_xml
   update_source = "#{update_source}"
   data = File.read(update_source)
   response_body = data.gsub('"', "'")
-  puts data
+  p data
 
   #  # Change URL for edit request
   url_post =
     base_url + 'edit/' + asset_type + asset_path + cascade_username +
       cascade_password
-  puts url_post
-  puts "📝 Replacing #{response_path} with #{update_source}"
+  p url_post
+  p "📝 Replacing #{response_path} with #{update_source}"
 
   #  # 👹Editing assets unfortunately requires PATH, SITENAME, ID. This can be obtained by reading the asset's response.body 👆
 
-  puts HTTParty.post(
+  p HTTParty.post(
          url_post,
          body: {
            "asset": {
@@ -731,46 +720,17 @@ def edit_shared_field(asset_path, update_source)
 
     
 
-  puts "🎉        View changes at https://dev-cascade.chapman.edu/entity/open.act?id=#{
+  p "🎉        View changes at https://dev-cascade.chapman.edu/entity/open.act?id=#{
          asset_id
        }&type=#{asset_type}".chomp('/')
 end
 
-def backup_strategy(response_path_full, response, site_name)
-  backup_filename = response_path_full.gsub('/', '_').gsub('.', '_')
-  asset_type = "#{asset_type}"
-  site_name = "#{site_name}"
 
-  backup_dir = "_backup/#{site_name}#{asset_type}/#{backup_filename}/"
-  puts "backup_dir: #{backup_dir}"
-  puts "👼 Backing up Cascade asset in #{backup_dir}"
-  FileUtils.mkdir_p(backup_dir) unless File.directory?(backup_dir)
-  time = Time.now
-
-  backup_files_count =
-    Dir[File.join(backup_dir, '**', '*')].count { |file| File.file?(file) }.to_i
-  backup_files_max = 10
-  backup_file_oldest =
-    Dir[backup_dir + '*.bak'].sort_by { |f| File.ctime(f) }.last(1)[0]
-
-  if backup_files_count <= backup_files_max
-    File.write(
-      backup_dir + backup_filename + '__' + time.strftime('%m-%d-%Y.%H.%M.%S') +
-        '.bak',
-      response['asset']
-    )
-  else
-    puts "🚨 Reached file backup limit ( #{backup_files_max} )"
-    puts "♻️  Overwriting oldest backup ( #{backup_file_oldest} )"
-    File.write(backup_file_oldest, response['asset'])
-    puts
-  end
-end
-
-
+# ---------------------------------------------------------------------------- #
+#                                  Create File                                 #
+# ---------------------------------------------------------------------------- #
 # create file (such as master.css or master.js)
 def create_file(file_name, asset_path, update_source)
-
   response_name = "#{response_name}"
   # * 1) BASE URL
   base_url = 'https://dev-cascade.chapman.edu/api/v1/'.to_s
@@ -797,7 +757,7 @@ def create_file(file_name, asset_path, update_source)
   update_source = "#{update_source}"
 
   data = File.read(update_source)
-  puts data
+  p data
 
   response_body = data
 
@@ -808,7 +768,7 @@ def create_file(file_name, asset_path, update_source)
   # 👹Editing assets unfortunately requires PATH, SITENAME, ID. This can be obtained by reading the asset's response.body 👆
   # HTTParty.post(url_post, body: { asset: { xmlBlock: { xml: data, path: "_cascade/blocks/html/0-write-test", parentFolderId: parent_folder_id, siteName: "Chapman.edu", id: "365ae5dec0a81e8a20b1d746fd3e0778" } } }.to_json)
 
-  puts HTTParty.post(
+  p HTTParty.post(
          url_post,
          body: {
           "asset": {
@@ -843,13 +803,15 @@ def create_file(file_name, asset_path, update_source)
           "success": true
         }.to_json
        )
-  # puts "🎉        View changes at https://dev-cascade.chapman.edu/entity/open.act?id=#{
+  # p "🎉        View changes at https://dev-cascade.chapman.edu/entity/open.act?id=#{
   #        asset_id
   #      }&type=#{asset_type}".chomp('/')
 end
 
+# ---------------------------------------------------------------------------- #
+#                                 Create Block                                 #
+# ---------------------------------------------------------------------------- #
 def create_block(asset_name, parent_folder_path, update_source)
-
   asset_name = "#{asset_name}"
 
   p 
@@ -882,7 +844,7 @@ def create_block(asset_name, parent_folder_path, update_source)
 
   data = File.read(update_source)
   
-  puts data
+  p data
 
   response_body = data
 
@@ -899,7 +861,7 @@ def create_block(asset_name, parent_folder_path, update_source)
   # 👹Editing assets unfortunately requires PATH, SITENAME, ID. This can be obtained by reading the asset's response.body 👆
   # HTTParty.post(url_post, body: { asset: { xmlBlock: { xml: data, path: "_cascade/blocks/html/0-write-test", parentFolderId: parent_folder_id, siteName: "Chapman.edu", id: "365ae5dec0a81e8a20b1d746fd3e0778" } } }.to_json)
 
-  puts HTTParty.post(
+  p HTTParty.post(
          url_post,
          body: {
   "asset": {
@@ -936,19 +898,22 @@ def create_block(asset_name, parent_folder_path, update_source)
   "success": true
 }.to_json
        )
-  # puts "🎉        View changes at https://dev-cascade.chapman.edu/entity/open.act?id=#{
+  # p "🎉        View changes at https://dev-cascade.chapman.edu/entity/open.act?id=#{
   #        asset_id
   #      }&type=#{asset_type}".chomp('/')
 end
 
+# ---------------------------------------------------------------------------- #
+#                                 Local Backups                                #
+# ---------------------------------------------------------------------------- #
 def backup_strategy(response_path_full, response, site_name)
   backup_filename = response_path_full.gsub('/', '_').gsub('.', '_')
   asset_type = "#{asset_type}"
   site_name = "#{site_name}"
 
   backup_dir = "_backup/#{site_name}#{asset_type}/#{backup_filename}/"
-  puts "backup_dir: #{backup_dir}"
-  puts "👼 Backing up Cascade asset in #{backup_dir}"
+  p "backup_dir: #{backup_dir}"
+  p "👼 Backing up Cascade asset in #{backup_dir}"
   FileUtils.mkdir_p(backup_dir) unless File.directory?(backup_dir)
   time = Time.now
 
@@ -965,14 +930,16 @@ def backup_strategy(response_path_full, response, site_name)
       response['asset']
     )
   else
-    puts "🚨 Reached file backup limit ( #{backup_files_max} )"
-    puts "♻️  Overwriting oldest backup ( #{backup_file_oldest} )"
+    p "🚨 Reached file backup limit ( #{backup_files_max} )"
+    p "♻️  Overwriting oldest backup ( #{backup_file_oldest} )"
     File.write(backup_file_oldest, response['asset'])
     puts
   end
 end
 
-
+# ---------------------------------------------------------------------------- #
+#                                 Publish Asset                                #
+# ---------------------------------------------------------------------------- #
 def publish_asset(asset_type, asset_path) 
   # * 1) BASE URL
   base_url = 'https://dev-cascade.chapman.edu/api/v1/'.to_s
@@ -1002,11 +969,11 @@ def publish_asset(asset_type, asset_path)
   url =
     base_url + rest_action + asset_type + asset_path + cascade_username +
       cascade_password
-  puts url
+  p url
 
   # Inspect response for required details below 👇
   response = HTTParty.get(url)
-  puts response.body
+  p response.body
 end
 
 # ---------------------------------------------------------------------------- #

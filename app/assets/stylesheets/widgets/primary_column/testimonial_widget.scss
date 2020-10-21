@@ -471,7 +471,7 @@
   }
 }
 
-@include respond(phone) {}
+
 
 .three-column-template {
   .testimonial-widget {
@@ -479,12 +479,33 @@
     display: grid;
   }
 
+  .button.testimonial-widget__button:nth-child(3n) {
+    margin-top: 5px;
+  }
+
   .testimonial-widget__text {
     display: grid;
     align-content: center;
     margin: 0;
     width: 100%;
+    max-width: 38ch;
+    padding-bottom: 30px;
+    padding-top: 30px;
+
+
+    @include respond(tab-land) {
+      padding-right: 30px;
+      padding-bottom: 0;
+
+    }
+
+    @include respond(tab-port) {
+      max-width: 100%;
+      padding-right: 0;
+      padding-bottom: 0;
+    }
   }
+
 
   .testimonial-widget__text {
     align-content: start;
@@ -615,4 +636,8 @@ html body .button.testimonial-widget__button {
 
 h1+.testimonial-widget {
   margin-top: 20px;
+}
+
+.callout-box-widget--left.callout.callout-box-widget--white {
+  border: 1px solid var(--color-cu-light-grey) !important;
 }

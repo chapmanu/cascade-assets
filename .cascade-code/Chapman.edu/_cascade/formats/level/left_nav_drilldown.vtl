@@ -24,11 +24,15 @@
             <ul class="root-left-nav" aria-expanded="true">
                 #if ( $visibleSiblingCount == 1 && $leftParentNavAssets)
                     #foreach( $asset in $leftParentNavAssets.children)
-                        #buildSingleLeftNav($asset, $visibleSiblingCount)
+                        #if ( $asset.name != '_files')
+                            #buildSingleLeftNav($asset)
+                        #end
                     #end
                 #else
                     #foreach( $asset in $leftNavAssets.children)
-                        #buildSingleLeftNav($asset, $visibleSiblingCount)
+                        #if ( $asset.name != '_files')
+                            #buildSingleLeftNav($asset)
+                        #end
                     #end
                 #end
             </ul>

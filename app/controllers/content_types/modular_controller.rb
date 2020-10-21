@@ -590,7 +590,7 @@ module ContentTypes
         render_static_partial(
           'widgets/primary_content/featured_news_events_feed_1'
         ),
-        render_static_partial('widgets/primary_content/three_photo_callout_1'),
+        render_static_partial('widgets/primary_content/testimonial_widget'),
         render_static_partial('widgets/primary_content/next_steps_widget'),
         render_static_partial('widgets/primary_content/text_with_cta'),
         render_static_partial('widgets/primary_content/collapsables_1'),

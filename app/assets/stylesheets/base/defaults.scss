@@ -648,6 +648,7 @@ p {
 }
 
 html body {
+  .no-border {border: none !important;}
   [class*="__button--white"],
   .border-light-grey {
     border: 1px solid var(--color-cu-light-grey) !important;
@@ -987,13 +988,6 @@ img[loading="lazy"] {
 
 .border-light-grey {
   border: 1px solid var(--color-cu-light-grey);
-}
-
-
-html body .text-with-cta-widget .text-with-cta__button.color--white {
-  border: 1px solid var(--color-cu-light-grey);
-  background-color: white;
-  color: var(--color-panther-black);
 }
 
 /***************************************************

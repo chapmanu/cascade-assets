@@ -95,6 +95,7 @@ $(document).ready(function () {
           $selectors.featuredStory.h2Link.changeText(story.post_title_excerpt || story.post_title);
           $selectors.featuredStory.description.changeText(trimDescription(story.featured_description_excerpt || story.featured_description, story.post_title_excerpt || story.post_title));
 
+          $('.editors-picks.stories .announcement a.smc-cta').attr('href', story.post_url);
           return
         }
 
