@@ -11,7 +11,6 @@ export const anchorOffset = () => {
   }
 
   $('a[href^="#"]').click(function() {
-    console.log('Width:  ' +  getWidth() );
     const offset = getWidth() > 905 ? 131 : 71,
     scrollTime = 250;
 
