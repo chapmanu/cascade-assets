@@ -1,4 +1,4 @@
-import { anchorOffset } from './navigation-fixes';
+import { anchorOffset } from './uninav';
 
 const considerations = {
   initialize() {
