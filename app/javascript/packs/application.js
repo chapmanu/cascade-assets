@@ -1,6 +1,6 @@
 /* eslint no-console:0 */
-import 'core-js/stable'
-import 'regenerator-runtime/runtime'
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 // This file is automatically compiled by Webpack, along with any other files
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
@@ -9,7 +9,6 @@ import 'regenerator-runtime/runtime'
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -17,13 +16,12 @@ import 'regenerator-runtime/runtime'
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-const images = require.context('../images', true);
+const images = require.context("../images", true);
 const imagePath = (name) => images(name, true);
 
-import navigation from '../src/navigation';
-import accessibility from '../src/accessibility';
-import '../stylesheets/master.scss';
-
+import navigation from "../src/navigation";
+import accessibility from "../src/accessibility";
+import "../stylesheets/master.scss";
+import "../css/application.css";
 navigation.initialize();
 accessibility.initialize();
-

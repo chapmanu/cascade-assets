@@ -1,139 +1,7 @@
 <%= render 'widgets/shared/head' %>
 
 <body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0" class="vsc-initialized">
-    <div class="optanon-alert-box-wrapper  hide-cookie-setting-button" role="alertdialog"
-        aria-labelledby="alert-box-title" aria-describedby="alert-box-message" style="display:none">
-        <div class="optanon-alert-box-bottom-top">
-            <div class="optanon-alert-box-corner-close"><button class="optanon-alert-box-close banner-close-button"
-                    aria-label="Close" title="Close"
-                    onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Banner Close Button');"
-                    tabindex="3"></button></div>
-        </div>
-        <div class="optanon-alert-box-bg">
-            <div class="optanon-alert-box-logo"> </div>
-            <div class="optanon-alert-box-body">
-                <p class="optanon-alert-box-title legacy-banner-title sr-only" id="alert-box-title" role="heading"
-                    aria-level="2">Cookie Notice</p>
-                <p class="banner-content" id="alert-box-message">We use cookies to offer you a better browsing
-                    experience, analyze site traffic, and personalize content per the Chapman University Privacy Policy.
-                    If you continue to use this site, you consent to our use of cookies. <a
-                        href="https://www.chapman.edu/campus-services/information-systems/policies-and-procedures/privacy-policy.aspx"
-                        class="banner-policy-link" tabindex="1" aria-label="Privacy Policy">Privacy Policy</a></p>
-            </div>
-            <div class="optanon-clearfix"></div>
-            <div class="optanon-alert-box-button-container">
-                <div class="optanon-alert-box-button optanon-button-close">
-                    <div class="optanon-alert-box-button-middle"><button class="optanon-alert-box-close"
-                            aria-label="Close">Close</button></div>
-                </div>
-                <div class="optanon-alert-box-button optanon-button-allow">
-                    <div class="optanon-alert-box-button-middle accept-cookie-container"><button
-                            class="optanon-allow-all accept-cookies-button" title="GOT IT" aria-label="GOT IT"
-                            onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Banner Accept Cookies');"
-                            tabindex="2">GOT IT</button></div>
-                </div>
-            </div>
-            <div class="optanon-clearfix optanon-alert-box-bottom-padding"></div>
-        </div>
-    </div>
-    <div id="optanon" class="modern">
-        <div id="optanon-popup-bg"></div>
-        <div id="optanon-popup-wrapper" role="dialog" aria-modal="true" tabindex="-1" lang="en-GB">
-            <div id="optanon-popup-top"><button
-                    onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Preferences Close Button');"
-                    aria-label="Close" class="optanon-close-link optanon-close optanon-close-ui" title="Close">
-                    <div id="optanon-close"
-                        style="background: url(https://optanon.blob.core.windows.net/skins/5.15.0/default_flat_bottom_two_button_black/v2/images/optanon-pop-up-close.png);width:34px;height:34px;">
-                    </div>
-                </button></div>
-            <div id="optanon-popup-body">
-                <div id="optanon-popup-body-left">
-                    <div id="optanon-popup-body-left-shading"></div>
-                    <div id="optanon-branding-top-logo"
-                        style="background-image: url('https://optanon.blob.core.windows.net/skins/5.15.0/default_flat_bottom_two_button_black/v2/images/cookie-collective-top-logo.svg') !important;">
-                    </div>
-                    <ul id="optanon-menu" aria-label="Navigation Menu" role="tablist">
-                        <li class="menu-item-on menu-item-about" title="Your Privacy">
-                            <p class="preference-menu-item"><button role="tab" aria-selected="true"
-                                    aria-controls="Your-Privacy" id="Your-Privacy">Your Privacy</button></p>
-                        </li>
-                        <li class="menu-item-necessary menu-item-on" title="Strictly Necessary Cookies">
-                            <p class="preference-menu-item"><button role="tab" aria-selected="false"
-                                    aria-controls="Strictly-Necessary-Cookies" id="Strictly-Necessary">Strictly
-                                    Necessary Cookies</button></p>
-                        </li>
-                        <li class="menu-item-on menu-item-performance" title="Performance Cookies">
-                            <p class="preference-menu-item"><button role="tab" aria-selected="false"
-                                    aria-controls="Performance-Cookies" id="Performance-Cookies">Performance
-                                    Cookies</button></p>
-                        </li>
-                        <li class="menu-item-on menu-item-functional" title="Functional Cookies">
-                            <p class="preference-menu-item"><button role="tab" aria-selected="false"
-                                    aria-controls="Functional-Cookies" id="Functional-Cookies">Functional
-                                    Cookies</button></p>
-                        </li>
-                        <li class="menu-item-on menu-item-advertising" title="Targeting Cookies">
-                            <p class="preference-menu-item"><button role="tab" aria-selected="false"
-                                    aria-controls="Targeting-Cookies" id="Targeting-Cookies">Targeting Cookies</button>
-                            </p>
-                        </li>
-                        <li class="menu-item-moreinfo menu-item-off" title="More Information">
-                            <p class="preference-menu-item"><a target="_blank" aria-label="More Information"
-                                    href="https://cookiepedia.co.uk/giving-consent-to-cookies"
-                                    onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Preferences Cookie Policy');">More
-                                    Information</a></p>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <div id="optanon-popup-body-right">
-                        <p role="heading" aria-level="2" class="legacy-preference-banner-title h2"
-                            aria-label="Privacy Preference Centre">Privacy Preference Centre</p>
-                        <div class="vendor-header-container">
-                            <p class="header-3" role="heading" aria-level="3"></p>
-                            <div id="optanon-popup-more-info-bar">
-                                <div class="optanon-status">
-                                    <div class="optanon-status-editable">
-                                        <form><span class="fieldset">
-                                                <p><input type="checkbox" value="check" id="chkMain" checked="checked"
-                                                        class="legacy-group-status optanon-status-checkbox"><label
-                                                        for="chkMain">Active</label></p>
-                                            </span></form>
-                                    </div>
-                                    <div class="optanon-status-always-active optanon-status-on">
-                                        <p>Always Active</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="optanon-main-info-text" role="tabpanel"></div>
-                    </div>
-                    <div class="optanon-bottom-spacer"></div>
-                </div>
-            </div>
-            <div id="optanon-popup-bottom"> <a href="https://onetrust.com/poweredbyonetrust" target="_blank"
-                    rel="noopener">
-                    <div id="optanon-popup-bottom-logo" alt="OneTrust Website"
-                        style="background: url(https://optanon.blob.core.windows.net/skins/5.15.0/default_flat_bottom_two_button_black/v2/images/cookie-collective-top-bottom.png);width:155px;height:35px;"
-                        title="powered by OneTrust"></div>
-                </a>
-                <div class="optanon-button-wrapper optanon-save-settings-button optanon-close optanon-close-consent">
-                    <div class="optanon-white-button-left"></div>
-                    <div class="optanon-white-button-middle"><button title="Save Settings" aria-label="Save Settings"
-                            onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Preferences Save Settings');">Save
-                            Settings</button></div>
-                    <div class="optanon-white-button-right"></div>
-                </div>
-                <div class="optanon-button-wrapper optanon-allow-all-button optanon-allow-all" style="display: none;">
-                    <div class="optanon-white-button-left"></div>
-                    <div class="optanon-white-button-middle"><button title="Allow All" aria-label="Allow All"
-                            onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Preferences Allow All');">Allow
-                            All</button></div>
-                    <div class="optanon-white-button-right"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!--
 		
 		<![endif]-->
@@ -3021,7 +2889,62 @@
             <div id="main" role="main">
                 <div class="primary-content one-column">
 
-
+<div class="min-h-screend bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+  <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+    <div class="absolute inset-0 bg-gradient-to-r from-teal-400 to-blue-400 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+    <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+      <div class="max-w-md mx-auto">
+        <div>
+          <img src="/img/logo.svg" class="h-7 sm:h-8" />
+        </div>
+        <div class="divide-y divide-gray-200">
+          <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+            <p class="text-red-500">An advanced online playground for Tailwind CSS, including support for things like:</p>
+            <ul class="list-disc space-y-2">
+              <li class="flex items-start">
+                <span class="h-6 flex items-center sm:h-7">
+                  <svg class="flex-shrink-0 h-5 w-5 text-teal-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <p class="ml-2">
+                  Customizing your
+                  <code class="text-sm font-bold text-gray-900">tailwind.config.js</code> file
+                </p>
+              </li>
+              <li class="flex items-start">
+                <span class="h-6 flex items-center sm:h-7">
+                  <svg class="flex-shrink-0 h-5 w-5 text-teal-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <p class="ml-2">
+                  Extracting classes with
+                  <code class="text-sm font-bold text-gray-900">@apply</code>
+                </p>
+              </li>
+              <li class="flex items-start">
+                <span class="h-6 flex items-center sm:h-7">
+                  <svg class="flex-shrink-0 h-5 w-5 text-teal-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <p class="ml-2">Code completion with instant preview</p>
+              </li>
+            </ul>
+            <p>Perfect for learning how the framework works, prototyping a new idea, or creating a demo to share online.</p>
+          </div>
+          <div class="pt-6 text-base leading-6 font-bold sm:text-lg sm:leading-7">
+            <p>Want to dig deeper into Tailwind?</p>
+            <p>
+              <a href="https://tailwindcss.com" class="text-teal-600 hover:text-teal-700"> Read the docs &rarr; </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
