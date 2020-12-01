@@ -583,7 +583,7 @@
           </text>
         </group>
       </group>
-      <group identifier="AtoZListing" label="A to Z Listing (Block)" collapsed="true">
+      <group identifier="AtoZListing" label="A to Z Listing (Block)" collapsed="true" restrict-to-groups="Administrators, Web-Coordinators">
         <text type="radiobutton" identifier="display-a-z-listing" label="Show" field-id="ff6bcc40c0a81e5f43ef9b37af3a25a9" default="Yes" required="true">
           <radio-item value="Yes" />
           <radio-item value="No" />
