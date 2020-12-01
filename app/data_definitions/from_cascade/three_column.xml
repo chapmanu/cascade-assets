@@ -447,7 +447,7 @@
           <text identifier="text" label="Text" field-id="ff6bcc3fc0a81e5f43ef9b37f65c05f6" required="true" help-text="15 Characters Maximum" />
         </group>
       </group>
-      <group identifier="threePhotoCallout" label="Three Photo Callout" collapsed="true">
+      <group identifier="threePhotoCallout" label="Three Photo Callout - RETIRING, USE PHOTO CALLOUT" collapsed="true">
         <text type="radiobutton" identifier="display-three-photo-callout" label="Show" field-id="ff6bcc3fc0a81e5f43ef9b373ad8b02e" default="Yes" required="true">
           <radio-item value="Yes" />
           <radio-item value="No" />

@@ -569,7 +569,7 @@
 					<text field-id="ff6bcc19c0a81e5f43ef9b373bd183f4" identifier="text" label="Text" required="true" />
 				</group>
 			</group>
-			<group collapsed="true" identifier="threePhotoCallout" label="Three Photo Callout">
+			<group collapsed="true" identifier="threePhotoCallout" label="Three Photo Callout - RETIRING, USE PHOTO CALLOUT">
 				<text default="Yes" field-id="ff6bcc19c0a81e5f43ef9b37269b5394" identifier="display-three-photo-callout" label="Show" required="true" type="radiobutton">
 					<radio-item value="Yes" />
 					<radio-item value="No" />
