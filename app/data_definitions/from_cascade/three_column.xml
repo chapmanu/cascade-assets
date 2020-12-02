@@ -194,7 +194,7 @@
         <dropdown-item value="A to Z Listing" show-fields="primaryContent/widget/AtoZListing" />
         <dropdown-item value="Html Block" show-fields="primaryContent/widget/html-block" />
         <dropdown-item value="Department Contact Info" show-fields="primaryContent/widget/contact" />
-        <dropdown-item value="Degree Info" show-fields="primaryContent/widget/degree" />
+        <dropdown-item value="Degree Info" show-fields="primaryContent/widget/degree" restrict-to-groups="Administrators, Web-Coordinators" />
         <dropdown-item value="Photo Callout" show-fields="primaryContent/widget/photoCalloutWidget" />
         <dropdown-item value="Next Steps" show-fields="primaryContent/widget/next-steps-widget" />
       </text>
