@@ -189,12 +189,12 @@
         <dropdown-item show-fields="primaryContent/widget/wysiwyg-editor" value="Text Editor" />
         <dropdown-item show-fields="primaryContent/widget/threePhotoCallout" value="Three Photo Callout" />
         <dropdown-item show-fields="primaryContent/widget/twitterTimeline" value="Twitter Feed" />
-        <dropdown-item show-fields="primaryContent/widget/Calendar25Live" value="Calendar25Live" />
+        <dropdown-item show-fields="primaryContent/widget/Calendar25Live" value="Calendar25Live" restrict-to-groups="Administrators, Web-Coordinators" />
         <dropdown-item show-fields="primaryContent/widget/AtoZListing" value="A to Z Listing" />
         <dropdown-item show-fields="primaryContent/widget/html-block" value="Html Block" />
         <dropdown-item show-fields="primaryContent/widget/testimonial-widget" value="Testimonial" />
         <dropdown-item show-fields="primaryContent/widget/contact" value="Department Contact Info" />
-        <dropdown-item show-fields="primaryContent/widget/degree" value="Degree Info" />
+        <dropdown-item show-fields="primaryContent/widget/degree" value="Degree Info" restrict-to-groups="Administrators, Web-Coordinators" />
         <dropdown-item show-fields="primaryContent/widget/photoCalloutWidget" value="Photo Callout" />
         <dropdown-item show-fields="primaryContent/widget/next-steps-widget" value="Next Steps" />
         <dropdown-item show-fields="primaryContent/widget/quickFactBlocksWidget" value="Quick Fact Blocks" />
