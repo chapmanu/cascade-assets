@@ -187,11 +187,11 @@
         <dropdown-item value="Tabs" show-fields="primaryContent/widget/tabs" />
         <dropdown-item value="Testimonial" show-fields="primaryContent/widget/testimonial-widget" />
         <dropdown-item value="Text Editor" show-fields="primaryContent/widget/wysiwyg-editor" />
-        <dropdown-item value="Three Photo Callout" show-fields="primaryContent/widget/threePhotoCallout" />
+        <dropdown-item value="Three Photo Callout - RETIRING, USE PHOTO CALLOUT" show-fields="primaryContent/widget/threePhotoCallout -  RETIRING, USE PHOTO CALLOUT" />
         <dropdown-item show-fields="primaryContent/widget/textWithCTA" value="Text with CTA" />
         <dropdown-item value="Twitter Feed" show-fields="primaryContent/widget/twitterTimeline" />
         <dropdown-item value="Calendar25Live" show-fields="primaryContent/widget/Calendar25Live" restrict-to-groups="Administrators, Web-Coordinators" />
-        <dropdown-item value="A to Z Listing" show-fields="primaryContent/widget/AtoZListing" />
+        <dropdown-item value="A to Z Listing" show-fields="primaryContent/widget/AtoZListing" restrict-to-groups="Administrators, Web-Coordinators" />
         <dropdown-item value="Html Block" show-fields="primaryContent/widget/html-block" />
         <dropdown-item value="Department Contact Info" show-fields="primaryContent/widget/contact" />
         <dropdown-item value="Degree Info" show-fields="primaryContent/widget/degree" restrict-to-groups="Administrators, Web-Coordinators" />
