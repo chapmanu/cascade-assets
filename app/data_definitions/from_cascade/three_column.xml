@@ -904,10 +904,7 @@
         <dropdown-item value="(select one)" />
         <dropdown-item value="Button" show-fields="rightColumn/widget/actionButtons" />
         <dropdown-item value="Callout Box" show-fields="rightColumn/widget/calloutBox" />
-        <dropdown-item value="Flickr Gallery" show-fields="rightColumn/widget/flickr-gallery" />
-        <dropdown-item value="Form" show-fields="rightColumn/widget/simpleForm" />
         <dropdown-item value="Logo Image Rotator" show-fields="rightColumn/widget/logo-image-rotator" />
-        <dropdown-item value="Picasa Gallery" show-fields="rightColumn/widget/picasa-gallery" />
         <dropdown-item value="Degree Info" show-fields="rightColumn/widget/degree" />
       </text>
       <group identifier="actionButtons" label="Buttons" collapsed="true">
@@ -958,7 +955,7 @@
           </group>
         </group>
       </group>
-      <group identifier="simpleForm" label="Form" collapsed="true">
+      <group identifier="simpleForm" label="Form" collapsed="true" restrict-to-groups="Administrators, Web-Coordinators">
         <text type="radiobutton" identifier="display-form" label="Show" field-id="ff6bcc45c0a81e5f43ef9b37331b537d" default="Yes" required="true">
           <radio-item value="Yes" />
           <radio-item value="No" />
@@ -987,29 +984,6 @@
             <asset type="file" identifier="fileLink" label="File Link" field-id="ff6bcc46c0a81e5f43ef9b3759a5f14f" />
           </group>
         </group>
-      </group>
-      <group identifier="picasa-gallery" label="Picasa Gallery" collapsed="true">
-        <text type="radiobutton" identifier="display-picasa-gallery" label="Show" field-id="ff6bcc46c0a81e5f43ef9b377fdbb86e" default="Yes">
-          <radio-item value="Yes" />
-          <radio-item value="No" />
-        </text>
-        <text type="dropdown" identifier="feed" label="Feed" field-id="ff6bcc46c0a81e5f43ef9b3759cc0f88" default="None">
-          <dropdown-item value="None" />
-          <dropdown-item value="PicasaChapman" />
-          <dropdown-item value="PicasaOrientation" />
-          <dropdown-item value="PicasaOrientationGrad" />
-          <dropdown-item value="PicasaLiberiaMartinez" />
-        </text>
-      </group>
-      <group identifier="flickr-gallery" label="Flickr Gallery" collapsed="true">
-        <text type="radiobutton" identifier="display-flickr-gallery" label="Show" field-id="ff6bcc46c0a81e5f43ef9b37400596e2" default="Yes">
-          <radio-item value="Yes" />
-          <radio-item value="No" />
-        </text>
-        <text type="dropdown" identifier="feed" label="Feed" field-id="ff6bcc46c0a81e5f43ef9b37149fb8df" default="None">
-          <dropdown-item value="None" />
-          <dropdown-item value="FlickrChapman" />
-        </text>
       </group>
       <group identifier="degree" label="Degree Information" collapsed="true">
         <text type="radiobutton" identifier="display-degree" label="Show" field-id="ff6bcc46c0a81e5f43ef9b37d60ee436" default="Yes" required="true">
