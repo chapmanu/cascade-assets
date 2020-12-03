@@ -183,21 +183,27 @@
         <dropdown-item show-fields="primaryContent/widget/form" value="Form" />
         <dropdown-item show-fields="primaryContent/widget/funnels-2up" value="Funnels 2up" />
         <dropdown-item show-fields="primaryContent/widget/funnels-1up" value="Funnels 1up" />
+        <dropdown-item restrict-to-groups="Administrators, Web-Coordinators" show-fields="primaryContent/widget/hideFromSearch" value="Hide From Search" />
         <dropdown-item show-fields="primaryContent/widget/logo-image-rotator" value="Logo Image Rotator" />
         <dropdown-item show-fields="primaryContent/widget/personnel" value="Personnel Table" />
         <dropdown-item show-fields="primaryContent/widget/tabs" value="Tabs" />
         <dropdown-item show-fields="primaryContent/widget/wysiwyg-editor" value="Text Editor" />
-        <dropdown-item show-fields="primaryContent/widget/threePhotoCallout" value="Three Photo Callout - RETIRING, USE PHOTO CALLOUT" />
+        <dropdown-item label="Three Photo Callout - RETIRING, USE PHOTO CALLOUT" show-fields="primaryContent/widget/threePhotoCallout" value="Three Photo Callout" />
         <dropdown-item show-fields="primaryContent/widget/twitterTimeline" value="Twitter Feed" />
-        <dropdown-item show-fields="primaryContent/widget/Calendar25Live" value="Calendar25Live" restrict-to-groups="Administrators, Web-Coordinators" />
-        <dropdown-item show-fields="primaryContent/widget/AtoZListing" value="A to Z Listing" restrict-to-groups="Administrators, Web-Coordinators" />
+        <!--<dropdown-item restrict-to-groups="Administrators, Web-Coordinators" show-fields="primaryContent/widget/Calendar25Live" value="Calendar25Live"/>-->
+        <!--<dropdown-item restrict-to-groups="Administrators, Web-Coordinators" show-fields="primaryContent/widget/AtoZListing" value="A to Z Listing"/>-->
         <dropdown-item show-fields="primaryContent/widget/html-block" value="Html Block" />
         <dropdown-item show-fields="primaryContent/widget/testimonial-widget" value="Testimonial" />
         <dropdown-item show-fields="primaryContent/widget/contact" value="Department Contact Info" />
-        <dropdown-item show-fields="primaryContent/widget/degree" value="Degree Info" restrict-to-groups="Administrators, Web-Coordinators" />
+        <!--<dropdown-item restrict-to-groups="Administrators, Web-Coordinators" show-fields="primaryContent/widget/degree" value="Degree Info"/>-->
         <dropdown-item show-fields="primaryContent/widget/photoCalloutWidget" value="Photo Callout" />
         <dropdown-item show-fields="primaryContent/widget/next-steps-widget" value="Next Steps" />
         <dropdown-item show-fields="primaryContent/widget/quickFactBlocksWidget" value="Quick Fact Blocks" />
+        <!--RETIRING WIDGETS-->
+        <dropdown-item label="A to Z Listing - DO NOT USE - RETIRING" show-fields="primaryContent/widget/AtoZListing" value="A to Z Listing" />
+        <dropdown-item label="Calendar25Live - DO NOT USE - RETIRING" show-fields="primaryContent/widget/Calendar25Live" value="Calendar25Live" />
+        <dropdown-item label="Degree Info - DO NOT USE - RETIRING" show-fields="primaryContent/widget/degree" value="Degree Info" />
+        <!--END RETIRING-->
       </text>
       <group identifier="textWithCTA" label="Text with CTA">
         <shared-field field-id="ff6bcc13c0a81e5f43ef9b37cfb81c31" identifier="display" path="display" />
@@ -391,15 +397,11 @@
         <group identifier="region" label="Region" minimum-number="0" multiple="true">
           <text default="[headline]" field-id="ff6bcc16c0a81e5f43ef9b37a8640e46" identifier="headline" label="Headline" required="true" />
           <asset field-id="ff6bcc16c0a81e5f43ef9b3796f5e13f" identifier="image" label="Image (200x150)" required="true" type="file" />
-
           <text default="Decorative Image" field-id="320558eec0a81e8a5b6f22bb91c7ac6f" help-text="Decorative images don’t add information to the content of a page. For example, the information provided by the image might already be given using adjacent text, or the image might be included to make the website more visually attractive." identifier="imageAltOrDecorative" label="Accessibility" type="radiobutton">
             <radio-item show-fields="primaryContent/widget/funnels-1up/region/altText" value="Alt Text" />
             <radio-item value="Decorative Image" />
           </text>
-
           <text field-id="ff6bcc16c0a81e5f43ef9b37e797e46f" help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true" />
-
-
           <text field-id="ff6bcc16c0a81e5f43ef9b37f180be7e" identifier="copy" label="Copy" wysiwyg="true" />
           <group identifier="links" label="Links">
             <group identifier="link" label="Link" minimum-number="0" multiple="true">
@@ -473,12 +475,12 @@
         <shared-field field-id="ff6bcc18c0a81e5f43ef9b37a96f2e95" identifier="link" path="cta" />
       </group>
       <group collapsed="true" identifier="photoCalloutWidget" label="Photo Callout">
-        <shared-field identifier="display" path="display" />
-        <text default="Horizontal 'Landscape' Images (4:3 Aspect Ratio)" identifier="aspectRatio" label="Image Aspect Ratio" type="radiobutton">
-          <radio-item value="Horizontal 'Landscape' Images (4:3 Aspect Ratio)" show-fields="primaryContent/widget/photoCalloutWidget/bgColor" />
-          <radio-item value="Vertical 'Portrait' Images (2:3 Aspect Ratio)" show-fields="primaryContent/widget/photoCalloutWidget/textPosition" />
+        <shared-field field-id="752f812cc0a81e8a57740fff92f28af5" identifier="display" path="display" />
+        <text default="Horizontal 'Landscape' Images (4:3 Aspect Ratio)" field-id="752f812cc0a81e8a57740fff7cb27555" identifier="aspectRatio" label="Image Aspect Ratio" type="radiobutton">
+          <radio-item show-fields="primaryContent/widget/photoCalloutWidget/bgColor" value="Horizontal 'Landscape' Images (4:3 Aspect Ratio)" />
+          <radio-item show-fields="primaryContent/widget/photoCalloutWidget/textPosition" value="Vertical 'Portrait' Images (2:3 Aspect Ratio)" />
         </text>
-        <text default="Three Column Layout" identifier="numberOfColumns" label="Desktop Layout" help-text="Number of Columns on Desktop." type="dropdown">
+        <text default="Three Column Layout" field-id="752f812cc0a81e8a57740fff7487ee73" help-text="Number of Columns on Desktop." identifier="numberOfColumns" label="Desktop Layout" type="dropdown">
           <dropdown-item value="Two Column Layout" />
           <dropdown-item value="Three Column Layout" />
           <dropdown-item value="Four Column Layout" />
@@ -489,9 +491,9 @@
           <radio-item value="Show Images" />
           <radio-item value="Hide Images" />
         </text>
-        <text identifier="textPosition" label="Text Position" type="radiobutton">
+        <text field-id="752f812cc0a81e8a57740fff1ab3cc87" identifier="textPosition" label="Text Position" type="radiobutton">
           <radio-item value="Overlay On Image" />
-          <radio-item value="Below Image" show-fields="primaryContent/widget/photoCalloutWidget/bgColor" />
+          <radio-item show-fields="primaryContent/widget/photoCalloutWidget/bgColor" value="Below Image" />
         </text>
         <text default="No" field-id="7c2e3042c0a81e5f43ef9b37ff1c204d" help-text="Disabling links will remove the option to wrap each photo block in a link" identifier="enableLinks" label="Make each photo block a link?" type="radiobutton">
           <radio-item show-fields="primaryContent/widget/photoCalloutWidget/block/link" value="Enable Links" />
@@ -576,11 +578,11 @@
         </text>
         <group identifier="photoCallout" label="Photo" maximum-number="3" minimum-number="3" multiple="true">
           <asset field-id="ff6bcc19c0a81e5f43ef9b374861c0f7" identifier="image" label="Image (136x96)" type="file" />
-          <text default="Decorative Image" help-text="Decorative images don’t add information to the content of a page. For example, the information provided by the image might already be given using adjacent text, or the image might be included to make the website more visually attractive." identifier="imageAltOrDecorative" label="Accessibility" type="radiobutton">
+          <text default="Decorative Image" field-id="752f812cc0a81e8a57740fff1f21520c" help-text="Decorative images don’t add information to the content of a page. For example, the information provided by the image might already be given using adjacent text, or the image might be included to make the website more visually attractive." identifier="imageAltOrDecorative" label="Accessibility" type="radiobutton">
             <radio-item show-fields="primaryContent/widget/funnels-1up/region/altText" value="Alt Text" />
             <radio-item value="Decorative Image" />
           </text>
-          <text help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="false" />
+          <text field-id="752f812cc0a81e8a57740fff1bf8a1c6" help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="false" />
           <group identifier="link" label="Link">
             <text default="Internal Link" field-id="ff6bcc1ac0a81e5f43ef9b374032390f" identifier="linkType" label="Link Type" type="radiobutton">
               <radio-item show-fields="primaryContent/widget/threePhotoCallout/photoCallout/link/internalLink" value="Internal Link" />
@@ -601,7 +603,7 @@
         </text>
         <asset field-id="ff6bcc1ac0a81e5f43ef9b37c53e3014" identifier="timeline" label="Timeline" render-content-depth="unlimited" type="block" />
       </group>
-      <group collapsed="true" identifier="Calendar25Live" label="25Live Calendar (labs and classrooms)">
+      <group collapsed="true" identifier="Calendar25Live" label="25Live Calendar (labs and classrooms) - DO NOT USE - RETIRING" restrict-to-groups="Administrators, Web-Coordinators">
         <text default="Yes" field-id="ff6bcc1ac0a81e5f43ef9b37708232b4" identifier="display-25live-listing" label="Show" required="true" type="radiobutton">
           <radio-item value="Yes" />
           <radio-item value="No" />
@@ -642,7 +644,7 @@
           </text>
         </group>
       </group>
-      <group collapsed="true" identifier="AtoZListing" label="A to Z Listing (Block)" restrict-to-groups="Administrators, Web-Coordinators">
+      <group collapsed="true" identifier="AtoZListing" label="A to Z Listing (Block) - DO NOT USE - RETIRING" restrict-to-groups="Administrators, Web-Coordinators">
         <text default="Yes" field-id="ff6bcc1bc0a81e5f43ef9b378d214a21" identifier="display-a-z-listing" label="Show" required="true" type="radiobutton">
           <radio-item value="Yes" />
           <radio-item value="No" />
@@ -767,7 +769,7 @@
           <dropdown-item value="People Only" />
         </text>
       </group>
-      <group collapsed="true" identifier="degree" label="Degree Information">
+      <group collapsed="true" identifier="degree" label="Degree Information - DO NOT USE - RETIRING" restrict-to-groups="Administrators, Web-Coordinators">
         <text default="Yes" field-id="ff6bcc1dc0a81e5f43ef9b3794a91960" identifier="display-degree" label="Show" required="true" type="radiobutton">
           <radio-item value="Yes" />
           <radio-item value="No" />
