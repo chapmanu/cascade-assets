@@ -425,7 +425,8 @@
       margin-top: 4px;
       color: $red;
       font-size: 1.4rem;
-      padding: 12px;
+      padding-left: 1rem;
+      padding-right: 1rem;
       text-align: center;
       font-weight: 800;
       margin-bottom: unset;
@@ -449,6 +450,11 @@
 
     &__text {
       font-family: $futura-regular;
+
+      p {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
 
       &--truncated {
         max-height: 150px;
@@ -479,7 +485,8 @@
         display: flex;
         justify-content: start;
         text-align: left;
-        padding: 12px 0 12px 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
       }
     }
 
@@ -511,6 +518,10 @@
     position: absolute;
     margin-top: 20px;
     @include qbal-drop-enter;
+    font-family: $futura-regular;
+    color: $cu-red;
+    font-weight: bold;
+    text-transform: uppercase;
 
     &--more {
       @include qbal-drop-enter;
@@ -638,8 +649,10 @@
   width: 100%;
   height: 5rem;
   font-family: $futura-regular;
-  font-weight: bold;
   border-radius: 4px;
+  font-size: 1.4 rem;
+  text-transform: uppercase;
+  font-weight: bold;
 
   &--grey {
     &:hover,

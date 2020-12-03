@@ -235,7 +235,7 @@ function gridBlockCarousel() {
     slidesToShow: 4,
     slidesToScroll: 1,
     arrows: true,
-    dots: true,
+    dots: false,
     infinite: true,
     responsive: [
       {
