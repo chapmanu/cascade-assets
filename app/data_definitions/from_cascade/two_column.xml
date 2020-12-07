@@ -772,7 +772,7 @@
           </group>
         </group>
       </group>
-      <group collapsed="true" identifier="twitterTimeline" label="Twitter Timeline">
+      <group collapsed="true" identifier="twitterTimeline" label="Twitter Timeline - DO NOT USE">
         <text default="Yes" field-id="ff6bcc1ac0a81e5f43ef9b374c133029" identifier="display-twitter-timeline" label="Show" required="true" type="radiobutton">
           <radio-item value="Yes" />
           <radio-item value="No" />
