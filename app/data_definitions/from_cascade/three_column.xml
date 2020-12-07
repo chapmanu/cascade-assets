@@ -170,33 +170,38 @@
     <group identifier="widget" label="Widgets" multiple="true">
       <text field-id="ff6bcc3bc0a81e5f43ef9b372ea525f7" help-text="Choose the type of content you'd like to add to the page" identifier="widgetType" label="Type of Widget" type="dropdown">
         <dropdown-item value="(select one)" />
-        <dropdown-item show-fields="primaryContent/widget/rssFeedDisplay" value="RSS Feed Display" />
-        <dropdown-item show-fields="primaryContent/widget/programEvents" value="Program Events" />
-        <dropdown-item show-fields="primaryContent/widget/bannerNotificationWidget" value="Banner Notification" />
-        <dropdown-item show-fields="primaryContent/widget/careerBlockWidget" value="Career Block" />
-        <dropdown-item show-fields="primaryContent/widget/carousel" value="Carousel" />
-        <dropdown-item show-fields="primaryContent/widget/collapsibleRegions" value="Collapsible Regions" />
-        <dropdown-item show-fields="primaryContent/widget/faculty" value="Faculty Info" />
-        <dropdown-item show-fields="primaryContent/widget/FeaturedNewsEvents" value="Featured / News / Events" />
-        <dropdown-item show-fields="primaryContent/widget/form-embed" value="Form Embed" />
-        <dropdown-item show-fields="primaryContent/widget/form" value="Form" />
-        <dropdown-item show-fields="primaryContent/widget/funnels-1up" value="Funnels 1up" />
-        <dropdown-item show-fields="primaryContent/widget/logo-image-rotator" value="Logo Image Rotator" />
-        <dropdown-item show-fields="primaryContent/widget/personnel" value="Personnel Table" />
-        <dropdown-item show-fields="primaryContent/widget/quickFactBlocksWidget" value="Quick Fact Blocks" />
-        <dropdown-item show-fields="primaryContent/widget/tabs" value="Tabs" />
-        <dropdown-item show-fields="primaryContent/widget/testimonial-widget" value="Testimonial" />
+        <dropdown-item show-fields="primaryContent/widget/textEditorWidget" value="New Text Editor" />
         <dropdown-item show-fields="primaryContent/widget/wysiwyg-editor" value="Text Editor" />
+        <dropdown-item show-fields="primaryContent/widget/textWithCTA" value="Text with CTA" label="Text Editor with CTA" />
+        <dropdown-item show-fields="primaryContent/widget/bannerNotificationWidget" value="Banner Notification" />
+        <dropdown-item show-fields="primaryContent/widget/photoCalloutWidget" value="Photo Callout" />
+        <dropdown-item show-fields="primaryContent/widget/gridBlockWidget" value="Grid Block" />
+        <dropdown-item show-fields="primaryContent/widget/collapsibleRegions" value="Collapsible Regions" />
+        <dropdown-item show-fields="primaryContent/widget/tabs" value="Tabs" />
+        <dropdown-item show-fields="primaryContent/widget/funnels-1up" value="Funnels 1up" />
+        <dropdown-item show-fields="primaryContent/widget/carousel" value="Carousel" label="Image Carousel" />
+        <dropdown-item show-fields="primaryContent/widget/testimonial-widget" value="Testimonial" label="Testimonial Slider" />
+        <dropdown-item show-fields="primaryContent/widget/personnel" value="Personnel Table" />
+        <dropdown-item show-fields="primaryContent/widget/next-steps-widget" value="Next Steps" label="Next Steps Buttons" />
+        <dropdown-item show-fields="primaryContent/widget/FeaturedNewsEvents" value="Featured / News / Events" />
+        <dropdown-item show-fields="primaryContent/widget/quickFactBlocksWidget" value="Quick Fact Blocks" />
+        <dropdown-item show-fields="primaryContent/widget/logo-image-rotator" value="Logo Image Rotator" />
+        <dropdown-item show-fields="primaryContent/widget/rssFeedDisplay" value="RSS Feed Display" />
+        <dropdown-item show-fields="primaryContent/widget/programEvents" value="Program Events" label="Events.chapman.edu Feed" />
+        <dropdown-item show-fields="primaryContent/widget/careerBlockWidget" value="Career Block" />
+        <dropdown-item show-fields="primaryContent/widget/faculty" value="Faculty Info" />
+        <dropdown-item show-fields="primaryContent/widget/form" value="Form" />
+        <dropdown-item show-fields="primaryContent/widget/form-embed" value="Form Embed" />
+        <dropdown-item show-fields="primaryContent/widget/contact" value="Department Contact Info" />
+        <dropdown-item show-fields="primaryContent/widget/html-block" value="Html Block" />
+        <!-- RETIRING WIDGETS -->
+        <dropdown-item show-fields="primaryContent/widget/degree" value="Degree Info" label="Degree Info - DO NOT USE - RETIRING" />
         <dropdown-item label="Three Photo Callout - RETIRING, USE PHOTO CALLOUT" show-fields="primaryContent/widget/threePhotoCallout" value="Three Photo Callout" />
-        <dropdown-item show-fields="primaryContent/widget/textWithCTA" value="Text with CTA" />
-        <dropdown-item show-fields="primaryContent/widget/twitterTimeline" value="Twitter Feed" />
+        <dropdown-item show-fields="primaryContent/widget/twitterTimeline" value="Twitter Feed" label="Twitter Feed - DO NOT USE" />
         <dropdown-item label="Calendar25Live - DO NOT USE - RETIRING" show-fields="primaryContent/widget/Calendar25Live" value="Calendar25Live" />
         <dropdown-item label="A to Z Listing - DO NOT USE - RETIRING" show-fields="primaryContent/widget/AtoZListing" value="A to Z Listing" />
-        <dropdown-item show-fields="primaryContent/widget/html-block" value="Html Block" />
-        <dropdown-item show-fields="primaryContent/widget/contact" value="Department Contact Info" />
-        <dropdown-item show-fields="primaryContent/widget/degree" value="Degree Info" />
-        <dropdown-item show-fields="primaryContent/widget/photoCalloutWidget" value="Photo Callout" />
-        <dropdown-item show-fields="primaryContent/widget/next-steps-widget" value="Next Steps" />
+        <!-- END RETIRING WIDGETS -->
+
       </text>
       <group collapsed="true" identifier="rssFeedDisplay" label="RSS Feed Display">
         <shared-field field-id="ff6bcc3bc0a81e5f43ef9b370404edfd" identifier="display" path="display" />
@@ -207,7 +212,7 @@
         </text>
         <text field-id="ff6bcc3bc0a81e5f43ef9b37cbe996ee" identifier="feedUrl" label="Feed Url" required="true" />
       </group>
-      <group collapsed="true" identifier="programEvents" label="Program Events">
+      <group collapsed="true" identifier="programEvents" label="Events.chapman.edu Feed">
         <shared-field field-id="ff6bcc3bc0a81e5f43ef9b37f4046c5f" identifier="display" path="display" />
         <text default="tiles" field-id="ff6bcc3bc0a81e5f43ef9b3742e06df1" identifier="tilesBars" label="Program Events Display" required="true" type="radiobutton">
           <radio-item label="Tiles" value="tiles" />
@@ -228,7 +233,7 @@
           <text field-id="ff6bcc3cc0a81e5f43ef9b37a5274c7f" help-text="Copy and paste the respective career 'Code' from https://www.onetonline.org/find/" identifier="careerCode" label="Career Code" required="true" />
         </group>
       </group>
-      <group collapsed="true" identifier="testimonial-widget" label="Testimonial Widget">
+      <group collapsed="true" identifier="testimonial-widget" label="Testimonial Slider">
         <shared-field field-id="ff6bcc3cc0a81e5f43ef9b37a97a5fb5" identifier="display" path="display" />
         <shared-field field-id="ff6bcc3cc0a81e5f43ef9b37b8596bef" identifier="bgColor" path="background-color" />
         <group identifier="testimonialSlide" label="Testimonial Slide" multiple="true">
@@ -239,7 +244,7 @@
           <shared-field field-id="ff6bcc3cc0a81e5f43ef9b372fa31250" identifier="link" path="cta" />
         </group>
       </group>
-      <group collapsed="true" identifier="carousel" label="Carousel">
+      <group collapsed="true" identifier="carousel" label="Image Carousel">
         <text default="Yes" field-id="ff6bcc3cc0a81e5f43ef9b376aee3cc8" identifier="display-carousel" label="Show" required="true" type="radiobutton">
           <radio-item value="Yes" />
           <radio-item value="No" />
@@ -331,6 +336,183 @@
           </group>
         </group>
       </group>
+      <group collapsed="true" identifier="gridBlockWidget" label="Grid Block Widget">
+        <shared-field field-id="1a2f2699c0a81e8a006059d0a2633faa" identifier="display" path="display" />
+        <shared-field default="White" field-id="1a2f2699c0a81e8a006059d00df5e696" identifier="bgColor" path="background-color-radio-buttons" />
+        <text default="yes" field-id="2e5ae630c0a81e8a5a403945f880d1a6" identifier="displaySectionIntro" label="Display Section Intro?" type="radiobutton">
+          <radio-item label="Yes" show-fields="primaryContent/widget/gridBlockWidget/sectionHeaderGroup" value="yes" />
+          <radio-item label="No" value="no " />
+        </text>
+        <shared-field field-id="1a2f269ac0a81e8a006059d083b4537c" identifier="sectionHeaderGroup" path="Section Header" />
+        <group collapsed="true" identifier="gridOptions" label="Grid Options">
+          <text field-id="1a2f269ac0a81e8a006059d0d985d37c" identifier="title" required="true" type="radiobutton">
+            <radio-item show-fields="primaryContent/widget/gridBlockWidget/gridOptions/textAlign, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/gridBlockTitle, primaryContent/widget/gridBlockWidget/gridOptions/circle, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/titleLink" value="Yes" />
+            <radio-item value="No" />
+          </text>
+          <text field-id="1a2f269bc0a81e8a006059d084d0f692" identifier="bodyText" label="Body Text" required="true" type="radiobutton">
+            <radio-item show-fields="primaryContent/widget/gridBlockWidget/gridOptions/textAlign, primaryContent/widget/gridBlockWidget/gridOptions/circle, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/gridBlockText" value="Yes" />
+            <radio-item value="No" />
+          </text>
+          <text field-id="243872cdc0a81e8a5a403945a36afb2a" identifier="textAlign" label="Text Align" required="true" type="radiobutton">
+            <radio-item label="Left" value="left" />
+            <radio-item label="Center" value="center" />
+            <radio-item label="Right" value="right" />
+          </text>
+          <text field-id="1a2f269bc0a81e8a006059d0a983a902" help-text="Choose to display Image or Video or None" identifier="imageOrVideo" label="Images or Videos? " required="true" type="radiobutton">
+            <radio-item label="Images" show-fields="primaryContent/widget/gridBlockWidget/gridOptions/imageOrientation, primaryContent/widget/gridBlockWidget/gridOptions/gridColumnsImages, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/gridBlockImage, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/altText, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/imagePosition, primaryContent/widget/gridBlockWidget/gridOptions/titleOverlay" value="images" />
+            <radio-item label="Videos" show-fields="primaryContent/widget/gridBlockWidget/gridOptions/gridColumnsVideos, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/iFrame" value="videos" />
+            <radio-item label="None" value="noImagesVideos" />
+          </text>
+          <text field-id="1a2f269bc0a81e8a006059d03664bf0b" identifier="imageOrientation" label="Image Orientation" required="true" type="dropdown">
+            <dropdown-item label="Portrait" value="portrait" />
+            <dropdown-item label="Landscape" value="landscape" />
+            <dropdown-item label="Square" value="square" />
+            <dropdown-item label="Circle" value="circle" />
+          </text>
+          <text default="No" field-id="1a2f269cc0a81e8a006059d018e3338f" help-text="This option is only available if both title and image are selected and can not be used on circle images." identifier="titleOverlay" label="Overlay title on image?" required="true" type="radiobutton">
+            <radio-item value="Yes" />
+            <radio-item show-fields="primaryContent/widget/gridBlockWidget/gridOptions/circle" value="No" />
+          </text>
+          <text default="white" field-id="1a2f269cc0a81e8a006059d0250bd536" identifier="textBackgroundColor" label="Text Background Color" required="true" type="radiobutton">
+            <radio-item label="White" value="white" />
+            <radio-item label="Sand" value="sand" />
+            <radio-item label="Panther Black" value="black" />
+            <radio-item label="Chapman Red" value="red" />
+          </text>
+          <text default="gridColumnsThreeVideos" field-id="1a2f269dc0a81e8a006059d0502e1f9b" identifier="gridColumnsVideos" label="Video Grid Columns" required="true" type="radiobutton">
+            <radio-item label="2" value="gridColumnsTwoVideos" />
+            <radio-item label="3" value="gridColumnsThreeVideos" />
+          </text>
+          <text default="3-col" field-id="1a2f269dc0a81e8a006059d0e28b476d" identifier="gridColumnsImages" label="Image Grid Columns" required="true" type="radiobutton">
+            <radio-item label="2" value="2-col" />
+            <radio-item label="3" value="3-col" />
+            <radio-item label="4" value="4-col" />
+            <radio-item label="5" value="5-col" />
+            <radio-item label="6" value="6-col" />
+          </text>
+          <text default="showAll" field-id="1a2f269ec0a81e8a006059d0a5933583" help-text="How do you want your grid to be loaded?" identifier="gridDisplay" label="Grid Display" required="true" type="radiobutton">
+            <radio-item label="Pagination (displays six at a time if you have more than six)" value="pagination" />
+            <radio-item label="Display All Grid Items" value="showAll" />
+            <radio-item label="Rotator (will rotate up to four items at a time)" value="rotator" />
+          </text>
+          <group collapsed="true" identifier="gridBlock" label="Grid Block" multiple="true">
+            <text field-id="1a2f269ec0a81e8a006059d0ae9e5b31" identifier="gridBlockTitle" label="Title" required="true" />
+            <text field-id="1a2f269fc0a81e8a006059d0d20b6e1d" identifier="titleLink" label="Title Link?" required="true" type="radiobutton">
+              <radio-item label="Yes" show-fields="primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/linkType" value="yes" />
+              <radio-item label="No" value="no" />
+            </text>
+            <text field-id="1a2f269fc0a81e8a006059d050b54199" identifier="linkType" required="true" type="radiobutton">
+              <radio-item label="Internal Link" show-fields="primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/internalLink" value="internal" />
+              <radio-item label="External Link" show-fields="primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/externalLink" value="external" />
+            </text>
+            <asset field-id="1a2f269fc0a81e8a006059d0c0a17651" identifier="internalLink" label="Internal Link" required="true" type="page" />
+            <text field-id="1a2f26a0c0a81e8a006059d0e007cf06" identifier="externalLink" label="External Link" required="true" />
+            <asset field-id="1a2f26a0c0a81e8a006059d02534e3a2" identifier="gridBlockImage" label="Image" required="true" type="file" />
+            <text field-id="1a2f26a0c0a81e8a006059d069d1b6b6" identifier="altText" label="Image Alt Text" required="true" />
+            <text default="center center" field-id="1a2f26a1c0a81e8a006059d05da072c8" help-text="Example: 'bottom left' or 'top right' or 'center center'" identifier="imagePosition" label="Image Position" />
+            <text field-id="1a2f26a1c0a81e8a006059d03df4dff5" help-text="Youtube or Vimeo iframe" identifier="iFrame" label="iFrame" required="true" />
+            <text field-id="1a2f26a2c0a81e8a006059d0bd5a694d" identifier="gridBlockText" label="Grid Block Text" required="true" wysiwyg="true" />
+          </group>
+        </group>
+      </group>
+      <group collapsed="true" identifier="textEditorWidget" label="Text Editor Widget">
+        <shared-field field-id="2ed608b3c0a81e8a5a403945aa904749" identifier="display" path="display" />
+        <text default="white" field-id="6c16d0fec0a81e8a57740fffd37d1b90" identifier="backgroundColor" label="Background Color" required="true" type="dropdown">
+          <dropdown-item label="White" show-fields="primaryContent/widget/textEditorWidget/buttonGroup/button/buttonColorWhiteSandGrey" value="white" />
+          <dropdown-item label="Sand" show-fields="primaryContent/widget/textEditorWidget/buttonGroup/button/buttonColorWhiteSandGrey" value="sand" />
+          <dropdown-item label="Grey" show-fields="primaryContent/widget/textEditorWidget/buttonGroup/button/buttonColorWhiteSandGrey" value="grey" />
+          <dropdown-item label="Black" show-fields="primaryContent/widget/textEditorWidget/buttonGroup/button/buttonColorBlackBg" value="black" />
+          <dropdown-item label="Red" show-fields="primaryContent/widget/textEditorWidget/buttonGroup/button/buttonColorsBgRed" value="red" />
+        </text>
+        <text field-id="478da47ec0a81e8a5a403945f22c04a1" identifier="textLayout" label="Text Layout" required="true" type="radiobutton">
+          <radio-item label="Text Only" show-fields="primaryContent/widget/textEditorWidget/textOnlyAlignment, primaryContent/widget/textEditorWidget/textOptions, primaryContent/widget/textEditorWidget/textOptions/header, primaryContent/widget/textEditorWidget/textOptions/text, primaryContent/widget/textEditorWidget/buttonsLinks" value="text" />
+          <radio-item label="Text and Image" show-fields="primaryContent/widget/textEditorWidget/textAlignment, primaryContent/widget/textEditorWidget/textVerticalAlignment, primaryContent/widget/textEditorWidget/textOptions, primaryContent/widget/textEditorWidget/textOptions/header, primaryContent/widget/textEditorWidget/textOptions/text, primaryContent/widget/textEditorWidget/image, primaryContent/widget/textEditorWidget/buttonsLinks" value="textImage" />
+          <radio-item label="Text and Video" show-fields="primaryContent/widget/textEditorWidget/textAlignment, primaryContent/widget/textEditorWidget/textVerticalAlignment, primaryContent/widget/textEditorWidget/textOptions, primaryContent/widget/textEditorWidget/textOptions/header, primaryContent/widget/textEditorWidget/textOptions/text, primaryContent/widget/textEditorWidget/video, primaryContent/widget/textEditorWidget/buttonsLinks" value="textVideo" />
+          <radio-item label="Custom" show-fields="primaryContent/widget/textEditorWidget/custom" value="customText" />
+        </text>
+        <text default="left" field-id="2ed608b3c0a81e8a5a403945025e7867" identifier="textAlignment" label="Text Alignment:" required="true" type="radiobutton">
+          <radio-item label="Left" value="left" />
+          <radio-item label="Right" value="right" />
+        </text>
+        <text default="left" field-id="478a2b18c0a81e8a5a40394572bfdc44" identifier="textOnlyAlignment" label="Text Alignment:" required="true" type="radiobutton">
+          <radio-item label="Left" value="left" />
+          <radio-item label="Right" value="right" />
+          <radio-item label="Stacked" show-fields="primaryContent/widget/textEditorWidget/buttonGroup/buttonAlignmentStacked" value="stacked" />
+        </text>
+        <text default="top" field-id="2ed608b3c0a81e8a5a403945805ea436" identifier="textVerticalAlignment" label="Text Vertical Alignment" required="true" type="radiobutton">
+          <radio-item label="Top" value="top" />
+          <radio-item label="Middle" value="middle" />
+          <radio-item label="Bottom" value="bottom" />
+        </text>
+        <text field-id="47b4f358c0a81e8a5a403945c022cb8e" identifier="buttonsLinks" label="Buttons/Links" required="true" type="radiobutton">
+          <radio-item label="Buttons" show-fields="primaryContent/widget/textEditorWidget/buttonGroup" value="buttons" />
+          <radio-item label="Links" show-fields="primaryContent/widget/textEditorWidget/link" value="links" />
+          <radio-item label="None" value="none" />
+        </text>
+        <text field-id="6bef9655c0a81e8a57740ffff953a516" identifier="custom" label="Custom" wysiwyg="true" />
+        <group collapsed="true" identifier="textOptions" label="Text">
+          <text field-id="5796f857c0a81e8a1e5ac288cb968285" identifier="preHeader" label="Pre Header" />
+          <text field-id="5796f857c0a81e8a1e5ac28884d7dcba" identifier="header" label="Header" />
+          <text configuration="Text and Links" field-id="2ed608b4c0a81e8a5a403945c9ba0f91" identifier="text" label="Text" required="true" wysiwyg="true" />
+        </group>
+        <group collapsed="true" identifier="image" label="Image">
+          <text field-id="671c60c7c0a81e8a57740ffffa9a5c27" identifier="imageShape" label="Image Shape" type="dropdown">
+            <dropdown-item label="Square" value="square" />
+            <dropdown-item label="Circle" value="circle" />
+            <dropdown-item label="Landscape" value="landscape" />
+            <dropdown-item label="Portrait" value="portrait" />
+          </text>
+          <text default="yes" field-id="6b2ff6c4c0a81e8a57740fff8c0a7f82" identifier="wrapImage" label="Wrap Image?" type="radiobutton">
+            <radio-item label="Yes" value="yes" />
+            <radio-item label="No" value="no" />
+          </text>
+          <asset field-id="2ed608b4c0a81e8a5a4039455c937bd8" identifier="image" label="Image" required="true" type="file" />
+          <text field-id="2ed608b4c0a81e8a5a403945863b7e2e" identifier="altText" label="Alt Text" required="true" />
+        </group>
+        <group collapsed="true" identifier="video" label="Video">
+          <text field-id="2ed608b4c0a81e8a5a403945efe5e633" help-text="Paste URL (link) from YouTube or Vimeo" identifier="videoLink" label="Video Link" required="true" />
+        </group>
+        <group collapsed="true" identifier="buttonGroup" label="Button(s)">
+          <text default="left" field-id="478a2b18c0a81e8a5a403945b64362fa" identifier="buttonAlignmentStacked" label="Button Alignment:" type="radiobutton">
+            <radio-item label="Left" value="left" />
+            <radio-item label="Center" value="center" />
+            <radio-item label="Right" value="right" />
+          </text>
+          <group collapsed="true" identifier="button" label="Button" maximum-number="3" multiple="true">
+            <text field-id="479619d6c0a81e8a5a40394599182809" identifier="buttonLabel" label="Button Label" required="true" />
+            <text field-id="6c110518c0a81e8a57740ffffcc5ec19" identifier="buttonColorWhiteSandGrey" label="Button Color" required="true" type="radiobutton">
+              <radio-item label="White" value="white" />
+              <radio-item label="Red" value="red" />
+              <radio-item label="Black" value="black" />
+            </text>
+            <text field-id="6c110518c0a81e8a57740fff1893e6db" identifier="buttonColorBlackBg" label="Button Color" required="true" type="radiobutton">
+              <radio-item label="Red" value="red" />
+              <radio-item label="White" value="white" />
+            </text>
+            <text field-id="6c110518c0a81e8a57740fff51880688" identifier="buttonColorsBgRed" label="Button Color" required="true" type="radiobutton">
+              <radio-item label="White" value="white" />
+              <radio-item label="Black" value="black" />
+            </text>
+            <text field-id="2ed608b4c0a81e8a5a403945d78442dc" identifier="link" label="Link" required="true" type="radiobutton">
+              <radio-item label="Internal" show-fields="primaryContent/widget/textEditorWidget/buttonGroup/button/internal" value="internal" />
+              <radio-item label="External" show-fields="primaryContent/widget/textEditorWidget/buttonGroup/button/externalLink" value="external" />
+            </text>
+            <asset field-id="2ed608b4c0a81e8a5a40394589e00295" identifier="internal" label="Internal Link" required="true" type="page" />
+            <text field-id="2ed608b4c0a81e8a5a4039455f2040e3" identifier="externalLink" label="External Link" required="true" />
+          </group>
+        </group>
+        <group collapsed="true" identifier="link" label="Links">
+          <group collapsed="true" identifier="link" label="Link" maximum-number="10" multiple="true">
+            <text field-id="6b5db767c0a81e8a57740fff55c7ae1e" identifier="linkLabel" label="Link Label" required="true" />
+            <text field-id="6b5db767c0a81e8a57740fffe9038633" identifier="internalExternalLink" label="Link" required="true" type="radiobutton">
+              <radio-item label="Internal" show-fields="primaryContent/widget/textEditorWidget/link/link/internalTextLink" value="internal" />
+              <radio-item label="External" show-fields="primaryContent/widget/textEditorWidget/link/link/externalLink" value="external" />
+            </text>
+            <asset field-id="6b5db767c0a81e8a57740fff0f3ac8aa" identifier="internalTextLink" label="Internal Link URL" required="true" type="page" />
+            <text field-id="6b5db767c0a81e8a57740fff311a3ead" identifier="externalLink" label="External Link URL" required="true" />
+          </group>
+        </group>
+      </group>
       <group collapsed="true" identifier="photoCalloutWidget" label="Photo Callout">
         <shared-field field-id="a7a67c6bc0a81e4b407da5646ea52523" identifier="display" path="display" />
         <text default="Horizontal 'Landscape' Images (4:3 Aspect Ratio)" field-id="9dd45712c0a81e8a5b6f22bb816ad2f9" identifier="aspectRatio" label="Image Aspect Ratio" type="radiobutton">
@@ -384,7 +566,7 @@
           </group>
         </group>
       </group>
-      <group collapsed="true" identifier="next-steps-widget" label="Next Steps">
+      <group collapsed="true" identifier="next-steps-widget" label="Next Steps Buttons">
         <shared-field field-id="ff6bcc3ec0a81e5f43ef9b370e84584c" identifier="display" path="display" />
         <text default="left-aligned" field-id="ff6bcc3ec0a81e5f43ef9b372f21161b" identifier="layout" label="Layout" type="radiobutton">
           <radio-item label="Left Aligned" value="left-aligned" />
@@ -464,7 +646,7 @@
           </group>
         </group>
       </group>
-      <group collapsed="false" identifier="textWithCTA" label="Text with CTA">
+      <group collapsed="false" identifier="textWithCTA" label="Text Editor with CTA">
         <shared-field field-id="1a2f26a4c0a81e8a006059d031de586c" identifier="display" path="display" />
         <text default="Default Theme" field-id="1a2f26a4c0a81e8a006059d00e05ac98" identifier="theme" label="Theme" type="radiobutton">
           <radio-item identifier="default" show-fields="primaryContent/widget/textWithCTA/bgColor, primaryContent/widget/textWithCTA/textWithCTAButton" value="Default Theme" />
