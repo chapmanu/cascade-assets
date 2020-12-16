@@ -825,7 +825,7 @@
 					</group>
 				</group>
 			</group>
-			<group collapsed="true" identifier="chapmanSocialFeed" label="Social.chapman Feed">
+			<group collapsed="true" identifier="chapmanSocialFeed" label="Social.chapman Feed OLD - DO NOT USE - RETIRING">
 				<text default="Yes" field-id="ff6bcbf2c0a81e5f43ef9b379ce4925e" identifier="displayChapmanSocialFeed" label="Show" type="radiobutton">
 					<radio-item value="Yes"/>
 					<radio-item value="No"/>
