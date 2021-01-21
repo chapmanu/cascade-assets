@@ -1,958 +1,958 @@
 <system-data-structure>
-	<group collapsed="true" identifier="masthead" label="Masthead">
-		<text default="Side Panel Hero" field-id="ff6bcbe1c0a81e5f43ef9b37f7b68865" identifier="mastheadType" label="Style:" type="radiobutton">
-			<radio-item show-fields="masthead/sidePanelHero" value="Side Panel Hero"/>
-			<radio-item show-fields="masthead/brochureMasthead" value="Brochure"/>
-			<radio-item show-fields="masthead/subbrandMastheadTypes" value="Sub-Brand"/>
-			<radio-item value="None"/>
-		</text>
-		<text default="Sub-Brand Page Masthead" field-id="ff6bcbe1c0a81e5f43ef9b37e01f65cc" identifier="subbrandMastheadTypes" label="Sub-Brand Masthead Type" type="dropdown">
-			<dropdown-item show-fields="masthead/subbrandMasthead" value="Sub-Brand Page Masthead"/>
-			<dropdown-item show-fields="masthead/subPageMasthead" value="1 Col Child Page (Left Aligned)"/>
-		</text>
-		<group collapsed="true" identifier="sidePanelHero" label="Side panel hero">
-			<group collapsed="true" identifier="panel" label="Panel">
-				<text field-id="ff6bcbe1c0a81e5f43ef9b37c973bb28" identifier="title" label="Title"/>
-				<text field-id="ff6bcbe1c0a81e5f43ef9b371bad11aa" identifier="subtitle" label="Subtitle"/>
-				<text field-id="ff6bcbe1c0a81e5f43ef9b37dbeba152" identifier="body" label="Content" wysiwyg="true"/>
-				<group collapsed="true" identifier="callsToAction" label="Calls to Action">
-					<group identifier="button" label="Button" maximum-number="3" minimum-number="0" multiple="true">
-						<text default="Internal Link" field-id="ff6bcbe1c0a81e5f43ef9b37b8dcb9e5" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="masthead/sidePanelHero/panel/callsToAction/button/internalLink" value="Internal Link"/>
-							<radio-item show-fields="masthead/sidePanelHero/panel/callsToAction/button/externalLink" value="External Link"/>
-							<radio-item show-fields="masthead/sidePanelHero/panel/callsToAction/button/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbe1c0a81e5f43ef9b375fc3fad7" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="ff6bcbe1c0a81e5f43ef9b3743ab6e60" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="ff6bcbe1c0a81e5f43ef9b37dbfdf330" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="ff6bcbe1c0a81e5f43ef9b3751b23801" identifier="label" label="Label"/>
-					</group>
-				</group>
-				<group collapsed="true" identifier="dropdownNav" label="Dropdown Navigation">
-					<text field-id="ff6bcbe1c0a81e5f43ef9b37b4378866" identifier="dropdownLabel" label="Label"/>
-					<group identifier="dropdownLink" label="Link" multiple="true">
-						<text default="Internal Link" field-id="ff6bcbe1c0a81e5f43ef9b377e4ec94a" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="masthead/sidePanelHero/panel/dropdownNav/dropdownLink/internalLink" value="Internal Link"/>
-							<radio-item show-fields="masthead/sidePanelHero/panel/dropdownNav/dropdownLink/externalLink" value="External Link"/>
-							<radio-item show-fields="masthead/sidePanelHero/panel/dropdownNav/dropdownLink/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbe1c0a81e5f43ef9b372826381a" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="ff6bcbe1c0a81e5f43ef9b378d9c6e78" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="ff6bcbe2c0a81e5f43ef9b373ce4f2fb" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="ff6bcbe2c0a81e5f43ef9b3729933b98" identifier="label" label="Label"/>
-					</group>
-				</group>
-			</group>
-			<group collapsed="true" identifier="featuredContent" label="Featured Content" multiple="true">
-				<group collapsed="true" identifier="featuredBackgroundMedia" label="Featured Background Media">
-					<text default="Image" field-id="ff6bcbe2c0a81e5f43ef9b371e359c2e" identifier="type" label="Type" type="radiobutton">
-						<radio-item show-fields="masthead/sidePanelHero/featuredContent/featuredBackgroundMedia/imageFile, masthead/sidePanelHero/featuredContent/featuredBackgroundMedia/alignY" value="Image"/>
-						<radio-item show-fields="masthead/sidePanelHero/featuredContent/featuredBackgroundMedia/videoFile, masthead/sidePanelHero/featuredContent/featuredBackgroundMedia/fallbackImageFile" value="Video"/>
-					</text>
-					<asset field-id="ff6bcbe2c0a81e5f43ef9b375b9e6788" identifier="videoFile" label="Video File (.mp4 no larger than 10mb)" type="file"/>
-					<asset field-id="ff6bcbe2c0a81e5f43ef9b3771f62406" identifier="fallbackImageFile" label="Fallback Image File (Around 1600px by 1200px)" type="file"/>
-					<asset field-id="ff6bcbe2c0a81e5f43ef9b375cfae10c" identifier="imageFile" label="Image File (Around 1600px by 1200px)" type="file"/>
-					<text default="Bottom" field-id="ff6bcbe2c0a81e5f43ef9b377aa2ad39" identifier="alignY" label="Image Align" type="radiobutton">
-						<radio-item value="Top"/>
-						<radio-item value="Center"/>
-						<radio-item value="Bottom"/>
-					</text>
-					<text field-id="ff6bcbe2c0a81e5f43ef9b37b3f107c8" identifier="alternateText" label="Alternate Text"/>
-				</group>
-				<group collapsed="true" identifier="featuredPanel" label="Featured Panel">
-					<text field-id="ff6bcbe2c0a81e5f43ef9b370847cdcb" identifier="category" label="Category"/>
-					<text field-id="ff6bcbe2c0a81e5f43ef9b377145db38" identifier="title" label="Title"/>
-					<text field-id="ff6bcbe2c0a81e5f43ef9b37eefc1095" identifier="subtitle" label="Subtitle"/>
-					<text field-id="ff6bcbe2c0a81e5f43ef9b37e4f979d5" identifier="body" label="Content" wysiwyg="true"/>
-					<group identifier="link" label="Call to Action">
-						<text default="Internal Link" field-id="ff6bcbe2c0a81e5f43ef9b373714bb8f" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="masthead/sidePanelHero/featuredContent/featuredPanel/link/internalLink" value="Internal Link"/>
-							<radio-item show-fields="masthead/sidePanelHero/featuredContent/featuredPanel/link/externalLink" value="External Link"/>
-							<radio-item show-fields="masthead/sidePanelHero/featuredContent/featuredPanel/link/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbe2c0a81e5f43ef9b37da8c7f07" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="ff6bcbe2c0a81e5f43ef9b37c476f73e" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="ff6bcbe2c0a81e5f43ef9b37a61a971c" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="ff6bcbe2c0a81e5f43ef9b372a4f9af3" identifier="label" label="Label"/>
-					</group>
-				</group>
-			</group>
-		</group>
-		<group collapsed="true" identifier="brochureMasthead" label="Brochure Page Masthead">
-			<group collapsed="true" identifier="headline" label="Headline">
-				<text field-id="ff6bcbe2c0a81e5f43ef9b376ffd27c3" identifier="primary" label="Primary" required="true"/>
-				<text field-id="ff6bcbe2c0a81e5f43ef9b37327b9820" help-text="Optional text displayed above primary text" identifier="secondary" label="Secondary"/>
-			</group>
-			<group collapsed="true" identifier="slides" label="Slides">
-				<group collapsed="true" identifier="slide" label="Slide" multiple="true">
-					<text default="Image" field-id="ff6bcbe3c0a81e5f43ef9b37f714d638" identifier="type" label="Type" type="radiobutton">
-						<radio-item show-fields="masthead/brochureMasthead/slides/slide/imageFile" value="Image"/>
-						<radio-item show-fields="masthead/brochureMasthead/slides/slide/videoFile, masthead/brochureMasthead/slides/slide/fallbackImageFile" value="Video"/>
-					</text>
-					<asset field-id="ff6bcbe3c0a81e5f43ef9b37a026122a" identifier="videoFile" label="Video File (.mp4 no larger than 10mb)" type="file"/>
-					<asset field-id="ff6bcbe3c0a81e5f43ef9b3769e160c8" identifier="fallbackImageFile" label="Fallback Image File (Around 1600px by 1200px)" type="file"/>
-					<asset field-id="ff6bcbe3c0a81e5f43ef9b37910ac67a" identifier="imageFile" label="Image File (Around 1600px by 1200px)" type="file"/>
-					<text default="Center" field-id="ff6bcbe3c0a81e5f43ef9b37e0ae002c" identifier="alignY" label="Image Align" type="radiobutton">
-						<radio-item value="Top"/>
-						<radio-item value="Center"/>
-						<radio-item value="Bottom"/>
-					</text>
-					<text field-id="ff6bcbe3c0a81e5f43ef9b373fd5422d" identifier="alternateText" label="Alternate Text" required="true"/>
-				</group>
-			</group>
-		</group>
-		<group collapsed="true" identifier="subbrandMasthead" label="Sub-Brand Page Masthead">
-			<group collapsed="true" identifier="headline" label="Headline (Required)">
-				<text field-id="ff6bcbe3c0a81e5f43ef9b3758540ac0" help-text="Optional, smaller text displayed ABOVE Headline" identifier="secondary" label="Subhead"/>
-				<text field-id="ff6bcbe3c0a81e5f43ef9b3735b19a22" help-text="Primary title text" identifier="primary" label="Headline" required="true"/>
-			</group>
-			<group collapsed="true" identifier="callsToAction" label="CTA Buttons">
-				<group identifier="button" label="Button" maximum-number="2" multiple="true" required="false">
-					<text default="Yes" field-id="ff6bcbe3c0a81e5f43ef9b378500febf" identifier="showButton" label="Show Button" type="radiobutton">
-						<radio-item help-text="Show the button" value="Yes"/>
-						<radio-item help-text="Do not show the button" value="No"/>
-					</text>
-					<text default="Internal Link" field-id="ff6bcbe3c0a81e5f43ef9b37be4ae7ff" identifier="linkType" label="Link Type" type="radiobutton">
-						<radio-item show-fields="masthead/subbrandMasthead/callsToAction/button/internalLink" value="Internal Link"/>
-						<radio-item show-fields="masthead/subbrandMasthead/callsToAction/button/externalLink" value="External Link"/>
-						<radio-item show-fields="masthead/subbrandMasthead/callsToAction/button/fileLink" value="File Link"/>
-					</text>
-					<text field-id="ff6bcbe3c0a81e5f43ef9b37cb9e37d0" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-					<asset field-id="ff6bcbe3c0a81e5f43ef9b370553cfe9" identifier="internalLink" label="Internal Link" type="page"/>
-					<asset field-id="ff6bcbe3c0a81e5f43ef9b379f592dac" identifier="fileLink" label="File Link" type="file"/>
-					<text field-id="ff6bcbe3c0a81e5f43ef9b373b3db74e" identifier="label" label="Label"/>
-				</group>
-				<group collapsed="true" identifier="dropdownNav" label="Dropdown Button" multiple="false" required="false">
-					<text default="Yes" field-id="ff6bcbe3c0a81e5f43ef9b372a790ef6" identifier="showButton" label="Show Button" type="radiobutton">
-						<radio-item help-text="Show the button" value="Yes"/>
-						<radio-item help-text="Do not show the button" value="No"/>
-					</text>
-					<text field-id="ff6bcbe3c0a81e5f43ef9b37aa18d6b7" identifier="dropdownLabel" label="Label"/>
-					<group identifier="dropdownLink" label="Link" multiple="true">
-						<text default="Internal Link" field-id="ff6bcbe3c0a81e5f43ef9b37b577f3e4" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="masthead/subbrandMasthead/callsToAction/dropdownNav/dropdownLink/internalLink" value="Internal Link"/>
-							<radio-item show-fields="masthead/subbrandMasthead/callsToAction/dropdownNav/dropdownLink/externalLink" value="External Link"/>
-							<radio-item show-fields="masthead/subbrandMasthead/callsToAction/dropdownNav/dropdownLink/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbe3c0a81e5f43ef9b37ed3a1f6a" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="ff6bcbe3c0a81e5f43ef9b37fdf65aa3" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="ff6bcbe4c0a81e5f43ef9b371d535880" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="ff6bcbe4c0a81e5f43ef9b37e0c2266d" identifier="label" label="Label"/>
-					</group>
-				</group>
-			</group>
-			<group collapsed="true" identifier="slides" label="Background Content (Required)">
-				<!--<group collapsed="true" identifier="slide" label="Background Image or Video" multiple="false">-->
-				<text default="Image" field-id="ff6bcbe4c0a81e5f43ef9b371651a0b3" identifier="type" label="Filetype" type="radiobutton">
-					<radio-item show-fields="masthead/subbrandMasthead/slides/imageFile" value="Image"/>
-					<radio-item show-fields="masthead/subbrandMasthead/slides/videoFile, masthead/subbrandMasthead/slides/fallbackImageFile" value="Video"/>
-				</text>
-				<asset field-id="ff6bcbe4c0a81e5f43ef9b3753d7ce48" help-text=".mp4 - no larger than 10mb" identifier="videoFile" label="Video File" type="file"/>
-				<asset field-id="ff6bcbe4c0a81e5f43ef9b37636f2a7a" identifier="fallbackImageFile" label="Fallback Image File" type="file"/>
-				<asset field-id="ff6bcbe4c0a81e5f43ef9b37f7fb4a92" identifier="imageFile" label="Image File" required="true" type="file"/>
-				<text default="Center" field-id="ff6bcbe4c0a81e5f43ef9b3715693b2d" identifier="alignY" label="Image Align" type="radiobutton">
-					<radio-item value="Top"/>
-					<radio-item value="Center"/>
-					<radio-item value="Bottom"/>
-				</text>
-				<text field-id="ff6bcbe4c0a81e5f43ef9b379def2e6c" help-text="Be succinct, accurate, and equivalent in presenting the same content and function of the image.    Do NOT be redundant or provide the same information as text within the context of the image. Do NOT use the phrases &quot;image of ...&quot; or &quot;graphic of ...&quot; to describe the image. https://webaim.org/techniques/alttext/" identifier="alternateText" label="Alternate Text"/>
-			</group>
-		</group>
-		<group collapsed="true" identifier="subPageMasthead" label="1 Column Child Page Masthead">
-			<group collapsed="true" identifier="headline" label="Headline">
-				<text field-id="ff6bcbe4c0a81e5f43ef9b374ddb7698" help-text="Primary title text" identifier="primary" label="Headline" required="true"/>
-			</group>
-			<group collapsed="true" identifier="slides" label="Background Content">
-				<text default="Image" field-id="ff6bcbe4c0a81e5f43ef9b372ffe1e0f" identifier="type" label="Filetype" type="radiobutton">
-					<radio-item show-fields="masthead/subPageMasthead/slides/imageFile" value="Image"/>
-					<radio-item show-fields="masthead/subPageMasthead/slides/videoFile, masthead/subPageMasthead/slides/fallbackImageFile" value="Video"/>
-				</text>
-				<asset field-id="ff6bcbe4c0a81e5f43ef9b375c86a982" help-text=".mp4 - no larger than 10mb" identifier="videoFile" label="Video File" type="file"/>
-				<asset field-id="ff6bcbe4c0a81e5f43ef9b3752d392c2" identifier="fallbackImageFile" label="Fallback Image File" type="file"/>
-				<asset field-id="ff6bcbe4c0a81e5f43ef9b3791fb6b21" identifier="imageFile" label="Image File" type="file"/>
-				<text default="Center" field-id="ff6bcbe4c0a81e5f43ef9b37ed092ea1" identifier="alignY" label="Image Align" type="radiobutton">
-					<radio-item value="Top"/>
-					<radio-item value="Center"/>
-					<radio-item value="Bottom"/>
-				</text>
-				<text field-id="ff6bcbe4c0a81e5f43ef9b3762546564" help-text="Be succinct, accurate, and equivalent in presenting the same content and function of the image.    Do NOT be redundant or provide the same information as text within the context of the image. Do NOT use the phrases &quot;image of ...&quot; or &quot;graphic of ...&quot; to describe the image. https://webaim.org/techniques/alttext/" identifier="alternateText" label="Alternate Text"/>
-			</group>
-		</group>
-	</group>
-	<group collapsed="true" identifier="primaryContent" label="Primary Content">
-		<group identifier="widget" label="Widget" multiple="true">
-			<text default="(select a widget)" field-id="ff6bcbe4c0a81e5f43ef9b373c6b107e" help-text="Choose the type of content you'd like to add to the page" identifier="widgetType" label="Type of Widget" type="dropdown">
-				<dropdown-item value="(select a widget)"/>
-				<dropdown-item show-fields="primaryContent/widget/imageWithText" value="Image with Text"/>
-				<dropdown-item show-fields="primaryContent/widget/circleImageWithText" value="Circle Image With Text"/>
-				<dropdown-item show-fields="primaryContent/widget/videoWithText" value="Video with Text"/>
-				<dropdown-item show-fields="primaryContent/widget/textWithCTA" value="Text with CTA"/>
-				<dropdown-item show-fields="primaryContent/widget/textOnly" value="Text Only"/>
-				<dropdown-item show-fields="primaryContent/widget/factCardsWithText" value="Fact Cards with Text"/>
-				<dropdown-item show-fields="primaryContent/widget/callToAction3Up" value="Call To Action 3 Up"/>
-				<dropdown-item show-fields="primaryContent/widget/chapmanSocialFeed" value="Social.chapman Feed"/>
-				<dropdown-item show-fields="primaryContent/widget/subscribe" value="Subscribe"/>
-				<dropdown-item show-fields="primaryContent/widget/callToActionBlock" value="Call To Action Block"/>
-				<dropdown-item show-fields="primaryContent/widget/chapmanEventsFeed" value="Events.chapman Feed"/>
-				<dropdown-item show-fields="primaryContent/widget/chapmanStoriesFeed" value="Stories Feed"/>
-				<dropdown-item show-fields="primaryContent/widget/contactFooter" value="Contact Footer"/>
-				<dropdown-item show-fields="primaryContent/widget/callToActionFooter" value="Call To Action Footer"/>
-				<dropdown-item show-fields="primaryContent/widget/multiImageContentBlocks" value="Multi Image Content Blocks"/>
-				<dropdown-item show-fields="primaryContent/widget/byTheNumbers" value="By the Numbers"/>
-				<dropdown-item show-fields="primaryContent/widget/imageSliderWidget" value="Image Slider Widget"/>
-				<dropdown-item show-fields="primaryContent/widget/campusMapWidget" value="Campus Map Widget"/>
-				<dropdown-item show-fields="primaryContent/widget/googleMapWidget" value="Google Map Widget"/>
-			</text>
-			<group collapsed="true" identifier="googleMapWidget" label="Google Map Widget">
-				<group collapsed="true" identifier="address" label="Address">
-					<text field-id="ff6bcbe4c0a81e5f43ef9b3707f5f817" help-text="Enter the building name" identifier="title" label="Title" required="true"/>
-					<text field-id="ff6bcbe5c0a81e5f43ef9b37a1a9cc8f" help-text="Enter point of contact phone number" identifier="phone" label="Phone Number" required="true"/>
-					<text field-id="ff6bcbe5c0a81e5f43ef9b3774f42ee1" help-text="Enter point of contact email address" identifier="email" label="Email Address" required="true"/>
-					<text field-id="ff6bcbe5c0a81e5f43ef9b37f9536efb" help-text="Generate, copy, and paste the latitude from https://www.google.com/maps/" identifier="latitude" label="Latitude" required="true"/>
-					<text field-id="ff6bcbe5c0a81e5f43ef9b37a578d3d4" help-text="Generate, copy, and paste the longitude from https://www.google.com/maps/" identifier="longitude" label="Longitude" required="true"/>
-					<text field-id="ff6bcbe5c0a81e5f43ef9b372c09d686" identifier="street" label="Street" required="true"/>
-					<text field-id="ff6bcbe5c0a81e5f43ef9b37f1bc7c6c" identifier="city" label="City" required="true"/>
-					<text field-id="ff6bcbe5c0a81e5f43ef9b370e990201" identifier="state" label="State" required="true"/>
-					<text field-id="ff6bcbe5c0a81e5f43ef9b3701077b6e" identifier="zip" label="Zip" required="true"/>
-				</group>
-			</group>
-			<group collapsed="true" identifier="campusMapWidget" label="Campus Map Widget">
-				<text field-id="ff6bcbe5c0a81e5f43ef9b376ac081be" help-text="Copy &amp; paste the embed code (that starts and ends with &lt;iframe&gt; ... &lt;/iframe&gt;) on Campus Bird. Be sure to hide the top bar, side bar, footer, and print hide via the toggle button in Options under the ‘Embed’ tab. " identifier="iframe" label="iFrame Code" required="true"/>
-				<group collapsed="true" identifier="address" label="Address">
-					<text field-id="ff6bcbe5c0a81e5f43ef9b37734e2431" help-text="Enter the building title" identifier="title" label="Title" required="true"/>
-					<text field-id="ff6bcbe5c0a81e5f43ef9b371e3037a7" help-text="Enter point of contact phone number" identifier="phone" label="Phone Number" required="true"/>
-					<text field-id="ff6bcbe5c0a81e5f43ef9b37104e73fa" help-text="Enter point of contact email address" identifier="email" label="Email Address" required="true"/>
-					<text field-id="ff6bcbe5c0a81e5f43ef9b370172356a" identifier="street" label="Street"/>
-					<text field-id="ff6bcbe5c0a81e5f43ef9b37ec62885f" identifier="city" label="City"/>
-					<text field-id="ff6bcbe5c0a81e5f43ef9b377abe6841" identifier="state" label="State"/>
-					<text field-id="ff6bcbe5c0a81e5f43ef9b373a262063" identifier="zip" label="Zip"/>
-				</group>
-			</group>
-			<group collapsed="true" identifier="imageSliderWidget" label="Image Slider Widget">
-				<group collapsed="true" identifier="featuredContent" label="Slide" multiple="true">
-					<group identifier="featuredBackgroundMedia" label="Background Image">
-						<asset field-id="ff6bcbe5c0a81e5f43ef9b377a10f82b" identifier="imageFile" label="Image File" type="file"/>
-						<text field-id="ff6bcbe6c0a81e5f43ef9b371306a6e6" help-text="Be succinct, accurate, and equivalent in presenting the same content and function of the image.    Do NOT be redundant or provide the same information as text within the context of the image. Do NOT use the phrases &quot;image of ...&quot; or &quot;graphic of ...&quot; to describe the image. https://webaim.org/techniques/alttext/" identifier="alternateText" label="Alternate Text"/>
-						<text default="Center" field-id="ff6bcbe6c0a81e5f43ef9b37e2cf8512" identifier="alignY" label="Image Align" type="radiobutton">
-							<radio-item value="Top"/>
-							<radio-item value="Center"/>
-							<radio-item value="Bottom"/>
-							<radio-item show-fields="primaryContent/widget/imageSliderWidget/featuredContent/featuredBackgroundMedia/alignYPercentage" value="Percentage"/>
-						</text>
-						<text field-id="ff6bcbe6c0a81e5f43ef9b37f6afcdd9" help-text="Enter a positive or negative integer WITHOUT a percent sign e.g. '10'." identifier="alignYPercentage" label="Top Alignment"/>
-					</group>
-					<group collapsed="true" identifier="featuredPanel" label="Foreground Content">
-						<text field-id="ff6bcbe6c0a81e5f43ef9b3733d62178" identifier="title" label="Title"/>
-						<text field-id="ff6bcbe6c0a81e5f43ef9b37f5f1e2d5" identifier="body" label="Content" wysiwyg="true"/>
-						<group identifier="link" label="Call to Action Button">
-							<text default="Internal Link" field-id="ff6bcbe6c0a81e5f43ef9b37cccee353" identifier="linkType" label="Link Type" type="radiobutton">
-								<radio-item show-fields="primaryContent/widget/imageSliderWidget/featuredContent/featuredPanel/link/internalLink" value="Internal Link"/>
-								<radio-item show-fields="primaryContent/widget/imageSliderWidget/featuredContent/featuredPanel/link/externalLink" value="External Link"/>
-								<radio-item show-fields="primaryContent/widget/imageSliderWidget/featuredContent/featuredPanel/link/fileLink" value="File Link"/>
-							</text>
-							<text field-id="ff6bcbe6c0a81e5f43ef9b3774a1acb7" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-							<asset field-id="ff6bcbe6c0a81e5f43ef9b37495cc5ba" identifier="internalLink" label="Internal Link" type="page"/>
-							<asset field-id="ff6bcbe6c0a81e5f43ef9b37ff1efd68" identifier="fileLink" label="File Link" type="file"/>
-							<text field-id="ff6bcbe6c0a81e5f43ef9b3786f80637" identifier="label" label="Label"/>
-						</group>
-					</group>
-				</group>
-			</group>
-			<group collapsed="true" identifier="byTheNumbers" label="By The Numbers">
-				<text field-id="ff6bcbe6c0a81e5f43ef9b37454be6cb" help-text="Section Heading" identifier="byTheNumbersHeading" label="Heading" required="true"/>
-				<text default="Yes" field-id="ff6bcbe6c0a81e5f43ef9b377e02e7a8" identifier="display-by-the-numbers" label="Show" required="true" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<group identifier="rankings" label="Rankings" maximum-number="3" minimum-number="3" multiple="true">
-					<text field-id="ff6bcbe6c0a81e5f43ef9b373558ef37" help-text="Short Ranking Description To Appear Below Rank Value (required)" identifier="rankingDescription" label="Ranking Description"/>
-					<text field-id="ff6bcbe6c0a81e5f43ef9b372fa82438" help-text="Ranking Sub-Text To Extend the Ranking Value or to Allow For More Description" identifier="rankingText" label="Ranking Sub-Text"/>
-					<group identifier="rank" label="Rank">
-						<text default="Number" field-id="ff6bcbe6c0a81e5f43ef9b373e8c9544" help-text="Select Rank Type Which will automatically append the appropriate symbol" identifier="rankType" label="Select Rank" type="radiobutton">
-							<radio-item show-fields="primaryContent/widget/byTheNumbers/rankings/rank/number" value="Number"/>
-							<radio-item show-fields="primaryContent/widget/byTheNumbers/rankings/rank/percentage" value="Percentage"/>
-							<radio-item show-fields="primaryContent/widget/byTheNumbers/rankings/rank/rank" value="Rank"/>
-						</text>
-						<text field-id="ff6bcbe6c0a81e5f43ef9b370d3ae5cb" help-text="Enter Only the Number in the Field Below" identifier="number"/>
-						<text field-id="ff6bcbe7c0a81e5f43ef9b3722c88f3a" help-text="Enter Only the Percentage Number in the Field Below" identifier="percentage" label="Enter Percentage Number Only"/>
-						<text field-id="ff6bcbe7c0a81e5f43ef9b37c7021593" help-text="Enter Only the Rank in the Field Below" identifier="rank" label="Enter Rank Number Only"/>
-					</group>
-				</group>
-				<group identifier="link" label="Link">
-					<text default="Internal Link" field-id="ff6bcbe7c0a81e5f43ef9b374eb15b8a" identifier="linkType" label="Link Type" type="radiobutton">
-						<radio-item show-fields="primaryContent/widget/byTheNumbers/link/internalLink" value="Internal Link"/>
-						<radio-item show-fields="primaryContent/widget/byTheNumbers/link/externalLink" value="External Link"/>
-						<radio-item show-fields="primaryContent/widget/byTheNumbers/link/fileLink" value="File Link"/>
-					</text>
-					<text field-id="ff6bcbe7c0a81e5f43ef9b3731ef83e5" identifier="externalLink" label="External Link"/>
-					<asset field-id="ff6bcbe7c0a81e5f43ef9b37094785d1" identifier="internalLink" label="Internal Link" type="page"/>
-					<asset field-id="ff6bcbe7c0a81e5f43ef9b37578dee90" identifier="fileLink" label="File Link" type="file"/>
-					<text field-id="ff6bcbe7c0a81e5f43ef9b374a68c4a8" identifier="buttonText" label="Button Text"/>
-				</group>
-			</group>
-			<group collapsed="true" identifier="multiImageContentBlocks" label="Multi Image Content Blocks">
-				<text field-id="ff6bcbe7c0a81e5f43ef9b376a190eca" help-text="Section Heading" identifier="multiImageHeading" label="Heading" required="true"/>
-				<text default="Yes" field-id="ff6bcbe7c0a81e5f43ef9b37753c4894" identifier="display-multi-image-content-blocks" label="Show" required="true" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<text default="Square" field-id="ff6bcbe7c0a81e5f43ef9b37a3b1c23e" identifier="multiImageBlocksShape" label="Shape" required="true" type="radiobutton">
-					<radio-item value="Square"/>
-					<radio-item value="Circle"/>
-				</text>
-				<group identifier="photoCallout" label="Photo" minimum-number="1" multiple="true">
-					<asset field-id="ff6bcbe7c0a81e5f43ef9b3731f73119" identifier="image" label="Image (square 260x174 | circle 260x260)" required="true" type="file"/>
-					<text field-id="ff6bcbe7c0a81e5f43ef9b3792ac8d02" help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true"/>
-					<group identifier="link" label="Link">
-						<text default="Internal Link" field-id="ff6bcbe7c0a81e5f43ef9b375aa24515" identifier="linkType" label="Link Type" required="true" type="radiobutton">
-							<radio-item show-fields="primaryContent/widget/multiImageContentBlocks/photoCallout/link/internalLink" value="Internal Link"/>
-							<radio-item show-fields="primaryContent/widget/multiImageContentBlocks/photoCallout/link/externalLink" value="External Link"/>
-							<radio-item show-fields="primaryContent/widget/multiImageContentBlocks/photoCallout/link/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbe7c0a81e5f43ef9b37e5f9b595" identifier="externalLink" label="External Link" required="true"/>
-						<asset field-id="ff6bcbe7c0a81e5f43ef9b3723bc94ee" identifier="internalLink" label="Internal Link" required="true" type="page"/>
-						<asset field-id="ff6bcbe7c0a81e5f43ef9b3784c4fc4b" identifier="fileLink" label="File Link" required="true" type="file"/>
-						<text field-id="ff6bcbe7c0a81e5f43ef9b371a31099a" identifier="label" label="Label" required="true"/>
-					</group>
-				</group>
-			</group>
-			<group collapsed="true" identifier="chapmanEventsFeed" label="Events.chapman Feed">
-				<text default="Yes" field-id="ff6bcbe7c0a81e5f43ef9b37d89e1ac4" identifier="show" label="Show" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<text default="Light" field-id="ff6bcbe8c0a81e5f43ef9b37e544fb1e" identifier="bgColor" label="Background Color" type="radiobutton">
-					<radio-item value="Light"/>
-					<radio-item value="Medium"/>
-					<radio-item value="Dark"/>
-				</text>
-				<text field-id="ff6bcbe8c0a81e5f43ef9b37a2d45112" identifier="category" label="Category"/>
-				<text field-id="ff6bcbe8c0a81e5f43ef9b3753472625" identifier="title" label="Title"/>
-				<text field-id="ff6bcbe8c0a81e5f43ef9b37a3ae5066" identifier="body" label="Content" wysiwyg="true"/>
-				<text field-id="ff6bcbe8c0a81e5f43ef9b37d287e629" identifier="buttonText" label="Button Text"/>
-				<text field-id="ff6bcbe8c0a81e5f43ef9b3701ffb6e2" identifier="featuredFeedUrl" label="Featured Event Url" required="true"/>
-				<text field-id="ff6bcbe8c0a81e5f43ef9b37ac092dee" identifier="feedUrl" label="Feed Url" required="true"/>
-			</group>
-			<group collapsed="true" identifier="callToActionBlock" label="Call To Action Block">
-				<text default="Yes" field-id="ff6bcbe8c0a81e5f43ef9b37adf2c067" identifier="display-call-to-action-block" label="Show" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<text default="Light" field-id="ff6bcbe8c0a81e5f43ef9b37c2dd8261" identifier="bgColor" label="Background Color" type="radiobutton">
-					<radio-item value="Light"/>
-					<radio-item value="Medium"/>
-					<radio-item value="Dark"/>
-				</text>
-				<group collapsed="true" identifier="callToActionBlockRow" label="Call To Action Block Row" multiple="true">
-					<group collapsed="true" identifier="callToActionBox" label="Call To Action Box" maximum-number="4" minimum-number="4" multiple="true">
-						<text field-id="ff6bcbe8c0a81e5f43ef9b378a43d93e" identifier="title" label="Title"/>
-						<text field-id="ff6bcbe8c0a81e5f43ef9b37adea6982" identifier="subtitle" label="Subtitle"/>
-						<text default="Dark" field-id="ff6bcbe8c0a81e5f43ef9b3710193ece" identifier="colorTheme" label="Color Theme" type="radiobutton">
-							<radio-item value="Dark"/>
-							<radio-item value="Light"/>
-							<radio-item value="School Color"/>
-						</text>
-						<group collapsed="true" identifier="link" label="Link">
-							<text default="Internal Link" field-id="ff6bcbe8c0a81e5f43ef9b375a4010c7" identifier="linkType" label="Link Type" type="radiobutton">
-								<radio-item show-fields="primaryContent/widget/callToActionBlock/callToActionBlockRow/callToActionBox/link/internalLink" value="Internal Link"/>
-								<radio-item show-fields="primaryContent/widget/callToActionBlock/callToActionBlockRow/callToActionBox/link/externalLink" value="External Link"/>
-								<radio-item show-fields="primaryContent/widget/callToActionBlock/callToActionBlockRow/callToActionBox/link/fileLink" value="File Link"/>
-							</text>
-							<text field-id="ff6bcbe8c0a81e5f43ef9b370acc1c32" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-							<asset field-id="ff6bcbe8c0a81e5f43ef9b37caaa2d81" identifier="internalLink" label="Internal Link" type="page"/>
-							<asset field-id="ff6bcbe8c0a81e5f43ef9b37b6203c3f" identifier="fileLink" label="File Link" type="file"/>
-						</group>
-						<group collapsed="true" identifier="media" label="Media">
-							<text default="None" field-id="ff6bcbe8c0a81e5f43ef9b374c2f4387" help-text="Photo size: around 600px width and 272 px height  (Does not need to be exact, just close)" identifier="linkType" label="Link Type" type="radiobutton">
-								<radio-item value="None"/>
-								<radio-item show-fields="primaryContent/widget/callToActionBlock/callToActionBlockRow/callToActionBox/media/fileLink" value="File Link"/>
-							</text>
-							<asset field-id="ff6bcbe9c0a81e5f43ef9b370d76a5f5" identifier="fileLink" label="File Link (Around 600px by 272px)" type="file"/>
-						</group>
-					</group>
-				</group>
-			</group>
-			<group collapsed="false" identifier="textWithCTA" label="Text with CTA">
-				<shared-field field-id="a0c910d2c0a81e5f510cef5015abada6" identifier="display" path="display"/>
-				<text default="Default Theme" field-id="a0c910d3c0a81e5f510cef50cf4c26a5" identifier="theme" label="Theme" type="radiobutton">
-					<radio-item identifier="default" show-fields="primaryContent/widget/textWithCTA/bgColor, primaryContent/widget/textWithCTA/textWithCTAButton" value="Default Theme"/>
-					<radio-item identifier="pacific" show-fields="primaryContent/widget/textWithCTA/CUSafelyBackbgColor, primaryContent/widget/textWithCTA/textWithCTAButtonCUSafelyBack" value="CU Safely Back"/>
-				</text>
-				<text default="white" field-id="a0c910d3c0a81e5f510cef50b4b011e2" identifier="bgColor" label="Background Color" require="false" type="dropdown">
-					<dropdown-item label="White" value="white"/>
-					<dropdown-item label="Red" value="red"/>
-					<dropdown-item label="Sand" value="sand"/>
-					<dropdown-item label="Black" value="black"/>
-				</text>
-				<text default="pacific" field-id="a0c910d4c0a81e5f510cef50c83c9237" identifier="CUSafelyBackbgColor" label="Background Color" require="false" type="radiobutton">
-					<radio-item label="Pacific" value="pacific"/>
-				</text>
-				<text field-id="a0c910d4c0a81e5f510cef50e3a6e2f3" help-text="Note: With 'CU Safely Back' Theme, the first two characters are emphasized" identifier="textWithCTATitle" label="Title"/>
-				<text field-id="a0c910d5c0a81e5f510cef503968b417" identifier="text" label="Text" required="true" wysiwyg="true"/>
-				<group identifier="textWithCTAButton" label="CTA Button" maximum-number="3" multiple="true">
-					<group identifier="link" label="Call to Action">
-						<text default="Internal Link" field-id="a0c910d5c0a81e5f510cef50918b6953" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="primaryContent/widget/textWithCTA/textWithCTAButton/link/internalLink" value="Internal Link"/>
-							<radio-item show-fields="primaryContent/widget/textWithCTA/textWithCTAButton/link/externalLink" value="External Link"/>
-							<radio-item show-fields="primaryContent/widget/textWithCTA/textWithCTAButton/link/fileLink" value="File Link"/>
-						</text>
-						<text field-id="a0c910d5c0a81e5f510cef504115e2a3" help-text="full url (including HTTPS) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="a0c910d5c0a81e5f510cef50886fdcf5" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="a0c910d6c0a81e5f510cef50c02e800b" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="a0c910d6c0a81e5f510cef505757d44a" identifier="label" label="Label"/>
-						<group collapsed="true" identifier="accessibility" label="Accessibility">
-							<text field-id="a0c910d6c0a81e5f510cef50ae4e74f1" identifier="ariaLabel" label="Aria Label"/>
-							<text field-id="a0c910d6c0a81e5f510cef508c601f13" identifier="title" label="Title"/>
-						</group>
-						<group collapsed="true" identifier="tracking" label="Analytics Tracking">
-							<text field-id="a0c910d7c0a81e5f510cef50c0d64f24" help-text="Replace or add custom link ID for tracking." identifier="customID" label="Override HTML ID"/>
-							<text field-id="a0c910d7c0a81e5f510cef503f350417" help-text="Replace or add custom data-attr for tracking. Entering 'my-custom-thing' will result in 'data-my-custom-thing'" identifier="dataAttr" label="Data Attribute" multiple="true"/>
-						</group>
-					</group>
-				</group>
-				<!-- cu safely back CTA (no color chooser, 2 max) -->
-				<group identifier="textWithCTAButtonCUSafelyBack" label="CTA Button" maximum-number="2" multiple="true">
-					<group identifier="link" label="Call to Action">
-						<text default="Internal Link" field-id="a0c910d7c0a81e5f510cef50c42823d3" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="primaryContent/widget/textWithCTA/textWithCTAButtonCUSafelyBack/link/internalLink" value="Internal Link"/>
-							<radio-item show-fields="primaryContent/widget/textWithCTA/textWithCTAButtonCUSafelyBack/link/externalLink" value="External Link"/>
-							<radio-item show-fields="primaryContent/widget/textWithCTA/textWithCTAButtonCUSafelyBack/link/fileLink" value="File Link"/>
-						</text>
-						<text field-id="a0c910d8c0a81e5f510cef5070d99661" help-text="full url (including HTTPS) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="a0c910d8c0a81e5f510cef50005897dd" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="a0c910d8c0a81e5f510cef50179f11b1" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="a0c910d8c0a81e5f510cef50d3e9ee56" identifier="label" label="Label"/>
-						<group collapsed="true" identifier="accessibility" label="Accessibility">
-							<text field-id="a0c910d8c0a81e5f510cef50bd0cf5bd" identifier="ariaLabel" label="Aria Label"/>
-							<text field-id="a0c910d8c0a81e5f510cef50c535c717" identifier="title" label="Title"/>
-						</group>
-						<group collapsed="true" identifier="tracking" label="Analytics Tracking">
-							<text field-id="a0c910d9c0a81e5f510cef502afb063d" help-text="Replace or add custom link ID for tracking." identifier="customID" label="Override HTML ID"/>
-							<text field-id="a0c910d9c0a81e5f510cef50f4458350" help-text="Replace or add custom data-attr for tracking. Entering 'my-custom-thing' will result in 'data-my-custom-thing'" identifier="dataAttr" label="Data Attribute" multiple="true"/>
-						</group>
-					</group>
-				</group>
-			</group>
-			<group collapsed="true" identifier="textOnly" label="Text Only">
-				<text default="Yes" field-id="ff6bcbe9c0a81e5f43ef9b373231fd19" identifier="display-text-only" label="Show" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<text default="Centered" field-id="ff6bcbe9c0a81e5f43ef9b3703ebe122" help-text="Choose how to layout your text" identifier="format" label="Text Position" type="dropdown">
-					<dropdown-item value="Centered"/>
-					<dropdown-item show-fields="primaryContent/widget/textOnly/textFields/textAlign" value="Off to the side"/>
-				</text>
-				<text default="Light" field-id="ff6bcbe9c0a81e5f43ef9b37cff16fb4" identifier="bgColor" label="Background Color" type="radiobutton">
-					<radio-item value="Light"/>
-					<radio-item value="Medium"/>
-					<radio-item value="Dark"/>
-				</text>
-				<group collapsed="true" identifier="textFields" label="Text Fields">
-					<text default="Left" field-id="ff6bcbe9c0a81e5f43ef9b3713106a01" identifier="textAlign" label="Text Align" type="radiobutton">
-						<radio-item value="Left"/>
-						<radio-item value="Right"/>
-					</text>
-					<text field-id="ff6bcbe9c0a81e5f43ef9b375f3ac5db" identifier="category" label="Category"/>
-					<text field-id="ff6bcbe9c0a81e5f43ef9b3700856158" identifier="title" label="Title"/>
-					<text field-id="ff6bcbe9c0a81e5f43ef9b3704967580" identifier="body" label="Content" wysiwyg="true"/>
-					<group identifier="button" label="Button">
-						<text default="Internal Link" field-id="ff6bcbe9c0a81e5f43ef9b37b1804067" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="primaryContent/widget/textOnly/textFields/button/internalLink" value="Internal Link"/>
-							<radio-item show-fields="primaryContent/widget/textOnly/textFields/button/externalLink" value="External Link"/>
-							<radio-item show-fields="primaryContent/widget/textOnly/textFields/button/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbe9c0a81e5f43ef9b37c3bc45e5" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="ff6bcbe9c0a81e5f43ef9b37959cd01e" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="ff6bcbe9c0a81e5f43ef9b3731c78d0f" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="ff6bcbe9c0a81e5f43ef9b379cba22bb" identifier="label" label="Label"/>
-					</group>
-					<group identifier="dropdownNav" label="Dropdown Navigation">
-						<text field-id="ff6bcbe9c0a81e5f43ef9b37a90ba28f" identifier="dropdownLabel" label="Label"/>
-						<group identifier="dropdownLink" label="Link" multiple="true">
-							<text default="Internal Link" field-id="ff6bcbe9c0a81e5f43ef9b3770cd8458" identifier="linkType" label="Link Type" type="radiobutton">
-								<radio-item show-fields="primaryContent/widget/textOnly/textFields/dropdownNav/dropdownLink/internalLink" value="Internal Link"/>
-								<radio-item show-fields="primaryContent/widget/textOnly/textFields/dropdownNav/dropdownLink/externalLink" value="External Link"/>
-								<radio-item show-fields="primaryContent/widget/textOnly/textFields/dropdownNav/dropdownLink/fileLink" value="File Link"/>
-							</text>
-							<text field-id="ff6bcbe9c0a81e5f43ef9b37ef3c17ee" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-							<asset field-id="ff6bcbeac0a81e5f43ef9b37cf52132b" identifier="internalLink" label="Internal Link" type="page"/>
-							<asset field-id="ff6bcbeac0a81e5f43ef9b376f3738bc" identifier="fileLink" label="File Link" type="file"/>
-							<text field-id="ff6bcbeac0a81e5f43ef9b376ad36c65" identifier="label" label="Label"/>
-						</group>
-					</group>
-				</group>
-				<group collapsed="true" identifier="backgroundImage" label="Background Image">
-					<asset field-id="ff6bcbeac0a81e5f43ef9b3794125021" identifier="fileLink" label="File Link (Around 1600px by 800px)" type="file"/>
-					<text field-id="ff6bcbeac0a81e5f43ef9b37abd1529c" identifier="alternateText" label="Alternate Text"/>
-				</group>
-			</group>
-			<group collapsed="true" identifier="imageWithText" label="Image with Text">
-				<text default="Yes" field-id="ff6bcbeac0a81e5f43ef9b37a0708420" identifier="display-image-with-text" label="Show" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<text default="Side by side" field-id="ff6bcbeac0a81e5f43ef9b375ecbf13f" help-text="Choose how to layout your data" identifier="format" label="Text and Image Positions" type="dropdown">
-					<dropdown-item value="Stacked"/>
-					<dropdown-item show-fields="primaryContent/widget/imageWithText/textFields/textAlign" value="Side by side"/>
-				</text>
-				<text default="Light" field-id="ff6bcbeac0a81e5f43ef9b3734ad2e22" identifier="bgColor" label="Background Color" type="radiobutton">
-					<radio-item value="Light"/>
-					<radio-item value="Medium"/>
-					<radio-item value="Dark"/>
-				</text>
-				<group collapsed="true" identifier="backgroundImage" label="Background Image">
-					<text default="None" field-id="ff6bcbeac0a81e5f43ef9b37a7a2e187" identifier="linkType" label="Link Type" type="radiobutton">
-						<radio-item value="None"/>
-						<radio-item show-fields="primaryContent/widget/imageWithText/backgroundImage/fileLink" value="File Link"/>
-					</text>
-					<asset field-id="ff6bcbeac0a81e5f43ef9b375b1794c8" identifier="fileLink" label="File Link" type="file"/>
-				</group>
-				<group collapsed="true" identifier="textFields" label="Text Fields">
-					<text default="Left" field-id="ff6bcbeac0a81e5f43ef9b3723902e9c" identifier="textAlign" label="Text Align" type="radiobutton">
-						<radio-item value="Left"/>
-						<radio-item value="Right"/>
-					</text>
-					<text field-id="ff6bcbeac0a81e5f43ef9b370c7747fe" identifier="category" label="Category"/>
-					<text field-id="ff6bcbeac0a81e5f43ef9b379b3c6622" identifier="title" label="Title"/>
-					<text field-id="ff6bcbeac0a81e5f43ef9b37af9fe66c" identifier="body" label="Content" wysiwyg="true"/>
-					<group identifier="button" label="Button">
-						<text default="Internal Link" field-id="ff6bcbeac0a81e5f43ef9b37909fbc60" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="primaryContent/widget/imageWithText/textFields/button/internalLink" value="Internal Link"/>
-							<radio-item show-fields="primaryContent/widget/imageWithText/textFields/button/externalLink" value="External Link"/>
-							<radio-item show-fields="primaryContent/widget/imageWithText/textFields/button/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbeac0a81e5f43ef9b37f7b2867a" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="ff6bcbeac0a81e5f43ef9b37636a1c72" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="ff6bcbebc0a81e5f43ef9b37d5c6edf7" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="ff6bcbebc0a81e5f43ef9b3703ceefb7" identifier="label" label="Label"/>
-					</group>
-					<group identifier="dropdownNav" label="Dropdown Navigation">
-						<text field-id="ff6bcbebc0a81e5f43ef9b374aad24a2" identifier="dropdownLabel" label="Label"/>
-						<group identifier="dropdownLink" label="Link" multiple="true">
-							<text default="Internal Link" field-id="ff6bcbebc0a81e5f43ef9b378e120987" identifier="linkType" label="Link Type" type="radiobutton">
-								<radio-item show-fields="primaryContent/widget/imageWithText/textFields/dropdownNav/dropdownLink/internalLink" value="Internal Link"/>
-								<radio-item show-fields="primaryContent/widget/imageWithText/textFields/dropdownNav/dropdownLink/externalLink" value="External Link"/>
-								<radio-item show-fields="primaryContent/widget/imageWithText/textFields/dropdownNav/dropdownLink/fileLink" value="File Link"/>
-							</text>
-							<text field-id="ff6bcbebc0a81e5f43ef9b37ca3bad6f" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-							<asset field-id="ff6bcbebc0a81e5f43ef9b37835d95e9" identifier="internalLink" label="Internal Link" type="page"/>
-							<asset field-id="ff6bcbebc0a81e5f43ef9b37c7b4bbfe" identifier="fileLink" label="File Link" type="file"/>
-							<text field-id="ff6bcbebc0a81e5f43ef9b3729444eaa" identifier="label" label="Label"/>
-						</group>
-					</group>
-				</group>
-				<group collapsed="true" identifier="imageFields" label="Image Fields">
-					<asset field-id="ff6bcbebc0a81e5f43ef9b37d0ff74b3" identifier="fileLink" label="File Link (Around 600px by 400px)" type="file"/>
-					<text field-id="ff6bcbebc0a81e5f43ef9b373e8e5107" identifier="alternateText" label="Alternate Text"/>
-				</group>
-			</group>
-			<group collapsed="true" identifier="circleImageWithText" label="Circle Image With Text">
-				<text default="Yes" field-id="ff6bcbebc0a81e5f43ef9b377471d32f" identifier="display-circle-image-with-text" label="Show" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<text default="Light" field-id="ff6bcbebc0a81e5f43ef9b37974f1f62" identifier="bgColor" label="Background Color" type="radiobutton">
-					<radio-item value="Light"/>
-					<radio-item value="Medium"/>
-					<radio-item value="Dark"/>
-				</text>
-				<group collapsed="true" identifier="textFields" label="Text Fields">
-					<text default="Left" field-id="ff6bcbebc0a81e5f43ef9b370fd786a9" identifier="textAlign" label="Text Align" type="radiobutton">
-						<radio-item value="Left"/>
-						<radio-item value="Right"/>
-					</text>
-					<text field-id="ff6bcbebc0a81e5f43ef9b370dfd0531" identifier="category" label="Category"/>
-					<text field-id="ff6bcbebc0a81e5f43ef9b375292f02e" identifier="title" label="Title"/>
-					<text field-id="ff6bcbebc0a81e5f43ef9b37f08e60a4" identifier="body" label="Content" wysiwyg="true"/>
-					<text default="Buttons" field-id="ff6bcbebc0a81e5f43ef9b37ca238a7d" identifier="buttonType" label="Button Type" type="radiobutton">
-						<radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/buttons" value="Buttons"/>
-						<radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/dropdownNav, primaryContent/widget/circleImageWithText/textFields/button" value="Drop Down Button"/>
-					</text>
-					<group identifier="buttons" label="Buttons" maximum-number="2" minimum-number="0" multiple="true">
-						<text default="Internal Link" field-id="ff6bcbecc0a81e5f43ef9b371fdb2405" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/buttons/internalLink" value="Internal Link"/>
-							<radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/buttons/externalLink" value="External Link"/>
-							<radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/buttons/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbecc0a81e5f43ef9b3758a21e64" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="ff6bcbecc0a81e5f43ef9b37b48865c5" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="ff6bcbecc0a81e5f43ef9b3780b2c10b" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="ff6bcbecc0a81e5f43ef9b3761d010fb" identifier="label" label="Label"/>
-					</group>
-					<group identifier="button" label="Button">
-						<text default="Internal Link" field-id="ff6bcbecc0a81e5f43ef9b374745437e" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/button/internalLink" value="Internal Link"/>
-							<radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/button/externalLink" value="External Link"/>
-							<radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/button/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbecc0a81e5f43ef9b373788fc1b" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="ff6bcbecc0a81e5f43ef9b3778908e99" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="ff6bcbecc0a81e5f43ef9b375d3c9ab7" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="ff6bcbecc0a81e5f43ef9b37d15562c3" identifier="label" label="Label"/>
-					</group>
-					<group identifier="dropdownNav" label="Dropdown Navigation">
-						<text field-id="ff6bcbecc0a81e5f43ef9b375b2bcfa3" identifier="dropdownLabel" label="Label"/>
-						<group identifier="dropdownLink" label="Link" multiple="true">
-							<text default="Internal Link" field-id="ff6bcbecc0a81e5f43ef9b37b0bc3834" identifier="linkType" label="Link Type" type="radiobutton">
-								<radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/dropdownNav/dropdownLink/internalLink" value="Internal Link"/>
-								<radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/dropdownNav/dropdownLink/externalLink" value="External Link"/>
-								<radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/dropdownNav/dropdownLink/fileLink" value="File Link"/>
-							</text>
-							<text field-id="ff6bcbecc0a81e5f43ef9b37c55aadaa" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-							<asset field-id="ff6bcbecc0a81e5f43ef9b37a4c5eab5" identifier="internalLink" label="Internal Link" type="page"/>
-							<asset field-id="ff6bcbecc0a81e5f43ef9b37d4eefb53" identifier="fileLink" label="File Link" type="file"/>
-							<text field-id="ff6bcbecc0a81e5f43ef9b378d8c410e" identifier="label" label="Label"/>
-						</group>
-					</group>
-				</group>
-				<group collapsed="true" identifier="imageFields" label="Image Fields">
-					<asset field-id="ff6bcbedc0a81e5f43ef9b37a9b2a092" help-text="Image must by and around 250px by 250px" identifier="fileLink" label="Image" type="file"/>
-					<text field-id="ff6bcbedc0a81e5f43ef9b374f9a5b7a" identifier="alternateText" label="Alternate Text"/>
-				</group>
-			</group>
-			<group collapsed="true" identifier="videoWithText" label="Video with Text">
-				<text default="Yes" field-id="ff6bcbedc0a81e5f43ef9b37fbd9a3f5" identifier="display-video-with-text" label="Show" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<text default="Side by side" field-id="ff6bcbedc0a81e5f43ef9b379144b110" help-text="Choose how to layout your data" identifier="format" label="Text and Video Positions" type="dropdown">
-					<dropdown-item value="Stacked"/>
-					<dropdown-item show-fields="primaryContent/widget/videoWithText/textFields/textAlign" value="Side by side"/>
-				</text>
-				<text default="Light" field-id="ff6bcbedc0a81e5f43ef9b37e6809abe" identifier="bgColor" label="Background Color" type="radiobutton">
-					<radio-item value="Light"/>
-					<radio-item value="Medium"/>
-					<radio-item value="Dark"/>
-				</text>
-				<text field-id="ff6bcbedc0a81e5f43ef9b37544f91c3" help-text="Example: `https://youtu.be/jhz862KOstA` or `https://vimeo.com/194384917`" identifier="videoShareLink" label="Youtube or Vimeo Share Link"/>
-				<group collapsed="true" identifier="textFields" label="Text Fields">
-					<text default="Left" field-id="ff6bcbedc0a81e5f43ef9b37461e9700" identifier="textAlign" label="Text Align" type="radiobutton">
-						<radio-item value="Left"/>
-						<radio-item value="Right"/>
-					</text>
-					<text field-id="ff6bcbedc0a81e5f43ef9b3723210ff2" identifier="category" label="Category"/>
-					<text field-id="ff6bcbedc0a81e5f43ef9b378816eb98" identifier="title" label="Title"/>
-					<text field-id="ff6bcbedc0a81e5f43ef9b371d54948f" identifier="body" label="Content" wysiwyg="true"/>
-					<text default="Drop Down Button" field-id="ff6bcbedc0a81e5f43ef9b379404da04" identifier="buttonType" label="Dropdown Menu or Text Links" type="radiobutton">
-						<radio-item show-fields="primaryContent/widget/videoWithText/textFields/linksHeading, primaryContent/widget/videoWithText/textFields/links" value="Links"/>
-						<radio-item show-fields="primaryContent/widget/videoWithText/textFields/dropdownNav, primaryContent/widget/videoWithText/textFields/button" value="Drop Down Button"/>
-					</text>
-					<text field-id="ff6bcbedc0a81e5f43ef9b37603b5d39" identifier="linksHeading" label="Link Heading"/>
-					<group identifier="links" label="Links" maximum-number="2" minimum-number="0" multiple="true">
-						<text default="Internal Link" field-id="ff6bcbedc0a81e5f43ef9b37894f9616" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="primaryContent/widget/videoWithText/textFields/links/internalLink" value="Internal Link"/>
-							<radio-item show-fields="primaryContent/widget/videoWithText/textFields/links/externalLink" value="External Link"/>
-							<radio-item show-fields="primaryContent/widget/videoWithText/textFields/links/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbedc0a81e5f43ef9b3751a5643c" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="ff6bcbedc0a81e5f43ef9b37567b8834" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="ff6bcbeec0a81e5f43ef9b3794ac853f" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="ff6bcbeec0a81e5f43ef9b379886357b" identifier="label" label="Label"/>
-					</group>
-					<group identifier="button" label="Button">
-						<text default="Internal Link" field-id="ff6bcbeec0a81e5f43ef9b3727b87496" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="primaryContent/widget/videoWithText/textFields/button/internalLink" value="Internal Link"/>
-							<radio-item show-fields="primaryContent/widget/videoWithText/textFields/button/externalLink" value="External Link"/>
-							<radio-item show-fields="primaryContent/widget/videoWithText/textFields/button/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbeec0a81e5f43ef9b37b24b6d3c" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="ff6bcbeec0a81e5f43ef9b37e22362ae" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="ff6bcbeec0a81e5f43ef9b37149ab129" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="ff6bcbeec0a81e5f43ef9b374960cb03" identifier="label" label="Label"/>
-					</group>
-					<group identifier="dropdownNav" label="Dropdown Navigation">
-						<text field-id="ff6bcbeec0a81e5f43ef9b379dc1067c" identifier="dropdownLabel" label="Label"/>
-						<group identifier="dropdownLink" label="Link" multiple="true">
-							<text default="Internal Link" field-id="ff6bcbeec0a81e5f43ef9b37ae2ebd7b" identifier="linkType" label="Link Type" type="radiobutton">
-								<radio-item show-fields="primaryContent/widget/videoWithText/textFields/dropdownNav/dropdownLink/internalLink" value="Internal Link"/>
-								<radio-item show-fields="primaryContent/widget/videoWithText/textFields/dropdownNav/dropdownLink/externalLink" value="External Link"/>
-								<radio-item show-fields="primaryContent/widget/videoWithText/textFields/dropdownNav/dropdownLink/fileLink" value="File Link"/>
-							</text>
-							<text field-id="ff6bcbeec0a81e5f43ef9b372a42e0ce" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-							<asset field-id="ff6bcbeec0a81e5f43ef9b37328e198d" identifier="internalLink" label="Internal Link" type="page"/>
-							<asset field-id="ff6bcbeec0a81e5f43ef9b37eccefdcb" identifier="fileLink" label="File Link" type="file"/>
-							<text field-id="ff6bcbeec0a81e5f43ef9b37528b1cd0" identifier="label" label="Label"/>
-						</group>
-					</group>
-				</group>
-			</group>
-			<group collapsed="true" identifier="factCardsWithText" label="Fact Cards with Text">
-				<text default="Yes" field-id="ff6bcbeec0a81e5f43ef9b377c76953d" identifier="display-fact-cards-with-text" label="Show" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<text default="Side by side" field-id="ff6bcbeec0a81e5f43ef9b3701e8ee9a" help-text="Choose how to layout your data" identifier="format" label="Text and Fact Positions" type="dropdown">
-					<dropdown-item value="Stacked"/>
-					<dropdown-item show-fields="primaryContent/widget/factCardsWithText/textFields/textAlign" value="Side by side"/>
-				</text>
-				<text default="Light" field-id="ff6bcbeec0a81e5f43ef9b3772e26557" identifier="bgColor" label="Background Color" type="radiobutton">
-					<radio-item value="Light"/>
-					<radio-item value="Medium"/>
-					<radio-item value="Dark"/>
-				</text>
-				<group collapsed="true" identifier="textFields" label="Text Fields">
-					<text default="Left" field-id="ff6bcbefc0a81e5f43ef9b37c006e6cc" identifier="textAlign" label="Text Align" type="radiobutton">
-						<radio-item value="Left"/>
-						<radio-item value="Right"/>
-					</text>
-					<text field-id="ff6bcbefc0a81e5f43ef9b376735a0b2" identifier="category" label="Category"/>
-					<text field-id="ff6bcbefc0a81e5f43ef9b37f723f3ed" identifier="title" label="Title"/>
-					<text field-id="ff6bcbefc0a81e5f43ef9b37832e3d7b" identifier="body" label="Content" wysiwyg="true"/>
-					<group identifier="button" label="Button">
-						<text default="Internal Link" field-id="ff6bcbefc0a81e5f43ef9b378e153af3" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="primaryContent/widget/factCardsWithText/textFields/button/internalLink" value="Internal Link"/>
-							<radio-item show-fields="primaryContent/widget/factCardsWithText/textFields/button/externalLink" value="External Link"/>
-							<radio-item show-fields="primaryContent/widget/factCardsWithText/textFields/button/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbefc0a81e5f43ef9b376b6944f0" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="ff6bcbefc0a81e5f43ef9b377d0d33c4" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="ff6bcbefc0a81e5f43ef9b379acd155a" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="ff6bcbefc0a81e5f43ef9b37af099152" identifier="label" label="Label"/>
-					</group>
-				</group>
-				<group collapsed="true" identifier="factCards" label="Fact Cards">
-					<group collapsed="true" identifier="factCard" label="Fact Card" multiple="true">
-						<text field-id="ff6bcbefc0a81e5f43ef9b374bf2b20a" identifier="backLinkLabel" label="Back Link Label" required="true"/>
-						<text field-id="ff6bcbefc0a81e5f43ef9b37f1c874e5" identifier="plainTextLink" label="Link"/>
-						<asset field-id="ff6bcbefc0a81e5f43ef9b37ec965f52" identifier="link" label="Or Internal Link" type="page,file,symlink"/>
-						<group collapsed="true" identifier="frontStat" label="Front Stat">
-							<text field-id="ff6bcbefc0a81e5f43ef9b3713bedb02" help-text="4 digits max; If necessary to use bigger number, abbreviate as such: 10,000 = 10k" identifier="frontStatNumber" label="Front Stat Number"/>
-							<text field-id="ff6bcbefc0a81e5f43ef9b37ffec19f4" identifier="frontStatText1" label="Front Stat Text 1"/>
-							<text field-id="ff6bcbefc0a81e5f43ef9b37022e04c8" identifier="frontStatText2" label="Front Stat Text 2"/>
-							<text field-id="ff6bcbf0c0a81e5f43ef9b370d31456d" identifier="frontBackgroundImage" label="Background Image" type="dropdown">
-								<dropdown-item value="people"/>
-								<dropdown-item value="student"/>
-								<dropdown-item value="chair"/>
-								<dropdown-item value="books"/>
-								<dropdown-item value="mortarboard"/>
-							</text>
-							<text field-id="ff6bcbf0c0a81e5f43ef9b3776b3827f" identifier="frontBackgroundColor" label="Background Color" type="dropdown">
-								<dropdown-item value="red"/>
-								<dropdown-item value="orange"/>
-								<dropdown-item value="green"/>
-								<dropdown-item value="blue"/>
-							</text>
-						</group>
-						<group collapsed="true" identifier="backStat" label="Back Stat">
-							<text field-id="ff6bcbf0c0a81e5f43ef9b3787fbd646" identifier="backStat" label="Back Stat" multi-line="true"/>
-							<group identifier="link" label="Link">
-								<text default="Internal Link" field-id="ff6bcbf0c0a81e5f43ef9b3747baaef7" identifier="linkType" label="Link Type" type="radiobutton">
-									<radio-item value="Internal Link"/>
-									<radio-item value="External Link"/>
-									<radio-item value="File Link"/>
-								</text>
-								<text field-id="ff6bcbf0c0a81e5f43ef9b37ce0f131b" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-								<asset field-id="ff6bcbf0c0a81e5f43ef9b37503a22a8" identifier="internalLink" label="Internal Link" type="page"/>
-								<asset field-id="ff6bcbf0c0a81e5f43ef9b37b65cd3df" identifier="fileLink" label="File Link" type="file"/>
-								<text field-id="ff6bcbf0c0a81e5f43ef9b3769701317" identifier="label" label="Label"/>
-							</group>
-						</group>
-					</group>
-				</group>
-			</group>
-			<group collapsed="true" identifier="callToAction3Up" label="Call To Action 3 Up">
-				<text default="Yes" field-id="ff6bcbf0c0a81e5f43ef9b37ad728412" identifier="display-call-to-action-3-up" label="Show" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<text field-id="ff6bcbf0c0a81e5f43ef9b374cb29859" help-text="Section Heading above all 3 photos" identifier="heading" label="Heading" required="false"/>
-				<text default="Light" field-id="ff6bcbf0c0a81e5f43ef9b370225fb93" identifier="bgColor" label="Background Color" type="radiobutton">
-					<radio-item value="Light"/>
-					<radio-item value="Medium"/>
-					<radio-item value="Dark"/>
-				</text>
-				<group identifier="cta1" label="Call to Action Left">
-					<group identifier="media" label="Media">
-						<asset field-id="ff6bcbf0c0a81e5f43ef9b377c2e22a5" identifier="fileLink" label="File Link (Exactly 600px by 400px)" type="file"/>
-						<text field-id="ff6bcbf0c0a81e5f43ef9b3776343ed0" identifier="alternateText" label="Alternate Text"/>
-					</group>
-					<group identifier="textFields" label="Text Fields">
-						<text field-id="ff6bcbf0c0a81e5f43ef9b37972b3a93" identifier="title" label="Title"/>
-						<text field-id="ff6bcbf0c0a81e5f43ef9b37cbbf2413" identifier="body" label="Content" wysiwyg="true"/>
-					</group>
-					<group identifier="link" label="Link">
-						<text default="Internal Link" field-id="ff6bcbf1c0a81e5f43ef9b3702e6a8ab" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="primaryContent/widget/callToAction3Up/cta1/link/internalLink" value="Internal Link"/>
-							<radio-item show-fields="primaryContent/widget/callToAction3Up/cta1/link/externalLink" value="External Link"/>
-							<radio-item show-fields="primaryContent/widget/callToAction3Up/cta1/link/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbf1c0a81e5f43ef9b374ecd457d" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="ff6bcbf1c0a81e5f43ef9b37d692addd" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="ff6bcbf1c0a81e5f43ef9b37b38127e6" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="ff6bcbf1c0a81e5f43ef9b372a36e878" identifier="label" label="Label"/>
-					</group>
-				</group>
-				<group identifier="cta2" label="Call to Action Center">
-					<group identifier="media" label="Media">
-						<asset field-id="ff6bcbf1c0a81e5f43ef9b3758b8f122" help-text="Photo size: exactly 600px width and 400px height" identifier="fileLink" label="File Link (Exactly 600px by 400px)" type="file"/>
-						<text field-id="ff6bcbf1c0a81e5f43ef9b378c1a4b50" identifier="alternateText" label="Alternate Text"/>
-					</group>
-					<group identifier="textFields" label="Text Fields">
-						<text field-id="ff6bcbf1c0a81e5f43ef9b3709330987" identifier="title" label="Title"/>
-						<text field-id="ff6bcbf1c0a81e5f43ef9b3763b34a96" identifier="body" label="Content" wysiwyg="true"/>
-					</group>
-					<group identifier="link" label="Link">
-						<text default="Internal Link" field-id="ff6bcbf1c0a81e5f43ef9b373d660034" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="primaryContent/widget/callToAction3Up/cta2/link/internalLink" value="Internal Link"/>
-							<radio-item show-fields="primaryContent/widget/callToAction3Up/cta2/link/externalLink" value="External Link"/>
-							<radio-item show-fields="primaryContent/widget/callToAction3Up/cta2/link/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbf1c0a81e5f43ef9b3715f2a544" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="ff6bcbf1c0a81e5f43ef9b3778210a83" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="ff6bcbf1c0a81e5f43ef9b3707a9c81c" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="ff6bcbf1c0a81e5f43ef9b376383a1a7" identifier="label" label="Label"/>
-					</group>
-				</group>
-				<group identifier="cta3" label="Call to Action Right">
-					<group identifier="media" label="Media">
-						<asset field-id="ff6bcbf2c0a81e5f43ef9b378bb164e6" help-text="Photo size: exactly 600px width and 400px height" identifier="fileLink" label="File Link (Exactly 600px by 400px)" type="file"/>
-						<text field-id="ff6bcbf2c0a81e5f43ef9b37d2898e03" identifier="alternateText" label="Alternate Text"/>
-					</group>
-					<group identifier="textFields" label="Text Fields">
-						<text field-id="ff6bcbf2c0a81e5f43ef9b377e658b28" identifier="title" label="Title"/>
-						<text field-id="ff6bcbf2c0a81e5f43ef9b3755146c57" identifier="body" label="Content" wysiwyg="true"/>
-					</group>
-					<group identifier="link" label="Link">
-						<text default="Internal Link" field-id="ff6bcbf2c0a81e5f43ef9b37db498195" identifier="linkType" label="Link Type" type="radiobutton">
-							<radio-item show-fields="primaryContent/widget/callToAction3Up/cta3/link/internalLink" value="Internal Link"/>
-							<radio-item show-fields="primaryContent/widget/callToAction3Up/cta3/link/externalLink" value="External Link"/>
-							<radio-item show-fields="primaryContent/widget/callToAction3Up/cta3/link/fileLink" value="File Link"/>
-						</text>
-						<text field-id="ff6bcbf2c0a81e5f43ef9b376790ca6e" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-						<asset field-id="ff6bcbf2c0a81e5f43ef9b375b744d0e" identifier="internalLink" label="Internal Link" type="page"/>
-						<asset field-id="ff6bcbf2c0a81e5f43ef9b37801f17c9" identifier="fileLink" label="File Link" type="file"/>
-						<text field-id="ff6bcbf2c0a81e5f43ef9b37657471c0" identifier="label" label="Label"/>
-					</group>
-				</group>
-			</group>
-			<group collapsed="true" identifier="chapmanSocialFeed" label="Social.chapman Feed OLD - DO NOT USE - RETIRING">
-				<text default="Yes" field-id="ff6bcbf2c0a81e5f43ef9b379ce4925e" identifier="displayChapmanSocialFeed" label="Show" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<text default="Light" field-id="ff6bcbf2c0a81e5f43ef9b37d2fefb0d" identifier="bgColor" label="Background Color" type="radiobutton">
-					<radio-item value="Light"/>
-					<radio-item value="Medium"/>
-					<radio-item value="Dark"/>
-				</text>
-				<text field-id="ff6bcbf2c0a81e5f43ef9b375e6904aa" identifier="title" label="Title"/>
-				<group collapsed="true" identifier="social-media-link" label="Social Media Link" multiple="true">
-					<text field-id="ff6bcbf2c0a81e5f43ef9b3769e10d4a" identifier="social-media-type" label="Social Media Type" type="dropdown">
-						<dropdown-item value="Facebook"/>
-						<dropdown-item value="GooglePlus"/>
-						<dropdown-item value="iTunes U"/>
-						<dropdown-item value="Instagram"/>
-						<dropdown-item value="LinkedIn"/>
-						<dropdown-item value="Pinterest"/>
-						<dropdown-item value="Twitter"/>
-						<dropdown-item value="YouTube"/>
-					</text>
-					<text field-id="ff6bcbf2c0a81e5f43ef9b374b4184df" identifier="link" label="Link"/>
-				</group>
-				<group collapsed="true" identifier="socialFeedSettings" label="Social Feed Settings">
-					<text field-id="ff6bcbf3c0a81e5f43ef9b372cfa32f1" identifier="feedLink" label="Feed Link" regular-expression="/^(f|ht)tps?:\/\//"/>
-					<text field-id="ff6bcbf3c0a81e5f43ef9b37b8249924" identifier="numberOfPosts" label="Number of Posts" regular-expression="/^\d+$/"/>
-				</group>
-			</group>
-			<group collapsed="true" identifier="chapmanStoriesFeed" label="Stories Feed">
-				<text default="Yes" field-id="ff6bcbf3c0a81e5f43ef9b37a8ac5b7f" identifier="displayChapmanStoriesFeed" label="Show" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<text default="Light" field-id="ff6bcbf3c0a81e5f43ef9b37c8f6a798" identifier="bgColor" label="Background Color" type="radiobutton">
-					<radio-item value="Light"/>
-					<radio-item value="Medium"/>
-					<radio-item value="Dark"/>
-				</text>
-				<text field-id="ff6bcbf3c0a81e5f43ef9b37a46a17ac" identifier="title" label="Title"/>
-				<text field-id="ff6bcbf3c0a81e5f43ef9b3723de3eb0" help-text="Paste url of a blog site from blogs.chapman" identifier="feedUrl" label="Feed Url"/>
-				<text field-id="ff6bcbf3c0a81e5f43ef9b37dcea3114" help-text="Paste url of a blog post from blogs.chapman" identifier="topStory" label="Top Story Url"/>
-				<group collapsed="true" identifier="button" label="Button">
-					<text field-id="ff6bcbf3c0a81e5f43ef9b37b011ddfc" identifier="text" label="Text"/>
-					<text field-id="ff6bcbf3c0a81e5f43ef9b374f0e717d" help-text="full url (including http)" identifier="link" label="Link"/>
-				</group>
-			</group>
-			<group collapsed="true" identifier="subscribe" label="Campaign Monitor Newsletter Subscribe">
-				<text default="Yes" field-id="ff6bcbf3c0a81e5f43ef9b37c538bf58" identifier="display-subscribe" label="Show" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<text default="Dark" field-id="ff6bcbf3c0a81e5f43ef9b372b7d4b33" identifier="bgColor" label="Background Color" type="radiobutton">
-					<radio-item value="Light"/>
-					<radio-item value="Medium"/>
-					<radio-item value="Dark"/>
-				</text>
-				<text field-id="ff6bcbf3c0a81e5f43ef9b37ca5b598f" identifier="subscribeMessage" label="Subscribe Message"/>
-				<text cols="50" field-id="ff6bcbf3c0a81e5f43ef9b3725e248d1" help-text="Paste in HTML from Campaign Monitor" identifier="campaignMonitorHtml" label="Campaign Monitor HTML" multi-line="true" rows="15"/>
-			</group>
-			<group collapsed="true" identifier="callToActionFooter" label="Call to Action Footer">
-				<text default="Yes" field-id="ff6bcbf3c0a81e5f43ef9b37ab444cff" identifier="displayCallToActionFooter" label="Show" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<text default="white" field-id="ff6bcbf3c0a81e5f43ef9b379f11b03b" identifier="bgColor" label="Background Color" type="radiobutton">
-					<radio-item value="White"/>
-					<radio-item value="School Color"/>
-				</text>
-				<text field-id="ff6bcbf4c0a81e5f43ef9b37947974c8" identifier="title" label="Title"/>
-				<group identifier="button" label="Button" maximum-number="3" minimum-number="0" multiple="true">
-					<text default="Internal Link" field-id="ff6bcbf4c0a81e5f43ef9b37294a02f7" identifier="linkType" label="Link Type" type="radiobutton">
-						<radio-item show-fields="primaryContent/widget/callToActionFooter/button/internalLink" value="Internal Link"/>
-						<radio-item show-fields="primaryContent/widget/callToActionFooter/button/externalLink" value="External Link"/>
-						<radio-item show-fields="primaryContent/widget/callToActionFooter/button/fileLink" value="File Link"/>
-					</text>
-					<text field-id="ff6bcbf4c0a81e5f43ef9b3751d51593" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-					<asset field-id="ff6bcbf4c0a81e5f43ef9b378454d18d" identifier="internalLink" label="Internal Link" type="page"/>
-					<asset field-id="ff6bcbf4c0a81e5f43ef9b375d69c6c5" identifier="fileLink" label="File Link" type="file"/>
-					<text field-id="ff6bcbf4c0a81e5f43ef9b37aad98e2a" identifier="label" label="Label"/>
-				</group>
-			</group>
-			<group collapsed="true" identifier="contactFooter" label="Contact Footer">
-				<text default="Yes" field-id="ff6bcbf4c0a81e5f43ef9b374690a2d0" identifier="displayContactFooter" label="Show" type="radiobutton">
-					<radio-item value="Yes"/>
-					<radio-item value="No"/>
-				</text>
-				<text default="Light" field-id="ff6bcbf4c0a81e5f43ef9b3777aa7219" identifier="bgColor" label="Background Color" type="radiobutton">
-					<radio-item value="Light"/>
-					<radio-item value="Medium"/>
-					<radio-item value="Dark"/>
-				</text>
-				<text field-id="ff6bcbf4c0a81e5f43ef9b37d3ad5148" identifier="phone" label="Phone"/>
-				<text field-id="ff6bcbf4c0a81e5f43ef9b37424f80aa" identifier="email" label="Email"/>
-				<group collapsed="true" identifier="address" label="Address">
-					<text field-id="ff6bcbf4c0a81e5f43ef9b37d599973b" identifier="name" label="Name"/>
-					<text field-id="ff6bcbf4c0a81e5f43ef9b37a0a893fa" identifier="address-line-1" label="Address Line 1"/>
-					<text field-id="ff6bcbf4c0a81e5f43ef9b37a1e83752" identifier="city" label="City"/>
-					<text field-id="ff6bcbf4c0a81e5f43ef9b37faf0197b" identifier="state" label="State"/>
-					<text field-id="ff6bcbf5c0a81e5f43ef9b37766e5408" identifier="zip" label="Zip"/>
-				</group>
-				<group collapsed="true" identifier="social-media" label="Social Media">
-					<text field-id="ff6bcbf5c0a81e5f43ef9b3750241523" identifier="title" label="Title"/>
-					<group collapsed="true" identifier="social-media-link" label="Social Media Link" multiple="true">
-						<text field-id="ff6bcbf5c0a81e5f43ef9b373112df89" identifier="social-media-type" label="Social Media Type" type="dropdown">
-							<dropdown-item value="Facebook"/>
-							<dropdown-item value="GooglePlus"/>
-							<dropdown-item value="iTunes U"/>
-							<dropdown-item value="Instagram"/>
-							<dropdown-item value="LinkedIn"/>
-							<dropdown-item value="Pinterest"/>
-							<dropdown-item value="Twitter"/>
-							<dropdown-item value="WordPress"/>
-							<dropdown-item value="YouTube"/>
-						</text>
-						<text field-id="ff6bcbf5c0a81e5f43ef9b376f93a8c6" identifier="link" label="Link"/>
-					</group>
-				</group>
-			</group>
-		</group>
-	</group>
-	<group collapsed="true" identifier="meta" label="Supplemental Content">
-		<group collapsed="true" identifier="sharing" label="Sharing ">
-			<asset field-id="ff6bcbf5c0a81e5f43ef9b377146a67b" help-text="Image used for sharing on facebook (130px w, 110px h exactly)" identifier="og_image" label="OG Image" type="file"/>
-			<text field-id="ff6bcbf5c0a81e5f43ef9b37d41583a7" help-text="Overrides title for when page is shared to facebook (defaults to Display Name)" identifier="og_title" label="OG Title"/>
-			<text field-id="ff6bcbf5c0a81e5f43ef9b37c43ba900" help-text="Overrides description when page is shared to facebook" identifier="og_description" label="OG Description"/>
-			<text field-id="ff6bcbf5c0a81e5f43ef9b37f50b50c0" help-text="The text that prepopulates on twitter (followed by URL and hashtags)" identifier="twitter_text" label="Twitter Share Text"/>
-			<text field-id="ff6bcbf5c0a81e5f43ef9b376aeb0636" help-text="Hashtags to get appended to tweet (no #!)" identifier="twitter_hashtag" label="Twitter Hashtag" maximum-number="3" multiple="true"/>
-		</group>
-	</group>
+  <group collapsed="true" identifier="masthead" label="Masthead">
+    <text default="Side Panel Hero" field-id="ff6bcbe1c0a81e5f43ef9b37f7b68865" identifier="mastheadType" label="Style:" type="radiobutton">
+      <radio-item show-fields="masthead/sidePanelHero" value="Side Panel Hero" />
+      <radio-item show-fields="masthead/brochureMasthead" value="Brochure" />
+      <radio-item show-fields="masthead/subbrandMastheadTypes" value="Sub-Brand" />
+      <radio-item value="None" />
+    </text>
+    <text default="Sub-Brand Page Masthead" field-id="ff6bcbe1c0a81e5f43ef9b37e01f65cc" identifier="subbrandMastheadTypes" label="Sub-Brand Masthead Type" type="dropdown">
+      <dropdown-item show-fields="masthead/subbrandMasthead" value="Sub-Brand Page Masthead" />
+      <dropdown-item show-fields="masthead/subPageMasthead" value="1 Col Child Page (Left Aligned)" />
+    </text>
+    <group collapsed="true" identifier="sidePanelHero" label="Side panel hero">
+      <group collapsed="true" identifier="panel" label="Panel">
+        <text field-id="ff6bcbe1c0a81e5f43ef9b37c973bb28" identifier="title" label="Title" />
+        <text field-id="ff6bcbe1c0a81e5f43ef9b371bad11aa" identifier="subtitle" label="Subtitle" />
+        <text field-id="ff6bcbe1c0a81e5f43ef9b37dbeba152" identifier="body" label="Content" wysiwyg="true" />
+        <group collapsed="true" identifier="callsToAction" label="Calls to Action">
+          <group identifier="button" label="Button" maximum-number="3" minimum-number="0" multiple="true">
+            <text default="Internal Link" field-id="ff6bcbe1c0a81e5f43ef9b37b8dcb9e5" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="masthead/sidePanelHero/panel/callsToAction/button/internalLink" value="Internal Link" />
+              <radio-item show-fields="masthead/sidePanelHero/panel/callsToAction/button/externalLink" value="External Link" />
+              <radio-item show-fields="masthead/sidePanelHero/panel/callsToAction/button/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbe1c0a81e5f43ef9b375fc3fad7" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="ff6bcbe1c0a81e5f43ef9b3743ab6e60" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="ff6bcbe1c0a81e5f43ef9b37dbfdf330" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="ff6bcbe1c0a81e5f43ef9b3751b23801" identifier="label" label="Label" />
+          </group>
+        </group>
+        <group collapsed="true" identifier="dropdownNav" label="Dropdown Navigation">
+          <text field-id="ff6bcbe1c0a81e5f43ef9b37b4378866" identifier="dropdownLabel" label="Label" />
+          <group identifier="dropdownLink" label="Link" multiple="true">
+            <text default="Internal Link" field-id="ff6bcbe1c0a81e5f43ef9b377e4ec94a" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="masthead/sidePanelHero/panel/dropdownNav/dropdownLink/internalLink" value="Internal Link" />
+              <radio-item show-fields="masthead/sidePanelHero/panel/dropdownNav/dropdownLink/externalLink" value="External Link" />
+              <radio-item show-fields="masthead/sidePanelHero/panel/dropdownNav/dropdownLink/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbe1c0a81e5f43ef9b372826381a" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="ff6bcbe1c0a81e5f43ef9b378d9c6e78" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="ff6bcbe2c0a81e5f43ef9b373ce4f2fb" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="ff6bcbe2c0a81e5f43ef9b3729933b98" identifier="label" label="Label" />
+          </group>
+        </group>
+      </group>
+      <group collapsed="true" identifier="featuredContent" label="Featured Content" multiple="true">
+        <group collapsed="true" identifier="featuredBackgroundMedia" label="Featured Background Media">
+          <text default="Image" field-id="ff6bcbe2c0a81e5f43ef9b371e359c2e" identifier="type" label="Type" type="radiobutton">
+            <radio-item show-fields="masthead/sidePanelHero/featuredContent/featuredBackgroundMedia/imageFile, masthead/sidePanelHero/featuredContent/featuredBackgroundMedia/alignY" value="Image" />
+            <radio-item show-fields="masthead/sidePanelHero/featuredContent/featuredBackgroundMedia/videoFile, masthead/sidePanelHero/featuredContent/featuredBackgroundMedia/fallbackImageFile" value="Video" />
+          </text>
+          <asset field-id="ff6bcbe2c0a81e5f43ef9b375b9e6788" identifier="videoFile" label="Video File (.mp4 no larger than 10mb)" type="file" />
+          <asset field-id="ff6bcbe2c0a81e5f43ef9b3771f62406" identifier="fallbackImageFile" label="Fallback Image File (Around 1600px by 1200px)" type="file" />
+          <asset field-id="ff6bcbe2c0a81e5f43ef9b375cfae10c" identifier="imageFile" label="Image File (Around 1600px by 1200px)" type="file" />
+          <text default="Bottom" field-id="ff6bcbe2c0a81e5f43ef9b377aa2ad39" identifier="alignY" label="Image Align" type="radiobutton">
+            <radio-item value="Top" />
+            <radio-item value="Center" />
+            <radio-item value="Bottom" />
+          </text>
+          <text field-id="ff6bcbe2c0a81e5f43ef9b37b3f107c8" identifier="alternateText" label="Alternate Text" />
+        </group>
+        <group collapsed="true" identifier="featuredPanel" label="Featured Panel">
+          <text field-id="ff6bcbe2c0a81e5f43ef9b370847cdcb" identifier="category" label="Category" />
+          <text field-id="ff6bcbe2c0a81e5f43ef9b377145db38" identifier="title" label="Title" />
+          <text field-id="ff6bcbe2c0a81e5f43ef9b37eefc1095" identifier="subtitle" label="Subtitle" />
+          <text field-id="ff6bcbe2c0a81e5f43ef9b37e4f979d5" identifier="body" label="Content" wysiwyg="true" />
+          <group identifier="link" label="Call to Action">
+            <text default="Internal Link" field-id="ff6bcbe2c0a81e5f43ef9b373714bb8f" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="masthead/sidePanelHero/featuredContent/featuredPanel/link/internalLink" value="Internal Link" />
+              <radio-item show-fields="masthead/sidePanelHero/featuredContent/featuredPanel/link/externalLink" value="External Link" />
+              <radio-item show-fields="masthead/sidePanelHero/featuredContent/featuredPanel/link/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbe2c0a81e5f43ef9b37da8c7f07" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="ff6bcbe2c0a81e5f43ef9b37c476f73e" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="ff6bcbe2c0a81e5f43ef9b37a61a971c" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="ff6bcbe2c0a81e5f43ef9b372a4f9af3" identifier="label" label="Label" />
+          </group>
+        </group>
+      </group>
+    </group>
+    <group collapsed="true" identifier="brochureMasthead" label="Brochure Page Masthead">
+      <group collapsed="true" identifier="headline" label="Headline">
+        <text field-id="ff6bcbe2c0a81e5f43ef9b376ffd27c3" identifier="primary" label="Primary" required="true" />
+        <text field-id="ff6bcbe2c0a81e5f43ef9b37327b9820" help-text="Optional text displayed above primary text" identifier="secondary" label="Secondary" />
+      </group>
+      <group collapsed="true" identifier="slides" label="Slides">
+        <group collapsed="true" identifier="slide" label="Slide" multiple="true">
+          <text default="Image" field-id="ff6bcbe3c0a81e5f43ef9b37f714d638" identifier="type" label="Type" type="radiobutton">
+            <radio-item show-fields="masthead/brochureMasthead/slides/slide/imageFile" value="Image" />
+            <radio-item show-fields="masthead/brochureMasthead/slides/slide/videoFile, masthead/brochureMasthead/slides/slide/fallbackImageFile" value="Video" />
+          </text>
+          <asset field-id="ff6bcbe3c0a81e5f43ef9b37a026122a" identifier="videoFile" label="Video File (.mp4 no larger than 10mb)" type="file" />
+          <asset field-id="ff6bcbe3c0a81e5f43ef9b3769e160c8" identifier="fallbackImageFile" label="Fallback Image File (Around 1600px by 1200px)" type="file" />
+          <asset field-id="ff6bcbe3c0a81e5f43ef9b37910ac67a" identifier="imageFile" label="Image File (Around 1600px by 1200px)" type="file" />
+          <text default="Center" field-id="ff6bcbe3c0a81e5f43ef9b37e0ae002c" identifier="alignY" label="Image Align" type="radiobutton">
+            <radio-item value="Top" />
+            <radio-item value="Center" />
+            <radio-item value="Bottom" />
+          </text>
+          <text field-id="ff6bcbe3c0a81e5f43ef9b373fd5422d" identifier="alternateText" label="Alternate Text" required="true" />
+        </group>
+      </group>
+    </group>
+    <group collapsed="true" identifier="subbrandMasthead" label="Sub-Brand Page Masthead">
+      <group collapsed="true" identifier="headline" label="Headline (Required)">
+        <text field-id="ff6bcbe3c0a81e5f43ef9b3758540ac0" help-text="Optional, smaller text displayed ABOVE Headline" identifier="secondary" label="Subhead" />
+        <text field-id="ff6bcbe3c0a81e5f43ef9b3735b19a22" help-text="Primary title text" identifier="primary" label="Headline" required="true" />
+      </group>
+      <group collapsed="true" identifier="callsToAction" label="CTA Buttons">
+        <group identifier="button" label="Button" maximum-number="2" multiple="true" required="false">
+          <text default="Yes" field-id="ff6bcbe3c0a81e5f43ef9b378500febf" identifier="showButton" label="Show Button" type="radiobutton">
+            <radio-item help-text="Show the button" value="Yes" />
+            <radio-item help-text="Do not show the button" value="No" />
+          </text>
+          <text default="Internal Link" field-id="ff6bcbe3c0a81e5f43ef9b37be4ae7ff" identifier="linkType" label="Link Type" type="radiobutton">
+            <radio-item show-fields="masthead/subbrandMasthead/callsToAction/button/internalLink" value="Internal Link" />
+            <radio-item show-fields="masthead/subbrandMasthead/callsToAction/button/externalLink" value="External Link" />
+            <radio-item show-fields="masthead/subbrandMasthead/callsToAction/button/fileLink" value="File Link" />
+          </text>
+          <text field-id="ff6bcbe3c0a81e5f43ef9b37cb9e37d0" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+          <asset field-id="ff6bcbe3c0a81e5f43ef9b370553cfe9" identifier="internalLink" label="Internal Link" type="page" />
+          <asset field-id="ff6bcbe3c0a81e5f43ef9b379f592dac" identifier="fileLink" label="File Link" type="file" />
+          <text field-id="ff6bcbe3c0a81e5f43ef9b373b3db74e" identifier="label" label="Label" />
+        </group>
+        <group collapsed="true" identifier="dropdownNav" label="Dropdown Button" multiple="false" required="false">
+          <text default="Yes" field-id="ff6bcbe3c0a81e5f43ef9b372a790ef6" identifier="showButton" label="Show Button" type="radiobutton">
+            <radio-item help-text="Show the button" value="Yes" />
+            <radio-item help-text="Do not show the button" value="No" />
+          </text>
+          <text field-id="ff6bcbe3c0a81e5f43ef9b37aa18d6b7" identifier="dropdownLabel" label="Label" />
+          <group identifier="dropdownLink" label="Link" multiple="true">
+            <text default="Internal Link" field-id="ff6bcbe3c0a81e5f43ef9b37b577f3e4" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="masthead/subbrandMasthead/callsToAction/dropdownNav/dropdownLink/internalLink" value="Internal Link" />
+              <radio-item show-fields="masthead/subbrandMasthead/callsToAction/dropdownNav/dropdownLink/externalLink" value="External Link" />
+              <radio-item show-fields="masthead/subbrandMasthead/callsToAction/dropdownNav/dropdownLink/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbe3c0a81e5f43ef9b37ed3a1f6a" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="ff6bcbe3c0a81e5f43ef9b37fdf65aa3" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="ff6bcbe4c0a81e5f43ef9b371d535880" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="ff6bcbe4c0a81e5f43ef9b37e0c2266d" identifier="label" label="Label" />
+          </group>
+        </group>
+      </group>
+      <group collapsed="true" identifier="slides" label="Background Content (Required)">
+        <!--<group collapsed="true" identifier="slide" label="Background Image or Video" multiple="false">-->
+        <text default="Image" field-id="ff6bcbe4c0a81e5f43ef9b371651a0b3" identifier="type" label="Filetype" type="radiobutton">
+          <radio-item show-fields="masthead/subbrandMasthead/slides/imageFile" value="Image" />
+          <radio-item show-fields="masthead/subbrandMasthead/slides/videoFile, masthead/subbrandMasthead/slides/fallbackImageFile" value="Video" />
+        </text>
+        <asset field-id="ff6bcbe4c0a81e5f43ef9b3753d7ce48" help-text=".mp4 - no larger than 10mb" identifier="videoFile" label="Video File" type="file" />
+        <asset field-id="ff6bcbe4c0a81e5f43ef9b37636f2a7a" identifier="fallbackImageFile" label="Fallback Image File" type="file" />
+        <asset field-id="ff6bcbe4c0a81e5f43ef9b37f7fb4a92" identifier="imageFile" label="Image File" required="true" type="file" />
+        <text default="Center" field-id="ff6bcbe4c0a81e5f43ef9b3715693b2d" identifier="alignY" label="Image Align" type="radiobutton">
+          <radio-item value="Top" />
+          <radio-item value="Center" />
+          <radio-item value="Bottom" />
+        </text>
+        <text field-id="ff6bcbe4c0a81e5f43ef9b379def2e6c" help-text="Be succinct, accurate, and equivalent in presenting the same content and function of the image.    Do NOT be redundant or provide the same information as text within the context of the image. Do NOT use the phrases &quot;image of ...&quot; or &quot;graphic of ...&quot; to describe the image. https://webaim.org/techniques/alttext/" identifier="alternateText" label="Alternate Text" />
+      </group>
+    </group>
+    <group collapsed="true" identifier="subPageMasthead" label="1 Column Child Page Masthead">
+      <group collapsed="true" identifier="headline" label="Headline">
+        <text field-id="ff6bcbe4c0a81e5f43ef9b374ddb7698" help-text="Primary title text" identifier="primary" label="Headline" required="true" />
+      </group>
+      <group collapsed="true" identifier="slides" label="Background Content">
+        <text default="Image" field-id="ff6bcbe4c0a81e5f43ef9b372ffe1e0f" identifier="type" label="Filetype" type="radiobutton">
+          <radio-item show-fields="masthead/subPageMasthead/slides/imageFile" value="Image" />
+          <radio-item show-fields="masthead/subPageMasthead/slides/videoFile, masthead/subPageMasthead/slides/fallbackImageFile" value="Video" />
+        </text>
+        <asset field-id="ff6bcbe4c0a81e5f43ef9b375c86a982" help-text=".mp4 - no larger than 10mb" identifier="videoFile" label="Video File" type="file" />
+        <asset field-id="ff6bcbe4c0a81e5f43ef9b3752d392c2" identifier="fallbackImageFile" label="Fallback Image File" type="file" />
+        <asset field-id="ff6bcbe4c0a81e5f43ef9b3791fb6b21" identifier="imageFile" label="Image File" type="file" />
+        <text default="Center" field-id="ff6bcbe4c0a81e5f43ef9b37ed092ea1" identifier="alignY" label="Image Align" type="radiobutton">
+          <radio-item value="Top" />
+          <radio-item value="Center" />
+          <radio-item value="Bottom" />
+        </text>
+        <text field-id="ff6bcbe4c0a81e5f43ef9b3762546564" help-text="Be succinct, accurate, and equivalent in presenting the same content and function of the image.    Do NOT be redundant or provide the same information as text within the context of the image. Do NOT use the phrases &quot;image of ...&quot; or &quot;graphic of ...&quot; to describe the image. https://webaim.org/techniques/alttext/" identifier="alternateText" label="Alternate Text" />
+      </group>
+    </group>
+  </group>
+  <group collapsed="true" identifier="primaryContent" label="Primary Content">
+    <group identifier="widget" label="Widget" multiple="true">
+      <text default="(select a widget)" field-id="ff6bcbe4c0a81e5f43ef9b373c6b107e" help-text="Choose the type of content you'd like to add to the page" identifier="widgetType" label="Type of Widget" type="dropdown">
+        <dropdown-item value="(select a widget)" />
+        <dropdown-item show-fields="primaryContent/widget/imageWithText" value="Image with Text" />
+        <dropdown-item show-fields="primaryContent/widget/circleImageWithText" value="Circle Image With Text" />
+        <dropdown-item show-fields="primaryContent/widget/videoWithText" value="Video with Text" />
+        <dropdown-item show-fields="primaryContent/widget/textWithCTA" value="Text with CTA" />
+        <dropdown-item show-fields="primaryContent/widget/textOnly" value="Text Only" />
+        <dropdown-item show-fields="primaryContent/widget/factCardsWithText" value="Fact Cards with Text" />
+        <dropdown-item show-fields="primaryContent/widget/callToAction3Up" value="Call To Action 3 Up" />
+        <dropdown-item label="Social.chapman Feed - OLD - DO NOT USE - RETIRING" show-fields="primaryContent/widget/chapmanSocialFeed" value="Social.chapman Feed" />
+        <dropdown-item show-fields="primaryContent/widget/subscribe" value="Subscribe" />
+        <dropdown-item show-fields="primaryContent/widget/callToActionBlock" value="Call To Action Block" />
+        <dropdown-item show-fields="primaryContent/widget/chapmanEventsFeed" value="Events.chapman Feed" />
+        <dropdown-item show-fields="primaryContent/widget/chapmanStoriesFeed" value="Stories Feed" />
+        <dropdown-item show-fields="primaryContent/widget/contactFooter" value="Contact Footer" />
+        <dropdown-item show-fields="primaryContent/widget/callToActionFooter" value="Call To Action Footer" />
+        <dropdown-item show-fields="primaryContent/widget/multiImageContentBlocks" value="Multi Image Content Blocks" />
+        <dropdown-item show-fields="primaryContent/widget/byTheNumbers" value="By the Numbers" />
+        <dropdown-item show-fields="primaryContent/widget/imageSliderWidget" value="Image Slider Widget" />
+        <dropdown-item show-fields="primaryContent/widget/campusMapWidget" value="Campus Map Widget" />
+        <dropdown-item show-fields="primaryContent/widget/googleMapWidget" value="Google Map Widget" />
+      </text>
+      <group collapsed="true" identifier="googleMapWidget" label="Google Map Widget">
+        <group collapsed="true" identifier="address" label="Address">
+          <text field-id="ff6bcbe4c0a81e5f43ef9b3707f5f817" help-text="Enter the building name" identifier="title" label="Title" required="true" />
+          <text field-id="ff6bcbe5c0a81e5f43ef9b37a1a9cc8f" help-text="Enter point of contact phone number" identifier="phone" label="Phone Number" required="true" />
+          <text field-id="ff6bcbe5c0a81e5f43ef9b3774f42ee1" help-text="Enter point of contact email address" identifier="email" label="Email Address" required="true" />
+          <text field-id="ff6bcbe5c0a81e5f43ef9b37f9536efb" help-text="Generate, copy, and paste the latitude from https://www.google.com/maps/" identifier="latitude" label="Latitude" required="true" />
+          <text field-id="ff6bcbe5c0a81e5f43ef9b37a578d3d4" help-text="Generate, copy, and paste the longitude from https://www.google.com/maps/" identifier="longitude" label="Longitude" required="true" />
+          <text field-id="ff6bcbe5c0a81e5f43ef9b372c09d686" identifier="street" label="Street" required="true" />
+          <text field-id="ff6bcbe5c0a81e5f43ef9b37f1bc7c6c" identifier="city" label="City" required="true" />
+          <text field-id="ff6bcbe5c0a81e5f43ef9b370e990201" identifier="state" label="State" required="true" />
+          <text field-id="ff6bcbe5c0a81e5f43ef9b3701077b6e" identifier="zip" label="Zip" required="true" />
+        </group>
+      </group>
+      <group collapsed="true" identifier="campusMapWidget" label="Campus Map Widget">
+        <text field-id="ff6bcbe5c0a81e5f43ef9b376ac081be" help-text="Copy &amp; paste the embed code (that starts and ends with &lt;iframe&gt; ... &lt;/iframe&gt;) on Campus Bird. Be sure to hide the top bar, side bar, footer, and print hide via the toggle button in Options under the ‘Embed’ tab. " identifier="iframe" label="iFrame Code" required="true" />
+        <group collapsed="true" identifier="address" label="Address">
+          <text field-id="ff6bcbe5c0a81e5f43ef9b37734e2431" help-text="Enter the building title" identifier="title" label="Title" required="true" />
+          <text field-id="ff6bcbe5c0a81e5f43ef9b371e3037a7" help-text="Enter point of contact phone number" identifier="phone" label="Phone Number" required="true" />
+          <text field-id="ff6bcbe5c0a81e5f43ef9b37104e73fa" help-text="Enter point of contact email address" identifier="email" label="Email Address" required="true" />
+          <text field-id="ff6bcbe5c0a81e5f43ef9b370172356a" identifier="street" label="Street" />
+          <text field-id="ff6bcbe5c0a81e5f43ef9b37ec62885f" identifier="city" label="City" />
+          <text field-id="ff6bcbe5c0a81e5f43ef9b377abe6841" identifier="state" label="State" />
+          <text field-id="ff6bcbe5c0a81e5f43ef9b373a262063" identifier="zip" label="Zip" />
+        </group>
+      </group>
+      <group collapsed="true" identifier="imageSliderWidget" label="Image Slider Widget">
+        <group collapsed="true" identifier="featuredContent" label="Slide" multiple="true">
+          <group identifier="featuredBackgroundMedia" label="Background Image">
+            <asset field-id="ff6bcbe5c0a81e5f43ef9b377a10f82b" identifier="imageFile" label="Image File" type="file" />
+            <text field-id="ff6bcbe6c0a81e5f43ef9b371306a6e6" help-text="Be succinct, accurate, and equivalent in presenting the same content and function of the image.    Do NOT be redundant or provide the same information as text within the context of the image. Do NOT use the phrases &quot;image of ...&quot; or &quot;graphic of ...&quot; to describe the image. https://webaim.org/techniques/alttext/" identifier="alternateText" label="Alternate Text" />
+            <text default="Center" field-id="ff6bcbe6c0a81e5f43ef9b37e2cf8512" identifier="alignY" label="Image Align" type="radiobutton">
+              <radio-item value="Top" />
+              <radio-item value="Center" />
+              <radio-item value="Bottom" />
+              <radio-item show-fields="primaryContent/widget/imageSliderWidget/featuredContent/featuredBackgroundMedia/alignYPercentage" value="Percentage" />
+            </text>
+            <text field-id="ff6bcbe6c0a81e5f43ef9b37f6afcdd9" help-text="Enter a positive or negative integer WITHOUT a percent sign e.g. '10'." identifier="alignYPercentage" label="Top Alignment" />
+          </group>
+          <group collapsed="true" identifier="featuredPanel" label="Foreground Content">
+            <text field-id="ff6bcbe6c0a81e5f43ef9b3733d62178" identifier="title" label="Title" />
+            <text field-id="ff6bcbe6c0a81e5f43ef9b37f5f1e2d5" identifier="body" label="Content" wysiwyg="true" />
+            <group identifier="link" label="Call to Action Button">
+              <text default="Internal Link" field-id="ff6bcbe6c0a81e5f43ef9b37cccee353" identifier="linkType" label="Link Type" type="radiobutton">
+                <radio-item show-fields="primaryContent/widget/imageSliderWidget/featuredContent/featuredPanel/link/internalLink" value="Internal Link" />
+                <radio-item show-fields="primaryContent/widget/imageSliderWidget/featuredContent/featuredPanel/link/externalLink" value="External Link" />
+                <radio-item show-fields="primaryContent/widget/imageSliderWidget/featuredContent/featuredPanel/link/fileLink" value="File Link" />
+              </text>
+              <text field-id="ff6bcbe6c0a81e5f43ef9b3774a1acb7" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+              <asset field-id="ff6bcbe6c0a81e5f43ef9b37495cc5ba" identifier="internalLink" label="Internal Link" type="page" />
+              <asset field-id="ff6bcbe6c0a81e5f43ef9b37ff1efd68" identifier="fileLink" label="File Link" type="file" />
+              <text field-id="ff6bcbe6c0a81e5f43ef9b3786f80637" identifier="label" label="Label" />
+            </group>
+          </group>
+        </group>
+      </group>
+      <group collapsed="true" identifier="byTheNumbers" label="By The Numbers">
+        <text field-id="ff6bcbe6c0a81e5f43ef9b37454be6cb" help-text="Section Heading" identifier="byTheNumbersHeading" label="Heading" required="true" />
+        <text default="Yes" field-id="ff6bcbe6c0a81e5f43ef9b377e02e7a8" identifier="display-by-the-numbers" label="Show" required="true" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <group identifier="rankings" label="Rankings" maximum-number="3" minimum-number="3" multiple="true">
+          <text field-id="ff6bcbe6c0a81e5f43ef9b373558ef37" help-text="Short Ranking Description To Appear Below Rank Value (required)" identifier="rankingDescription" label="Ranking Description" />
+          <text field-id="ff6bcbe6c0a81e5f43ef9b372fa82438" help-text="Ranking Sub-Text To Extend the Ranking Value or to Allow For More Description" identifier="rankingText" label="Ranking Sub-Text" />
+          <group identifier="rank" label="Rank">
+            <text default="Number" field-id="ff6bcbe6c0a81e5f43ef9b373e8c9544" help-text="Select Rank Type Which will automatically append the appropriate symbol" identifier="rankType" label="Select Rank" type="radiobutton">
+              <radio-item show-fields="primaryContent/widget/byTheNumbers/rankings/rank/number" value="Number" />
+              <radio-item show-fields="primaryContent/widget/byTheNumbers/rankings/rank/percentage" value="Percentage" />
+              <radio-item show-fields="primaryContent/widget/byTheNumbers/rankings/rank/rank" value="Rank" />
+            </text>
+            <text field-id="ff6bcbe6c0a81e5f43ef9b370d3ae5cb" help-text="Enter Only the Number in the Field Below" identifier="number" />
+            <text field-id="ff6bcbe7c0a81e5f43ef9b3722c88f3a" help-text="Enter Only the Percentage Number in the Field Below" identifier="percentage" label="Enter Percentage Number Only" />
+            <text field-id="ff6bcbe7c0a81e5f43ef9b37c7021593" help-text="Enter Only the Rank in the Field Below" identifier="rank" label="Enter Rank Number Only" />
+          </group>
+        </group>
+        <group identifier="link" label="Link">
+          <text default="Internal Link" field-id="ff6bcbe7c0a81e5f43ef9b374eb15b8a" identifier="linkType" label="Link Type" type="radiobutton">
+            <radio-item show-fields="primaryContent/widget/byTheNumbers/link/internalLink" value="Internal Link" />
+            <radio-item show-fields="primaryContent/widget/byTheNumbers/link/externalLink" value="External Link" />
+            <radio-item show-fields="primaryContent/widget/byTheNumbers/link/fileLink" value="File Link" />
+          </text>
+          <text field-id="ff6bcbe7c0a81e5f43ef9b3731ef83e5" identifier="externalLink" label="External Link" />
+          <asset field-id="ff6bcbe7c0a81e5f43ef9b37094785d1" identifier="internalLink" label="Internal Link" type="page" />
+          <asset field-id="ff6bcbe7c0a81e5f43ef9b37578dee90" identifier="fileLink" label="File Link" type="file" />
+          <text field-id="ff6bcbe7c0a81e5f43ef9b374a68c4a8" identifier="buttonText" label="Button Text" />
+        </group>
+      </group>
+      <group collapsed="true" identifier="multiImageContentBlocks" label="Multi Image Content Blocks">
+        <text field-id="ff6bcbe7c0a81e5f43ef9b376a190eca" help-text="Section Heading" identifier="multiImageHeading" label="Heading" required="true" />
+        <text default="Yes" field-id="ff6bcbe7c0a81e5f43ef9b37753c4894" identifier="display-multi-image-content-blocks" label="Show" required="true" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <text default="Square" field-id="ff6bcbe7c0a81e5f43ef9b37a3b1c23e" identifier="multiImageBlocksShape" label="Shape" required="true" type="radiobutton">
+          <radio-item value="Square" />
+          <radio-item value="Circle" />
+        </text>
+        <group identifier="photoCallout" label="Photo" minimum-number="1" multiple="true">
+          <asset field-id="ff6bcbe7c0a81e5f43ef9b3731f73119" identifier="image" label="Image (square 260x174 | circle 260x260)" required="true" type="file" />
+          <text field-id="ff6bcbe7c0a81e5f43ef9b3792ac8d02" help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="true" />
+          <group identifier="link" label="Link">
+            <text default="Internal Link" field-id="ff6bcbe7c0a81e5f43ef9b375aa24515" identifier="linkType" label="Link Type" required="true" type="radiobutton">
+              <radio-item show-fields="primaryContent/widget/multiImageContentBlocks/photoCallout/link/internalLink" value="Internal Link" />
+              <radio-item show-fields="primaryContent/widget/multiImageContentBlocks/photoCallout/link/externalLink" value="External Link" />
+              <radio-item show-fields="primaryContent/widget/multiImageContentBlocks/photoCallout/link/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbe7c0a81e5f43ef9b37e5f9b595" identifier="externalLink" label="External Link" required="true" />
+            <asset field-id="ff6bcbe7c0a81e5f43ef9b3723bc94ee" identifier="internalLink" label="Internal Link" required="true" type="page" />
+            <asset field-id="ff6bcbe7c0a81e5f43ef9b3784c4fc4b" identifier="fileLink" label="File Link" required="true" type="file" />
+            <text field-id="ff6bcbe7c0a81e5f43ef9b371a31099a" identifier="label" label="Label" required="true" />
+          </group>
+        </group>
+      </group>
+      <group collapsed="true" identifier="chapmanEventsFeed" label="Events.chapman Feed">
+        <text default="Yes" field-id="ff6bcbe7c0a81e5f43ef9b37d89e1ac4" identifier="show" label="Show" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <text default="Light" field-id="ff6bcbe8c0a81e5f43ef9b37e544fb1e" identifier="bgColor" label="Background Color" type="radiobutton">
+          <radio-item value="Light" />
+          <radio-item value="Medium" />
+          <radio-item value="Dark" />
+        </text>
+        <text field-id="ff6bcbe8c0a81e5f43ef9b37a2d45112" identifier="category" label="Category" />
+        <text field-id="ff6bcbe8c0a81e5f43ef9b3753472625" identifier="title" label="Title" />
+        <text field-id="ff6bcbe8c0a81e5f43ef9b37a3ae5066" identifier="body" label="Content" wysiwyg="true" />
+        <text field-id="ff6bcbe8c0a81e5f43ef9b37d287e629" identifier="buttonText" label="Button Text" />
+        <text field-id="ff6bcbe8c0a81e5f43ef9b3701ffb6e2" identifier="featuredFeedUrl" label="Featured Event Url" required="true" />
+        <text field-id="ff6bcbe8c0a81e5f43ef9b37ac092dee" identifier="feedUrl" label="Feed Url" required="true" />
+      </group>
+      <group collapsed="true" identifier="callToActionBlock" label="Call To Action Block">
+        <text default="Yes" field-id="ff6bcbe8c0a81e5f43ef9b37adf2c067" identifier="display-call-to-action-block" label="Show" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <text default="Light" field-id="ff6bcbe8c0a81e5f43ef9b37c2dd8261" identifier="bgColor" label="Background Color" type="radiobutton">
+          <radio-item value="Light" />
+          <radio-item value="Medium" />
+          <radio-item value="Dark" />
+        </text>
+        <group collapsed="true" identifier="callToActionBlockRow" label="Call To Action Block Row" multiple="true">
+          <group collapsed="true" identifier="callToActionBox" label="Call To Action Box" maximum-number="4" minimum-number="4" multiple="true">
+            <text field-id="ff6bcbe8c0a81e5f43ef9b378a43d93e" identifier="title" label="Title" />
+            <text field-id="ff6bcbe8c0a81e5f43ef9b37adea6982" identifier="subtitle" label="Subtitle" />
+            <text default="Dark" field-id="ff6bcbe8c0a81e5f43ef9b3710193ece" identifier="colorTheme" label="Color Theme" type="radiobutton">
+              <radio-item value="Dark" />
+              <radio-item value="Light" />
+              <radio-item value="School Color" />
+            </text>
+            <group collapsed="true" identifier="link" label="Link">
+              <text default="Internal Link" field-id="ff6bcbe8c0a81e5f43ef9b375a4010c7" identifier="linkType" label="Link Type" type="radiobutton">
+                <radio-item show-fields="primaryContent/widget/callToActionBlock/callToActionBlockRow/callToActionBox/link/internalLink" value="Internal Link" />
+                <radio-item show-fields="primaryContent/widget/callToActionBlock/callToActionBlockRow/callToActionBox/link/externalLink" value="External Link" />
+                <radio-item show-fields="primaryContent/widget/callToActionBlock/callToActionBlockRow/callToActionBox/link/fileLink" value="File Link" />
+              </text>
+              <text field-id="ff6bcbe8c0a81e5f43ef9b370acc1c32" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+              <asset field-id="ff6bcbe8c0a81e5f43ef9b37caaa2d81" identifier="internalLink" label="Internal Link" type="page" />
+              <asset field-id="ff6bcbe8c0a81e5f43ef9b37b6203c3f" identifier="fileLink" label="File Link" type="file" />
+            </group>
+            <group collapsed="true" identifier="media" label="Media">
+              <text default="None" field-id="ff6bcbe8c0a81e5f43ef9b374c2f4387" help-text="Photo size: around 600px width and 272 px height  (Does not need to be exact, just close)" identifier="linkType" label="Link Type" type="radiobutton">
+                <radio-item value="None" />
+                <radio-item show-fields="primaryContent/widget/callToActionBlock/callToActionBlockRow/callToActionBox/media/fileLink" value="File Link" />
+              </text>
+              <asset field-id="ff6bcbe9c0a81e5f43ef9b370d76a5f5" identifier="fileLink" label="File Link (Around 600px by 272px)" type="file" />
+            </group>
+          </group>
+        </group>
+      </group>
+      <group collapsed="false" identifier="textWithCTA" label="Text with CTA">
+        <shared-field field-id="a0c910d2c0a81e5f510cef5015abada6" identifier="display" path="display" />
+        <text default="Default Theme" field-id="a0c910d3c0a81e5f510cef50cf4c26a5" identifier="theme" label="Theme" type="radiobutton">
+          <radio-item identifier="default" show-fields="primaryContent/widget/textWithCTA/bgColor, primaryContent/widget/textWithCTA/textWithCTAButton" value="Default Theme" />
+          <radio-item identifier="pacific" show-fields="primaryContent/widget/textWithCTA/CUSafelyBackbgColor, primaryContent/widget/textWithCTA/textWithCTAButtonCUSafelyBack" value="CU Safely Back" />
+        </text>
+        <text default="white" field-id="a0c910d3c0a81e5f510cef50b4b011e2" identifier="bgColor" label="Background Color" require="false" type="dropdown">
+          <dropdown-item label="White" value="white" />
+          <dropdown-item label="Red" value="red" />
+          <dropdown-item label="Sand" value="sand" />
+          <dropdown-item label="Black" value="black" />
+        </text>
+        <text default="pacific" field-id="a0c910d4c0a81e5f510cef50c83c9237" identifier="CUSafelyBackbgColor" label="Background Color" require="false" type="radiobutton">
+          <radio-item label="Pacific" value="pacific" />
+        </text>
+        <text field-id="a0c910d4c0a81e5f510cef50e3a6e2f3" help-text="Note: With 'CU Safely Back' Theme, the first two characters are emphasized" identifier="textWithCTATitle" label="Title" />
+        <text field-id="a0c910d5c0a81e5f510cef503968b417" identifier="text" label="Text" required="true" wysiwyg="true" />
+        <group identifier="textWithCTAButton" label="CTA Button" maximum-number="3" multiple="true">
+          <group identifier="link" label="Call to Action">
+            <text default="Internal Link" field-id="a0c910d5c0a81e5f510cef50918b6953" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="primaryContent/widget/textWithCTA/textWithCTAButton/link/internalLink" value="Internal Link" />
+              <radio-item show-fields="primaryContent/widget/textWithCTA/textWithCTAButton/link/externalLink" value="External Link" />
+              <radio-item show-fields="primaryContent/widget/textWithCTA/textWithCTAButton/link/fileLink" value="File Link" />
+            </text>
+            <text field-id="a0c910d5c0a81e5f510cef504115e2a3" help-text="full url (including HTTPS) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="a0c910d5c0a81e5f510cef50886fdcf5" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="a0c910d6c0a81e5f510cef50c02e800b" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="a0c910d6c0a81e5f510cef505757d44a" identifier="label" label="Label" />
+            <group collapsed="true" identifier="accessibility" label="Accessibility">
+              <text field-id="a0c910d6c0a81e5f510cef50ae4e74f1" identifier="ariaLabel" label="Aria Label" />
+              <text field-id="a0c910d6c0a81e5f510cef508c601f13" identifier="title" label="Title" />
+            </group>
+            <group collapsed="true" identifier="tracking" label="Analytics Tracking">
+              <text field-id="a0c910d7c0a81e5f510cef50c0d64f24" help-text="Replace or add custom link ID for tracking." identifier="customID" label="Override HTML ID" />
+              <text field-id="a0c910d7c0a81e5f510cef503f350417" help-text="Replace or add custom data-attr for tracking. Entering 'my-custom-thing' will result in 'data-my-custom-thing'" identifier="dataAttr" label="Data Attribute" multiple="true" />
+            </group>
+          </group>
+        </group>
+        <!-- cu safely back CTA (no color chooser, 2 max) -->
+        <group identifier="textWithCTAButtonCUSafelyBack" label="CTA Button" maximum-number="2" multiple="true">
+          <group identifier="link" label="Call to Action">
+            <text default="Internal Link" field-id="a0c910d7c0a81e5f510cef50c42823d3" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="primaryContent/widget/textWithCTA/textWithCTAButtonCUSafelyBack/link/internalLink" value="Internal Link" />
+              <radio-item show-fields="primaryContent/widget/textWithCTA/textWithCTAButtonCUSafelyBack/link/externalLink" value="External Link" />
+              <radio-item show-fields="primaryContent/widget/textWithCTA/textWithCTAButtonCUSafelyBack/link/fileLink" value="File Link" />
+            </text>
+            <text field-id="a0c910d8c0a81e5f510cef5070d99661" help-text="full url (including HTTPS) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="a0c910d8c0a81e5f510cef50005897dd" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="a0c910d8c0a81e5f510cef50179f11b1" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="a0c910d8c0a81e5f510cef50d3e9ee56" identifier="label" label="Label" />
+            <group collapsed="true" identifier="accessibility" label="Accessibility">
+              <text field-id="a0c910d8c0a81e5f510cef50bd0cf5bd" identifier="ariaLabel" label="Aria Label" />
+              <text field-id="a0c910d8c0a81e5f510cef50c535c717" identifier="title" label="Title" />
+            </group>
+            <group collapsed="true" identifier="tracking" label="Analytics Tracking">
+              <text field-id="a0c910d9c0a81e5f510cef502afb063d" help-text="Replace or add custom link ID for tracking." identifier="customID" label="Override HTML ID" />
+              <text field-id="a0c910d9c0a81e5f510cef50f4458350" help-text="Replace or add custom data-attr for tracking. Entering 'my-custom-thing' will result in 'data-my-custom-thing'" identifier="dataAttr" label="Data Attribute" multiple="true" />
+            </group>
+          </group>
+        </group>
+      </group>
+      <group collapsed="true" identifier="textOnly" label="Text Only">
+        <text default="Yes" field-id="ff6bcbe9c0a81e5f43ef9b373231fd19" identifier="display-text-only" label="Show" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <text default="Centered" field-id="ff6bcbe9c0a81e5f43ef9b3703ebe122" help-text="Choose how to layout your text" identifier="format" label="Text Position" type="dropdown">
+          <dropdown-item value="Centered" />
+          <dropdown-item show-fields="primaryContent/widget/textOnly/textFields/textAlign" value="Off to the side" />
+        </text>
+        <text default="Light" field-id="ff6bcbe9c0a81e5f43ef9b37cff16fb4" identifier="bgColor" label="Background Color" type="radiobutton">
+          <radio-item value="Light" />
+          <radio-item value="Medium" />
+          <radio-item value="Dark" />
+        </text>
+        <group collapsed="true" identifier="textFields" label="Text Fields">
+          <text default="Left" field-id="ff6bcbe9c0a81e5f43ef9b3713106a01" identifier="textAlign" label="Text Align" type="radiobutton">
+            <radio-item value="Left" />
+            <radio-item value="Right" />
+          </text>
+          <text field-id="ff6bcbe9c0a81e5f43ef9b375f3ac5db" identifier="category" label="Category" />
+          <text field-id="ff6bcbe9c0a81e5f43ef9b3700856158" identifier="title" label="Title" />
+          <text field-id="ff6bcbe9c0a81e5f43ef9b3704967580" identifier="body" label="Content" wysiwyg="true" />
+          <group identifier="button" label="Button">
+            <text default="Internal Link" field-id="ff6bcbe9c0a81e5f43ef9b37b1804067" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="primaryContent/widget/textOnly/textFields/button/internalLink" value="Internal Link" />
+              <radio-item show-fields="primaryContent/widget/textOnly/textFields/button/externalLink" value="External Link" />
+              <radio-item show-fields="primaryContent/widget/textOnly/textFields/button/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbe9c0a81e5f43ef9b37c3bc45e5" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="ff6bcbe9c0a81e5f43ef9b37959cd01e" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="ff6bcbe9c0a81e5f43ef9b3731c78d0f" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="ff6bcbe9c0a81e5f43ef9b379cba22bb" identifier="label" label="Label" />
+          </group>
+          <group identifier="dropdownNav" label="Dropdown Navigation">
+            <text field-id="ff6bcbe9c0a81e5f43ef9b37a90ba28f" identifier="dropdownLabel" label="Label" />
+            <group identifier="dropdownLink" label="Link" multiple="true">
+              <text default="Internal Link" field-id="ff6bcbe9c0a81e5f43ef9b3770cd8458" identifier="linkType" label="Link Type" type="radiobutton">
+                <radio-item show-fields="primaryContent/widget/textOnly/textFields/dropdownNav/dropdownLink/internalLink" value="Internal Link" />
+                <radio-item show-fields="primaryContent/widget/textOnly/textFields/dropdownNav/dropdownLink/externalLink" value="External Link" />
+                <radio-item show-fields="primaryContent/widget/textOnly/textFields/dropdownNav/dropdownLink/fileLink" value="File Link" />
+              </text>
+              <text field-id="ff6bcbe9c0a81e5f43ef9b37ef3c17ee" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+              <asset field-id="ff6bcbeac0a81e5f43ef9b37cf52132b" identifier="internalLink" label="Internal Link" type="page" />
+              <asset field-id="ff6bcbeac0a81e5f43ef9b376f3738bc" identifier="fileLink" label="File Link" type="file" />
+              <text field-id="ff6bcbeac0a81e5f43ef9b376ad36c65" identifier="label" label="Label" />
+            </group>
+          </group>
+        </group>
+        <group collapsed="true" identifier="backgroundImage" label="Background Image">
+          <asset field-id="ff6bcbeac0a81e5f43ef9b3794125021" identifier="fileLink" label="File Link (Around 1600px by 800px)" type="file" />
+          <text field-id="ff6bcbeac0a81e5f43ef9b37abd1529c" identifier="alternateText" label="Alternate Text" />
+        </group>
+      </group>
+      <group collapsed="true" identifier="imageWithText" label="Image with Text">
+        <text default="Yes" field-id="ff6bcbeac0a81e5f43ef9b37a0708420" identifier="display-image-with-text" label="Show" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <text default="Side by side" field-id="ff6bcbeac0a81e5f43ef9b375ecbf13f" help-text="Choose how to layout your data" identifier="format" label="Text and Image Positions" type="dropdown">
+          <dropdown-item value="Stacked" />
+          <dropdown-item show-fields="primaryContent/widget/imageWithText/textFields/textAlign" value="Side by side" />
+        </text>
+        <text default="Light" field-id="ff6bcbeac0a81e5f43ef9b3734ad2e22" identifier="bgColor" label="Background Color" type="radiobutton">
+          <radio-item value="Light" />
+          <radio-item value="Medium" />
+          <radio-item value="Dark" />
+        </text>
+        <group collapsed="true" identifier="backgroundImage" label="Background Image">
+          <text default="None" field-id="ff6bcbeac0a81e5f43ef9b37a7a2e187" identifier="linkType" label="Link Type" type="radiobutton">
+            <radio-item value="None" />
+            <radio-item show-fields="primaryContent/widget/imageWithText/backgroundImage/fileLink" value="File Link" />
+          </text>
+          <asset field-id="ff6bcbeac0a81e5f43ef9b375b1794c8" identifier="fileLink" label="File Link" type="file" />
+        </group>
+        <group collapsed="true" identifier="textFields" label="Text Fields">
+          <text default="Left" field-id="ff6bcbeac0a81e5f43ef9b3723902e9c" identifier="textAlign" label="Text Align" type="radiobutton">
+            <radio-item value="Left" />
+            <radio-item value="Right" />
+          </text>
+          <text field-id="ff6bcbeac0a81e5f43ef9b370c7747fe" identifier="category" label="Category" />
+          <text field-id="ff6bcbeac0a81e5f43ef9b379b3c6622" identifier="title" label="Title" />
+          <text field-id="ff6bcbeac0a81e5f43ef9b37af9fe66c" identifier="body" label="Content" wysiwyg="true" />
+          <group identifier="button" label="Button">
+            <text default="Internal Link" field-id="ff6bcbeac0a81e5f43ef9b37909fbc60" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="primaryContent/widget/imageWithText/textFields/button/internalLink" value="Internal Link" />
+              <radio-item show-fields="primaryContent/widget/imageWithText/textFields/button/externalLink" value="External Link" />
+              <radio-item show-fields="primaryContent/widget/imageWithText/textFields/button/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbeac0a81e5f43ef9b37f7b2867a" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="ff6bcbeac0a81e5f43ef9b37636a1c72" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="ff6bcbebc0a81e5f43ef9b37d5c6edf7" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="ff6bcbebc0a81e5f43ef9b3703ceefb7" identifier="label" label="Label" />
+          </group>
+          <group identifier="dropdownNav" label="Dropdown Navigation">
+            <text field-id="ff6bcbebc0a81e5f43ef9b374aad24a2" identifier="dropdownLabel" label="Label" />
+            <group identifier="dropdownLink" label="Link" multiple="true">
+              <text default="Internal Link" field-id="ff6bcbebc0a81e5f43ef9b378e120987" identifier="linkType" label="Link Type" type="radiobutton">
+                <radio-item show-fields="primaryContent/widget/imageWithText/textFields/dropdownNav/dropdownLink/internalLink" value="Internal Link" />
+                <radio-item show-fields="primaryContent/widget/imageWithText/textFields/dropdownNav/dropdownLink/externalLink" value="External Link" />
+                <radio-item show-fields="primaryContent/widget/imageWithText/textFields/dropdownNav/dropdownLink/fileLink" value="File Link" />
+              </text>
+              <text field-id="ff6bcbebc0a81e5f43ef9b37ca3bad6f" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+              <asset field-id="ff6bcbebc0a81e5f43ef9b37835d95e9" identifier="internalLink" label="Internal Link" type="page" />
+              <asset field-id="ff6bcbebc0a81e5f43ef9b37c7b4bbfe" identifier="fileLink" label="File Link" type="file" />
+              <text field-id="ff6bcbebc0a81e5f43ef9b3729444eaa" identifier="label" label="Label" />
+            </group>
+          </group>
+        </group>
+        <group collapsed="true" identifier="imageFields" label="Image Fields">
+          <asset field-id="ff6bcbebc0a81e5f43ef9b37d0ff74b3" identifier="fileLink" label="File Link (Around 600px by 400px)" type="file" />
+          <text field-id="ff6bcbebc0a81e5f43ef9b373e8e5107" identifier="alternateText" label="Alternate Text" />
+        </group>
+      </group>
+      <group collapsed="true" identifier="circleImageWithText" label="Circle Image With Text">
+        <text default="Yes" field-id="ff6bcbebc0a81e5f43ef9b377471d32f" identifier="display-circle-image-with-text" label="Show" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <text default="Light" field-id="ff6bcbebc0a81e5f43ef9b37974f1f62" identifier="bgColor" label="Background Color" type="radiobutton">
+          <radio-item value="Light" />
+          <radio-item value="Medium" />
+          <radio-item value="Dark" />
+        </text>
+        <group collapsed="true" identifier="textFields" label="Text Fields">
+          <text default="Left" field-id="ff6bcbebc0a81e5f43ef9b370fd786a9" identifier="textAlign" label="Text Align" type="radiobutton">
+            <radio-item value="Left" />
+            <radio-item value="Right" />
+          </text>
+          <text field-id="ff6bcbebc0a81e5f43ef9b370dfd0531" identifier="category" label="Category" />
+          <text field-id="ff6bcbebc0a81e5f43ef9b375292f02e" identifier="title" label="Title" />
+          <text field-id="ff6bcbebc0a81e5f43ef9b37f08e60a4" identifier="body" label="Content" wysiwyg="true" />
+          <text default="Buttons" field-id="ff6bcbebc0a81e5f43ef9b37ca238a7d" identifier="buttonType" label="Button Type" type="radiobutton">
+            <radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/buttons" value="Buttons" />
+            <radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/dropdownNav, primaryContent/widget/circleImageWithText/textFields/button" value="Drop Down Button" />
+          </text>
+          <group identifier="buttons" label="Buttons" maximum-number="2" minimum-number="0" multiple="true">
+            <text default="Internal Link" field-id="ff6bcbecc0a81e5f43ef9b371fdb2405" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/buttons/internalLink" value="Internal Link" />
+              <radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/buttons/externalLink" value="External Link" />
+              <radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/buttons/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbecc0a81e5f43ef9b3758a21e64" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="ff6bcbecc0a81e5f43ef9b37b48865c5" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="ff6bcbecc0a81e5f43ef9b3780b2c10b" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="ff6bcbecc0a81e5f43ef9b3761d010fb" identifier="label" label="Label" />
+          </group>
+          <group identifier="button" label="Button">
+            <text default="Internal Link" field-id="ff6bcbecc0a81e5f43ef9b374745437e" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/button/internalLink" value="Internal Link" />
+              <radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/button/externalLink" value="External Link" />
+              <radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/button/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbecc0a81e5f43ef9b373788fc1b" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="ff6bcbecc0a81e5f43ef9b3778908e99" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="ff6bcbecc0a81e5f43ef9b375d3c9ab7" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="ff6bcbecc0a81e5f43ef9b37d15562c3" identifier="label" label="Label" />
+          </group>
+          <group identifier="dropdownNav" label="Dropdown Navigation">
+            <text field-id="ff6bcbecc0a81e5f43ef9b375b2bcfa3" identifier="dropdownLabel" label="Label" />
+            <group identifier="dropdownLink" label="Link" multiple="true">
+              <text default="Internal Link" field-id="ff6bcbecc0a81e5f43ef9b37b0bc3834" identifier="linkType" label="Link Type" type="radiobutton">
+                <radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/dropdownNav/dropdownLink/internalLink" value="Internal Link" />
+                <radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/dropdownNav/dropdownLink/externalLink" value="External Link" />
+                <radio-item show-fields="primaryContent/widget/circleImageWithText/textFields/dropdownNav/dropdownLink/fileLink" value="File Link" />
+              </text>
+              <text field-id="ff6bcbecc0a81e5f43ef9b37c55aadaa" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+              <asset field-id="ff6bcbecc0a81e5f43ef9b37a4c5eab5" identifier="internalLink" label="Internal Link" type="page" />
+              <asset field-id="ff6bcbecc0a81e5f43ef9b37d4eefb53" identifier="fileLink" label="File Link" type="file" />
+              <text field-id="ff6bcbecc0a81e5f43ef9b378d8c410e" identifier="label" label="Label" />
+            </group>
+          </group>
+        </group>
+        <group collapsed="true" identifier="imageFields" label="Image Fields">
+          <asset field-id="ff6bcbedc0a81e5f43ef9b37a9b2a092" help-text="Image must by and around 250px by 250px" identifier="fileLink" label="Image" type="file" />
+          <text field-id="ff6bcbedc0a81e5f43ef9b374f9a5b7a" identifier="alternateText" label="Alternate Text" />
+        </group>
+      </group>
+      <group collapsed="true" identifier="videoWithText" label="Video with Text">
+        <text default="Yes" field-id="ff6bcbedc0a81e5f43ef9b37fbd9a3f5" identifier="display-video-with-text" label="Show" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <text default="Side by side" field-id="ff6bcbedc0a81e5f43ef9b379144b110" help-text="Choose how to layout your data" identifier="format" label="Text and Video Positions" type="dropdown">
+          <dropdown-item value="Stacked" />
+          <dropdown-item show-fields="primaryContent/widget/videoWithText/textFields/textAlign" value="Side by side" />
+        </text>
+        <text default="Light" field-id="ff6bcbedc0a81e5f43ef9b37e6809abe" identifier="bgColor" label="Background Color" type="radiobutton">
+          <radio-item value="Light" />
+          <radio-item value="Medium" />
+          <radio-item value="Dark" />
+        </text>
+        <text field-id="ff6bcbedc0a81e5f43ef9b37544f91c3" help-text="Example: `https://youtu.be/jhz862KOstA` or `https://vimeo.com/194384917`" identifier="videoShareLink" label="Youtube or Vimeo Share Link" />
+        <group collapsed="true" identifier="textFields" label="Text Fields">
+          <text default="Left" field-id="ff6bcbedc0a81e5f43ef9b37461e9700" identifier="textAlign" label="Text Align" type="radiobutton">
+            <radio-item value="Left" />
+            <radio-item value="Right" />
+          </text>
+          <text field-id="ff6bcbedc0a81e5f43ef9b3723210ff2" identifier="category" label="Category" />
+          <text field-id="ff6bcbedc0a81e5f43ef9b378816eb98" identifier="title" label="Title" />
+          <text field-id="ff6bcbedc0a81e5f43ef9b371d54948f" identifier="body" label="Content" wysiwyg="true" />
+          <text default="Drop Down Button" field-id="ff6bcbedc0a81e5f43ef9b379404da04" identifier="buttonType" label="Dropdown Menu or Text Links" type="radiobutton">
+            <radio-item show-fields="primaryContent/widget/videoWithText/textFields/linksHeading, primaryContent/widget/videoWithText/textFields/links" value="Links" />
+            <radio-item show-fields="primaryContent/widget/videoWithText/textFields/dropdownNav, primaryContent/widget/videoWithText/textFields/button" value="Drop Down Button" />
+          </text>
+          <text field-id="ff6bcbedc0a81e5f43ef9b37603b5d39" identifier="linksHeading" label="Link Heading" />
+          <group identifier="links" label="Links" maximum-number="2" minimum-number="0" multiple="true">
+            <text default="Internal Link" field-id="ff6bcbedc0a81e5f43ef9b37894f9616" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="primaryContent/widget/videoWithText/textFields/links/internalLink" value="Internal Link" />
+              <radio-item show-fields="primaryContent/widget/videoWithText/textFields/links/externalLink" value="External Link" />
+              <radio-item show-fields="primaryContent/widget/videoWithText/textFields/links/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbedc0a81e5f43ef9b3751a5643c" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="ff6bcbedc0a81e5f43ef9b37567b8834" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="ff6bcbeec0a81e5f43ef9b3794ac853f" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="ff6bcbeec0a81e5f43ef9b379886357b" identifier="label" label="Label" />
+          </group>
+          <group identifier="button" label="Button">
+            <text default="Internal Link" field-id="ff6bcbeec0a81e5f43ef9b3727b87496" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="primaryContent/widget/videoWithText/textFields/button/internalLink" value="Internal Link" />
+              <radio-item show-fields="primaryContent/widget/videoWithText/textFields/button/externalLink" value="External Link" />
+              <radio-item show-fields="primaryContent/widget/videoWithText/textFields/button/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbeec0a81e5f43ef9b37b24b6d3c" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="ff6bcbeec0a81e5f43ef9b37e22362ae" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="ff6bcbeec0a81e5f43ef9b37149ab129" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="ff6bcbeec0a81e5f43ef9b374960cb03" identifier="label" label="Label" />
+          </group>
+          <group identifier="dropdownNav" label="Dropdown Navigation">
+            <text field-id="ff6bcbeec0a81e5f43ef9b379dc1067c" identifier="dropdownLabel" label="Label" />
+            <group identifier="dropdownLink" label="Link" multiple="true">
+              <text default="Internal Link" field-id="ff6bcbeec0a81e5f43ef9b37ae2ebd7b" identifier="linkType" label="Link Type" type="radiobutton">
+                <radio-item show-fields="primaryContent/widget/videoWithText/textFields/dropdownNav/dropdownLink/internalLink" value="Internal Link" />
+                <radio-item show-fields="primaryContent/widget/videoWithText/textFields/dropdownNav/dropdownLink/externalLink" value="External Link" />
+                <radio-item show-fields="primaryContent/widget/videoWithText/textFields/dropdownNav/dropdownLink/fileLink" value="File Link" />
+              </text>
+              <text field-id="ff6bcbeec0a81e5f43ef9b372a42e0ce" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+              <asset field-id="ff6bcbeec0a81e5f43ef9b37328e198d" identifier="internalLink" label="Internal Link" type="page" />
+              <asset field-id="ff6bcbeec0a81e5f43ef9b37eccefdcb" identifier="fileLink" label="File Link" type="file" />
+              <text field-id="ff6bcbeec0a81e5f43ef9b37528b1cd0" identifier="label" label="Label" />
+            </group>
+          </group>
+        </group>
+      </group>
+      <group collapsed="true" identifier="factCardsWithText" label="Fact Cards with Text">
+        <text default="Yes" field-id="ff6bcbeec0a81e5f43ef9b377c76953d" identifier="display-fact-cards-with-text" label="Show" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <text default="Side by side" field-id="ff6bcbeec0a81e5f43ef9b3701e8ee9a" help-text="Choose how to layout your data" identifier="format" label="Text and Fact Positions" type="dropdown">
+          <dropdown-item value="Stacked" />
+          <dropdown-item show-fields="primaryContent/widget/factCardsWithText/textFields/textAlign" value="Side by side" />
+        </text>
+        <text default="Light" field-id="ff6bcbeec0a81e5f43ef9b3772e26557" identifier="bgColor" label="Background Color" type="radiobutton">
+          <radio-item value="Light" />
+          <radio-item value="Medium" />
+          <radio-item value="Dark" />
+        </text>
+        <group collapsed="true" identifier="textFields" label="Text Fields">
+          <text default="Left" field-id="ff6bcbefc0a81e5f43ef9b37c006e6cc" identifier="textAlign" label="Text Align" type="radiobutton">
+            <radio-item value="Left" />
+            <radio-item value="Right" />
+          </text>
+          <text field-id="ff6bcbefc0a81e5f43ef9b376735a0b2" identifier="category" label="Category" />
+          <text field-id="ff6bcbefc0a81e5f43ef9b37f723f3ed" identifier="title" label="Title" />
+          <text field-id="ff6bcbefc0a81e5f43ef9b37832e3d7b" identifier="body" label="Content" wysiwyg="true" />
+          <group identifier="button" label="Button">
+            <text default="Internal Link" field-id="ff6bcbefc0a81e5f43ef9b378e153af3" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="primaryContent/widget/factCardsWithText/textFields/button/internalLink" value="Internal Link" />
+              <radio-item show-fields="primaryContent/widget/factCardsWithText/textFields/button/externalLink" value="External Link" />
+              <radio-item show-fields="primaryContent/widget/factCardsWithText/textFields/button/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbefc0a81e5f43ef9b376b6944f0" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="ff6bcbefc0a81e5f43ef9b377d0d33c4" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="ff6bcbefc0a81e5f43ef9b379acd155a" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="ff6bcbefc0a81e5f43ef9b37af099152" identifier="label" label="Label" />
+          </group>
+        </group>
+        <group collapsed="true" identifier="factCards" label="Fact Cards">
+          <group collapsed="true" identifier="factCard" label="Fact Card" multiple="true">
+            <text field-id="ff6bcbefc0a81e5f43ef9b374bf2b20a" identifier="backLinkLabel" label="Back Link Label" required="true" />
+            <text field-id="ff6bcbefc0a81e5f43ef9b37f1c874e5" identifier="plainTextLink" label="Link" />
+            <asset field-id="ff6bcbefc0a81e5f43ef9b37ec965f52" identifier="link" label="Or Internal Link" type="page,file,symlink" />
+            <group collapsed="true" identifier="frontStat" label="Front Stat">
+              <text field-id="ff6bcbefc0a81e5f43ef9b3713bedb02" help-text="4 digits max; If necessary to use bigger number, abbreviate as such: 10,000 = 10k" identifier="frontStatNumber" label="Front Stat Number" />
+              <text field-id="ff6bcbefc0a81e5f43ef9b37ffec19f4" identifier="frontStatText1" label="Front Stat Text 1" />
+              <text field-id="ff6bcbefc0a81e5f43ef9b37022e04c8" identifier="frontStatText2" label="Front Stat Text 2" />
+              <text field-id="ff6bcbf0c0a81e5f43ef9b370d31456d" identifier="frontBackgroundImage" label="Background Image" type="dropdown">
+                <dropdown-item value="people" />
+                <dropdown-item value="student" />
+                <dropdown-item value="chair" />
+                <dropdown-item value="books" />
+                <dropdown-item value="mortarboard" />
+              </text>
+              <text field-id="ff6bcbf0c0a81e5f43ef9b3776b3827f" identifier="frontBackgroundColor" label="Background Color" type="dropdown">
+                <dropdown-item value="red" />
+                <dropdown-item value="orange" />
+                <dropdown-item value="green" />
+                <dropdown-item value="blue" />
+              </text>
+            </group>
+            <group collapsed="true" identifier="backStat" label="Back Stat">
+              <text field-id="ff6bcbf0c0a81e5f43ef9b3787fbd646" identifier="backStat" label="Back Stat" multi-line="true" />
+              <group identifier="link" label="Link">
+                <text default="Internal Link" field-id="ff6bcbf0c0a81e5f43ef9b3747baaef7" identifier="linkType" label="Link Type" type="radiobutton">
+                  <radio-item value="Internal Link" />
+                  <radio-item value="External Link" />
+                  <radio-item value="File Link" />
+                </text>
+                <text field-id="ff6bcbf0c0a81e5f43ef9b37ce0f131b" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+                <asset field-id="ff6bcbf0c0a81e5f43ef9b37503a22a8" identifier="internalLink" label="Internal Link" type="page" />
+                <asset field-id="ff6bcbf0c0a81e5f43ef9b37b65cd3df" identifier="fileLink" label="File Link" type="file" />
+                <text field-id="ff6bcbf0c0a81e5f43ef9b3769701317" identifier="label" label="Label" />
+              </group>
+            </group>
+          </group>
+        </group>
+      </group>
+      <group collapsed="true" identifier="callToAction3Up" label="Call To Action 3 Up">
+        <text default="Yes" field-id="ff6bcbf0c0a81e5f43ef9b37ad728412" identifier="display-call-to-action-3-up" label="Show" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <text field-id="ff6bcbf0c0a81e5f43ef9b374cb29859" help-text="Section Heading above all 3 photos" identifier="heading" label="Heading" required="false" />
+        <text default="Light" field-id="ff6bcbf0c0a81e5f43ef9b370225fb93" identifier="bgColor" label="Background Color" type="radiobutton">
+          <radio-item value="Light" />
+          <radio-item value="Medium" />
+          <radio-item value="Dark" />
+        </text>
+        <group identifier="cta1" label="Call to Action Left">
+          <group identifier="media" label="Media">
+            <asset field-id="ff6bcbf0c0a81e5f43ef9b377c2e22a5" identifier="fileLink" label="File Link (Exactly 600px by 400px)" type="file" />
+            <text field-id="ff6bcbf0c0a81e5f43ef9b3776343ed0" identifier="alternateText" label="Alternate Text" />
+          </group>
+          <group identifier="textFields" label="Text Fields">
+            <text field-id="ff6bcbf0c0a81e5f43ef9b37972b3a93" identifier="title" label="Title" />
+            <text field-id="ff6bcbf0c0a81e5f43ef9b37cbbf2413" identifier="body" label="Content" wysiwyg="true" />
+          </group>
+          <group identifier="link" label="Link">
+            <text default="Internal Link" field-id="ff6bcbf1c0a81e5f43ef9b3702e6a8ab" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="primaryContent/widget/callToAction3Up/cta1/link/internalLink" value="Internal Link" />
+              <radio-item show-fields="primaryContent/widget/callToAction3Up/cta1/link/externalLink" value="External Link" />
+              <radio-item show-fields="primaryContent/widget/callToAction3Up/cta1/link/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbf1c0a81e5f43ef9b374ecd457d" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="ff6bcbf1c0a81e5f43ef9b37d692addd" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="ff6bcbf1c0a81e5f43ef9b37b38127e6" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="ff6bcbf1c0a81e5f43ef9b372a36e878" identifier="label" label="Label" />
+          </group>
+        </group>
+        <group identifier="cta2" label="Call to Action Center">
+          <group identifier="media" label="Media">
+            <asset field-id="ff6bcbf1c0a81e5f43ef9b3758b8f122" help-text="Photo size: exactly 600px width and 400px height" identifier="fileLink" label="File Link (Exactly 600px by 400px)" type="file" />
+            <text field-id="ff6bcbf1c0a81e5f43ef9b378c1a4b50" identifier="alternateText" label="Alternate Text" />
+          </group>
+          <group identifier="textFields" label="Text Fields">
+            <text field-id="ff6bcbf1c0a81e5f43ef9b3709330987" identifier="title" label="Title" />
+            <text field-id="ff6bcbf1c0a81e5f43ef9b3763b34a96" identifier="body" label="Content" wysiwyg="true" />
+          </group>
+          <group identifier="link" label="Link">
+            <text default="Internal Link" field-id="ff6bcbf1c0a81e5f43ef9b373d660034" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="primaryContent/widget/callToAction3Up/cta2/link/internalLink" value="Internal Link" />
+              <radio-item show-fields="primaryContent/widget/callToAction3Up/cta2/link/externalLink" value="External Link" />
+              <radio-item show-fields="primaryContent/widget/callToAction3Up/cta2/link/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbf1c0a81e5f43ef9b3715f2a544" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="ff6bcbf1c0a81e5f43ef9b3778210a83" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="ff6bcbf1c0a81e5f43ef9b3707a9c81c" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="ff6bcbf1c0a81e5f43ef9b376383a1a7" identifier="label" label="Label" />
+          </group>
+        </group>
+        <group identifier="cta3" label="Call to Action Right">
+          <group identifier="media" label="Media">
+            <asset field-id="ff6bcbf2c0a81e5f43ef9b378bb164e6" help-text="Photo size: exactly 600px width and 400px height" identifier="fileLink" label="File Link (Exactly 600px by 400px)" type="file" />
+            <text field-id="ff6bcbf2c0a81e5f43ef9b37d2898e03" identifier="alternateText" label="Alternate Text" />
+          </group>
+          <group identifier="textFields" label="Text Fields">
+            <text field-id="ff6bcbf2c0a81e5f43ef9b377e658b28" identifier="title" label="Title" />
+            <text field-id="ff6bcbf2c0a81e5f43ef9b3755146c57" identifier="body" label="Content" wysiwyg="true" />
+          </group>
+          <group identifier="link" label="Link">
+            <text default="Internal Link" field-id="ff6bcbf2c0a81e5f43ef9b37db498195" identifier="linkType" label="Link Type" type="radiobutton">
+              <radio-item show-fields="primaryContent/widget/callToAction3Up/cta3/link/internalLink" value="Internal Link" />
+              <radio-item show-fields="primaryContent/widget/callToAction3Up/cta3/link/externalLink" value="External Link" />
+              <radio-item show-fields="primaryContent/widget/callToAction3Up/cta3/link/fileLink" value="File Link" />
+            </text>
+            <text field-id="ff6bcbf2c0a81e5f43ef9b376790ca6e" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+            <asset field-id="ff6bcbf2c0a81e5f43ef9b375b744d0e" identifier="internalLink" label="Internal Link" type="page" />
+            <asset field-id="ff6bcbf2c0a81e5f43ef9b37801f17c9" identifier="fileLink" label="File Link" type="file" />
+            <text field-id="ff6bcbf2c0a81e5f43ef9b37657471c0" identifier="label" label="Label" />
+          </group>
+        </group>
+      </group>
+      <group collapsed="true" identifier="chapmanSocialFeed" label="Social.chapman Feed - OLD - DO NOT USE - RETIRING">
+        <text default="Yes" field-id="ff6bcbf2c0a81e5f43ef9b379ce4925e" identifier="displayChapmanSocialFeed" label="Show" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <text default="Light" field-id="ff6bcbf2c0a81e5f43ef9b37d2fefb0d" identifier="bgColor" label="Background Color" type="radiobutton">
+          <radio-item value="Light" />
+          <radio-item value="Medium" />
+          <radio-item value="Dark" />
+        </text>
+        <text field-id="ff6bcbf2c0a81e5f43ef9b375e6904aa" identifier="title" label="Title" />
+        <group collapsed="true" identifier="social-media-link" label="Social Media Link" multiple="true">
+          <text field-id="ff6bcbf2c0a81e5f43ef9b3769e10d4a" identifier="social-media-type" label="Social Media Type" type="dropdown">
+            <dropdown-item value="Facebook" />
+            <dropdown-item value="GooglePlus" />
+            <dropdown-item value="iTunes U" />
+            <dropdown-item value="Instagram" />
+            <dropdown-item value="LinkedIn" />
+            <dropdown-item value="Pinterest" />
+            <dropdown-item value="Twitter" />
+            <dropdown-item value="YouTube" />
+          </text>
+          <text field-id="ff6bcbf2c0a81e5f43ef9b374b4184df" identifier="link" label="Link" />
+        </group>
+        <group collapsed="true" identifier="socialFeedSettings" label="Social Feed Settings">
+          <text field-id="ff6bcbf3c0a81e5f43ef9b372cfa32f1" identifier="feedLink" label="Feed Link" regular-expression="/^(f|ht)tps?:\/\//" />
+          <text field-id="ff6bcbf3c0a81e5f43ef9b37b8249924" identifier="numberOfPosts" label="Number of Posts" regular-expression="/^\d+$/" />
+        </group>
+      </group>
+      <group collapsed="true" identifier="chapmanStoriesFeed" label="Stories Feed">
+        <text default="Yes" field-id="ff6bcbf3c0a81e5f43ef9b37a8ac5b7f" identifier="displayChapmanStoriesFeed" label="Show" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <text default="Light" field-id="ff6bcbf3c0a81e5f43ef9b37c8f6a798" identifier="bgColor" label="Background Color" type="radiobutton">
+          <radio-item value="Light" />
+          <radio-item value="Medium" />
+          <radio-item value="Dark" />
+        </text>
+        <text field-id="ff6bcbf3c0a81e5f43ef9b37a46a17ac" identifier="title" label="Title" />
+        <text field-id="ff6bcbf3c0a81e5f43ef9b3723de3eb0" help-text="Paste url of a blog site from blogs.chapman" identifier="feedUrl" label="Feed Url" />
+        <text field-id="ff6bcbf3c0a81e5f43ef9b37dcea3114" help-text="Paste url of a blog post from blogs.chapman" identifier="topStory" label="Top Story Url" />
+        <group collapsed="true" identifier="button" label="Button">
+          <text field-id="ff6bcbf3c0a81e5f43ef9b37b011ddfc" identifier="text" label="Text" />
+          <text field-id="ff6bcbf3c0a81e5f43ef9b374f0e717d" help-text="full url (including http)" identifier="link" label="Link" />
+        </group>
+      </group>
+      <group collapsed="true" identifier="subscribe" label="Campaign Monitor Newsletter Subscribe">
+        <text default="Yes" field-id="ff6bcbf3c0a81e5f43ef9b37c538bf58" identifier="display-subscribe" label="Show" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <text default="Dark" field-id="ff6bcbf3c0a81e5f43ef9b372b7d4b33" identifier="bgColor" label="Background Color" type="radiobutton">
+          <radio-item value="Light" />
+          <radio-item value="Medium" />
+          <radio-item value="Dark" />
+        </text>
+        <text field-id="ff6bcbf3c0a81e5f43ef9b37ca5b598f" identifier="subscribeMessage" label="Subscribe Message" />
+        <text cols="50" field-id="ff6bcbf3c0a81e5f43ef9b3725e248d1" help-text="Paste in HTML from Campaign Monitor" identifier="campaignMonitorHtml" label="Campaign Monitor HTML" multi-line="true" rows="15" />
+      </group>
+      <group collapsed="true" identifier="callToActionFooter" label="Call to Action Footer">
+        <text default="Yes" field-id="ff6bcbf3c0a81e5f43ef9b37ab444cff" identifier="displayCallToActionFooter" label="Show" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <text default="white" field-id="ff6bcbf3c0a81e5f43ef9b379f11b03b" identifier="bgColor" label="Background Color" type="radiobutton">
+          <radio-item value="White" />
+          <radio-item value="School Color" />
+        </text>
+        <text field-id="ff6bcbf4c0a81e5f43ef9b37947974c8" identifier="title" label="Title" />
+        <group identifier="button" label="Button" maximum-number="3" minimum-number="0" multiple="true">
+          <text default="Internal Link" field-id="ff6bcbf4c0a81e5f43ef9b37294a02f7" identifier="linkType" label="Link Type" type="radiobutton">
+            <radio-item show-fields="primaryContent/widget/callToActionFooter/button/internalLink" value="Internal Link" />
+            <radio-item show-fields="primaryContent/widget/callToActionFooter/button/externalLink" value="External Link" />
+            <radio-item show-fields="primaryContent/widget/callToActionFooter/button/fileLink" value="File Link" />
+          </text>
+          <text field-id="ff6bcbf4c0a81e5f43ef9b3751d51593" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link" />
+          <asset field-id="ff6bcbf4c0a81e5f43ef9b378454d18d" identifier="internalLink" label="Internal Link" type="page" />
+          <asset field-id="ff6bcbf4c0a81e5f43ef9b375d69c6c5" identifier="fileLink" label="File Link" type="file" />
+          <text field-id="ff6bcbf4c0a81e5f43ef9b37aad98e2a" identifier="label" label="Label" />
+        </group>
+      </group>
+      <group collapsed="true" identifier="contactFooter" label="Contact Footer">
+        <text default="Yes" field-id="ff6bcbf4c0a81e5f43ef9b374690a2d0" identifier="displayContactFooter" label="Show" type="radiobutton">
+          <radio-item value="Yes" />
+          <radio-item value="No" />
+        </text>
+        <text default="Light" field-id="ff6bcbf4c0a81e5f43ef9b3777aa7219" identifier="bgColor" label="Background Color" type="radiobutton">
+          <radio-item value="Light" />
+          <radio-item value="Medium" />
+          <radio-item value="Dark" />
+        </text>
+        <text field-id="ff6bcbf4c0a81e5f43ef9b37d3ad5148" identifier="phone" label="Phone" />
+        <text field-id="ff6bcbf4c0a81e5f43ef9b37424f80aa" identifier="email" label="Email" />
+        <group collapsed="true" identifier="address" label="Address">
+          <text field-id="ff6bcbf4c0a81e5f43ef9b37d599973b" identifier="name" label="Name" />
+          <text field-id="ff6bcbf4c0a81e5f43ef9b37a0a893fa" identifier="address-line-1" label="Address Line 1" />
+          <text field-id="ff6bcbf4c0a81e5f43ef9b37a1e83752" identifier="city" label="City" />
+          <text field-id="ff6bcbf4c0a81e5f43ef9b37faf0197b" identifier="state" label="State" />
+          <text field-id="ff6bcbf5c0a81e5f43ef9b37766e5408" identifier="zip" label="Zip" />
+        </group>
+        <group collapsed="true" identifier="social-media" label="Social Media">
+          <text field-id="ff6bcbf5c0a81e5f43ef9b3750241523" identifier="title" label="Title" />
+          <group collapsed="true" identifier="social-media-link" label="Social Media Link" multiple="true">
+            <text field-id="ff6bcbf5c0a81e5f43ef9b373112df89" identifier="social-media-type" label="Social Media Type" type="dropdown">
+              <dropdown-item value="Facebook" />
+              <dropdown-item value="GooglePlus" />
+              <dropdown-item value="iTunes U" />
+              <dropdown-item value="Instagram" />
+              <dropdown-item value="LinkedIn" />
+              <dropdown-item value="Pinterest" />
+              <dropdown-item value="Twitter" />
+              <dropdown-item value="WordPress" />
+              <dropdown-item value="YouTube" />
+            </text>
+            <text field-id="ff6bcbf5c0a81e5f43ef9b376f93a8c6" identifier="link" label="Link" />
+          </group>
+        </group>
+      </group>
+    </group>
+  </group>
+  <group collapsed="true" identifier="meta" label="Supplemental Content">
+    <group collapsed="true" identifier="sharing" label="Sharing ">
+      <asset field-id="ff6bcbf5c0a81e5f43ef9b377146a67b" help-text="Image used for sharing on facebook (130px w, 110px h exactly)" identifier="og_image" label="OG Image" type="file" />
+      <text field-id="ff6bcbf5c0a81e5f43ef9b37d41583a7" help-text="Overrides title for when page is shared to facebook (defaults to Display Name)" identifier="og_title" label="OG Title" />
+      <text field-id="ff6bcbf5c0a81e5f43ef9b37c43ba900" help-text="Overrides description when page is shared to facebook" identifier="og_description" label="OG Description" />
+      <text field-id="ff6bcbf5c0a81e5f43ef9b37f50b50c0" help-text="The text that prepopulates on twitter (followed by URL and hashtags)" identifier="twitter_text" label="Twitter Share Text" />
+      <text field-id="ff6bcbf5c0a81e5f43ef9b376aeb0636" help-text="Hashtags to get appended to tweet (no #!)" identifier="twitter_hashtag" label="Twitter Hashtag" maximum-number="3" multiple="true" />
+    </group>
+  </group>
 </system-data-structure>

@@ -172,7 +172,7 @@
         <dropdown-item value="(select one)" />
         <dropdown-item show-fields="primaryContent/widget/textEditorWidget" value="New Text Editor" />
         <dropdown-item show-fields="primaryContent/widget/wysiwyg-editor" value="Text Editor" />
-        <dropdown-item show-fields="primaryContent/widget/textWithCTA" value="Text with CTA" label="Text Editor with CTA" />
+        <dropdown-item label="Text Editor with CTA" show-fields="primaryContent/widget/textWithCTA" value="Text with CTA" />
         <dropdown-item show-fields="primaryContent/widget/bannerNotificationWidget" value="Banner Notification" />
         <dropdown-item show-fields="primaryContent/widget/photoCalloutWidget" value="Photo Callout" />
         <dropdown-item show-fields="primaryContent/widget/gridBlockWidget" value="Grid Block" />
@@ -180,15 +180,15 @@
         <dropdown-item show-fields="primaryContent/widget/tabs" value="Tabs" />
         <dropdown-item show-fields="primaryContent/widget/funnels-1up" value="Funnels 1up" />
         <dropdown-item show-fields="primaryContent/widget/funnels-2up" value="Funnels 2up" />
-        <dropdown-item show-fields="primaryContent/widget/carousel" value="Carousel" label="Image Carousel" />
-        <dropdown-item show-fields="primaryContent/widget/testimonial-widget" value="Testimonial" label="Testimonial Slider" />
+        <dropdown-item label="Image Carousel" show-fields="primaryContent/widget/carousel" value="Carousel" />
+        <dropdown-item label="Testimonial Slider" show-fields="primaryContent/widget/testimonial-widget" value="Testimonial" />
         <dropdown-item show-fields="primaryContent/widget/personnel" value="Personnel Table" />
-        <dropdown-item show-fields="primaryContent/widget/next-steps-widget" value="Next Steps" label="Next Steps Buttons" />
+        <dropdown-item label="Next Steps Buttons" show-fields="primaryContent/widget/next-steps-widget" value="Next Steps" />
         <dropdown-item show-fields="primaryContent/widget/FeaturedNewsEvents" value="Featured / News / Events" />
         <dropdown-item show-fields="primaryContent/widget/quickFactBlocksWidget" value="Quick Fact Blocks" />
         <dropdown-item show-fields="primaryContent/widget/logo-image-rotator" value="Logo Image Rotator" />
         <dropdown-item show-fields="primaryContent/widget/rssFeedDisplay" value="RSS Feed Display" />
-        <dropdown-item show-fields="primaryContent/widget/programEvents" value="Program Events" label="Events.chapman.edu Feed" />
+        <dropdown-item label="Events.chapman.edu Feed" show-fields="primaryContent/widget/programEvents" value="Program Events" />
         <dropdown-item show-fields="primaryContent/widget/careerBlockWidget" value="Career Block" />
         <dropdown-item show-fields="primaryContent/widget/faculty" value="Faculty Info" />
         <dropdown-item show-fields="primaryContent/widget/form" value="Form" />
@@ -199,9 +199,8 @@
         <dropdown-item label="A to Z Listing - DO NOT USE - RETIRING" show-fields="primaryContent/widget/AtoZListing" value="A to Z Listing" />
         <dropdown-item label="Calendar25Live - DO NOT USE - RETIRING" show-fields="primaryContent/widget/Calendar25Live" value="Calendar25Live" />
         <dropdown-item label="Degree Info - DO NOT USE - RETIRING" show-fields="primaryContent/widget/degree" value="Degree Info" />
-        <dropdown-item show-fields="primaryContent/widget/twitterTimeline" value="Twitter Feed" lable="Twitter Feed - DO NOT USE" />
+        <dropdown-item lable="Twitter Feed - DO NOT USE" show-fields="primaryContent/widget/twitterTimeline" value="Twitter Feed" />
         <dropdown-item label="Three Photo Callout - RETIRING, USE PHOTO CALLOUT" show-fields="primaryContent/widget/threePhotoCallout" value="Three Photo Callout" />
-
         <!--END RETIRING-->
       </text>
       <group identifier="textWithCTA" label="Text Editor with CTA">
@@ -1133,6 +1132,10 @@
     </group>
   </group>
   <group collapsed="true" identifier="meta" label="Supplemental Content">
+    <text field-id="8cf267b7c0a81e8a45609ba1405565e0" identifier="hideFromSearchSupplemental" label="Prevent SEO Indexing and Hide From Search" type="checkbox">
+      <checkbox-item identifier="hideFromSearchYes" label="Prevent SEO Indexing and Hide From Search" show-fields="meta/hideFromSearchConfirm" value="hideFromSearch" />
+    </text>
+    <text field-id="8cf7fb97c0a81e8a45609ba17d18c58f" identifier="hideFromSearchConfirm" label="I understand that this will prevent Google and other search engines from crawling this page. Type 'Understood'" required="true" />
     <asset field-id="ff6bcc1fc0a81e5f43ef9b373c7b5737" identifier="social_accounts" label="Social Accounts" render-content-depth="10" type="block" />
     <group collapsed="true" identifier="sharing" label="Sharing ">
       <asset field-id="ff6bcc1fc0a81e5f43ef9b37eac7b597" help-text="Image used for sharing on facebook (130px w, 110px h exactly)" identifier="og_image" label="OG Image" type="file" />
