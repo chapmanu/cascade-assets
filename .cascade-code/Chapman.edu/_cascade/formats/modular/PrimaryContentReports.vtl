@@ -1,0 +1,273 @@
+<div class="hidden page-meta">
+    <ul>
+        <li>last published: $currentPage.lastPublishedOn</li>
+    </ul>
+</div>
+##Import all the widget formats
+
+## #import( "/test-section/nick-test/query-relationships" )
+
+#import( "/_cascade/formats/helpers.velocity" )
+
+#macro(outputassetRelationships $element) 
+          
+        
+        
+<style>
+    
+th {
+  text-align: left;
+}
+
+tr {
+}
+
+tr:nth-child(2n) {
+  background-color: white;
+}
+
+table {
+  border: 1px solid black;
+}
+
+tr {
+  border: 1px solid black;
+}
+
+
+pre{
+  font-size: .5em;
+  background-color: white;
+  width: max-content;
+  display: inline-block;
+  height: 100%;
+  position: relative;
+}
+
+li {list-style-position: inside;}
+
+summary {
+    margin-bottom: 20px;
+}
+
+.relationships-query.container {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 40px;
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.requested-path {
+    background: #f6f8fa;
+    background-color: rgb(246, 248, 250);
+}
+ol {
+    margin-bottom: 20px;
+}
+
+table {
+    margin-top: 20px;
+    font-family: 'futura-pt';
+}
+
+td, th, tr {
+    padding: 10px !important;
+        text-align: left;
+    vertical-align: middle;
+}
+
+td, th {
+    word-break: break-word;
+    max-width: 400px;
+    border: 1px solid black;
+    min-width: 80px;
+}
+
+pre {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0 5px 0 5px;
+    margin-left: 2px;
+}
+pre {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0 10px 0 10px;
+    margin-left: 2px;
+}
+
+details {
+    font-family: 'futura-pt';
+    padding-top: 20px;
+}
+
+ol {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+summary {
+    font-weight: bold;
+}
+</style>
+
+#set ($widgetXPath = 'assetRelationshipsWidget')
+#set ($templateType = $currentPage.contentType.path )
+
+## $currentPage.content
+## $_PropertyTool.outputProperties($currentPage)
+## Just testing
+## #set( $path      = '_assets/mastheads' )
+
+#set ($requestedPath = $element.getChild($widgetXPath).getChild('pathToCheck').value)
+
+
+## <h2>Currently Checking: $requestedPath</h2>
+
+## #set ($display = $element.getChild($widgetXPath).getChild('display').value)
+## $display
+## #set ($selectedPath = $element.getChild($widgetXPath).getChild('selectedPath').value)
+## $selectedPath
+## PATH: $_PropertyTool.outputProperties($selectedPath)
+## PATH: [system-asset]${selectedPath}[/system-asset]
+
+
+
+#set( $site_name = 'Chapman.edu' )
+#set( $folder    = $_.locateFolder( $requestedPath, $site_name ) )
+#set( $children  = $folder.children )
+#if( $children.size() > 0 )
+
+
+
+#set( $folder    = $_.locateFolder( '/test-section/nick-test/', $site_name ) )
+
+
+
+## <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
+
+<div class="relationships-query container">
+    <h1>
+    #set ($pageTitle = $currentPage.getChild("title").value )
+    $pageTitle
+</h1>
+
+<h2 id="no-relationships">Files with No Relationships in <span class="requested-path">$requestedPath</span></h2>
+
+<details >
+  <summary>Tutorial</summary>
+  <ol type="1">
+      <li>'Edit' page</li>
+      <li>Paste the desired folder path to search, <strong>excluding</strong> 'Chapman.edu'
+      <br/>
+      eg <pre>_assets/mastheads</pre></li>
+      <li>Select 'Preview Draft'</li>
+  </ol>
+</details>
+
+<table class="results-no-relationships">
+        <tr>
+            <th>Asset Name</th>
+            <th>Live Link</th>
+            <th>Cascade Link</th>
+            <th>Type</th>
+            <th>Created On</th>
+        </tr>
+        
+#foreach( $child in $children )
+    
+    
+    
+    ## $child.linkingAssets.size()
+    ## $child.linkingAssets.isEmpty()
+    
+    #if( $child.linkingAssets.isEmpty() )
+    
+        <tr>
+          <td>$child.name</td>
+            <td><a href="${child.link}">https://www.chapman.edu/$child.path</a></td>
+            <td>
+                    
+        
+
+          <a href="https://dev-cascade.chapman.edu/entity/open.act?id=${child.identifer.id}${_EscapeTool.xml('&')}type=${child.assetType}">https://dev-cascade.chapman.edu/entity/open.act?id=${child.identifer.id}${_EscapeTool.xml('&')}type=${child.assetType}</a>
+          
+          
+            </td>
+            <td>
+                ${child.assetType}
+            </td>
+            <td>
+                ${child.createdOn}
+            </td>
+        </tr>
+
+    #end
+#end
+    </table>
+    
+    
+<div class="hidden">
+   <script>
+        var copyTextareaBtn = document.querySelector('.js-copy');
+
+copyTextareaBtn.addEventListener('click', function(event) {
+  var copyTextarea = document.querySelector('.results-no-relationships');
+  copyTextarea.focus();
+  copyTextarea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('copying text command was ' + msg);
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
+});
+   </script>
+     <button class="js-copy" style="vertical-align:top;">copy Textarea</button>
+  <textarea class="js-copytextarea">Hello I'm some text</textarea>
+
+</div>
+    
+    
+    </div>
+    ## -------------------------------
+    ## <h2>All Files In Directory</h2>
+    ##     <li>asset: $child.name</li>
+    ## <li>linked assets: $child.linkingAssets </li>
+
+#end
+
+#end
+
+## the format ends here. paste it back where it belongs
+
+## Reserved Block Format not finished/working:
+#import( "/_cascade/formats/modular/widgets/Reserved Block Format" )
+##
+#set ($currentPage = $_XPathTool.selectSingleNode($contentRoot, "//system-page[@current]") )
+#set ( $primaryContent = $currentPage.getChild('system-data-structure').getChild('primaryContent') )
+#set ($widgets = $_XPathTool.selectNodes($primaryContent, "widget") )
+##
+
+##
+## Widgets
+#foreach ($widget in $widgets)
+##
+    #set ($widgetType = $widget.getChild('widgetType').value )
+<!-- in forEach loop for $widgetType widget -->
+
+
+ ##
+    #if ($widgetType == 'File Relationships Query')
+          #outputassetRelationships($widget)
+          
+          
+    #end
+
+##
+#end
+
+## end Widgets
+
