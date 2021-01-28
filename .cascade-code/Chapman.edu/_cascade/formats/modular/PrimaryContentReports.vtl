@@ -140,22 +140,31 @@ summary {
 
 
 
-#set( $folder    = $_.locateFolder( '/test-section/nick-test/', $site_name ) )
-
+#set( $folder    = $_.locateFolder( '/', $site_name ) )
+#set( $children    =$folder.children )
 
 HELLO, NICK IS CURRENTLY WORKING ON THIS
+<br/>
 recursion: 
-#traverseFolder($folder)
-#macro(traverseFolder $folder)
+<br/>
+#traverseFolder($child)
+#macro(traverseFolder $child)
   #if($folder.children.size() > 0)
     #foreach($child in $folder.children)
-        child: $child.name
-      #if ($child.identifier.type == "folder")
-        #traverseFolder($folder)
-      #end
+    $child.name | $child.assetType
+    <br/>
+    $child.path
+    <br/>
+    
+
+
+        ## #if ($child.assetType == "folder")
+                
+        ## #end
     #end
   #end
 #end
+
 
 ## <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
 
