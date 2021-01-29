@@ -1,18 +1,118 @@
-<div class="hidden page-meta">
-    <ul>
-        <li>last published: $currentPage.lastPublishedOn</li>
-    </ul>
-</div>
-##Import all the widget formats
-
-## #import( "/test-section/nick-test/query-relationships" )
-
 #import( "/_cascade/formats/helpers.velocity" )
 
 #macro(outputassetRelationships $element) 
           
+#set ($widgetXPath = 'assetRelationshipsWidget')
+#set ($templateType = $currentPage.contentType.path )
+
+
+#set ($requestedPath = $element.getChild($widgetXPath).getChild('pathToCheck').value)
+
+#set( $site_name = 'Chapman.edu' )
+#set( $folder    = $_.locateFolder( $requestedPath, $site_name ) )
+#set( $children  = $folder.children )
+#if( $children.size() > 0 )
+
+#set( $folder    = $_.locateFolder( '/', $site_name ) )
+#set( $children    = $folder.children )
+
+recursion: 
+<br/>
+
+locator tool: 
+#set ($query = $_.query())
+
+
+
+#set( $folder    = $_.locateFolder( '/' ) )
+<ul>
+    
+#traverseFolder($folder, 0)##
+</ul>
+#macro(traverseFolder $folderRef $depth)##
+  #if($folderRef.children.size() > 0)##
+    #foreach($child in $folderRef.children)##
+    
+    <li>${child.path}##
+      #if ($child.identifier.type == "folder" && $depth < 20)##
+        <ul>##
+        #traverseFolder($child, $_MathTool.add($depth, 1))##
+        </ul>##
+      #end##
+    </li>##
+    #end##
+  #end##
+#end##
+
         
+
+## This table currently only returns assets with from the path that the user enters in the UI field.
+## It will need to be refactored utilizing the recursion above, to return all assets recursively from 
+## the '/' root directory of the site. 
+## Demo page: https://dev-cascade.chapman.edu/entity/open.act?type=page&id=2b703323c0a81e8a768838d3d3bb1f83
+
+<div class="relationships-query container">
+    <h1>
+    #set ($pageTitle = $currentPage.getChild("title").value )
+    $pageTitle
+</h1>
+
+<h2 id="no-relationships">Files with No Relationships in <span class="requested-path">$requestedPath</span></h2>
+
+<details >
+  <summary>Tutorial</summary>
+  <ol type="1">
+      <li>'Edit' page</li>
+      <li>Paste the desired folder path to search, <strong>excluding</strong> 'Chapman.edu'
+      <br/>
+      eg <pre>_assets/mastheads</pre></li>
+      <li>Select 'Preview Draft'</li>
+  </ol>
+</details>
+
+<table class="results-no-relationships">
+        <tr>
+            <th>Asset Name</th>
+            <th>Live Link</th>
+            <th>Cascade Link</th>
+            <th>Type</th>
+            <th>Created On</th>
+        </tr>
         
+#foreach( $child in $children )
+    
+    
+    
+    ## $child.linkingAssets.size()
+    ## $child.linkingAssets.isEmpty()
+    
+    #if( $child.linkingAssets.isEmpty() )
+    
+        <tr>
+          <td>$child.name</td>
+            <td><a href="${child.link}">https://www.chapman.edu/$child.path</a></td>
+            <td>
+                    
+        
+
+          <a href="https://dev-cascade.chapman.edu/entity/open.act?id=${child.identifer.id}${_EscapeTool.xml('&')}type=${child.assetType}">https://dev-cascade.chapman.edu/entity/open.act?id=${child.identifer.id}${_EscapeTool.xml('&')}type=${child.assetType}</a>
+          
+          
+            </td>
+            <td>
+                ${child.assetType}
+            </td>
+            <td>
+                ${child.createdOn}
+            </td>
+        </tr>
+
+    #end
+#end
+    </table>
+    </div>
+    
+
 <style>
     
 th {
@@ -111,157 +211,12 @@ summary {
 }
 </style>
 
-#set ($widgetXPath = 'assetRelationshipsWidget')
-#set ($templateType = $currentPage.contentType.path )
-
-## $currentPage.content
-## $_PropertyTool.outputProperties($currentPage)
-## Just testing
-## #set( $path      = '_assets/mastheads' )
-
-#set ($requestedPath = $element.getChild($widgetXPath).getChild('pathToCheck').value)
-
-
-## <h2>Currently Checking: $requestedPath</h2>
-
-## #set ($display = $element.getChild($widgetXPath).getChild('display').value)
-## $display
-## #set ($selectedPath = $element.getChild($widgetXPath).getChild('selectedPath').value)
-## $selectedPath
-## PATH: $_PropertyTool.outputProperties($selectedPath)
-## PATH: [system-asset]${selectedPath}[/system-asset]
-
-
-
-#set( $site_name = 'Chapman.edu' )
-#set( $folder    = $_.locateFolder( $requestedPath, $site_name ) )
-#set( $children  = $folder.children )
-#if( $children.size() > 0 )
-
-
-
-#set( $folder    = $_.locateFolder( '/', $site_name ) )
-#set( $children    =$folder.children )
-
-HELLO, NICK IS CURRENTLY WORKING ON THIS
-<br/>
-recursion: 
-<br/>
-#traverseFolder($child)
-#macro(traverseFolder $child)
-  #if($folder.children.size() > 0)
-    #foreach($child in $folder.children)
-    $child.name | $child.assetType
-    <br/>
-    $child.path
-    <br/>
-    
-
-
-        ## #if ($child.assetType == "folder")
-                
-        ## #end
-    #end
-  #end
-#end
-
-
-## <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
-
-<div class="relationships-query container">
-    <h1>
-    #set ($pageTitle = $currentPage.getChild("title").value )
-    $pageTitle
-</h1>
-
-<h2 id="no-relationships">Files with No Relationships in <span class="requested-path">$requestedPath</span></h2>
-
-<details >
-  <summary>Tutorial</summary>
-  <ol type="1">
-      <li>'Edit' page</li>
-      <li>Paste the desired folder path to search, <strong>excluding</strong> 'Chapman.edu'
-      <br/>
-      eg <pre>_assets/mastheads</pre></li>
-      <li>Select 'Preview Draft'</li>
-  </ol>
-</details>
-
-<table class="results-no-relationships">
-        <tr>
-            <th>Asset Name</th>
-            <th>Live Link</th>
-            <th>Cascade Link</th>
-            <th>Type</th>
-            <th>Created On</th>
-        </tr>
-        
-#foreach( $child in $children )
-    
-    
-    
-    ## $child.linkingAssets.size()
-    ## $child.linkingAssets.isEmpty()
-    
-    #if( $child.linkingAssets.isEmpty() )
-    
-        <tr>
-          <td>$child.name</td>
-            <td><a href="${child.link}">https://www.chapman.edu/$child.path</a></td>
-            <td>
-                    
-        
-
-          <a href="https://dev-cascade.chapman.edu/entity/open.act?id=${child.identifer.id}${_EscapeTool.xml('&')}type=${child.assetType}">https://dev-cascade.chapman.edu/entity/open.act?id=${child.identifer.id}${_EscapeTool.xml('&')}type=${child.assetType}</a>
-          
-          
-            </td>
-            <td>
-                ${child.assetType}
-            </td>
-            <td>
-                ${child.createdOn}
-            </td>
-        </tr>
-
-    #end
-#end
-    </table>
-    
-    
-<div class="hidden">
-   <script>
-        var copyTextareaBtn = document.querySelector('.js-copy');
-
-copyTextareaBtn.addEventListener('click', function(event) {
-  var copyTextarea = document.querySelector('.results-no-relationships');
-  copyTextarea.focus();
-  copyTextarea.select();
-
-  try {
-    var successful = document.execCommand('copy');
-    var msg = successful ? 'successful' : 'unsuccessful';
-    console.log('copying text command was ' + msg);
-  } catch (err) {
-    console.log('Oops, unable to copy');
-  }
-});
-   </script>
-     <button class="js-copy" style="vertical-align:top;">copy Textarea</button>
-  <textarea class="js-copytextarea">Hello I'm some text</textarea>
-
-</div>
-    
-    
-    </div>
-    ## -------------------------------
-    ## <h2>All Files In Directory</h2>
-    ##     <li>asset: $child.name</li>
-    ## <li>linked assets: $child.linkingAssets </li>
-
 #end
 
 #end
+
+
+
 
 ## the format ends here. paste it back where it belongs
 
@@ -284,8 +239,6 @@ copyTextareaBtn.addEventListener('click', function(event) {
  ##
     #if ($widgetType == 'File Relationships Query')
           #outputassetRelationships($widget)
-          
-          
     #end
 
 ##
