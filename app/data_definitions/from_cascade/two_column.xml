@@ -199,7 +199,7 @@
         <dropdown-item label="A to Z Listing - DO NOT USE - RETIRING" show-fields="primaryContent/widget/AtoZListing" value="A to Z Listing" />
         <dropdown-item label="Calendar25Live - DO NOT USE - RETIRING" show-fields="primaryContent/widget/Calendar25Live" value="Calendar25Live" />
         <dropdown-item label="Degree Info - DO NOT USE - RETIRING" show-fields="primaryContent/widget/degree" value="Degree Info" />
-        <dropdown-item lable="Twitter Feed - DO NOT USE" show-fields="primaryContent/widget/twitterTimeline" value="Twitter Feed" />
+        <dropdown-item label="Twitter Feed - DO NOT USE" show-fields="primaryContent/widget/twitterTimeline" value="Twitter Feed" />
         <dropdown-item label="Three Photo Callout - RETIRING, USE PHOTO CALLOUT" show-fields="primaryContent/widget/threePhotoCallout" value="Three Photo Callout" />
         <!--END RETIRING-->
       </text>
