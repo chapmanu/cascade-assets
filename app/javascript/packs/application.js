@@ -22,8 +22,10 @@ const imagePath = (name) => images(name, true);
 
 import navigation from '../src/navigation';
 import accessibility from '../src/accessibility';
+import hotFixes from '../src/hot-fixes';
 import '../stylesheets/master.scss';
 
 navigation.initialize();
 accessibility.initialize();
+hotFixes.initialize();
 
