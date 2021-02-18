@@ -322,6 +322,16 @@ task edit_breadcrumbs: :environment do
 end
 
 # ---------------------------------------------------------------------------- #
+#   edit format `Chapman.edu/_cascade/formats/Homepage Current Hero panel`   #
+# ---------------------------------------------------------------------------- #
+desc 'Updates `Chapman.edu/_cascade/formats/Homepage Current Hero panel` with `.cascade-code/Chapman.edu/_cascade/formats/Homepage_Current_Hero_panel`'
+task edit_homepage_hero: :environment do
+  edit_format(
+    'Chapman.edu/_cascade/formats/Homepage%20Current%20Hero%20panel',
+    '.cascade-code/Chapman.edu/_cascade/formats/Homepage_Current_Hero_panel.vtl'
+  )
+end
+
 #                                 Publish Asset                                #
 # ---------------------------------------------------------------------------- #
 # USAGE: rake publish TYPE=page/ PATH=Chapman.edu/test-section/nick-test/test-publish

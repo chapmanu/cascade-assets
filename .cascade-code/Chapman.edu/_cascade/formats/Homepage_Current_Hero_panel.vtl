@@ -1,10 +1,25 @@
+#import( "/_cascade/formats/helpers.velocity" )
+
 #set ( $currentPage = $_XPathTool.selectSingleNode($contentRoot, "//system-page[@current]") )
 #set ( $heroPanel = $currentPage.getChild('system-data-structure').getChild('heroPanel') )
-#set ( $altText1 = $heroPanel.getChild('image-1').value )
-#set ( $altText2 = $heroPanel.getChild('image-2').value )
-#set ( $altText3 = $heroPanel.getChild('image-3').value )
-#set ( $altText4 = $heroPanel.getChild('image-4').value )
-#set ( $altText5 = $heroPanel.getChild('image-5').value )
+#set ( $linkArr = [
+	$heroPanel.getChild('buttonLinks').getChild('heroPanel-link-1'), $heroPanel.getChild('buttonLinks').getChild('heroPanel-link-2'),
+	$heroPanel.getChild('buttonLinks').getChild('heroPanel-link-3'), $heroPanel.getChild('buttonLinks').getChild('heroPanel-link-4'),
+	$heroPanel.getChild('buttonLinks').getChild('heroPanel-link-5'), $heroPanel.getChild('buttonLinks').getChild('heroPanel-link-6')
+	]
+)
+#set ( $headingLineOne = $heroPanel.getChild('heroPanelHeading').getChild('headingLineOne').value )
+#set ( $headingLineTwo = $heroPanel.getChild('heroPanelHeading').getChild('headingLineTwo').value )
+#set ( $subHeadingOne = $heroPanel.getChild('heroPanelHeading').getChild('subheadingLineOne').value )
+#set ( $subHeadingTwo = $heroPanel.getChild('heroPanelHeading').getChild('subheadingLineTwo').value )
+#set ( $mp4Video =  $heroPanel.getChild('heroPanelVideos').getChild('videoFileMp4').getChild('path').value )
+#set ( $webMVideo = $heroPanel.getChild('heroPanelVideos').getChild('videoFileWebm').getChild('path').value )
+
+#set ( $altText1 = $heroPanel.getChild('imageAltText').getChild('image-1').value )
+#set ( $altText2 = $heroPanel.getChild('imageAltText').getChild('image-2').value )
+#set ( $altText3 = $heroPanel.getChild('imageAltText').getChild('image-3').value )
+#set ( $altText4 = $heroPanel.getChild('imageAltText').getChild('image-4').value )
+#set ( $altText5 = $heroPanel.getChild('imageAltText').getChild('image-5').value )
 
 <div class="hidden">alt text $altText1</div>
 <div class="homepage-masthead__container">
@@ -12,21 +27,26 @@
 		<!-- Heading -->
 		<h2>
 			<span class="line-one">
-				Discover
+				$_EscapeTool.xml($headingLineOne)
 			</span>
-			<span class="line-two">
-				Boldly.
-			</span>
+			#if ($headingLineTwo != '')
+				<span class="line-two">
+					$_EscapeTool.xml($headingLineTwo)
+				</span>
+			#end
 		</h2>
-		<div class="homepage-masthead__tagline">
-			<span class="line-one">
-				Get to know Chapman right now,
-			</span>
-			<span class="line-two">
-				wherever you are.
-			</span>
-
-		</div>
+		#if ($subHeadingOne != '')
+			<div class="homepage-masthead__tagline">
+				<span class="line-one">
+					$_EscapeTool.xml($subHeadingOne)
+				</span>
+				#if ($subHeadingTwo != '')
+					<span class="line-two">
+						$_EscapeTool.xml($subHeadingTwo)
+					</span>
+				#end
+			</div>
+		#end
 	</div>
 
 	<!-- Video Play/Pause Buttons -->
@@ -51,18 +71,11 @@
 	<!-- "Button" Links -->
 	<div class="homepage-masthead__button-container">
 		<div class="homepage-masthead__buttons">
-			<a tabindex="0" class="button homepage-masthead__button  homepage-masthead__button--red"
-				href="https://www.chapman.edu/academics/degrees-and-programs.aspx">Explore Degrees and Programs</a>
-			<a tabindex="0" class="button homepage-masthead__button  homepage-masthead__button--red"
-				href="https://go.chapman.edu/portal/virtualcampustour">Schedule Virtual Tour</a>
-			<a tabindex="0" class="button homepage-masthead__button  homepage-masthead__button--red"
-				href="https://www.chapman.edu/admission/undergraduate/student-ambassadors.aspx">Ask a Student</a>
-			<a tabindex="0" class="button homepage-masthead__button  homepage-masthead__button--red"
-				href="https://www.chapman.edu/admission/undergraduate/request-info.aspx">Join Interest List</a>
-			<a tabindex="0" class="button homepage-masthead__button  homepage-masthead__button--red"
-				href="https://go.chapman.edu/portal/virtualinfo">Attend an Information Session</a>
-			<a tabindex="0" class="button homepage-masthead__button  homepage-masthead__button--red"
-				href="https://www.chapman.edu/admission/undergraduate/contact-us/index.aspx">Meet Your Counselor</a>
+			#foreach($link in $linkArr)
+				#set ( $linkLabel = $_EscapeTool.xml($link.getChild('label').value) )
+				<a tabindex="0" class="button homepage-masthead__button  homepage-masthead__button--red"
+				#outputHref($link)>$linkLabel</a>
+			#end
 		</div>
 	</div>
 
@@ -157,9 +170,9 @@
 	<video id="homepage-masthead__video" class="homepage-masthead__video" width="100%"
 		height="var(--space-mastheadVideoHeight)" playsinline="true" muted="true" loop="true" autoplay="true"
 		controls="false" poster="https://www.chapman.edu/_files/img/hero-panels/fallback-images/masthead-wave-gradient.png">
-		<source src="https://www.chapman.edu/_files/img/hero-panels/html5-videos/2_19-056e-2020-homepages-q1_colored.mp4"
+		<source src="[system-asset]${_EscapeTool.xml($mp4Video)}[/system-asset]"
 			type="video/mp4" />
-		<source src="https://www.chapman.edu/_files/img/hero-panels/html5-videos/19-056---2020-homepages-q1_v1.webmhd.webm"
+		<source src="[system-asset]${_EscapeTool.xml($webMVideo)}[/system-asset]"
 			type="video/webm" />
 	</video>
 	<span class="homepage-masthead__video-overlay"></span>
@@ -187,7 +200,4 @@
 			$('html').addClass('ie');
 		}
 	});
-
-
-
 </script>
