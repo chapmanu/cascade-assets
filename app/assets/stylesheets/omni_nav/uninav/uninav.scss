@@ -779,13 +779,6 @@ html {
   flex-direction: column;
   position: relative;
 
-  &:hover {
-    > .uninav__dropdown--child {
-      display: flex;
-      z-index: 99999999;
-    }
-  }
-
   .uninav__dropdown--child[aria-expanded="false"] + .uninav {
     &__dropdown-wrapper {
       & > a {

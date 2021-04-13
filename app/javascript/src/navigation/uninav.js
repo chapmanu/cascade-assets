@@ -36,10 +36,12 @@ const uninav = function () {
         var menuItem = $(e.currentTarget).find(".uninav__dropdown--child");
 
         if (menuItem.attr("aria-expanded") === "true") {
+          $(this).attr("aria-expanded", "false");
           $(this)
             .find(".uninav__dropdown--child")
             .attr("aria-expanded", "false");
         } else {
+          $(this).attr("aria-expanded", "true");
           $(this)
             .find(".uninav__dropdown--child")
             .attr("aria-expanded", "true");
