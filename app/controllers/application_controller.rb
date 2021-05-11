@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
   helper_method :grid_num_col
 
   def grid_num_col
-    @grid_num_col = "grid-block-widget__container--3-col"
+    num = rand(2..6)
+    @grid_num_col = "grid-block-widget__container--#{num}-col"
   end
 
   def cascade_block(block_path)
