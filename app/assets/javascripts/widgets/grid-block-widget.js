@@ -2,6 +2,7 @@ $(function () {
   if ($(".grid-block-widget").length) {
     gridBlockWidget();
     removeEmptyPTagsinWYSIWYG();
+    normalizeHeights();
     if (isIE()) {
       $(".grid-block-widget img").each(function () {
         var t = jQuery(this),
@@ -36,7 +37,39 @@ $(function () {
           .attr("aria-expanded", "true");
       });
     }
+
+    if ($(".grid-block-widget").length) {
+      adjustCarouselButtonHeight();
+
+      $("button.slick-arrow").on("click keydown", function (e) {
+        if (accessibleClick(event)) {
+          if (
+            $(this).find($(".grid-block-widget__reveal--less").is(":visible"))
+          ) {
+            $(".grid-block-widget__reveal--less").trigger("click");
+          }
+        }
+      });
+      $("button.slick-prev").on("keydown", function (e) {
+        if (accessibleClick(event)) {
+          $("button.slick-prev").trigger("click");
+        }
+      });
+      $("button.slick-next").on("keydown", function (e) {
+        if (accessibleClick(event)) {
+          $("button.slick-next").trigger("click");
+        }
+      });
+      gridBlockCarousel();
+      normalizeHeights();
+
+      calculateDataHeight();
+    }
   }
+});
+
+$(window).on("resize", function (e) {
+  normalizeHeights();
 });
 
 var accessibleClick = function (event) {
@@ -76,7 +109,7 @@ function calculateDataHeight() {
     $(this)
       .parent(".grid-block-widget")
       .addClass("grid-block-widget--text-overflow");
-    if ($(this).attr("data-scroll-height") >= 158) {
+    if ($(this).attr("data-scroll-height") >= 178) {
       $(this).parent().find(".grid-block-widget__reveal--more").show();
     }
   });
@@ -88,7 +121,7 @@ function calculateDataHeight() {
     $(this)
       .parent(".grid-block-widget")
       .addClass("grid-block-widget--text-overflow");
-    if ($(this).attr("data-scroll-height") >= 158) {
+    if ($(this).attr("data-scroll-height") >= 178) {
       $(this).parent().find(".grid-block-widget__reveal--more").show();
     }
   });
@@ -207,13 +240,15 @@ function gridBlockCarousel() {
 }
 
 function adjustCarouselButtonHeight() {
-  $(".one-column .grid-block-widget__container--rotate").each(function () {
-    var imgHeight = $(this).find(".grid-block-widget__image").height();
-    var buttonHeight = imgHeight / 2;
-    var slickButton = $(this)
-      .find("button.slick-arrow")
-      .css("top", buttonHeight);
-  });
+  if ($(".grid-block-widget__container--rotate").length) {
+    $(".one-column .grid-block-widget__container--rotate").each(function () {
+      var imgHeight = $(this).find(".grid-block-widget__image").height();
+      var buttonHeight = imgHeight / 2;
+      var slickButton = $(this)
+        .find("button.slick-arrow")
+        .css("top", buttonHeight);
+    });
+  }
 }
 
 function ieObjectFitFallback() {
@@ -237,46 +272,23 @@ function ieObjectFitFallback() {
     t.remove();
   });
 }
-$(window).load(function () {
-  adjustCarouselButtonHeight();
-
-  $("button.slick-arrow").on("click keydown", function (e) {
-    if (accessibleClick(event)) {
-      if ($(this).find($(".grid-block-widget__reveal--less").is(":visible"))) {
-        $(".grid-block-widget__reveal--less").trigger("click");
-      }
-    }
-  });
-  $("button.slick-prev").on("keydown", function (e) {
-    if (accessibleClick(event)) {
-      $("button.slick-prev").trigger("click");
-    }
-  });
-  $("button.slick-next").on("keydown", function (e) {
-    if (accessibleClick(event)) {
-      $("button.slick-next").trigger("click");
-    }
-  });
-  gridBlockCarousel();
-  normalizeHeights();
-  calculateDataHeight();
-});
 
 function normalizeHeights() {
-  // Normalizes height discrepancies on grid block
   $(".grid-block-widget__container").each(function () {
-    // Get an array of all element heights
-    var elementHeights = $(this)
-      .find(".grid-block-widget__text")
+    console.log("normalizing heights");
+    var title = $(this).find(".grid-block-widget__title");
+    var elementHeights = title
       .map(function () {
         return $(this).height();
       })
       .get();
+
     // Math.max takes a variable number of arguments
     // `apply` is equivalent to passing each height as an argument
-    var tallest = Math.max.apply(null, elementHeights);
+    var maxHeight = Math.max.apply(null, elementHeights);
+
     // Set each height to the max height
-    // $(this).find(".grid-block-widget__text").css("min-height", tallest);
+    title.height(maxHeight);
   });
   hidePaginationButton();
 }
