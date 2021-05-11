@@ -71,9 +71,6 @@
  
   #set ($introAndOutroTextAlignment = $element.getChild($widgetXPath).getChild('textAlignment').value)
 
-
-
-
 #set ($currentPage = $_XPathTool.selectSingleNode($contentRoot, "//system-page[@current]") )
 #set ($widgetXPath = 'gridBlockWidget')
 
@@ -84,8 +81,6 @@
   #if ($displaySectionIntro != 'no')
     #set ($parentGroup = $element.getChild($widgetXPath).getChild('sectionHeaderGroup'))
     ## #getSetVal($parentGroup "displaySectionIntro")
-
-
 
     #set ($sectionPreheader = $parentGroup.getChild('sectionPreheader').value)
 
@@ -101,9 +96,6 @@
        #if ($displaySectionButtons == 'yes')
         #set ( $blocks = $_XPathTool.selectNodes($element, 'gridBlockWidget/gridOptions/gridBlock'))
 
-       
-       
-       
         #set ($parentGroup = $element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionButtons'))
         ## #getSetVal($parentGroup "buttonLabel")
         #set ($buttonLabel = $parentGroup.getChild('buttonLabel').value)
@@ -137,12 +129,9 @@
   
   #set ($gridOptions = $element.getChild($widgetXPath).getChild("gridOptions"))
 
-##   GRID OPTIONS 
-
-
+  ##   GRID OPTIONS 
   #set ($hasGridTitle = $gridOptions.getChild('title').value)
   
-
   #if ($hasGridTitle != "No")
     #set ($gridTitleClass = "has-grid-title")
   #else 
@@ -312,9 +301,11 @@
 
     #if ($gridBodyText != '')
       <div class="grid-block-widget__text grid-block-widget__text--${textBackgroundColor} grid-block-widget__text--${textAlignment} text-align--${textAlignment} ">
+      <span class="grid-block-text__inner">
         <p>
           $_SerializerTool.serialize($block.getChild('gridBlockText'), true)
         </p>
+      </span>
       </div>
     #end
     <span

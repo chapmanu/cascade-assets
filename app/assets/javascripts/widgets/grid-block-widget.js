@@ -2,7 +2,8 @@ $(function () {
   if ($(".grid-block-widget").length) {
     gridBlockWidget();
     removeEmptyPTagsinWYSIWYG();
-    normalizeHeights();
+    // normalizeHeights();
+
     if (isIE()) {
       $(".grid-block-widget img").each(function () {
         var t = jQuery(this),
@@ -61,15 +62,9 @@ $(function () {
         }
       });
       gridBlockCarousel();
-      normalizeHeights();
-
-      calculateDataHeight();
+      // normalizeHeights();
     }
   }
-});
-
-$(window).on("resize", function (e) {
-  normalizeHeights();
 });
 
 var accessibleClick = function (event) {
@@ -99,36 +94,30 @@ function removeEmptyPTagsinWYSIWYG() {
   });
 }
 function calculateDataHeight() {
-  // 2 & 3 COLUMN
-  $(
-    ".two-column-template .grid-block-widget__text, .three-column-template .grid-block-widget__text"
-  ).each(function () {
-    $(this).addClass("grid-block-widget__text--truncated");
-    var scrollHeight = $(this)[0].scrollHeight;
-    $(this).attr("data-scroll-height", scrollHeight);
-    $(this)
-      .parent(".grid-block-widget")
-      .addClass("grid-block-widget--text-overflow");
-    if ($(this).attr("data-scroll-height") >= 178) {
+  console.log("truncating");
+  $(".grid-block-widget__text").each(function () {
+    var containerHeight = parseInt($(this).css("max-height"), 10);
+    var innerHeight = parseInt(
+      $(this).find(".grid-block-text__inner").css("height"),
+      10
+    );
+
+    $(this).attr("container-height", containerHeight);
+    $(this).find(".grid-block-text__inner").attr("inner-height", innerHeight);
+
+    console.log("inner height: " + innerHeight);
+
+    if (innerHeight > containerHeight) {
+      $(this).attr("overflowing", "true");
       $(this).parent().find(".grid-block-widget__reveal--more").show();
-    }
-  });
-  // ONE COLUMN
-  $(".one-column .grid-block-widget__text").each(function () {
-    $(this).addClass("grid-block-widget__text--truncated");
-    var scrollHeight = $(this)[0].scrollHeight;
-    $(this).attr("data-scroll-height", scrollHeight);
-    $(this)
-      .parent(".grid-block-widget")
-      .addClass("grid-block-widget--text-overflow");
-    if ($(this).attr("data-scroll-height") >= 178) {
-      $(this).parent().find(".grid-block-widget__reveal--more").show();
+    } else {
+      $(this).attr("overflowing", "false");
+      $(this).parent().find(".grid-block-widget__reveal--more").hide();
     }
   });
 }
 
-function gridBlockWidget() {
-  calculateDataHeight();
+function gridBlockWidget(callback) {
   var buttonClickCounter = 0;
   $(".grid-block-widget__container").each(function () {
     // IDs are assigned via velocity format
@@ -162,10 +151,10 @@ function gridBlockWidget() {
           .find(".grid-block-widget")
           .show();
       }
-      calculateDataHeight();
     });
   });
   clickHandlers();
+  calculateDataHeight();
 }
 
 function clickHandlers() {
