@@ -5,14 +5,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  helper_method :grid_num_col, :relative_file_path_as_html_comment
-
-  def relative_file_path_as_html_comment
-    @relative_file_path_as_html_comment = "<!-- FILE PATH: #{__FILE__} -->"
-  end
+  helper_method :grid_num_col
 
   def grid_num_col
-    @grid_num_col = "grid-block-widget__container--6-col"
+    @grid_num_col = "grid-block-widget__container--3-col"
   end
 
   def cascade_block(block_path)
