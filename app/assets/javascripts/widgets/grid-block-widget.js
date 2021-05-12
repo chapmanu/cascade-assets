@@ -256,6 +256,8 @@ $(window).on("load", function () {
 
 function normalizeHeights() {
   // Normalizes height discrepancies on grid block
+  // Could not use .grid-block-widget {height: 100%},
+  // because expanding one triggered the height of all
   $(".grid-block-widget__container").each(function () {
     // Get an array of all element heights
     var elementHeights = $(this)
