@@ -58,8 +58,8 @@ html body {
 
       .grid-block-widget {
         &__title {
-          padding-left: 0;
-          padding-right: 0;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
           padding-bottom: 10px;
         }
         &__text {
