@@ -1,4 +1,7 @@
 .grid-block-widget__container {
+  .grid-block-widget {
+    height: min-content;
+  }
   $space: 12px;
   margin-top: $space;
   display: grid;
@@ -347,7 +350,7 @@
         padding-right: 24px;
 
         &:first-child {
-          margin-bottom: 24px;
+          // margin-bottom: 24px;
         }
       }
 
@@ -412,24 +415,16 @@
 
     &__text {
       font-family: $futura-regular;
+      max-height: 220px;
+      overflow: hidden;
+
       p {
         font-size: 1.8rem;
         line-height: 2.2rem;
       }
-      &--truncated {
-        max-height: 178px;
-
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 7;
-        overflow: hidden;
-
-        display: block;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        position: relative;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        padding: 0;
+      &--revealed {
+        max-height: max-content;
+        overflow: visible;
       }
 
       &--white {
@@ -544,4 +539,8 @@
   .grid-block-widget__text:not(.grid-block-widget__text--revealed) {
     // @include qbal-slideUp-enter;
   }
+}
+
+html:not(.one-column-template) body .grid-block-widget__wrapper {
+  background-color: transparent !important;
 }

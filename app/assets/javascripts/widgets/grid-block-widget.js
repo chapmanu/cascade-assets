@@ -2,8 +2,6 @@ $(function () {
   if ($(".grid-block-widget").length) {
     gridBlockWidget();
     removeEmptyPTagsinWYSIWYG();
-    // normalizeHeights();
-
     if (isIE()) {
       $(".grid-block-widget img").each(function () {
         var t = jQuery(this),
@@ -37,32 +35,6 @@ $(function () {
           .find(".grid-block-widget__text")
           .attr("aria-expanded", "true");
       });
-    }
-
-    if ($(".grid-block-widget").length) {
-      adjustCarouselButtonHeight();
-
-      $("button.slick-arrow").on("click keydown", function (e) {
-        if (accessibleClick(event)) {
-          if (
-            $(this).find($(".grid-block-widget__reveal--less").is(":visible"))
-          ) {
-            $(".grid-block-widget__reveal--less").trigger("click");
-          }
-        }
-      });
-      $("button.slick-prev").on("keydown", function (e) {
-        if (accessibleClick(event)) {
-          $("button.slick-prev").trigger("click");
-        }
-      });
-      $("button.slick-next").on("keydown", function (e) {
-        if (accessibleClick(event)) {
-          $("button.slick-next").trigger("click");
-        }
-      });
-      gridBlockCarousel();
-      // normalizeHeights();
     }
   }
 });
@@ -101,12 +73,9 @@ function calculateDataHeight() {
       $(this).find(".grid-block-text__inner").css("height"),
       10
     );
-
     $(this).attr("container-height", containerHeight);
     $(this).find(".grid-block-text__inner").attr("inner-height", innerHeight);
-
     console.log("inner height: " + innerHeight);
-
     if (innerHeight > containerHeight) {
       $(this).attr("overflowing", "true");
       $(this).parent().find(".grid-block-widget__reveal--more").show();
@@ -117,7 +86,8 @@ function calculateDataHeight() {
   });
 }
 
-function gridBlockWidget(callback) {
+function gridBlockWidget() {
+  calculateDataHeight();
   var buttonClickCounter = 0;
   $(".grid-block-widget__container").each(function () {
     // IDs are assigned via velocity format
@@ -151,10 +121,10 @@ function gridBlockWidget(callback) {
           .find(".grid-block-widget")
           .show();
       }
+      calculateDataHeight();
     });
   });
   clickHandlers();
-  calculateDataHeight();
 }
 
 function clickHandlers() {
@@ -229,15 +199,13 @@ function gridBlockCarousel() {
 }
 
 function adjustCarouselButtonHeight() {
-  if ($(".grid-block-widget__container--rotate").length) {
-    $(".one-column .grid-block-widget__container--rotate").each(function () {
-      var imgHeight = $(this).find(".grid-block-widget__image").height();
-      var buttonHeight = imgHeight / 2;
-      var slickButton = $(this)
-        .find("button.slick-arrow")
-        .css("top", buttonHeight);
-    });
-  }
+  $(".one-column .grid-block-widget__container--rotate").each(function () {
+    var imgHeight = $(this).find(".grid-block-widget__image").height();
+    var buttonHeight = imgHeight / 2;
+    var slickButton = $(this)
+      .find("button.slick-arrow")
+      .css("top", buttonHeight);
+  });
 }
 
 function ieObjectFitFallback() {
@@ -261,23 +229,46 @@ function ieObjectFitFallback() {
     t.remove();
   });
 }
+$(window).on("load", function () {
+  adjustCarouselButtonHeight();
+
+  $("button.slick-arrow").on("click keydown", function (e) {
+    if (accessibleClick(event)) {
+      if ($(this).find($(".grid-block-widget__reveal--less").is(":visible"))) {
+        $(".grid-block-widget__reveal--less").trigger("click");
+      }
+    }
+  });
+  $("button.slick-prev").on("keydown", function (e) {
+    if (accessibleClick(event)) {
+      $("button.slick-prev").trigger("click");
+    }
+  });
+  $("button.slick-next").on("keydown", function (e) {
+    if (accessibleClick(event)) {
+      $("button.slick-next").trigger("click");
+    }
+  });
+  gridBlockCarousel();
+  calculateDataHeight();
+  normalizeHeights();
+});
 
 function normalizeHeights() {
+  // Normalizes height discrepancies on grid block
   $(".grid-block-widget__container").each(function () {
-    console.log("normalizing heights");
-    var title = $(this).find(".grid-block-widget__title");
-    var elementHeights = title
+    // Get an array of all element heights
+    var elementHeights = $(this)
+      .find(".grid-block-widget")
       .map(function () {
         return $(this).height();
       })
       .get();
-
     // Math.max takes a variable number of arguments
     // `apply` is equivalent to passing each height as an argument
-    var maxHeight = Math.max.apply(null, elementHeights);
-
+    var tallest = Math.max.apply(null, elementHeights);
     // Set each height to the max height
-    title.height(maxHeight);
+    $(this).find(".grid-block-widget").css("min-height", tallest);
   });
   hidePaginationButton();
 }
