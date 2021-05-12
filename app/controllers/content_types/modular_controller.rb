@@ -508,12 +508,12 @@ module ContentTypes
     def render_static_one_column_primary_content
       # This reproduces content from static sample version
       format(
-        '%s %s %s %s %s %s',
-        render_static_partial('widgets/primary_content/grid_block_widget'),
-        render_static_partial('widgets/primary_content/multi_photo_callout'),
-        render_static_partial('widgets/single_column/chapman_events_feed'),
+        '%s %s %s',
+        # render_static_partial('widgets/primary_content/grid_block_widget/grid-block-widget--circular'),
+        # render_static_partial('widgets/primary_content/grid_block_widget/grid-block-widget--rectangular'),
+        render_static_partial('widgets/primary_content/grid_block_widget/grid-block-widget--rectangular-with-text'),
         render_static_partial('widgets/single_column/messaging_1_column_facts'),
-        render_static_partial('widgets/single_column/campus_map'),
+        # render_static_partial('widgets/single_column/campus_map'),
         render_static_partial(
           'widgets/single_column/messaging_2_column_youtube_video'
         ),
@@ -570,7 +570,7 @@ module ContentTypes
     def render_static_two_column_primary_content
       # This reproduces content from static sample version
       format("%s",
-      render_static_partial("widgets/primary_content/personnel_widget"),
+      render_static_partial('widgets/primary_content/grid_block_widget/grid-block-widget--rectangular-with-text'),
         # render_static_partial("widgets/primary_content/three_photo_callout_1"),
         # render_static_partial("widgets/primary_content/news_events_feed_1"),
         # render_static_partial("widgets/primary_content/three_photo_callout_1")
