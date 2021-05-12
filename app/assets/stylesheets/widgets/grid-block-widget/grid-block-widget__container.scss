@@ -541,6 +541,11 @@
   }
 }
 
-html:not(.one-column-template) body .grid-block-widget__wrapper {
-  background-color: transparent !important;
+html.two-column-template,
+html.three-column-template {
+  body {
+    .grid-block-widget__wrapper {
+      background-color: transparent !important;
+    }
+  }
 }
