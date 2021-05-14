@@ -450,11 +450,13 @@
 
 // LINE CLAMP FOR FIREFOX ... custom appeared on non-overflowing items and looked terrible
 @supports (-moz-appearance: none) {
-  p {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 8;
-    overflow: hidden;
+  .personnel-widget {
+    p {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 8;
+      overflow: hidden;
+    }
   }
 }
 // END LINE CLAMP FOR FIREFOX
