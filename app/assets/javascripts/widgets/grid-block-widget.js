@@ -270,7 +270,7 @@ function normalizeHeights() {
     // `apply` is equivalent to passing each height as an argument
     var tallest = Math.max.apply(null, elementHeights);
     // Set each height to the max height
-    $(this).find(".grid-block-widget").css("min-height", "max-content");
+    $(this).find(".grid-block-widget").css("min-height", tallest);
   });
   hidePaginationButton();
 }
