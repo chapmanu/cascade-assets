@@ -16,6 +16,7 @@
 
 .grid-block-widget__wrapper {
   .grid-block-widget__cta .button {
+    font-family: $arial;
     display: inline-block;
     & + .button {
       margin-left: 5px;

@@ -183,7 +183,6 @@
         z-index: 3;
         height: 100%;
         align-items: flex-end;
-        font-size: 1.8rem;
         line-height: 2.2rem;
 
         bottom: 4px;
@@ -331,7 +330,6 @@
       margin-top: -4px;
       padding-top: 16px;
       padding-bottom: 16px;
-
       &:focus {
         border-bottom: 2px dotted $white;
       }
@@ -389,7 +387,7 @@
 
     &__title {
       color: $red;
-      font-size: 1.8rem;
+      font-size: 2rem;
       padding: 24px;
       padding-bottom: 10px;
       text-align: center;
@@ -414,12 +412,12 @@
     }
 
     &__text {
-      font-family: $futura-regular;
+      font-family: $arial;
       max-height: 220px;
       overflow: hidden;
 
       p {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         line-height: 2.2rem;
       }
       &--revealed {
@@ -501,12 +499,9 @@
       color: $white;
     }
 
-    font-family: $futura-regular;
-    // @include qbal-drop-enter;
+    font-family: $arial;
 
     &--more {
-      // @include qbal-drop-enter;
-
       &::after {
         content: "\f078 ";
         font-family: "Font Awesome 5 Pro";
