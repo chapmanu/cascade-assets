@@ -205,14 +205,16 @@
 <div class="grid-block-widget__wrapper ${oneColWrapperBackgroundColor}">
 <div class="inner-container">
 #if ($displaySectionIntro == "yes")
-    <div class="section-intro text-align--${introAndOutroTextAlignment}">
-      <div class="section-intro__preheader text-align--${introAndOutroTextAlignment}">
-        ${_EscapeTool.xml($sectionPreheader)}
-      </div>
-      <h2 class="section-intro__header text-align--${introAndOutroTextAlignment}">  
+    <div class="intro-section text-align--${introAndOutroTextAlignment}">
+      #if ($sectionPreheader != "")
+        <div class="intro-section__preheader text-align--${introAndOutroTextAlignment}">
+          ${_EscapeTool.xml($sectionPreheader)}
+        </div>
+      #end  
+      <h2 class="intro-section__header text-align--${introAndOutroTextAlignment}">  
         ${_EscapeTool.xml($sectionHeader)}
       </h2>
-      <div class="section-intro__title text-align--${introAndOutroTextAlignment}">     
+      <div class="intro-section__text text-align--${introAndOutroTextAlignment}">     
         $_SerializerTool.serialize($element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionHeaderParagraph'), true)
       </div>
     </div>
