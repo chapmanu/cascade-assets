@@ -479,13 +479,13 @@
     text-transform: capitalize;
     font-size: 1.6rem;
     font-weight: bold;
-    // color: $cu-red;
     position: relative;
     width: 100% !important;
     display: flex;
     top: 0;
     margin-top: 0;
     padding: 24px;
+    cursor: pointer;
 
     &:focus {
       outline: 2px dotted;
