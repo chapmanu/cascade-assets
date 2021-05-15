@@ -1,6 +1,6 @@
 $(function () {
   if ($(".grid-block-widget").length) {
-    gridBlockWidget();
+    gridBlockWidget(normalizeHeights, truncateText);
     removeEmptyPTagsinWYSIWYG();
     if (isIE()) {
       $(".grid-block-widget img").each(function () {
@@ -65,7 +65,7 @@ function removeEmptyPTagsinWYSIWYG() {
     if ($this.html().replace(/\s|&nbsp;/g, "").length == 0) $this.remove();
   });
 }
-function calculateDataHeight() {
+function truncateText() {
   console.log("truncating");
   $(".grid-block-widget__text").each(function () {
     var containerHeight = parseInt($(this).css("max-height"), 10);
@@ -86,8 +86,7 @@ function calculateDataHeight() {
   });
 }
 
-function gridBlockWidget() {
-  calculateDataHeight();
+function gridBlockWidget(arg, arg2) {
   var buttonClickCounter = 0;
   $(".grid-block-widget__container").each(function () {
     // IDs are assigned via velocity format
@@ -121,8 +120,10 @@ function gridBlockWidget() {
           .find(".grid-block-widget")
           .show();
       }
-      calculateDataHeight();
     });
+
+    arg();
+    arg2();
   });
   clickHandlers();
 }
@@ -229,30 +230,30 @@ function ieObjectFitFallback() {
     t.remove();
   });
 }
-$(window).on("load", function () {
-  adjustCarouselButtonHeight();
+// $(window).on("load", function () {
+//   adjustCarouselButtonHeight();
 
-  $("button.slick-arrow").on("click keydown", function (e) {
-    if (accessibleClick(event)) {
-      if ($(this).find($(".grid-block-widget__reveal--less").is(":visible"))) {
-        $(".grid-block-widget__reveal--less").trigger("click");
-      }
-    }
-  });
-  $("button.slick-prev").on("keydown", function (e) {
-    if (accessibleClick(event)) {
-      $("button.slick-prev").trigger("click");
-    }
-  });
-  $("button.slick-next").on("keydown", function (e) {
-    if (accessibleClick(event)) {
-      $("button.slick-next").trigger("click");
-    }
-  });
-  gridBlockCarousel();
-  calculateDataHeight();
-  normalizeHeights();
-});
+//   $("button.slick-arrow").on("click keydown", function (e) {
+//     if (accessibleClick(event)) {
+//       if ($(this).find($(".grid-block-widget__reveal--less").is(":visible"))) {
+//         $(".grid-block-widget__reveal--less").trigger("click");
+//       }
+//     }
+//   });
+//   $("button.slick-prev").on("keydown", function (e) {
+//     if (accessibleClick(event)) {
+//       $("button.slick-prev").trigger("click");
+//     }
+//   });
+//   $("button.slick-next").on("keydown", function (e) {
+//     if (accessibleClick(event)) {
+//       $("button.slick-next").trigger("click");
+//     }
+//   });
+//   gridBlockCarousel();
+//   truncateText();
+//   normalizeHeights();
+// });
 
 function normalizeHeights() {
   // Normalizes height discrepancies on grid block
