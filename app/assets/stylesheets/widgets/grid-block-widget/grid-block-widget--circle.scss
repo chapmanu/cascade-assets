@@ -1,0 +1,7 @@
+html body {
+  @include respond(phone) {
+    .grid-block-widget__container--circle {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+}
