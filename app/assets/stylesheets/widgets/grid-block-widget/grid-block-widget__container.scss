@@ -1,3 +1,52 @@
+:root {
+  --gridBlockWidgetColumns: 3;
+}
+
+@mixin grid-col($num) {
+  .grid-block-widget__container--#{$num}-col {
+    grid-template-columns: repeat(#{$num}, 1fr);
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond(phone) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+@include grid-col(2);
+@include grid-col(3);
+@include grid-col(4);
+@include grid-col(5);
+@include grid-col(6);
+
+.grid-block-widget__container--5-col {
+  .grid-block-widget__image--circle {
+    --imgSize: 150px;
+  }
+}
+
+.grid-block-widget__container--6-col {
+  &.grid-block-widget__container--landscape {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .grid-block-widget__image--circle {
+    --imgSize: 120px;
+  }
+
+  &.grid-block-widget__container--portrait {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
+.reveal--no-reveal.spacer {
+  height: 28px;
+  display: block;
+}
+
 .grid-block-widget__container {
   .grid-block-widget {
     height: min-content;
