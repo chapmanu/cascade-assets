@@ -508,9 +508,9 @@ module ContentTypes
     def render_static_one_column_primary_content
       # This reproduces content from static sample version
       format(
-        '%s %s %s',
+        '%s %s %s %s',
         # render_static_partial('widgets/primary_content/grid_block_widget/grid-block-widget--circular'),
-        # render_static_partial('widgets/primary_content/grid_block_widget/grid-block-widget--rectangular'),
+        render_static_partial('widgets/primary_content/grid_block_widget/grid-block-widget--rotator'),
         render_static_partial('widgets/primary_content/grid_block_widget/grid-block-widget--rectangular-with-text'),
         render_static_partial('widgets/single_column/messaging_1_column_facts'),
         # render_static_partial('widgets/single_column/campus_map'),
