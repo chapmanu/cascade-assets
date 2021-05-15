@@ -33,6 +33,10 @@ body {
       }
     }
 
+    &__text {
+      font-family: $arial;
+    }
+
     .grid-block-widget__title {
       border-bottom: none;
     }
