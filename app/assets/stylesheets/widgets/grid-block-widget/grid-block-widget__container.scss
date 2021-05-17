@@ -303,13 +303,7 @@
       p {
         padding-left: 24px;
         padding-right: 24px;
-
-        &:first-child {
-          // margin-bottom: 24px;
-        }
       }
-
-      padding-bottom: 24px;
 
       & + .grid-block-widget__reveal {
         padding-top: 12px;
