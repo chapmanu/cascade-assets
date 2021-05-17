@@ -50,6 +50,11 @@
 .grid-block-widget__container {
   .grid-block-widget {
     height: min-content;
+
+    // on mobile, override min-height set by JS
+    @include respond(phone) {
+      min-height: min-content !important;
+    }
   }
   $space: 12px;
   margin-top: $space;
