@@ -49,12 +49,16 @@ html body {
     // END INTRO SECTION
 
     .grid-block-widget__wrapper {
+      padding-top: 60px;
+      padding-bottom: 60px;
+
+      @include respond(phone) {
+        padding: 32px 16px;
+      }
+
       .grid-block-widget__text--red {
         color: $white;
       }
-
-      padding-top: 60px;
-      padding-bottom: 60px;
 
       .grid-block-widget {
         &__title {
@@ -257,6 +261,14 @@ html body {
     .grid-block-widget__container {
       @include respond(phone) {
         padding: 32px 16px;
+      }
+
+      .grid-block-widget {
+        &__title {
+          @include respond(phone) {
+            padding-top: 12px;
+          }
+        }
       }
 
       &--rotate {
