@@ -213,30 +213,6 @@ html body {
         a.grid-block-widget__title--sand {
           color: $cu-red !important;
         }
-        [class*="text--sand"] {
-          color: $panther-black;
-          a {
-            color: $cu-red !important;
-          }
-        }
-        [class*="text--white"] {
-          color: $panther-black;
-          a {
-            color: $cu-red;
-          }
-        }
-        [class*="text--black"] {
-          color: white;
-          a {
-            color: white;
-          }
-        }
-        [class*="text--red"] {
-          color: white !important;
-          a {
-            color: white !important;
-          }
-        }
 
         // ONE COL - ACTUAL WIDGET (NOT CONTAINER OR WRAPPER)
         &--landscape {
@@ -375,6 +351,7 @@ html body .one-column {
 
   .grid-block-widget__wrapper--red .button.button--red {
     color: black !important;
+    background-color: white !important;
   }
 
   .grid-block-widget__container .grid-block-widget {
@@ -449,4 +426,41 @@ html body .one-column {
     .grid-block-widget__reveal--white {
     color: $cu-red;
   }
+}
+
+.grid-block-widget__wrapper--red .grid-block-widget__cta a.button--red {
+  background-color: white;
+
+  &:hover,
+  &:focus {
+    background-color: $cu-light-grey;
+  }
+}
+
+html
+  body
+  .one-column
+  .grid-block-widget__wrapper--white
+  [class*="text-"].no-bg {
+  color: $panther-black !important;
+}
+
+html
+  body
+  .one-column
+  .grid-block-widget__wrapper--sand
+  .grid-block-widget__text.no-bg {
+  color: $panther-black !important;
+}
+
+html
+  body
+  .one-column
+  .grid-block-widget__wrapper--black
+  .grid-block-widget__text.no-bg {
+  color: $white !important;
+}
+
+html body .grid-block-widget__wrapper--red .grid-block-widget__text.no-bg {
+  color: $white !important;
 }

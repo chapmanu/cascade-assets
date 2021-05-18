@@ -263,12 +263,6 @@
             <radio-item value="Yes" />
             <radio-item show-fields="primaryContent/widget/gridBlockWidget/gridOptions/circle" value="No" />
           </text>
-          <text default="white" field-id="2e57487cc0a81e8a5a4039452473014f" identifier="textBackgroundColor" label="Text Background Color" required="true" type="radiobutton">
-            <radio-item label="White" value="white" />
-            <radio-item label="Sand" value="sand" />
-            <radio-item label="Panther Black" value="black" />
-            <radio-item label="Chapman Red" value="red" />
-          </text>
           <text default="gridColumnsThreeVideos" field-id="299a1db4c0a81e8a5a403945d07421eb" identifier="gridColumnsVideos" label="Video Grid Columns" required="true" type="radiobutton">
             <radio-item label="2" value="gridColumnsTwoVideos" />
             <radio-item label="3" value="gridColumnsThreeVideos" />

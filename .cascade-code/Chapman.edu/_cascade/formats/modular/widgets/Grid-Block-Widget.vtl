@@ -23,8 +23,9 @@
 #if ($templateType == ("Modular/1 Column"))
   <!-- IF ONE COLUMN TEMPLATE --> 
     #set ( $oneColWrapperBackgroundColor = "grid-block-widget__wrapper--" + ${bgColor} ) 
-    ## #set ($oneColNoBg = "no-bg")
-    ## #set ($textBackgroundColor = $oneColNoBg )
+    #set ($oneColNoBg = "no-bg")
+
+    #set ($textBackgroundColor = $oneColNoBg )
       <!-- IF CIRCLE --> 
     #if ($imageOrientation != 'circle')	
         #set ($titleBgColor = $bgColor)	
@@ -214,7 +215,7 @@
       <h2 class="intro-section__header text-align--${introAndOutroTextAlignment}">  
         ${_EscapeTool.xml($sectionHeader)}
       </h2>
-      <div class="intro-section__text text-align--${introAndOutroTextAlignment}">     
+      <div class="intro-section__text text-align--${introAndOutroTextAlignment} ${oneColNoBg} ">     
         $_SerializerTool.serialize($element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionHeaderParagraph'), true)
       </div>
     </div>
@@ -230,9 +231,9 @@
     #set ($gridBlockTitle = $block.getChild('gridBlockTitle').value)
     #set ($gridBlockLinkType = $block.getChild('linkType').value)
 
-    #if ($gridBlockLinkType == 'Internal Link')
-        #set ($gridBlockLinkURL = $block.getChild('internalLink').value)
-      #elseif ($gridBlockLinkType == 'External Link')
+    #if ($gridBlockLinkType == 'internal')
+        #set ($gridBlockLinkURL = $block.getChild('internalLink').getChild('path').value)
+      #elseif ($gridBlockLinkType == 'external')
         #set ($gridBlockLinkURL = $block.getChild('externalLink').value )
       #else 
         #set ($gridBlockLinkURL = $block.getChild('fileLink').getChild('path').value )
@@ -302,7 +303,7 @@
       #end
 
     #if ($gridBodyText != '')
-      <div class="grid-block-widget__text grid-block-widget__text--${textBackgroundColor} grid-block-widget__text--${textAlignment} text-align--${textAlignment} ">
+      <div class="grid-block-widget__text grid-block-widget__text--${textBackgroundColor} grid-block-widget__text--${textAlignment} text-align--${textAlignment}  ${oneColNoBg}">
       <span class="grid-block-text__inner">
         <p>
           $_SerializerTool.serialize($block.getChild('gridBlockText'), true)
@@ -313,13 +314,13 @@
     <span
       style="display:none;"
       tabindex="0"
-      class="grid-block-widget__reveal grid-block-widget__reveal--more grid-block-widget__reveal--${titleBgColor} "
+      class="grid-block-widget__reveal grid-block-widget__reveal--more grid-block-widget__reveal--${titleBgColor}  ${oneColNoBg}"
       >Show More</span
     >
     <span
       style="display:none;"
       tabindex="0"
-      class="grid-block-widget__reveal grid-block-widget__reveal--less grid-block-widget__reveal--${titleBgColor} "
+      class="grid-block-widget__reveal grid-block-widget__reveal--less grid-block-widget__reveal--${titleBgColor} ${oneColNoBg} "
       >Show Less</span
     >
   </div>
