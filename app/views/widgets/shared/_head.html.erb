@@ -82,27 +82,4 @@
             style="display:none;visibility:hidden"></iframe>
     </noscript>
 
-<script>
-$(function() {
-  var scripts = document.getElementsByTagName("script");
-  for (var i = 0; i < scripts.length; i++) {
-    var href = scripts[i].src.split("?")[0];
-    var source = href + "?version=" + new Date().getMilliseconds();
-    scripts[i].setAttribute("src", source);
-  }
-    console.log("hot swapping CSS");
-  let links = document.getElementsByTagName("link");
-  for (let i = 0; i < links.length; i++) {
-    if (links[i].getAttribute("rel") == "stylesheet") {
-      let href = links[i].getAttribute("href").split("?")[0];
-
-      let newHref = href + "?version=" + new Date().getMilliseconds();
-
-      links[i].setAttribute("href", newHref);
-    }
-  }
-});
-
-
-</script>
 </head>
