@@ -23,7 +23,8 @@ html body {
   // ONE COLUMN
   .one-column {
     // INTRO SECTION
-    .intro-section {
+    .intro-section,
+    .section-intro {
       margin-top: 0;
 
       @include respond(phone) {
@@ -86,7 +87,8 @@ html body {
       }
 
       &--black {
-        .intro-section {
+        .intro-section,
+        .section-intro {
           &__preheader {
             color: $white;
           }
@@ -107,7 +109,8 @@ html body {
       }
 
       &--red {
-        .intro-section__preheader {
+        .intro-section__preheader,
+        .section-intro__preheader {
           color: $white !important;
         }
         .grid-block-widget {
@@ -230,7 +233,8 @@ html body {
       @include outer-container;
     }
 
-    .intro-section__button {
+    .intro-section__button .section-intro__button,
+    .section-intro__button .section-intro__button {
       background-color: transparent !important;
     }
 
@@ -279,7 +283,8 @@ html body .one-column {
   }
   .grid-block-widget__wrapper--red,
   .grid-block-widget__wrapper--black {
-    .intro-section__title {
+    .intro-section__title,
+    .section-intro__title {
       &[class*="--sand"] {
         a {
           color: $cu-red;
@@ -341,7 +346,8 @@ html body .one-column {
       }
     }
   }
-  .grid-block-widget__wrapper--red .intro-section__button a.button--red {
+  .grid-block-widget__wrapper--red .intro-section__button a.button--red,
+  .grid-block-widget__wrapper--red .section-intro__button a.button--red {
     &:hover,
     &:focus,
     &:focus-within {
