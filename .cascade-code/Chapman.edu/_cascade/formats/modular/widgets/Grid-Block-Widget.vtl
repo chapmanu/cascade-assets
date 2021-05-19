@@ -48,6 +48,7 @@
   #set ($altText = $parentGroup.getChild('altText'))
 
 
+
   #macro(getSetVal $parentGroup $node)
     ## Usage: #getSetVal($parentGroup "gridColumnsVideos")
 
@@ -212,12 +213,18 @@
           ${_EscapeTool.xml($sectionPreheader)}
         </div>
       #end  
-      <h2 class="intro-section__header text-align--${introAndOutroTextAlignment}">  
-        ${_EscapeTool.xml($sectionHeader)}
-      </h2>
-      <div class="intro-section__text text-align--${introAndOutroTextAlignment} ${oneColNoBg} ">     
-        $_SerializerTool.serialize($element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionHeaderParagraph'), true)
-      </div>
+
+      #if ($sectionHeader != "")
+        <h2 class="intro-section__header text-align--${introAndOutroTextAlignment}">  
+          ${_EscapeTool.xml($sectionHeader)}
+        </h2>
+      #end
+
+      #if ($_SerializerTool.serialize($element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionHeaderParagraph'), true) != "")
+        <div class="intro-section__text text-align--${introAndOutroTextAlignment} ${oneColNoBg} ">     
+          $_SerializerTool.serialize($element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionHeaderParagraph'), true)
+        </div>
+      #end
     </div>
     
   #end
@@ -254,6 +261,11 @@
     #set ($gridBlockAltText = $block.getChild('altText').value)
     #set ($gridBlockAltText = ${_EscapeTool.xml($gridBlockAltText)})
     
+    #if ($gridBlockAltText.trim() == '')
+      #set ($imageRole = "presentation")
+    else 
+      #set ($imageRole = "img")
+    #end
 
     #set ($gridBlockImagePosition = $block.getChild('altText').value)
 
@@ -281,7 +293,7 @@
       <div class="grid-block-widget__relative">
     #end
     #if ($imageOrVideo == 'images' && $imageOrientation != 'none')
-      <img class="${widgetXPath}__image ${widgetXPath}__image--${imageOrientation}" src="[system-asset]${_EscapeTool.xml($gridBlockImagePath)}[/system-asset]" alt="${gridBlockAltText}" style="object-position: ${objectFitPosition}" />
+      <img class="${widgetXPath}__image ${widgetXPath}__image--${imageOrientation}" src="[system-asset]${_EscapeTool.xml($gridBlockImagePath)}[/system-asset]" alt="${gridBlockAltText}" style="object-position: ${objectFitPosition}" role="${imageRole}" />
     
     #elseif ($imageOrVideo == 'videos' && $imageOrientation != 'none')
          ## <video src="${_EscapeTool.xml($gridBlockVideo)}"></video>

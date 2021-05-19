@@ -292,7 +292,7 @@
             <asset field-id="3429c844c0a81e8a5a403945850e2ff7" identifier="internalLink" label="Internal Link" required="true" type="page" />
             <text field-id="3429c844c0a81e8a5a403945371c3e9f" identifier="externalLink" label="External Link" required="true" />
             <asset field-id="24682989c0a81e8a5a4039456688d569" identifier="gridBlockImage" label="Image" required="true" type="file" />
-            <text field-id="2819d3aec0a81e8a5a40394590beb62b" identifier="altText" label="Image Alt Text" required="true" />
+            <text field-id="2819d3aec0a81e8a5a40394590beb62b" identifier="altText" label="Image Alt Text" required="false" />
             <text field-id="2819d3aec0a81e8a5a4039450b676935" identifier="imagePosition" label="Image Position" default="center center" help-text="Changes image focal point. See https://developer.mozilla.org/en-US/docs/Web/CSS/object-position" />
             <text help-text="Youtube or Vimeo iframe" identifier="iFrame" label="iFrame" required="true" />
             <text field-id="24682989c0a81e8a5a40394504b245f8" identifier="gridBlockText" label="Grid Block Text" required="true" wysiwyg="true" />
