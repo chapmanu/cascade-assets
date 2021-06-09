@@ -23,9 +23,9 @@
 #if ($templateType == ("Modular/1 Column"))
   <!-- IF ONE COLUMN TEMPLATE --> 
     #set ( $oneColWrapperBackgroundColor = "grid-block-widget__wrapper--" + ${bgColor} ) 
-    #set ($oneColNoBg = "no-bg")
+    ## #set ($oneColNoBg = "no-bg")
 
-    #set ($textBackgroundColor = $oneColNoBg )
+    ## #set ($textBackgroundColor = $oneColNoBg )
       <!-- IF CIRCLE --> 
     #if ($imageOrientation != 'circle')	
         #set ($titleBgColor = $bgColor)	
@@ -221,7 +221,7 @@
       #end
 
       #if ($_SerializerTool.serialize($element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionHeaderParagraph'), true) != "")
-        <div class="intro-section__text text-align--${introAndOutroTextAlignment} ${oneColNoBg} ">     
+        <div class="intro-section__text text-align--${introAndOutroTextAlignment}  ">     
           $_SerializerTool.serialize($element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionHeaderParagraph'), true)
         </div>
       #end
@@ -283,11 +283,16 @@
 
 #if ($templateType == ("Modular/1 Column"))
   #set ($textBackgroundColor = $gridOptions.getChild('textBackgroundColor').value)
-  #set ($titleBgColor = $element.getChild($widgetXPath).getChild("gridOptions").getChild('textBackgroundColor').value)
+  #set ($titleBgColor = $textBackgroundColor)
+
+  #if ($textBackgroundColor == $bgColor)
+    #set ($oneColPadding = 'no-padding')
+  #elseif ($textBackgroundColor != $bgColor)
+    #set ($oneColPadding = 'default-padding')
+  #end
 #end
 
-
-  <div class="${widgetXPath} grid-block-widget--${titleBgColor} ${widgetXPath}--${imageOrientation}" title-bg-color="${titleBgColor}">
+  <div class="${widgetXPath} grid-block-widget--${titleBgColor} ${widgetXPath}--${imageOrientation} ${oneColPadding}" title-bg-color="${titleBgColor}">
     
     #if ($titleOverlay != 'No')  
       <div class="grid-block-widget__relative">
@@ -301,7 +306,7 @@
     #end
     
     #if ($hasGridTitle == 'Yes' && $linkURL != '' && $gridBlockLinkType != '' )
-      <a href="${gridBlockLinkURL}" class="grid-block-widget__title text-align--${textAlignment} grid-block-widget__title--${titleBgColor} focus-no-border border-bottom--none">
+      <a href="${gridBlockLinkURL}" class="grid-block-widget__title text-align--${textAlignment} grid-block-widget__title--${titleBgColor} focus-no-border border-bottom--none" data-titleBgColor="${titleBgColor}">
         <span class="label border-bottom--dotted">${_EscapeTool.xml($gridBlockTitle)}</span>
       </a>
     #else 
@@ -315,7 +320,7 @@
       #end
 
     #if ($gridBodyText != '')
-      <div class="grid-block-widget__text grid-block-widget__text--${textBackgroundColor} grid-block-widget__text--${textAlignment} text-align--${textAlignment}  ${oneColNoBg}">
+      <div class="grid-block-widget__text grid-block-widget__text--${textBackgroundColor} grid-block-widget__text--${textAlignment} text-align--${textAlignment}  ">
       <span class="grid-block-text__inner">
         <p>
           $_SerializerTool.serialize($block.getChild('gridBlockText'), true)
@@ -326,13 +331,13 @@
     <span
       style="display:none;"
       tabindex="0"
-      class="grid-block-widget__reveal grid-block-widget__reveal--more grid-block-widget__reveal--${titleBgColor}  ${oneColNoBg}"
+      class="grid-block-widget__reveal grid-block-widget__reveal--more grid-block-widget__reveal--${titleBgColor} ${oneColPadding}"
       >Show More</span
     >
     <span
       style="display:none;"
       tabindex="0"
-      class="grid-block-widget__reveal grid-block-widget__reveal--less grid-block-widget__reveal--${titleBgColor} ${oneColNoBg} "
+      class="grid-block-widget__reveal grid-block-widget__reveal--less grid-block-widget__reveal--${titleBgColor} ${oneColPadding}"
       >Show Less</span
     >
   </div>
