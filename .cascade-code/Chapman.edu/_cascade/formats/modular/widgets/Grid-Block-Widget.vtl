@@ -22,7 +22,8 @@
 
 #if ($templateType == ("Modular/1 Column"))
   <!-- IF ONE COLUMN TEMPLATE -->
-    #set ( $oneColWrapperBackgroundColor = "grid-block-widget__wrapper--" + ${bgColor} )
+    ## #set ( $oneColWrapperBackgroundColor = "grid-block-widget__wrapper--" + ${bgColor} )
+    #set ( $oneColDataBgColor = ${bgColor} )
     ## #set ($oneColNoBg = "no-bg")
 
     ## #set ($textBackgroundColor = $oneColNoBg )
@@ -141,7 +142,7 @@
   #end
 
   #set ($textAlignment = $gridOptions.getChild('textAlign').value)
-
+  #set ($truncateText = $gridOptions.getChild('truncateText').value)
 
 #set ($hasGridBodyText = $gridOptions.getChild('bodyText').value)
 
@@ -215,7 +216,7 @@
 
   #set ( $blocks = $_XPathTool.selectNodes($element, 'gridBlockWidget/gridOptions/gridBlock'))
 
-<div class="grid-block-widget__wrapper ${oneColWrapperBackgroundColor}">
+<div class="grid-block-widget__wrapper ${oneColWrapperBackgroundColor}" data-bg-color="${oneColDataBgColor}">
 <div class="inner-container">
 #if ($displaySectionIntro == "yes")
     <div class="intro-section text-align--${introAndOutroTextAlignment}">
@@ -241,7 +242,7 @@
   #end
 
 
-  <div id="grid-block-widget__container--${_MathTool.add($foreach.index, 1)}" class="grid-block-widget__container grid-block-widget__container--$imageOrVideo grid-block-widget__container--${gridColumnsImages} ${overlayClass} grid-block-widget__container--${imageOrientation} ${pagination}  ${gridColumnsVideos}" data-columns="${dataColumns}">
+  <div id="grid-block-widget__container--${_MathTool.add($foreach.index, 1)}" class="grid-block-widget__container grid-block-widget__container--$imageOrVideo grid-block-widget__container--${gridColumnsImages} ${overlayClass} grid-block-widget__container--${imageOrientation} ${pagination}  ${gridColumnsVideos}" data-columns="${dataColumns}" data-truncate-text="${truncateText}">
 
 
   #foreach ($block in $blocks)
@@ -302,7 +303,7 @@
   #end
 #end
 
-  <div class="${widgetXPath} grid-block-widget--${titleBgColor} ${widgetXPath}--${imageOrientation} ${oneColPadding}" title-bg-color="${titleBgColor}">
+  <div class="${widgetXPath} grid-block-widget--${titleBgColor} ${widgetXPath}--${imageOrientation} ${oneColPadding}" title-bg-color="${titleBgColor}" data-oneColPadding="${oneColPadding}">
 
     #if ($titleOverlay != 'No')
       <div class="grid-block-widget__relative">
@@ -332,7 +333,7 @@
       #end
 
     #if ($hasGridBodyText != 'No' && $gridBodyText != '')
-      <div class="grid-block-widget__text grid-block-widget__text--${textBackgroundColor} grid-block-widget__text--${textAlignment} text-align--${textAlignment}  ">
+      <div class="grid-block-widget__text grid-block-widget__text--${textBackgroundColor} grid-block-widget__text--${textAlignment} text-align--${textAlignment}">
       <span class="grid-block-text__inner">
         <p>
           $_SerializerTool.serialize($block.getChild('gridBlockText'), true)

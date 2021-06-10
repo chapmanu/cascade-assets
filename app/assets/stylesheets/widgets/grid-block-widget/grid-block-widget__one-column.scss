@@ -1,3 +1,9 @@
+// Permutations with repetition (n=4, r=2)
+// Using Items: sand,white,black,red
+
+// List has 16 entries.
+// {sand,sand} {sand,white} {sand,black} {sand,red} {white,sand} {white,white} {white,black} {white,red} {black,sand} {black,white} {black,black} {black,red} {red,sand} {red,white} {red,black} {red,red}
+
 $sides: (
   "b": "bottom",
   "t": "top",
@@ -66,7 +72,7 @@ html body {
         padding-right: 0 !important;
       }
 
-      .grid-block-widget.no-padding {
+      .no-padding {
         .grid-block-widget {
           &__title {
             padding-left: 0 !important;
@@ -74,6 +80,8 @@ html body {
             padding-bottom: 10px;
           }
           &__text {
+            padding-left: 0;
+            padding-right: 0;
             p {
               padding-left: 0;
               padding-right: 0;
@@ -275,6 +283,47 @@ html body {
     .grid-block-widget__reveal--sand.no-bg {
       color: $cu-red !important;
     }
+
+    [data-bg-color="red"] {
+      background-color: $cu-red;
+      .intro-section {
+        color: $white;
+      }
+      a.button.button--red {
+        color: black;
+        background-color: white !important;
+      }
+      a {
+        color: white;
+      }
+    }
+    [data-bg-color="white"] {
+      background-color: $white;
+
+      .intro-section {
+        color: $panther-black;
+      }
+    }
+    [data-bg-color="sand"] {
+      background-color: $sand;
+
+      .intro-section {
+        color: $panther-black;
+      }
+    }
+    [data-bg-color="black"] {
+      background-color: $panther-black;
+
+      .intro-section {
+        color: $white;
+        .intro-section__preheader {
+          color: $white;
+        }
+        a {
+          color: $white;
+        }
+      }
+    }
   }
 }
 
@@ -450,33 +499,33 @@ html body .one-column {
   }
 }
 
-html
-  body
-  .one-column
-  .grid-block-widget__wrapper--white
-  [class*="text-"].no-bg {
-  color: $panther-black !important;
-}
+// html
+//   body
+//   .one-column
+//   .grid-block-widget__wrapper--white
+//   [class*="text-"].no-bg {
+//   color: $panther-black !important;
+// }
 
-html
-  body
-  .one-column
-  .grid-block-widget__wrapper--sand
-  .grid-block-widget__text.no-bg {
-  color: $panther-black !important;
-}
+// html
+//   body
+//   .one-column
+//   .grid-block-widget__wrapper--sand
+//   .grid-block-widget__text.no-bg {
+//   color: $panther-black !important;
+// }
 
-html
-  body
-  .one-column
-  .grid-block-widget__wrapper--black
-  .grid-block-widget__text.no-bg {
-  color: $white !important;
-}
+// html
+//   body
+//   .one-column
+//   .grid-block-widget__wrapper--black
+//   .grid-block-widget__text.no-bg {
+//   color: $white !important;
+// }
 
-html body .grid-block-widget__wrapper--red .grid-block-widget__text.no-bg {
-  color: $white !important;
-}
+// html body .grid-block-widget__wrapper--red .grid-block-widget__text.no-bg {
+//   color: $white !important;
+// }
 
 .grid-block-widget__container {
   .default-padding {
