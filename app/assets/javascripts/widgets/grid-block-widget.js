@@ -1,6 +1,6 @@
 $(function () {
   if ($(".grid-block-widget").length) {
-    gridBlockWidget(normalizeHeights, truncateText, gridBlockCarousel);
+    gridBlockWidget(truncateText, normalizeHeights, gridBlockCarousel);
     removeEmptyPTagsinWYSIWYG();
     if (isIE()) {
       $(".grid-block-widget img").each(function () {
