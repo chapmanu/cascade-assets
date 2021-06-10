@@ -39,7 +39,7 @@ task push_noncompiled_assets: :environment do
     cascade_password
 p url_post
 
-  p HTTParty.post(
+   HTTParty.post(
        url_post,
        body: {
         "asset": {
@@ -89,7 +89,7 @@ p url_post
     cascade_password
 p url_post
 
-  p HTTParty.post(
+  HTTParty.post(
        url_post,
        body: {
         "asset": {

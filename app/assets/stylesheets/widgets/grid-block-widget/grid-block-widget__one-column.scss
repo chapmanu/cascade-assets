@@ -477,3 +477,14 @@ html
 html body .grid-block-widget__wrapper--red .grid-block-widget__text.no-bg {
   color: $white !important;
 }
+
+.grid-block-widget__container {
+  .default-padding {
+    .grid-block-widget {
+      &__text {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+  }
+}
