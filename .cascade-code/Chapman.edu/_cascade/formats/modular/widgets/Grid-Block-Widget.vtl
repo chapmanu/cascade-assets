@@ -242,7 +242,7 @@
   #end
 
 
-  <div id="grid-block-widget__container--${_MathTool.add($foreach.index, 1)}" class="grid-block-widget__container grid-block-widget__container--$imageOrVideo grid-block-widget__container--${gridColumnsImages} ${overlayClass} grid-block-widget__container--${imageOrientation} ${pagination}  ${gridColumnsVideos}" data-columns="${dataColumns}" data-truncate-text="${truncateText}">
+  <div id="grid-block-widget__container--${_MathTool.add($foreach.index, 1)}" class="grid-block-widget__container grid-block-widget__container--$imageOrVideo grid-block-widget__container--${gridColumnsImages} ${overlayClass} grid-block-widget__container--${imageOrientation} ${pagination}  ${gridColumnsVideos}" data-columns="${dataColumns}">
 
 
   #foreach ($block in $blocks)
@@ -333,7 +333,7 @@
       #end
 
     #if ($hasGridBodyText != 'No' && $gridBodyText != '')
-      <div class="grid-block-widget__text grid-block-widget__text--${textBackgroundColor} grid-block-widget__text--${textAlignment} text-align--${textAlignment}">
+      <div class="grid-block-widget__text grid-block-widget__text--${textBackgroundColor} grid-block-widget__text--${textAlignment} text-align--${textAlignment}" data-truncate-text="${truncateText}">
       <span class="grid-block-text__inner">
         <p>
           $_SerializerTool.serialize($block.getChild('gridBlockText'), true)

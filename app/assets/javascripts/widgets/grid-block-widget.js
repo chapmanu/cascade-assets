@@ -67,7 +67,7 @@ function removeEmptyPTagsinWYSIWYG() {
 }
 function truncateText() {
   console.log("truncating");
-  $(".grid-block-widget__text").each(function () {
+  $(".grid-block-widget__text[data-truncate-text='yes']").each(function () {
     var containerHeight = parseInt($(this).css("max-height"), 10);
     var innerHeight = parseInt(
       $(this).find(".grid-block-text__inner").css("height"),

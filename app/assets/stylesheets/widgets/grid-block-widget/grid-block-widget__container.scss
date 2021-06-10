@@ -357,7 +357,7 @@
       }
     }
 
-    &__text {
+    &__text[data-truncate-text="yes"] {
       font-family: $arial;
       max-height: 220px;
       overflow: hidden;
@@ -374,6 +374,9 @@
       &--white {
         border: none;
       }
+    }
+    &__text[data-truncate-text="no"] {
+      max-height: 100%;
     }
 
     &--white {
