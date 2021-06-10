@@ -186,6 +186,17 @@
       #set ($dataColumns = '')
   #end
 
+## VIDEOS
+#set ($gridColumnsVideos = $gridOptions.getChild('gridColumnsVideos').value)
+    #if ($gridColumnsVideos == 'gridColumnsTwoVideos')
+        #set ($gridColumnsVideos = 'grid-block-widget__container--2-col')
+        #set ($gridColumnsImages = $gridColumnsVideos)
+    #elseif ($gridColumnsVideos == 'gridColumnsThreeVideos')
+        #set ($gridColumnsVideos = 'grid-block-widget__container--3-col')
+        #set ($gridColumnsImages = $gridColumnsVideos)
+    #else 
+        #set ($gridColumnsVideos = '')
+    #end
 
 
 #set ($gridDisplay = $gridOptions.getChild('gridDisplay').value)
@@ -230,7 +241,7 @@
   #end
 
 
-  <div id="grid-block-widget__container--${_MathTool.add($foreach.index, 1)}" class="grid-block-widget__container grid-block-widget__container--$imageOrVideo grid-block-widget__container--${gridColumnsImages} ${overlayClass} grid-block-widget__container--${imageOrientation} ${pagination}" data-columns="${dataColumns}">
+  <div id="grid-block-widget__container--${_MathTool.add($foreach.index, 1)}" class="grid-block-widget__container grid-block-widget__container--$imageOrVideo grid-block-widget__container--${gridColumnsImages} ${overlayClass} grid-block-widget__container--${imageOrientation} ${pagination}  ${gridColumnsVideos}" data-columns="${dataColumns}">
 
 
   #foreach ($block in $blocks)
@@ -304,7 +315,8 @@
           $gridBlockiFrame
     #end
 
-    #if ($hasGridTitle == 'Yes' && $linkURL != '' && $gridBlockLinkType != '' )
+  #if ($hasGridTitle != 'No')
+    #if ($linkURL != '' && $gridBlockLinkType != '' )
       <a href="${gridBlockLinkURL}" class="grid-block-widget__title text-align--${textAlignment} grid-block-widget__title--${titleBgColor} focus-no-border border-bottom--none" data-titleBgColor="${titleBgColor}">
         <span class="label border-bottom--dotted">${_EscapeTool.xml($gridBlockTitle)}</span>
       </a>
@@ -313,12 +325,13 @@
         <span class="label border-bottom--none">${_EscapeTool.xml($gridBlockTitle)}</span>
       </div>
     #end
+  #end
 
       #if ($titleOverlay != 'No')
         </div>
       #end
 
-    #if ($gridBodyText != '')
+    #if ($hasGridBodyText != 'No' && $gridBodyText != '')
       <div class="grid-block-widget__text grid-block-widget__text--${textBackgroundColor} grid-block-widget__text--${textAlignment} text-align--${textAlignment}  ">
       <span class="grid-block-text__inner">
         <p>
