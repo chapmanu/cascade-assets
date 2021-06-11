@@ -579,8 +579,8 @@
             <radio-item label="Rotator (will rotate up to four items at a time)" value="rotator"/>
           </text>
           <!-- advanced -->
-          <group collapsed="true" identifier="advanced" label="Visible Only to Admins and Web Coordinators" restrict-to-groups="Administrators, Web-Coordinators">
-            <text default="12px" field-id="" identifier="gridGap" label="Grid Gap" help-text=" - spacing between grid block items. Default is 12px." />
+          <group collapsed="true" identifier="advanced" label="Advanced - Visible Only to Admins and Web Coordinators" restrict-to-groups="Administrators, Web-Coordinators">
+            <text default="12px" field-id="" identifier="gridGap" label="Grid Gap" help-text=" Space between grid blocks. Default is 12px. grid block items. Default is 12px." />
           </group>
           <group collapsed="true" identifier="gridBlock" label="Grid Block" multiple="true">
             <text field-id="2462637fc0a81e8a5a4039452d57a512" identifier="gridBlockTitle" label="Title" required="true"/>
