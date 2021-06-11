@@ -20,7 +20,6 @@ $(function () {
           "background-image": s,
         });
         d.attr("class", parentClasses);
-        // $(".grid-block-widget__title").css("max-width", "200px");
         t.remove();
       });
       $(".grid-block-widget__reveal--more").on("click keydown", function (e) {
@@ -135,8 +134,7 @@ function clickHandlers() {
       parent = $(this).parent();
       $(parent)
         .find(".grid-block-widget__text")
-        .removeClass("grid-block-widget__text--truncated")
-        .addClass("grid-block-widget__text--revealed");
+        .attr("data-truncate-text", "no");
       $(this).hide();
       $(parent).find(".grid-block-widget__reveal--less").show();
       $(parent).find(".grid-block-widget__text").attr("aria-expanded", "true");
@@ -147,8 +145,7 @@ function clickHandlers() {
       parent = $(this).parent();
       $(parent)
         .find(".grid-block-widget__text")
-        .addClass("grid-block-widget__text--truncated")
-        .removeClass("grid-block-widget__text--revealed");
+        .attr("data-truncate-text", "yes");
       $(this).hide();
       $(parent).find(".grid-block-widget__reveal--more").show();
       $(parent).find(".grid-block-widget__text").attr("aria-expanded", "false");

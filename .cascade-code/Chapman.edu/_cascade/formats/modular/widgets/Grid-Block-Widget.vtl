@@ -143,15 +143,19 @@
 
   #set ($textAlignment = $gridOptions.getChild('textAlign').value)
   #set ($truncateText = $gridOptions.getChild('truncateText').value)
-
-#set ($hasGridBodyText = $gridOptions.getChild('bodyText').value)
-
-
-#set ($imageOrVideo = $gridOptions.getChild('imageOrVideo').value)
+    
+  #set ($gridGap = $gridOptions.getChild('advanced').getChild('gridGap').value)
 
 
+  #if ($gridGap != '')
+    #set ($gridGap = "grid-gap: " + ${gridGap})
+  #else 
+    #set ($gridGap = "")
+  #end
 
-#set ($imageOrientation = $gridOptions.getChild('imageOrientation').value)
+  #set ($hasGridBodyText = $gridOptions.getChild('bodyText').value)
+  #set ($imageOrVideo = $gridOptions.getChild('imageOrVideo').value)
+  #set ($imageOrientation = $gridOptions.getChild('imageOrientation').value)
 
 
 #if ($imageOrientation != 'circle')
@@ -242,7 +246,7 @@
   #end
 
 
-  <div id="grid-block-widget__container--${_MathTool.add($foreach.index, 1)}" class="grid-block-widget__container grid-block-widget__container--$imageOrVideo grid-block-widget__container--${gridColumnsImages} ${overlayClass} grid-block-widget__container--${imageOrientation} ${pagination}  ${gridColumnsVideos}" data-columns="${dataColumns}">
+  <div id="grid-block-widget__container--${_MathTool.add($foreach.index, 1)}" class="grid-block-widget__container grid-block-widget__container--$imageOrVideo grid-block-widget__container--${gridColumnsImages} ${overlayClass} grid-block-widget__container--${imageOrientation} ${pagination}  ${gridColumnsVideos}" data-columns="${dataColumns}" style="${gridGap};">
 
 
   #foreach ($block in $blocks)
@@ -260,6 +264,7 @@
     #set ($gridBlockLinkURL = $block.getChild('externalLink').value )
     #set ($gridBlockContent = $block.getChild('content').value)
     #set ($gridBodyText = $block.getChild('gridBlockText').value)
+    #set ($truncateText = $block.getChild('truncateText').value)
 
 
   ##   Grid Block Image

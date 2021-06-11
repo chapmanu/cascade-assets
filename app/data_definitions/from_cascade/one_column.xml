@@ -328,10 +328,6 @@
         </text>
         <shared-field field-id="2e8489d8c0a81e8a5a40394576fa28af" identifier="sectionHeaderGroup" path="Section Header" />
         <group collapsed="true" identifier="gridOptions" label="Grid Block Options">
-          <text default="yes" field-id="" identifier="truncateText" label="Truncate long text with 'Show More' button?" type="radiobutton">
-            <radio-item label="Yes" value="yes" />
-            <radio-item label="No" value="no" />
-          </text>
           <text default="white" field-id="2e57487cc0a81e8a5a4039452473014f" identifier="textBackgroundColor" label="Block Background Color" type="radiobutton">
             <radio-item label="White" value="white"/>
             <radio-item label="Sand" value="sand"/>
@@ -342,9 +338,15 @@
             <radio-item show-fields="primaryContent/widget/gridBlockWidget/gridOptions/textAlign, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/gridBlockTitle, primaryContent/widget/gridBlockWidget/gridOptions/circle" value="Yes" />
             <radio-item value="No" />
           </text>
+          <!-- body text -->
           <text field-id="2994320ac0a81e8a5a403945b6122351" identifier="bodyText" label="Body Text" type="radiobutton">
-            <radio-item show-fields="primaryContent/widget/gridBlockWidget/gridOptions/textAlign, primaryContent/widget/gridBlockWidget/gridOptions/circle, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/gridBlockText" value="Yes" />
+            <radio-item show-fields="primaryContent/widget/gridBlockWidget/gridOptions/textAlign, primaryContent/widget/gridBlockWidget/gridOptions/circle, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/gridBlockText, primaryContent/widget/gridBlockWidget/gridOptions/truncateText, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/truncateText" value="Yes" />
             <radio-item value="No" />
+          </text>
+          <!-- truncate -->
+          <text default="yes" field-id="" identifier="truncateText" label="Truncate Long Text with 'Show More' Button?" type="radiobutton">
+            <radio-item label="Yes" value="yes" />
+            <radio-item label="No" value="no" />
           </text>
           <text field-id="243872cdc0a81e8a5a403945a36afb2a" identifier="textAlign" label="Text Align" type="radiobutton">
             <radio-item label="Left" value="left" />
@@ -382,6 +384,11 @@
             <radio-item label="Display All Grid Items" value="showAll" />
             <radio-item label="Rotator (will rotate up to four items at a time)" value="rotator" />
           </text>
+          <!-- advanced -->
+          <group collapsed="true" identifier="advanced" label="Visible Only to Admins and Web Coordinators" restrict-to-groups="Administrators, Web-Coordinators">
+            <text default="12px" field-id="" identifier="gridGap" label="Grid Gap" help-text=" - spacing between grid block items. Default is 12px." />
+          </group>
+          <!-- individual grid block -->
           <group collapsed="true" identifier="gridBlock" label="Grid Block" multiple="true">
             <text field-id="2462637fc0a81e8a5a4039452d57a512" identifier="gridBlockTitle" label="Title" />
             <text field-id="3429c844c0a81e8a5a4039450d9bac85" identifier="titleLink" label="Title Link?" type="radiobutton">
@@ -399,6 +406,10 @@
             <text field-id="2819d3aec0a81e8a5a4039450b676935" identifier="imagePosition" label="Image Position" default="center center" help-text="Changes image focal point. See https://developer.mozilla.org/en-US/docs/Web/CSS/object-position" />
             <text help-text="Youtube or Vimeo iframe" identifier="iFrame" label="iFrame" />
             <text field-id="24682989c0a81e8a5a40394504b245f8" identifier="gridBlockText" label="Grid Block Text" wysiwyg="true" />
+            <text default="yes" field-id="" identifier="truncateText" label="Truncate Long Text with 'Show More' Button?" help-text="Overrides Top-Level Setting" type="radiobutton">
+              <radio-item label="Yes" value="yes" />
+              <radio-item label="No" value="no" />
+            </text>
           </group>
         </group>
         <shared-field field-id="" identifier="link" path="cta__buttons-only" />

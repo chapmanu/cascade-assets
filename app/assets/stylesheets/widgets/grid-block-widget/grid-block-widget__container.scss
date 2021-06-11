@@ -366,6 +366,7 @@
         font-size: 1.6rem;
         line-height: 2.2rem;
       }
+
       &--revealed {
         max-height: max-content;
         overflow: visible;
@@ -377,6 +378,7 @@
     }
     &__text[data-truncate-text="no"] {
       max-height: 100%;
+      overflow: visible;
     }
 
     &--white {
