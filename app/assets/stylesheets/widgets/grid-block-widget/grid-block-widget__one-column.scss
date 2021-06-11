@@ -313,10 +313,10 @@ html body {
     }
     [data-bg-color="black"] {
       background-color: $panther-black;
-      a.grid-block-widget__button--transparent {
-        color: $white;
-      }
-      
+      a.button.grid-block-widget__button.grid-block-widget__button--transparent {
+        color: $white !important;
+    }
+
       .intro-section {
         color: $white;
         .intro-section__preheader,
