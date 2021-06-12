@@ -284,50 +284,48 @@ html body {
       color: $cu-red !important;
     }
 
-    .grid-block-widget__container {
-      &[data-bg-color="red"] {
-        background-color: $cu-red;
-        .intro-section {
+    [data-bg-color="red"] {
+      background-color: $cu-red;
+      .intro-section {
+        color: $white;
+        a {
+          color: white;
+        }
+      }
+      a.button.button--red {
+        color: black;
+        background-color: white !important;
+      }
+    }
+    [data-bg-color="white"] {
+      background-color: $white;
+
+      .intro-section {
+        color: $panther-black;
+      }
+    }
+    [data-bg-color="sand"] {
+      background-color: $sand;
+
+      .intro-section {
+        color: $panther-black;
+      }
+    }
+    [data-bg-color="black"] {
+      background-color: $panther-black;
+
+      a.grid-block-widget__button--transparent {
+        color: $white !important;
+      }
+      .intro-section {
+        color: $white;
+        .intro-section__preheader,
+        a {
           color: $white;
-          a {
-            color: white;
-          }
         }
-        a.button.button--red {
-          color: black;
-          background-color: white !important;
-        }
-      }
-      &[data-bg-color="white"] {
-        background-color: $white;
-
-        .intro-section {
-          color: $panther-black;
-        }
-      }
-      &[data-bg-color="sand"] {
-        background-color: $sand;
-
-        .intro-section {
-          color: $panther-black;
-        }
-      }
-      &[data-bg-color="black"] {
-        background-color: $panther-black;
-
-        a.grid-block-widget__button--transparent {
-          color: $white !important;
-        }
-        .intro-section {
+        a,
+        a.button {
           color: $white;
-          .intro-section__preheader,
-          a {
-            color: $white;
-          }
-          a,
-          a.button {
-            color: $white;
-          }
         }
       }
     }
