@@ -485,6 +485,11 @@
   .grid-block-widget__text:not(.grid-block-widget__text--revealed) {
     // @include qbal-fade-exit;
   }
+
+  // if has text only and no title, add top margin
+  img.grid-block-widget__image + .grid-block-widget__text {
+    padding-top: 24px;
+  }
 }
 
 html.two-column-template,
