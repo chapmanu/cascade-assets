@@ -30,3 +30,12 @@ html body {
     }
   }
 }
+
+html.one-column-template
+  body
+  .grid-block-widget__container--overlay
+  .grid-block-widget__title
+  span.label {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
