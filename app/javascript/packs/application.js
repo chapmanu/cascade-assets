@@ -22,6 +22,7 @@ const imagePath = (name) => images(name, true);
 // import "@fortawesome/fontawesome-free/js/all";
 import navigation from "../src/navigation";
 import accessibility from "../src/accessibility";
+
 import "../stylesheets/master.scss";
 
 navigation.initialize();

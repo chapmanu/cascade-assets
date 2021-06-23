@@ -276,28 +276,28 @@
   <group collapsed="true" identifier="primaryContent" label="Primary Content">
     <group identifier="widget" label="Widget" multiple="true">
       <text default="(select a widget)" field-id="ff6bcbe4c0a81e5f43ef9b373c6b107e" help-text="Choose the type of content you'd like to add to the page" identifier="widgetType" label="Type of Widget" type="dropdown">
-        <dropdown-item value="(select a widget)"/>
-        <dropdown-item show-fields="primaryContent/widget/imageWithText" value="Image with Text"/>
-        <dropdown-item show-fields="primaryContent/widget/circleImageWithText" value="Circle Image With Text"/>
-        <dropdown-item show-fields="primaryContent/widget/videoWithText" value="Video with Text"/>
-        <dropdown-item show-fields="primaryContent/widget/textWithCTA" value="Text with CTA"/>
-        <dropdown-item label="Beta Test - Text Editor Widget" show-fields="primaryContent/widget/textEditorWidget" value="New Text Editor"/>
-        <dropdown-item show-fields="primaryContent/widget/textOnly" value="Text Only"/>
-        <dropdown-item show-fields="primaryContent/widget/factCardsWithText" value="Fact Cards with Text"/>
-        <dropdown-item show-fields="primaryContent/widget/callToAction3Up" value="Call To Action 3 Up"/>
-        <dropdown-item label="Social.chapman Feed - OLD - DO NOT USE - RETIRING" show-fields="primaryContent/widget/chapmanSocialFeed" value="Social.chapman Feed"/>
-        <dropdown-item show-fields="primaryContent/widget/subscribe" value="Subscribe"/>
-        <dropdown-item show-fields="primaryContent/widget/callToActionBlock" value="Call To Action Block"/>
-        <dropdown-item show-fields="primaryContent/widget/chapmanEventsFeed" value="Events.chapman Feed"/>
-        <dropdown-item show-fields="primaryContent/widget/chapmanStoriesFeed" value="Stories Feed"/>
-        <dropdown-item show-fields="primaryContent/widget/contactFooter" value="Contact Footer"/>
-        <dropdown-item show-fields="primaryContent/widget/callToActionFooter" value="Call To Action Footer"/>
-        <dropdown-item show-fields="primaryContent/widget/multiImageContentBlocks" value="Multi Image Content Blocks"/>
-        <dropdown-item show-fields="primaryContent/widget/byTheNumbers" value="By the Numbers"/>
-        <dropdown-item show-fields="primaryContent/widget/imageSliderWidget" value="Image Slider Widget"/>
-        <dropdown-item show-fields="primaryContent/widget/campusMapWidget" value="Campus Map Widget"/>
-        <dropdown-item show-fields="primaryContent/widget/googleMapWidget" value="Google Map Widget"/>
-        <dropdown-item show-fields="primaryContent/widget/gridBlockWidget" value="Grid Block"/>
+        <dropdown-item value="(select a widget)" />
+        <dropdown-item show-fields="primaryContent/widget/imageWithText" value="Image with Text" />
+        <dropdown-item show-fields="primaryContent/widget/circleImageWithText" value="Circle Image With Text" />
+        <dropdown-item show-fields="primaryContent/widget/videoWithText" value="Video with Text" />
+        <dropdown-item show-fields="primaryContent/widget/textWithCTA" value="Text with CTA" />
+        <dropdown-item show-fields="primaryContent/widget/textOnly" value="Text Only" />
+        <dropdown-item show-fields="primaryContent/widget/factCardsWithText" value="Fact Cards with Text" />
+        <dropdown-item show-fields="primaryContent/widget/callToAction3Up" value="Call To Action 3 Up" />
+        <dropdown-item show-fields="primaryContent/widget/chapmanSocialFeed" value="Social.chapman Feed" />
+        <dropdown-item show-fields="primaryContent/widget/subscribe" value="Subscribe" />
+        <dropdown-item show-fields="primaryContent/widget/callToActionBlock" value="Call To Action Block" />
+        <dropdown-item show-fields="primaryContent/widget/chapmanEventsFeed" value="Events.chapman Feed" />
+        <dropdown-item show-fields="primaryContent/widget/chapmanStoriesFeed" value="Stories Feed" />
+        <dropdown-item show-fields="primaryContent/widget/contactFooter" value="Contact Footer" />
+        <dropdown-item show-fields="primaryContent/widget/callToActionFooter" value="Call To Action Footer" />
+        <dropdown-item show-fields="primaryContent/widget/multiImageContentBlocks" value="Multi Image Content Blocks" />
+        <dropdown-item show-fields="primaryContent/widget/byTheNumbers" value="By the Numbers" />
+        <dropdown-item show-fields="primaryContent/widget/imageSliderWidget" value="Image Slider Widget" />
+        <dropdown-item show-fields="primaryContent/widget/campusMapWidget" value="Campus Map Widget" />
+        <dropdown-item show-fields="primaryContent/widget/googleMapWidget" value="Google Map Widget" />
+        <dropdown-item show-fields="primaryContent/widget/gridBlockWidget" value="Grid Block" />
+        <dropdown-item show-fields="primaryContent/widget/personnelWidget" value="Personnel Widget"/>
       </text>
       <group collapsed="true" identifier="googleMapWidget" label="Google Map Widget">
         <group collapsed="true" identifier="address" label="Address">
@@ -399,6 +399,95 @@
           </group>
         </group>
         <shared-field field-id="fe55c89dc0a81e5f0fce9f5b78ade8f0" identifier="link" path="cta__buttons-only"/>
+      </group>
+      <group collapsed="true" identifier="personnelWidget" label="Personnel Widget">
+        <shared-field field-id="" identifier="display" path="display"/>
+        <text default="yes" field-id="" identifier="displaySectionIntro" label="Display Section Intro?" type="radiobutton">
+          <radio-item label="Yes" show-fields="primaryContent/widget/personnelWidget/sectionHeaderGroup, primaryContent/widget/personnelWidget/textAlignment" value="yes"/>
+          <radio-item label="No" value="no "/>
+        </text>
+        <text default="left-aligned" field-id="" help-text="Text Alignment for Intro Section" identifier="textAlignment" label="Text Alignment" type="radiobutton">
+          <radio-item label="Left Aligned" value="left-aligned"/>
+          <radio-item label="Centered" value="centered"/>
+        </text>
+        <shared-field field-id="8babbf5fc0a81e8a57740fff772e6a8e" identifier="sectionHeaderGroup" path="Section Header"/>
+        <group collapsed="true" identifier="personnel" label="Personnel">
+          <text field-id="8babbf5fc0a81e8a57740fff5dba65b7" identifier="style" label="Layout Style:" required="true" type="radiobutton">
+            <radio-item label="Card Grid" show-fields="primaryContent/widget/personnelWidget/personnel/custom,
+            primaryContent/widget/personnelWidget/personnel/custom/person/linkToFullBio" value="cardGrid"/>
+            <radio-item label="Carousel" show-fields="primaryContent/widget/personnelWidget/personnel/custom,
+            primaryContent/widget/personnelWidget/personnel/custom/person/linkToFullBio" value="carousel"/>
+            <radio-item label="Individual Profile" show-fields="primaryContent/widget/personnelWidget/personnel/custom, 
+            primaryContent/widget/personnelWidget/personnel/custom/person/displaySchoolAffiliations,
+            primaryContent/widget/personnelWidget/personnel/custom/person/displayResearchInterests,
+            primaryContent/widget/personnelWidget/personnel/custom/person/displayCoursesTaught" value="individual-profile"/>
+          </text>
+          <!-- Custom person -->
+          <group identifier="custom" label="Custom ">
+            <group collapsed="true" identifier="person" label="Person" multiple="true">
+              <asset field-id="49fd1c0dc0a81e8a6a12ed09a293dde1" help-text="Max 600x600px" identifier="photo" label="Photo" type="file"/>
+              <text field-id="8bbc03b1c0a81e8a57740fffd5bc71e9" identifier="name" label="Name:" required="true"/>
+              <text field-id="8bbc03b1c0a81e8a57740fffbad890ed" identifier="title" label="Title:" required="true"/>
+              <text field-id="407d72cfc0a81e8a6a12ed09c3c8d608" identifier="department" label="Department:"/>
+              <text field-id="8bbc03b1c0a81e8a57740fffc9811b36" identifier="phone" label="Phone:"/>
+              <text field-id="8bbc03b1c0a81e8a57740fffe3cfb2a2" identifier="email" label="Email:"/>
+              <text field-id="" identifier="officeInfo" label="Office Address/Info:"/>
+              <!-- Frontside (bottommost) link -->
+              <text field-id="" identifier="frontsideLink" label="Frontside Bottom Link:" type="radiobutton" default="no">
+                <radio-item label="Yes" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/frontsideInternalExternal, primaryContent/widget/personnelWidget/personnel/custom/person/frontsideLinkLabel" value="yes"/>
+                <radio-item label="No" value="no"/>
+              </text>
+              <text field-id="" help-text="internal (Cascade), external (outside link)" identifier="frontsideInternalExternal" label="Link Type:" type="radiobutton">
+                <radio-item label="Internal" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/frontsideInternalLink" value="frontsideInternal"/>
+                <radio-item label="External" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/frontsideExternalLink" value="frontsideExternal"/>
+              </text>
+              <text identifier="frontsideLinkLabel" label="Link Label"/>
+              <asset field-id="" identifier="frontsideInternalLink" label="Internal Link:" type="page"/>
+              <text field-id="" identifier="frontsideExternalLink" label="External Link:"/>
+              <!-- End frontside (bottommost) link -->
+              <text field-id="499edb3dc0a81e8a6a12ed09b5bdf3d3" help-text="Keep this short (80 words Max) because you can always link to their full bio or custom page." identifier="shortBio" label="Short Bio:" multi-line="true"/>
+              <text field-id="8bbc03b1c0a81e8a57740fff993608fb" identifier="linkToFullBio" label="Backside Bottom Link:" type="radiobutton">
+                <radio-item label="Yes" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/internalExternal, primaryContent/widget/personnelWidget/personnel/custom/person/linkLabel" value="yes"/>
+                <radio-item label="No" value="no"/>
+              </text>
+              <text field-id="8bbc03b1c0a81e8a57740fff9fa56220" help-text="internal (Cascade), external (outside link)" identifier="internalExternal" label="Link Type:" type="radiobutton">
+                <radio-item label="Internal" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/internalLink" value="internal"/>
+                <radio-item label="External" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/externalLink" value="external"/>
+              </text>
+              <text identifier="linkLabel" label="Link Label"/>
+              <asset field-id="8bbc03b1c0a81e8a57740fff5ea9dc03" identifier="internalLink" label="Internal Link:" type="page"/>
+              <text field-id="8bbc03b1c0a81e8a57740fffb6ee5bef" identifier="externalLink" label="External Link:"/>
+              <!-- Research List Items -->
+              <text field-id="" identifier="displayResearchInterests" label="Display Research Interests:" type="radiobutton" default="no">
+                <radio-item label="Yes" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/researchInterests" value="yes"/>
+                <radio-item label="No" value="no"/>
+              </text>
+              <group collapsed="true" identifier="researchInterests" label="Research Interest List" multiple="true">
+                <text label="Research Interest Item" identifier="researchInterestItem" multiple="true"/>
+              </group>
+              <!-- End Research List Items -->
+              <!-- Teaching List Items -->
+              <text field-id="" identifier="displaycoursesTaught" label="Display Courses Taught:" type="radiobutton" default="no">
+                <radio-item label="Yes" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/coursesTaught" value="yes"/>
+                <radio-item label="No" value="no"/>
+              </text>
+              <group collapsed="true" identifier="coursesTaught" label="Courses Taught" multiple="true">
+                <text label="Research Interest Item" identifier="course" multiple="true"/>
+              </group>
+              <!-- End Teaching List Items -->
+              <!-- School Affiliations List Items -->
+              <text field-id="" identifier="displaySchoolAffiliations" label="Display School Affiliations:" type="radiobutton" default="no">
+                <radio-item label="Yes" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/schoolAffiliations" value="yes"/>
+                <radio-item label="No" value="no"/>
+              </text>
+              <group collapsed="true" identifier="schoolAffiliations" label="School Affiliations" multiple="true">
+                <text label="Research Interest Item" identifier="schoolAffiliationsItem" multiple="true"/>
+              </group>
+              <!-- School Affiliations Teaching List Items -->
+            </group>
+          </group>
+          <!-- End custom -->
+        </group>
       </group>
       <group collapsed="true" identifier="campusMapWidget" label="Campus Map Widget">
         <text field-id="ff6bcbe5c0a81e5f43ef9b376ac081be" help-text="Copy &amp; paste the embed code (that starts and ends with &lt;iframe&gt; ... &lt;/iframe&gt;) on Campus Bird. Be sure to hide the top bar, side bar, footer, and print hide via the toggle button in Options under the ‘Embed’ tab. " identifier="iframe" label="iFrame Code" required="true"/>

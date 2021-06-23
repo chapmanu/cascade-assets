@@ -16,6 +16,8 @@
 // Styles for officially supported modular widgets
 @import "widgets/**/*";
 
+@import "widgets/personnel-widget/*";
+
 // New full page layout styles
 @import "layouts/*";
 
@@ -27,7 +29,6 @@
 
 //Omni-nav styles
 @import "omni_nav/**/*";
-
 
 @import "libraries/**/*";
 

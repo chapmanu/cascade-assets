@@ -1,8 +1,30 @@
-body {
+$sides: (
+  "b": "bottom",
+  "t": "top",
+  "l": "left",
+  "r": "right",
+);
+@each $prefix, $value in $sides {
+  @for $i from 0 through 1000 {
+    html body .m#{$prefix} {
+      &#{($i * 1)} {
+        margin-#{$value}: #{($i * 1)}px !important;
+      }
+    }
+    html body .p#{$prefix} {
+      &#{($i * 1)} {
+        padding-#{$value}: #{($i * 1)}px !important;
+      }
+    }
+  }
+}
+
+html body {
   // ONE COLUMN
   .one-column {
     // INTRO SECTION
-    .section-intro {
+    .section-intro,
+    .intro-section {
       margin-top: 0;
 
       &__title {
@@ -16,7 +38,7 @@ body {
       }
 
       &__buttons {
-        padding: 0 !important;
+        padding: 0;
         margin-top: 25px;
         margin-bottom: 25px;
       }
@@ -28,24 +50,35 @@ body {
     // END INTRO SECTION
 
     .grid-block-widget__wrapper {
+      .grid-block-widget__text--red {
+        color: $white;
+      }
+
       padding-top: 60px;
       padding-bottom: 60px;
 
       .grid-block-widget {
         &__title {
-          padding-left: 0 !important;
-          padding-right: 0 !important;
+          padding-left: 0;
+          padding-right: 0;
           padding-bottom: 10px;
         }
         &__text {
           p {
-            padding-left: 0 !important;
-            padding-right: 0 !important;
+            padding-left: 0;
+            padding-right: 0;
           }
         }
         .grid-block-widget__reveal {
-          padding-left: 0 !important;
-          padding-right: 0 !important;
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        .pl24 {
+          padding-left: 24 !important;
+        }
+        .pr24 {
+          padding-right: 24 !important;
         }
       }
 
@@ -59,6 +92,10 @@ body {
         .grid-block-widget {
           &__title {
             color: $white;
+
+            &--white {
+              color: $panther-black;
+            }
           }
         }
         .slick-dots li button {
@@ -122,6 +159,10 @@ body {
 
       &--sand {
         .grid-block-widget {
+          a {
+            color: $cu-red;
+          }
+
           &__title {
             color: $cu-red;
           }
@@ -163,14 +204,48 @@ body {
         z-index: 10;
       }
 
-      // ONE COL - ACTUAL WIDGET (NOT CONTAINER OR WRAPPER)
       .grid-block-widget {
+        a.grid-block-widget__title--white,
+        .grid-block-widget__title--sand,
+        a.grid-block-widget__title--sand {
+          color: $cu-red !important;
+        }
+        [class*="text--sand"] {
+          color: $panther-black;
+          a {
+            color: $cu-red !important;
+          }
+        }
+        [class*="text--white"] {
+          color: $panther-black;
+          a {
+            color: $cu-red;
+          }
+        }
+        [class*="text--black"] {
+          color: white;
+          a {
+            color: white;
+          }
+        }
+        [class*="text--red"] {
+          color: white !important;
+          a {
+            color: white !important;
+          }
+        }
+
+        // ONE COL - ACTUAL WIDGET (NOT CONTAINER OR WRAPPER)
         &--landscape {
           --maxHeight: 200px;
         }
       }
-      // END ONE COL - ACTUAL WIDGET (NOT CONTAINER OR WRAPPER)
-    }
+
+      .one-col-text-padding {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+      }
+    } // END ONE COL - ACTUAL WIDGET (NOT CONTAINER OR WRAPPER)
 
     .inner-container {
       @include outer-container;
@@ -218,6 +293,26 @@ html body .one-column {
   .grid-block-widget__wrapper--red,
   .grid-block-widget__wrapper--black {
     .section-intro__title {
+      &[class*="--sand"] {
+        a {
+          color: $cu-red;
+        }
+      }
+      &[class*="--white"] {
+        a {
+          color: $cu-red;
+        }
+      }
+      &[class*="--black"] {
+        a {
+          color: white;
+        }
+      }
+      &[class*="--red"] {
+        a {
+          color: white;
+        }
+      }
       a {
         $border-color: $white;
         border-bottom: 2px dotted $white;
@@ -328,13 +423,19 @@ html body .one-column {
     text-align: center;
   }
 
-  .grid-block-widget__wrapper.grid-block-widget__wrapper--white
-    .grid-block-widget__text {
+  .grid-block-widget__wrapper.grid-block-widget__wrapper--white {
     color: $panther-black !important;
   }
-
-  .grid-block-widget__wrapper--red a,
-  .grid-block-widget__wrapper--black a {
-    color: white !important;
+  .block-widget__reveal--white,
+  .block-widget__reveal--sand,
+  .block-widget__reveal--black {
+    color: $cu-red !important;
+    [class*="--white"] {
+      color: $cu-red !important;
+    }
+  }
+  .grid-block-widget.grid-block-widget--white
+    .grid-block-widget__reveal--white {
+    color: $cu-red;
   }
 }

@@ -245,6 +245,7 @@ function ieObjectFitFallback() {
 }
 $(window).load(function () {
   adjustCarouselButtonHeight();
+
   $("button.slick-arrow").on("click keydown", function (e) {
     if (accessibleClick(event)) {
       $(".grid-block-widget__reveal--less").trigger("click");

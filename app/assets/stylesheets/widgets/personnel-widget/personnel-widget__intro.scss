@@ -1,0 +1,9 @@
+.personnel-widget__wrapper {
+  .section-intro,
+  .intro-section {
+    &__title,
+    &__text {
+      font-family: $arial;
+    }
+  }
+}

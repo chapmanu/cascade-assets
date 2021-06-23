@@ -15,6 +15,7 @@
 #import( "/_cascade/formats/modular/widgets/Funnels 1up" )
 #import( "/_cascade/formats/modular/widgets/Funnels 2up" )
 #import( "/_cascade/formats/modular/widgets/Logo Image Rotator" )
+#import( "/_cascade/formats/modular/widgets/Personnel Widget" )
 #import( "/_cascade/formats/modular/widgets/Personnel" )
 #import( "/_cascade/formats/modular/widgets/Tabs" )
 #import( "/_cascade/formats/modular/widgets/Testimonial" )
@@ -158,6 +159,14 @@
         #outputGridBlockWidget($widget)
     #end
 #end
+##        
+    #if ($widgetType == 'Personnel Widget')
+        #set ($displayPersonnelWidget = $widget.getChild('personnelWidget').getChild('display').value)
+        #if ($displayPersonnelWidget == 'Yes')
+            #outputPersonnelWidget($widget)
+        #end
+    #end
+##  
 ##        
     #if ($widgetType == 'Personnel Table')
         #set ($displayPersonnel = $widget.getChild('personnel').getChild('display-personnel').value)
