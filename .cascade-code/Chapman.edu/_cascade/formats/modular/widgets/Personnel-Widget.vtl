@@ -1,0 +1,416 @@
+#import( "/_cascade/formats/helpers.velocity" )
+#macro(outputPersonnelWidget $element)
+
+#set ($currentPage = $_XPathTool.selectSingleNode($contentRoot, "//system-page[@current]") )
+#set ($templateType = $currentPage.contentType.path )
+#set ($widgetXPath = 'personnelWidget')
+#set ($display = $element.getChild($widgetXPath).getChild('display').value)
+
+## Intro Section
+#set ($displaySectionIntro = $element.getChild($widgetXPath).getChild('displaySectionIntro').value)
+#set ($sectionPreheader =
+$element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionPreheader').value)
+#set ($sectionHeader =
+$element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionHeader').value)
+#set ($sectionText =
+$element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionHeaderParagraph').value)
+#set ($displayCTA = $element.getChild($widgetXPath).getChild('displayCTAButtons').value)
+#set ($introAndOutroTextAlignment =
+$element.getChild($widgetXPath).getChild('textAlignment').value)
+## Close Intro Section
+
+## Personnel Widget Section
+#set ($personnelGroup = $element.getChild($widgetXPath).getChild('personnel'))
+#set ( $layoutStyle = $personnelGroup.getChild('style').value )
+#set ($listingType = $personnelGroup.getChild('individualListingType').value )
+#set ($listingType1 = $personnelGroup.getChild('listingType1').value )
+#set ($layoutStyle = $personnelGroup.getChild('style').value )
+## Close Personnel Widget Section
+
+## Faculty Listing Section
+#if ($listingType1 == 'facultyListing')
+    #set ($facultyListingGroup = $personnelGroup.getChild('facultyListing'))
+    #set ( $schoolAffiliation = $facultyListingGroup.getChild('schoolAffiliation').value)
+    #set ( $filterBy = $facultyListingGroup.getChild('filterBy').value )
+    #set ( $facultyUnit = $facultyListingGroup.getChild('facultyUnit').value)
+    #set ($name = $facultyListingGroup.getChild('name').value)
+    #set ($title = $facultyListingGroup.getChild('title').value)
+    #set ($phone = $facultyListingGroup.getChild('phone').value)
+    #set ($email = $facultyListingGroup.getChild('email').value)
+    #set ($shortBio = $facultyListingGroup.getChild('shortBio').value)
+    #set ($linkFullBio = $facultyListingGroup.getChild('linkFullBio').value)
+#end
+## Close Faculty Listing Section
+
+## Staff/Custom Listing Section
+## #if ($listingType1 == 'staffCustomListing' || 'staffCustom' || 'facultyListing')
+#set ($numberOfColumns = '2')
+
+#if ($layoutStyle == 'individual-profile')
+    #set ($numberOfColumns = '1')
+#end
+
+#if ($templateType == 'Modular/1 Column' && $layoutStyle != 'individual-profile')
+  #set ($numberOfColumns = '4')
+#end
+
+<div class="personnel-widget__one-col-wrapper">
+  <div class="personnel-widget__wrapper">
+    #if ($displaySectionIntro != "no")
+        <div class="section-intro text-align--${introAndOutroTextAlignment}">
+            <div class="section-intro__preheader text-align--${introAndOutroTextAlignment}">
+                ${_EscapeTool.xml($sectionPreheader)}
+            </div>
+            <h2 class="section-intro__header text-align--${introAndOutroTextAlignment}">
+                ${_EscapeTool.xml($sectionHeader)}
+            </h2>
+            <div class="section-intro__title text-align--${introAndOutroTextAlignment}">
+                $_SerializerTool.serialize($element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionHeaderParagraph'),
+                true)
+            </div>
+        </div>
+
+    #end ## Close #if ($displaySectionIntro != "no")
+    <div
+        class="personnel-widget__container personnel-widget__container--${numberOfColumns}-col personnel-widget__${layoutStyle} personnel-widget__${layoutStyle}">
+
+      #if ($listingType != 'individualFaculty')
+        #set ( $persons = $_XPathTool.selectNodes($element, 'personnelWidget/personnel/custom/person'))
+        #foreach ($person in $persons)
+            #set ($photo = $person.getChild('photo').getChild('link').value)
+            #set ($name = $person.getChild('name').value)
+            #set ($title = $person.getChild('title').value)
+            #set ($department = $person.getChild('department').value)
+            #set ($phone = $person.getChild('phone').value)
+            #set ($phone = ${_EscapeTool.xml($phone)})
+            #set ($email = $person.getChild('email').value)
+            #set ($email = ${_EscapeTool.xml($email)})
+            #set ($officeInfo = $person.getChild('officeInfo').value)
+            #set ($officeInfo = ${_EscapeTool.xml($officeInfo)})
+            #set ($shortBio = $person.getChild('shortBio').value)
+            #set ($item = '')
+            #set ($displayResearchInterests = $person.getChild('displayResearchInterests').value)
+            #set ($displaySchoolAffiliations = $person.getChild('displaySchoolAffiliations').value)
+            #set ($displayCoursesTaught = $person.getChild('displayCoursesTaught').value)
+
+
+
+            #macro(outputResearchInterests)
+              #set ( $researchInterests = $_XPathTool.selectNodes($person, 'researchInterests/researchInterestItem'))
+              #foreach ( $item in $researchInterests)
+                #if ($item.value != '')
+                #set ($listTitle = 'Research Interests:')
+                  <ul>
+                    <li>
+                      ${_EscapeTool.xml($item.value)}
+                    </li>
+                  </ul>
+                #end
+              #end
+            #end
+
+            #macro(outputCoursesTaught)
+              #set ( $coursesTaught = $_XPathTool.selectNodes($person, 'coursesTaught/course'))
+              #foreach ( $item in $coursesTaught)
+                #if ($item.value != '')
+                <ul>
+                  <li>
+                    ${_EscapeTool.xml($item.value)}
+                  </li>
+                </ul>
+                #end
+              #end
+            #end
+
+            #macro(outputSchoolAffiliations)
+              #set ( $schoolAffiliations = $_XPathTool.selectNodes($person, 'schoolAffiliations/schoolAffiliationsItem'))
+              #foreach ( $item in $schoolAffiliations)
+                #if ($item.value != '')
+                <ul>
+                  <li>
+                    ${_EscapeTool.xml($item.value)}
+                  </li>
+                </ul>
+                #end
+              #end
+            #end
+
+            ## Frontside Link
+            #set ($displayFrontsideLink = $person.getChild('frontsideLink').value)
+            #set ($frontsideLink = $person.getChild('frontsideInternalLink').getChild('path').value)
+            #set ($frontsideLinkType = $person.getChild('frontsideInternalExternal').value)
+            #set ($frontsideLinkLabel = $person.getChild('frontsideLinkLabel').value)
+
+            #if ($frontsideLinkType == 'frontsideInternal')
+                #set ($frontsideLinkURL = $person.getChild('frontsideInternalLink').getChild('path').value)
+                #elseif ($frontsideLinkType == 'frontsideExternal')
+                #set ($frontsideLinkURL = $person.getChild('frontsideExternalLink').value )
+            #else
+                #set ($frontsideLinkURL = $person.getChild('fileLink').getChild('path').value )
+            #end
+            ## Close Frontside Link
+
+            ## Backside Link
+            #set ($displayBacksideLink = $person.getChild('linkToFullBio').value)
+            #set ($linkToFullBio = $person.getChild('internalLink').getChild('path').value)
+            #set ($linkType = $person.getChild('internalExternal').value)
+            #set ($linkLabel = $person.getChild('linkLabel').value)
+
+            #if ($linkType == 'internal')
+                #set ($linkURL = $person.getChild('internalLink').getChild('path').value)
+                #elseif ($linkType == 'external')
+                #set ($linkURL = $person.getChild('externalLink').value )
+            #else
+                #set ($linkURL = $person.getChild('fileLink').getChild('path').value )
+            #end
+            ## Close Backside Link
+
+            #if ($layoutStyle != 'individual-profile' || 'facultyListing')
+                #outputCardGridAndCarousel() ## Local Macro - outputs actual HTML
+            #end
+
+            #if ($layoutStyle == 'individual-profile')
+                #outputIndividualListing()
+            #end
+        #end ## Close #foreach ($person in $persons)
+
+      #elseif ($listingType == 'individualFaculty')
+        #set ( $persons = $_XPathTool.selectNodes($element, 'personnelWidget/personnel/individualFacultyListing/individualFaculty'))
+
+        #foreach ($member in $persons)
+          #set ( $name = $member.getChild('facultyMember').getChild('name').value)
+          #set ( $path = $member.getChild('facultyMember').getChild('path').value)
+          #set ($bio = $member.getChild('bio').getChild('p').value)
+          #set ( $customBio = $member.getChild('customBio').value)
+          #set ( $customBio = ${_EscapeTool.xml($customBio)})
+          #set ($title = $member.getChild('title').value)
+          #set ($department = $member.getChild('department').value)
+          #set ($phone = $member.getChild('phone').value)
+          #set ($phone = ${_EscapeTool.xml($phone)})
+          #set ($email = $member.getChild('email').value)
+          #set ($email = ${_EscapeTool.xml($email)})
+          #set ($officeInfo = $member.getChild('officeInfo').value)
+          #set ($officeInfo = ${_EscapeTool.xml($officeInfo)})
+          #set ($shortBio = $member.getChild('shortBio').value)
+
+          
+
+        #end ## Close #foreach ($member in $persons)
+        #outputIndividualListing()
+          <ul>
+            <li>Faculty NAME: $name</li>
+            <li>Faculty path: $path</li>
+            <li>customBio: $customBio</li>
+            <li>bio: $bio</li>
+          </ul>
+      #end ## Close #elseif ($listingType == 'individualFaculty')
+        
+        
+    </div>
+    ## Close <div class="personnel-widget__container
+    <button class=" show-more personnel-widget__show-more underline">Show More</button>
+  </div>
+</div>
+#end ## Close Staff/Custom Listing Section
+
+#macro(outputCardGridAndCarousel)
+<div class="personnel-widget">
+#debugDetails()
+
+<div class="personnel-widget__front">
+    <div class="banner personnel-widget__banner"></div>
+    <div class="image personnel-widget__image-wrapper">
+        <img
+            class="personnel-widget__image--circle personnel-widget__image"
+            src="${photo}"
+            role="decorative"/>
+    </div>
+    <div class="name personnel-widget__name">${_EscapeTool.xml($name)}</div>
+    <div class="title personnel-widget__title">${_EscapeTool.xml($title)}</div>
+    <div class="phone personnel-widget__phone">Phone</div>
+    <div class="phone-number personnel-widget__phone-number">
+        <a href="tel:${phone}">$phone</a>
+    </div>
+    <div class="email personnel-widget__email">Email</div>
+    <div class="email-address personnel-widget__email-address">
+        <a href="mailto:${email}">$email</a>
+    </div>
+    <div class="optional office-info personnel-widget__office-info">Office Info</div>
+    <div class="optional office-info personnel-widget__office-detail">${_EscapeTool.xml($officeInfo)}</div>
+    #if ($displayFrontsideLink != 'no')
+        <hr/>
+        <div class="link-bottom personnel-widget__link-bottom">
+            <a href="$frontsideLinkURL">${_EscapeTool.xml($frontsideLinkLabel)}
+            </a>
+        </div>
+    #end
+
+    <span tabindex="0" class="curl" title="Click to reveal back of card"></span>
+    <span class="half-moon"></span>
+</div>
+<div class="personnel-widget__back" title="Click to reveal front of card" tabindex="0">
+    <p tabindex="0">
+        ${_EscapeTool.xml($shortBio)}
+    </p>
+
+    #if ($displayBacksideLink != 'no')
+        <a title="${_EscapeTool.xml($linkLabel)}" href="${linkURL}">${_EscapeTool.xml($linkLabel)}</a>
+    #end
+</div>
+</div>
+## #end ## Close #if ($layoutStyle == 'cardGrid')
+
+#end ## Close topmost #macro(outputPersonnelWidget $element)
+
+#macro(outputIndividualListing)
+
+<div class="personnel-widget">
+#debugDetails()
+<div class="banner personnel-widget__banner"></div>
+<div class="personnel-widget__inner">
+<div class="personnel-widget__col--left">
+    <div class="image personnel-widget__image-wrapper">
+        <img
+            class="personnel-widget__image--circle personnel-widget__image"
+            src="${photo}"
+            role="decorative"/>
+    </div>
+</div>
+<div class="personnel-widget__col--right">
+    <div class="name personnel-widget__name">${_EscapeTool.xml($name)}</div>
+    <div class="title personnel-widget__title">${_EscapeTool.xml($title)}</div>
+    <div class="phone personnel-widget__phone">Phone</div>
+    <div class="phone-number personnel-widget__phone-number">
+        <a href="tel:${phone}">$phone</a>
+    </div>
+    <div class="email personnel-widget__email">Email</div>
+    <div class="email-address personnel-widget__email-address">
+        <a href="mailto:${email}">$email</a>
+    </div>
+    <div class="optional office-info personnel-widget__office-info">Office Info</div>
+    <div class="optional office-info personnel-widget__office-detail">${_EscapeTool.xml($officeInfo)}</div>
+
+    <div class="biography personnel-widget__biography">
+        <div class="personnel-widget__label personnel-widget__biography-label">Biography:</div>
+        <p tabindex="0">
+            ${_EscapeTool.xml($shortBio)}
+        </p>
+    </div>
+
+    #if ($displayResearchInterests != 'no')
+      <div class="research-interest personnel-widget__research-interest">
+          <div class="personnel-widget__label">Research Interest:</div>
+            #outputResearchInterests()
+          <div class="personnel-widget__research-interest--details">
+          </div>
+      </div>
+    #end
+
+
+    #if ($displayCoursesTaught != 'no')
+      <div class="teaching personnel-widget__teaching">
+          <div class="personnel-widget__label">Teaching:
+          </div>
+          <div class="personnel-widget__research-interest--details">
+              #outputCoursesTaught()
+          </div>
+      </div>
+    #end
+
+    #if ($displaySchoolAffiliations != 'no')
+      <div class="school-affiliation personnel-widget__school-affiliation">
+          <div class="personnel-widget__label">School Affiliation:</div>
+          <div class="personnel-widget__research-interest--details">
+              #outputSchoolAffiliations()
+          </div>
+      </div>
+    #end
+    <div class="link-bottom personnel-widget__link-bottom personnel-widget__learn-more">
+        <a href="$frontsideLinkURL">${_EscapeTool.xml($frontsideLinkLabel)}
+        </a>
+    </div>
+</div>
+</div>
+
+</div>
+#end ## Close #macro(outputIndividualListing)
+
+#macro(debugDetails)
+  <style>
+  #uninav {
+    display: none !important;
+  }
+  details ul {
+  padding-left: 20px;
+  }
+
+  details {
+  position: absolute;
+  z-index: 3;
+  color: yellowgreen;
+  background-color: black;
+  text-align: left;
+  display: none;
+  }
+
+  details[open] {
+  position: relative;
+
+  }
+  </style>
+  <details>
+  <summary>Details</summary>
+  <ul id="personnel-object">
+  <li>layoutStyle: $layoutStyle
+  </li>
+  <li>templateType: $templateType</li>
+  <li>displaySectionIntro: $displaySectionIntro</li>
+  <li>sectionPreheader: $sectionPreheader
+  </li>
+  <li>sectionHeader: $sectionHeader
+  </li>
+  <li>listingType: $listingType
+  </li>
+  <li>listingType1: $listingType1
+  </li>
+  <li>schoolAffiliation: $schoolAffiliation
+  </li>
+  <li>filterBy: $filterBy
+  </li>
+  <li>facultyUnit: $facultyUnit
+  </li>
+  <li>photo: $photo
+  </li>
+  <li>name: $name
+  </li>
+  <li>title: $title
+  </li>
+  <li>phone: $phone
+  </li>
+  <li>email: $email
+  </li>
+  <li>officeInfo: $officeInfo
+  </li>
+  <li>shortBio: $shortBio
+  </li>
+  <li>linkFullBio: $linkFullBio
+  </li>
+  <li>linkToFullBio: $linkToFullBio
+  </li>
+  <li>linkType: $linkType
+  </li>
+  <li>linkURL: $linkURL
+  </li>
+  <li>frontsideLinkType : $frontsideLinkType
+  </li>
+  <li>frontsideLinkURL: $frontsideLinkURL
+  </li>
+  <li>displayFrontsideLink: $displayFrontsideLink
+  </li>
+  <li>displayBacksideLink: $displayBacksideLink</li>
+  <li>layoutStyle: $layoutStyle</li>
+  $personnelGroup.getChild('individualListingType').value
+  </ul>
+  </details>
+
+#end

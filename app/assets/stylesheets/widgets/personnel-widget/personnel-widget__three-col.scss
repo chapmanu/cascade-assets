@@ -1,0 +1,17 @@
+html.three-column-template {
+  .personnel-widget__container {
+    grid-gap: 16px;
+  }
+  .personnel-widget__carousel {
+    .slick-slide {
+      margin: 0 16px;
+    }
+    /* the parent */
+    .slick-list {
+      margin: 0 -16px;
+    }
+    button.slick-arrow.slick-next {
+      margin-right: -16px !important;
+    }
+  }
+}

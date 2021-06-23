@@ -1,0 +1,36 @@
+.personnel-widget__individual-profile {
+  .personnel-widget {
+    padding-bottom: 20px;
+    max-width: 600px;
+    &__learn-more {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      display: block;
+    }
+
+    &__inner {
+      display: flex;
+    }
+    &__col--left {
+      width: 180px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    &__col--right {
+      width: 80%;
+      text-align: left;
+      padding-top: 20px;
+    }
+    &__title {
+      padding-left: 0;
+    }
+    ul {
+      list-style: none;
+      text-align: left;
+    }
+    li:before {
+      content: "+";
+    }
+  } // end .personnel-widget
+} // end .personnel-widget__container--individual-listing
