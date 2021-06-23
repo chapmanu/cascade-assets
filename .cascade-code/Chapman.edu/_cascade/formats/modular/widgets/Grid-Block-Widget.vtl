@@ -11,7 +11,7 @@
     $snakeCase
 #end
 
-#macro(outputGridBlockWidget $element) 
+#macro(outputGridBlockWidget $element)
   #set ($widgetXPath = 'gridBlockWidget')
   
 #set ($templateType = $currentPage.contentType.path )
@@ -21,30 +21,33 @@
 #set ($bgColor =  $element.getChild($widgetXPath).getChild('bgColor').value.toLowerCase())
 
 #if ($templateType == ("Modular/1 Column"))
-  <!-- IF ONE COLUMN TEMPLATE --> 
-    #set ( $oneColWrapperBackgroundColor = "grid-block-widget__wrapper--" + ${bgColor} ) 
+  <!-- IF ONE COLUMN TEMPLATE -->
+    ## #set ( $oneColWrapperBackgroundColor = "grid-block-widget__wrapper--" + ${bgColor} )
+    #set ( $oneColDataBgColor = ${bgColor} )
     ## #set ($oneColNoBg = "no-bg")
+
     ## #set ($textBackgroundColor = $oneColNoBg )
-      <!-- IF CIRCLE --> 
-    #if ($imageOrientation != 'circle')	
-        #set ($titleBgColor = $bgColor)	
-      #else 	
-        #set ($titleBgColor = 'no-bg')	
-      #end 
-      <!-- END IF CIRCLE --> 
-    <!-- END IF ONE COLUMN TEMPLATE --> 
-    
-    <!-- IF NOT ONE COL TEMPLATE --> 
-    #else 
+      <!-- IF CIRCLE -->
+    #if ($imageOrientation != 'circle')
+        #set ($titleBgColor = $bgColor)
+      #else
+        #set ($titleBgColor = 'no-bg')
+      #end
+      <!-- END IF CIRCLE -->
+    <!-- END IF ONE COLUMN TEMPLATE -->
+
+    <!-- IF NOT ONE COL TEMPLATE -->
+    #else
         #set ( $oneColWrapperBackgroundColor = "")
         #set ($oneColNoBg = "")
         #set ($titleBgColor = $element.getChild($widgetXPath).getChild("gridOptions").getChild('textBackgroundColor').value)
     #end
-    <!-- END IF NOT ONE COL TEMPLATE --> 
+    <!-- END IF NOT ONE COL TEMPLATE -->
 
 #set ($parentGroup = $element.getChild($widgetXPath))
   ## #getSetVal($parentGroup "altText")
   #set ($altText = $parentGroup.getChild('altText'))
+
 
 
   #macro(getSetVal $parentGroup $node)
@@ -53,26 +56,23 @@
     #set ($nodeVal = "$" + $node)
 
     #set ($nodeVal = $parentGroup.getChild("$node").value)
-    
+
     #set( $regex = "([a-z])([A-Z]+)")
     #set( $replacement = "$1-$2")
     #set( $classNode = $node.replaceAll($regex, $replacement).toLowerCase())
     #set( $classNodeModifier = $nodeVal.replaceAll($regex, $replacement).toLowerCase())
-    
+
    #end
 
-  ## INTRO SECTION   
+  ## INTRO SECTION
   #getSetVal($parentGroup  'displaySectionIntro')
   #set ($displaySectionIntro = $parentGroup.getChild('displaySectionIntro').value)
-  
+
 
   #set ($displayCTA = $element.getChild($widgetXPath).getChild('displayCTAButtons').value)
-  
- 
+
+
   #set ($introAndOutroTextAlignment = $element.getChild($widgetXPath).getChild('textAlignment').value)
-
-
-
 
 #set ($currentPage = $_XPathTool.selectSingleNode($contentRoot, "//system-page[@current]") )
 #set ($widgetXPath = 'gridBlockWidget')
@@ -85,8 +85,6 @@
     #set ($parentGroup = $element.getChild($widgetXPath).getChild('sectionHeaderGroup'))
     ## #getSetVal($parentGroup "displaySectionIntro")
 
-
-
     #set ($sectionPreheader = $parentGroup.getChild('sectionPreheader').value)
 
     #set ($sectionHeader = $parentGroup.getChild('sectionHeader').value)
@@ -94,38 +92,35 @@
     #set ($sectionHeaderParagraph = $parentGroup.getChild('sectionHeaderParagraph').value)
 
     #getSetVal($parentGroup "sectionHeaderParagraph")
-    
+
     ## INTRO SECTION - BUTTONS
        #set ($displaySectionButtons = $element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('displaySectionButtons').value)
       #set ($sectionButtonAlignment = $element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionButtonAlignment').value)
        #if ($displaySectionButtons == 'yes')
         #set ( $blocks = $_XPathTool.selectNodes($element, 'gridBlockWidget/gridOptions/gridBlock'))
 
-       
-       
-       
         #set ($parentGroup = $element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionButtons'))
         ## #getSetVal($parentGroup "buttonLabel")
         #set ($buttonLabel = $parentGroup.getChild('buttonLabel').value)
 
         #getSetVal($parentGroup "buttonLabel")
 
-      
+
 
         #getSetVal($parentGroup "internalOrExternalLink")
-        
-        
+
+
        #set ($ariaLabel = $element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionButtons').getChild('buttonAccessibility').getChild('ariaLabel').value)
        #if ($internalOrExternalLink == 'internal')
             #set ($buttonLink = $element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionButtons').getChild('internalLink').getChild('path').value)
         #elseif ($internalOrExternalLink == 'external')
             #set ($buttonLink = $element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionButtons').getChild('externalLinkField').value)
-        #else 
+        #else
             #set ($internalOrExternalLink = '')
        #end
       #end
-       
-  #else 
+
+  #else
     #set ($sectionHeader = '')
     #set ($sectionPreheader = '')
     #set ($sectionHeaderParagraph = '')
@@ -133,47 +128,48 @@
     #set ($internalOrExternalLink = '')
     #set ($buttonLink = '')
   #end
-  
-  
+
+
   #set ($gridOptions = $element.getChild($widgetXPath).getChild("gridOptions"))
 
-##   GRID OPTIONS 
-
-
+  ##   GRID OPTIONS
   #set ($hasGridTitle = $gridOptions.getChild('title').value)
-  
 
   #if ($hasGridTitle != "No")
     #set ($gridTitleClass = "has-grid-title")
-  #else 
+  #else
     #set ($gridTitleClass = "no-grid-title")
   #end
 
   #set ($textAlignment = $gridOptions.getChild('textAlign').value)
+  #set ($truncateText = $gridOptions.getChild('truncateText').value)
+    
+  #set ($gridGap = $gridOptions.getChild('advanced').getChild('gridGap').value)
 
 
-#set ($hasGridBodyText = $gridOptions.getChild('bodyText').value)
+  #if ($gridGap != '')
+    #set ($gridGap = "grid-gap: " + ${gridGap})
+  #else 
+    #set ($gridGap = "")
+  #end
 
-
-#set ($imageOrVideo = $gridOptions.getChild('imageOrVideo').value)
-
-
-
-#set ($imageOrientation = $gridOptions.getChild('imageOrientation').value)
+  #set ($hasGridBodyText = $gridOptions.getChild('bodyText').value)
+  #set ($imageOrVideo = $gridOptions.getChild('imageOrVideo').value)
+  #set ($imageOrientation = $gridOptions.getChild('imageOrientation').value)
 
 
 #if ($imageOrientation != 'circle')
       #set ($titleBgColor = $bgColor)
-    #else 
+    #else
       #set ($titleBgColor = 'no-bg')
-    #end 
+    #end
 
 #set ($titleOverlay = $gridOptions.getChild('titleOverlay').value )
-  #if ($titleOverlay != 'No') 
+  #if ($titleOverlay != 'No')
     #set ($widgetPosition = "relative")
-    #set ($overlayClass = 'grid-block-widget__container--overlay') 
-  #else 
-    #set ($overlayClass = '') 
+    #set ($overlayClass = 'grid-block-widget__container--overlay')
+  #else
+    #set ($overlayClass = '')
   #end
 
 #set ($textBackgroundColor = $gridOptions.getChild('textBackgroundColor').value)
@@ -182,19 +178,30 @@
 #set ($gridColumnsVideos = $gridOptions.getChild('gridColumnsVideos').value)
 
 
-  ## IMAGES 
+  ## IMAGES
   #set ($gridColumnsImages = $gridOptions.getChild('gridColumnsImages').value)
 
 
   #if ($gridColumnsImages != '')
     #set ($dataColumns = $gridColumnsImages.split("-")[0])
-    
+
   #elseif ($gridColumnsVideos != '')
       #set ($dataColumns = $gridColumnsVideos)
-  #else 
+  #else
       #set ($dataColumns = '')
   #end
 
+## VIDEOS
+#set ($gridColumnsVideos = $gridOptions.getChild('gridColumnsVideos').value)
+    #if ($gridColumnsVideos == 'gridColumnsTwoVideos')
+        #set ($gridColumnsVideos = 'grid-block-widget__container--2-col')
+        #set ($gridColumnsImages = $gridColumnsVideos)
+    #elseif ($gridColumnsVideos == 'gridColumnsThreeVideos')
+        #set ($gridColumnsVideos = 'grid-block-widget__container--3-col')
+        #set ($gridColumnsImages = $gridColumnsVideos)
+    #else 
+        #set ($gridColumnsVideos = '')
+    #end
 
 
 #set ($gridDisplay = $gridOptions.getChild('gridDisplay').value)
@@ -208,31 +215,39 @@
     #set ($pagination = 'grid-block-widget__container--rotate')
   #end
 
-## GRID BLOCK 
+## GRID BLOCK
   #set ($gridBlockGroup =  $element.getChild($widgetXPath).getChild('gridOptions').getChild('gridBlock'))
 
   #set ( $blocks = $_XPathTool.selectNodes($element, 'gridBlockWidget/gridOptions/gridBlock'))
 
-<div class="grid-block-widget__wrapper ${oneColWrapperBackgroundColor}">
+<div class="grid-block-widget__wrapper ${oneColWrapperBackgroundColor}" data-bg-color="${oneColDataBgColor}">
 <div class="inner-container">
 #if ($displaySectionIntro == "yes")
-    <div class="section-intro text-align--${introAndOutroTextAlignment}">
-      <div class="section-intro__preheader text-align--${introAndOutroTextAlignment}">
-        ${_EscapeTool.xml($sectionPreheader)}
-      </div>
-      <h2 class="section-intro__header text-align--${introAndOutroTextAlignment}">  
-        ${_EscapeTool.xml($sectionHeader)}
-      </h2>
-      <div class="section-intro__title text-align--${introAndOutroTextAlignment}">     
-        $_SerializerTool.serialize($element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionHeaderParagraph'), true)
-      </div>
-    </div>
-    
-  #end
-    
+    <div class="intro-section text-align--${introAndOutroTextAlignment}">
+      #if ($sectionPreheader != "")
+        <div class="intro-section__preheader text-align--${introAndOutroTextAlignment}">
+          ${_EscapeTool.xml($sectionPreheader)}
+        </div>
+      #end
 
-  <div id="grid-block-widget__container--${_MathTool.add($foreach.index, 1)}" class="grid-block-widget__container grid-block-widget__container--$imageOrVideo grid-block-widget__container--${gridColumnsImages} ${overlayClass} grid-block-widget__container--${imageOrientation} ${pagination}" data-columns="${dataColumns}">
-  
+      #if ($sectionHeader != "")
+        <h2 class="intro-section__header text-align--${introAndOutroTextAlignment}">
+          ${_EscapeTool.xml($sectionHeader)}
+        </h2>
+      #end
+
+      #if ($_SerializerTool.serialize($element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionHeaderParagraph'), true) != "")
+        <div class="intro-section__text text-align--${introAndOutroTextAlignment}  ">
+          $_SerializerTool.serialize($element.getChild($widgetXPath).getChild('sectionHeaderGroup').getChild('sectionHeaderParagraph'), true)
+        </div>
+      #end
+    </div>
+
+  #end
+
+
+  <div id="grid-block-widget__container--${_MathTool.add($foreach.index, 1)}" class="grid-block-widget__container grid-block-widget__container--$imageOrVideo grid-block-widget__container--${gridColumnsImages} ${overlayClass} grid-block-widget__container--${imageOrientation} ${pagination}  ${gridColumnsVideos}" data-columns="${dataColumns}" style="${gridGap};">
+
 
   #foreach ($block in $blocks)
     #set ($title = $block.getChild('gridBlock').getChild('gridBlockTitle').value )
@@ -243,13 +258,14 @@
         #set ($gridBlockLinkURL = $block.getChild('internalLink').getChild('path').value)
       #elseif ($gridBlockLinkType == 'external')
         #set ($gridBlockLinkURL = $block.getChild('externalLink').value )
-      #else 
+      #else
         #set ($gridBlockLinkURL = $block.getChild('fileLink').getChild('path').value )
     #end
     #set ($gridBlockContent = $block.getChild('content').value)
     #set ($gridBodyText = $block.getChild('gridBlockText').value)
+    #set ($truncateText = $block.getChild('truncateText').value)
 
-    
+
   ##   Grid Block Image
     #set ($gridBlockImageGroup = $element.getChild($widgetXPath).getChild('gridOptions').getChild('gridBlock'))
 
@@ -260,7 +276,12 @@
 
     #set ($gridBlockAltText = $block.getChild('altText').value)
     #set ($gridBlockAltText = ${_EscapeTool.xml($gridBlockAltText)})
-    
+
+    #if ($gridBlockAltText.trim() == '')
+      #set ($imageRole = "presentation")
+    else
+      #set ($imageRole = "img")
+    #end
 
     #set ($gridBlockImagePosition = $block.getChild('altText').value)
 
@@ -272,64 +293,72 @@
     #set ($gridBlockiFrame = $gridBlockiFrame.replaceAll('allowfullscreen', 'allowfullscreen="true"'))
     #set ($gridBlockText = $block.getChild('gridBlockText').value)
 
-    ## HTML MARKUP - INSIDE FOREACH BLOCK 
+    ## HTML MARKUP - INSIDE FOREACH BLOCK
     #camelToSnake($widgetXPath)
-    #set ( $widgetXPath = $snakeCase ) 
+    #set ( $widgetXPath = $snakeCase )
 
 #if ($templateType == ("Modular/1 Column"))
   #set ($textBackgroundColor = $gridOptions.getChild('textBackgroundColor').value)
-  #set ($titleBgColor = $element.getChild($widgetXPath).getChild("gridOptions").getChild('textBackgroundColor').value)
+  #set ($titleBgColor = $textBackgroundColor)
+  #if ($textBackgroundColor != $bgColor)
+    #set ($oneColPadding = 'default-padding')
+  #elseif ($textBackgroundColor == $bgColor)
+    #set ($oneColPadding = 'no-padding')
+  #end
 #end
 
+  <div class="${widgetXPath} grid-block-widget--${titleBgColor} ${widgetXPath}--${imageOrientation} ${oneColPadding}" title-bg-color="${titleBgColor}" data-oneColPadding="${oneColPadding}">
 
-  <div class="${widgetXPath} grid-block-widget--${titleBgColor} ${widgetXPath}--${imageOrientation}" title-bg-color="${titleBgColor}">
-    
-    #if ($titleOverlay != 'No')  
+    #if ($titleOverlay != 'No')
       <div class="grid-block-widget__relative">
     #end
     #if ($imageOrVideo == 'images' && $imageOrientation != 'none')
-      <img class="${widgetXPath}__image ${widgetXPath}__image--${imageOrientation}" src="[system-asset]${_EscapeTool.xml($gridBlockImagePath)}[/system-asset]" alt="${gridBlockAltText}" style="object-position: ${objectFitPosition}" />
-    
+      <img class="${widgetXPath}__image ${widgetXPath}__image--${imageOrientation}" src="[system-asset]${_EscapeTool.xml($gridBlockImagePath)}[/system-asset]" alt="${gridBlockAltText}" style="object-position: ${objectFitPosition}" role="${imageRole}" />
+
     #elseif ($imageOrVideo == 'videos' && $imageOrientation != 'none')
          ## <video src="${_EscapeTool.xml($gridBlockVideo)}"></video>
-          $gridBlockiFrame 
+          $gridBlockiFrame
     #end
-    
-    #if ($hasGridTitle == 'Yes' && $linkURL != '' && $gridBlockLinkType != '' )
-      <a href="${gridBlockLinkURL}" class="grid-block-widget__title text-align--${textAlignment} grid-block-widget__title--${titleBgColor} focus-no-border border-bottom--none">
+
+  #if ($hasGridTitle != 'No')
+    #if ($linkURL != '' && $gridBlockLinkType != '' )
+      <a href="${gridBlockLinkURL}" class="grid-block-widget__title text-align--${textAlignment} grid-block-widget__title--${titleBgColor} focus-no-border border-bottom--none" data-titleBgColor="${titleBgColor}">
         <span class="label border-bottom--dotted">${_EscapeTool.xml($gridBlockTitle)}</span>
       </a>
-    #else 
+    #else
     <div class="grid-block-widget__title text-align--${textAlignment} grid-block-widget__title--${titleBgColor} focus-no-border border-bottom--none">
         <span class="label border-bottom--none">${_EscapeTool.xml($gridBlockTitle)}</span>
       </div>
     #end
-      
-      #if ($titleOverlay != 'No')  
+  #end
+
+      #if ($titleOverlay != 'No')
         </div>
       #end
 
-    #if ($gridBodyText != '')
-      <div class="grid-block-widget__text grid-block-widget__text--${textBackgroundColor} grid-block-widget__text--${textAlignment} text-align--${textAlignment} ">
+    #if ($hasGridBodyText != 'No' && $gridBodyText != '')
+      <div class="grid-block-widget__text grid-block-widget__text--${textBackgroundColor} grid-block-widget__text--${textAlignment} text-align--${textAlignment}" data-truncate-text="${truncateText}">
+      <span class="grid-block-text__inner">
         <p>
           $_SerializerTool.serialize($block.getChild('gridBlockText'), true)
         </p>
+      </span>
       </div>
     #end
     <span
       style="display:none;"
       tabindex="0"
-      class="grid-block-widget__reveal grid-block-widget__reveal--more grid-block-widget__reveal--${titleBgColor} "
+      class="grid-block-widget__reveal grid-block-widget__reveal--more grid-block-widget__reveal--${titleBgColor} ${oneColPadding}"
       >Show More</span
     >
     <span
       style="display:none;"
       tabindex="0"
-      class="grid-block-widget__reveal grid-block-widget__reveal--less grid-block-widget__reveal--${titleBgColor} "
+      class="grid-block-widget__reveal grid-block-widget__reveal--less grid-block-widget__reveal--${titleBgColor} ${oneColPadding}"
       >Show Less</span
     >
   </div>
-  
+
   #end
   ## CLOSE GRID-BLOCK-WIDGET__CONTAINER DIV
 </div>
@@ -378,10 +407,10 @@
 
     #set ( $linkItems = $_XPathTool.selectNodes($elem, $linkXPath) )
     #foreach ($link in $linkItems)
-        #set ($linkStyle = $link.getChild('linkStyle').value) 
+        #set ($linkStyle = $link.getChild('linkStyle').value)
         #set ($linkType =  $link.getChild('linkType').value)
         #set ($linkLabel = $link.getChild('label').value)
-        
+
         ## ACCESSIBILITY
         #set ($ariaLabel = $link.getChild('accessibility').getChild('ariaLabel').value)
         #set ($title = $link.getChild('accessibility').getChild('title').value)
@@ -395,31 +424,31 @@
         #else
             #set ( $customID = $linkLabel.replaceAll(" ", "-").replaceAll("[^a-zA-Z-]", "").replaceAll("--", "-").toLowerCase() )
         #end
-        
+
         #if ($dataAttr != '')
             #set ($dataAttr = $link.getChild('dataAttr').value)
             #set ($dataAttr = $dataAttr)
         #else
             #set ($dataAttr = '')
         #end
-            
+
         #if ($linkType == 'Internal Link')
             #set ($linkURL = $link.getChild('internalLink').getChild('path').value )
             #elseif ($linkType == 'External Link')
                 #set ($linkURL = $link.getChild('externalLink').value )
-        #else 
+        #else
             #set ($linkURL = $link.getChild('fileLink').getChild('path').value )
         #end
-    
-      
+
+
         #if ($linkLabel != '')
             #if ($linkStyle == 'Text Link')
                 <a tabindex="1" href="$linkURL" id="$customID" data-attribute="$dataAttr" aria-label="$ariaLabel" title="$title" class="text--link">#escape($linkLabel)</a>
             #elseif (($linkStyle == 'Button Link') && ($bemButtonClass != '$bemButtonClass'))
                 <a tabindex="0" href="$linkURL" id="$customID" data-attribute="$dataAttr" aria-label="$ariaLabel" title="$title" class="button $bemButtonClass button--${titleBgColor} border-bottom--none">#escape($linkLabel)</a>
-            #else 
+            #else
                 <a tabindex="0" href="$linkURL" id="$customID" data-attribute="$dataAttr" aria-label="$ariaLabel" title="$title" class="button border-bottom--none button--${ctaColor}">#escape($linkLabel)</a>
-            #end    
+            #end
         #end
     #end
 #end
@@ -427,4 +456,3 @@
 
 
 #end
-

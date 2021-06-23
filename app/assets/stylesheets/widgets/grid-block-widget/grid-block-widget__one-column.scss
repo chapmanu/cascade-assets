@@ -1,3 +1,9 @@
+// Permutations with repetition (n=4, r=2)
+// Using Items: sand,white,black,red
+
+// List has 16 entries.
+// {sand,sand} {sand,white} {sand,black} {sand,red} {white,sand} {white,white} {white,black} {white,red} {black,sand} {black,white} {black,black} {black,red} {red,sand} {red,white} {red,black} {red,red}
+
 $sides: (
   "b": "bottom",
   "t": "top",
@@ -23,9 +29,13 @@ html body {
   // ONE COLUMN
   .one-column {
     // INTRO SECTION
-    .section-intro,
-    .intro-section {
+    .intro-section,
+    .section-intro {
       margin-top: 0;
+
+      @include respond(phone) {
+        padding: 0 16px;
+      }
 
       &__title {
         margin-top: 15px;
@@ -42,47 +52,57 @@ html body {
         margin-top: 25px;
         margin-bottom: 25px;
       }
-
-      @include respond(phone) {
-        padding: 32px 16px;
-      }
     }
     // END INTRO SECTION
 
     .grid-block-widget__wrapper {
+      padding-top: 60px;
+      padding-bottom: 60px;
+
+      @include respond(phone) {
+        padding: 32px 16px;
+      }
+
       .grid-block-widget__text--red {
         color: $white;
       }
 
-      padding-top: 60px;
-      padding-bottom: 60px;
+      .no-padding {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
 
-      .grid-block-widget {
-        &__title {
-          padding-left: 0;
-          padding-right: 0;
-          padding-bottom: 10px;
-        }
-        &__text {
-          p {
+      .no-padding {
+        .grid-block-widget {
+          &__title {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            padding-bottom: 10px;
+          }
+          &__text {
+            padding-left: 0;
+            padding-right: 0;
+            p {
+              padding-left: 0;
+              padding-right: 0;
+            }
+          }
+          .grid-block-widget__reveal {
             padding-left: 0;
             padding-right: 0;
           }
-        }
-        .grid-block-widget__reveal {
-          padding-left: 0;
-          padding-right: 0;
-        }
 
-        .pl24 {
-          padding-left: 24 !important;
-        }
-        .pr24 {
-          padding-right: 24 !important;
+          .pl24 {
+            padding-left: 24 !important;
+          }
+          .pr24 {
+            padding-right: 24 !important;
+          }
         }
       }
 
       &--black {
+        .intro-section,
         .section-intro {
           &__preheader {
             color: $white;
@@ -104,6 +124,7 @@ html body {
       }
 
       &--red {
+        .intro-section__preheader,
         .section-intro__preheader {
           color: $white !important;
         }
@@ -210,30 +231,6 @@ html body {
         a.grid-block-widget__title--sand {
           color: $cu-red !important;
         }
-        [class*="text--sand"] {
-          color: $panther-black;
-          a {
-            color: $cu-red !important;
-          }
-        }
-        [class*="text--white"] {
-          color: $panther-black;
-          a {
-            color: $cu-red;
-          }
-        }
-        [class*="text--black"] {
-          color: white;
-          a {
-            color: white;
-          }
-        }
-        [class*="text--red"] {
-          color: white !important;
-          a {
-            color: white !important;
-          }
-        }
 
         // ONE COL - ACTUAL WIDGET (NOT CONTAINER OR WRAPPER)
         &--landscape {
@@ -251,13 +248,22 @@ html body {
       @include outer-container;
     }
 
-    .section-intro__button {
+    .intro-section__button .section-intro__button,
+    .section-intro__button .section-intro__button {
       background-color: transparent !important;
     }
 
     .grid-block-widget__container {
       @include respond(phone) {
-        padding: 32px 16px;
+        padding: 0 16px;
+      }
+
+      .grid-block-widget {
+        &__title {
+          @include respond(phone) {
+            padding-top: 12px;
+          }
+        }
       }
 
       &--rotate {
@@ -277,13 +283,59 @@ html body {
     .grid-block-widget__reveal--sand.no-bg {
       color: $cu-red !important;
     }
+
+    [data-bg-color="red"] {
+      background-color: $cu-red;
+      .intro-section {
+        color: $white;
+        a {
+          color: white;
+        }
+      }
+      a.button.button--red {
+        color: black;
+        background-color: white !important;
+      }
+    }
+    [data-bg-color="white"] {
+      background-color: $white;
+
+      .intro-section {
+        color: $panther-black;
+      }
+    }
+    [data-bg-color="sand"] {
+      background-color: $sand;
+
+      .intro-section {
+        color: $panther-black;
+      }
+    }
+    [data-bg-color="black"] {
+      background-color: $panther-black;
+
+      a.grid-block-widget__button--transparent {
+        color: $white !important;
+      }
+      .intro-section {
+        color: $white;
+        .intro-section__preheader,
+        a {
+          color: $white;
+        }
+        a,
+        a.button {
+          color: $white;
+        }
+      }
+    }
   }
 }
 
 html body .one-column {
   .grid-block-widget__wrapper--red {
-    .section-intro__buttons {
-      .section-intro__button {
+    .intro-section__buttons {
+      .intro-section__button {
         &:focus {
           border: 2px dotted $white;
         }
@@ -292,6 +344,7 @@ html body .one-column {
   }
   .grid-block-widget__wrapper--red,
   .grid-block-widget__wrapper--black {
+    .intro-section__title,
     .section-intro__title {
       &[class*="--sand"] {
         a {
@@ -354,6 +407,7 @@ html body .one-column {
       }
     }
   }
+  .grid-block-widget__wrapper--red .intro-section__button a.button--red,
   .grid-block-widget__wrapper--red .section-intro__button a.button--red {
     &:hover,
     &:focus,
@@ -364,6 +418,7 @@ html body .one-column {
 
   .grid-block-widget__wrapper--red .button.button--red {
     color: black !important;
+    background-color: white !important;
   }
 
   .grid-block-widget__container .grid-block-widget {
@@ -437,5 +492,53 @@ html body .one-column {
   .grid-block-widget.grid-block-widget--white
     .grid-block-widget__reveal--white {
     color: $cu-red;
+  }
+}
+
+.grid-block-widget__wrapper--red .grid-block-widget__cta a.button--red {
+  background-color: white;
+
+  &:hover,
+  &:focus {
+    background-color: $cu-light-grey;
+  }
+}
+
+// html
+//   body
+//   .one-column
+//   .grid-block-widget__wrapper--white
+//   [class*="text-"].no-bg {
+//   color: $panther-black !important;
+// }
+
+// html
+//   body
+//   .one-column
+//   .grid-block-widget__wrapper--sand
+//   .grid-block-widget__text.no-bg {
+//   color: $panther-black !important;
+// }
+
+// html
+//   body
+//   .one-column
+//   .grid-block-widget__wrapper--black
+//   .grid-block-widget__text.no-bg {
+//   color: $white !important;
+// }
+
+// html body .grid-block-widget__wrapper--red .grid-block-widget__text.no-bg {
+//   color: $white !important;
+// }
+
+.grid-block-widget__container {
+  .default-padding {
+    .grid-block-widget {
+      &__text {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
   }
 }

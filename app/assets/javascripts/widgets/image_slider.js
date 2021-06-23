@@ -77,12 +77,12 @@ $(document).ready(function () {
     $(".image-slider-wrapper").each(function () {
       if ($(this).children(".item").length <= 0) {
         $(".image-slider-play-toggle").hide();
-        $('.lSPager').hide();
+        $(".lSPager").hide();
       }
     });
   }
 });
-$(window).load(function () {
+$(window).on("load", function () {
   if ($(".image-slider-play-toggle")[0]) {
     $(".image-slider-play-toggle").insertBefore("ul.lSpg li:first");
     fixActiveState();

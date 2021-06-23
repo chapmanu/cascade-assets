@@ -1,4 +1,61 @@
+:root {
+  --gridBlockWidgetColumns: 3;
+}
+
+@mixin grid-col($num) {
+  .grid-block-widget__container--#{$num}-col {
+    grid-template-columns: repeat(#{$num}, 1fr);
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond(phone) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+@include grid-col(2);
+@include grid-col(3);
+@include grid-col(4);
+@include grid-col(5);
+@include grid-col(6);
+
+.grid-block-widget__container--5-col {
+  .grid-block-widget__image--circle {
+    --imgSize: 150px;
+  }
+}
+
+.grid-block-widget__container--6-col {
+  &.grid-block-widget__container--landscape {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .grid-block-widget__image--circle {
+    --imgSize: 120px;
+  }
+
+  &.grid-block-widget__container--portrait {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
+.reveal--no-reveal.spacer {
+  height: 28px;
+  display: block;
+}
+
 .grid-block-widget__container {
+  .grid-block-widget {
+    height: min-content;
+
+    // on mobile, override min-height set by JS
+    @include respond(phone) {
+      min-height: min-content !important;
+    }
+  }
   $space: 12px;
   margin-top: $space;
   display: grid;
@@ -180,7 +237,6 @@
         z-index: 3;
         height: 100%;
         align-items: flex-end;
-        font-size: 1.8rem;
         line-height: 2.2rem;
 
         bottom: 4px;
@@ -228,98 +284,6 @@
     }
   }
 
-  &--rotate {
-    .slick-slide > div {
-      padding: 0 0.5rem;
-    }
-
-    @include respond(phone) {
-      .slick-dots li {
-        display: none;
-      }
-    }
-
-    .slick-dots li {
-      // height: 20px;
-      // width: 25px;
-
-      button::before {
-        content: "";
-      }
-    }
-
-    button.slick-arrow {
-      &:focus,
-      &:focus-within {
-        border: 2px dotted $cu-red;
-      }
-    }
-
-    button {
-      height: 35px;
-      width: 35px;
-      display: flex;
-      justify-content: center;
-      border: 1px solid $cool-gray;
-      border-radius: 50%;
-      background: $white;
-      box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.5);
-
-      &:hover,
-      &:focus,
-      &:focus-within {
-        box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.5);
-        background: $white;
-        transition: 350ms linear;
-      }
-
-      &.slick-prev.slick-arrow {
-        transform: translate(5px, -20px);
-        z-index: 10;
-      }
-
-      &.slick-next.slick-arrow {
-        transform: translate(-5px, -20px);
-        z-index: 10;
-      }
-
-      &:before {
-        color: $black;
-        font-size: 16px;
-        margin-top: 3px;
-
-        @-moz-document url-prefix() {
-          & {
-            margin-top: 9px;
-          }
-        }
-
-        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-          & {
-            margin-top: 9px;
-          }
-        }
-      }
-
-      &.slick-prev:before {
-        font-family: "Font Awesome 5 Pro";
-        content: "\f053";
-        font-weight: 400;
-      }
-
-      &.slick-next:before {
-        font-family: "Font Awesome 5 Pro";
-        content: "\f054";
-        margin-left: 3px;
-        font-weight: 400;
-      }
-    }
-
-    button[aria-disabled="true"] {
-      visibility: hidden;
-    }
-  }
-
   .grid-block-widget {
     position: relative;
 
@@ -328,7 +292,6 @@
       margin-top: -4px;
       padding-top: 16px;
       padding-bottom: 16px;
-
       &:focus {
         border-bottom: 2px dotted $white;
       }
@@ -339,22 +302,6 @@
         &:focus {
           outline: 2px dotted $white;
         }
-      }
-    }
-    &__text {
-      p {
-        padding-left: 24px;
-        padding-right: 24px;
-
-        &:first-child {
-          margin-bottom: 24px;
-        }
-      }
-
-      padding-bottom: 24px;
-
-      & + .grid-block-widget__reveal {
-        padding-top: 12px;
       }
     }
 
@@ -386,7 +333,7 @@
 
     &__title {
       color: $red;
-      font-size: 1.8rem;
+      font-size: 2rem;
       padding: 24px;
       padding-bottom: 10px;
       text-align: center;
@@ -410,31 +357,28 @@
       }
     }
 
-    &__text {
-      font-family: $futura-regular;
+    &__text[data-truncate-text="yes"] {
+      font-family: $arial;
+      max-height: 220px;
+      overflow: hidden;
+
       p {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         line-height: 2.2rem;
       }
-      &--truncated {
-        max-height: 150px;
 
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 7;
-        overflow: hidden;
-
-        display: block;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        position: relative;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        padding: 0;
+      &--revealed {
+        max-height: max-content;
+        overflow: visible;
       }
 
       &--white {
         border: none;
       }
+    }
+    &__text[data-truncate-text="no"] {
+      max-height: 100%;
+      overflow: visible;
     }
 
     &--white {
@@ -486,13 +430,13 @@
     text-transform: capitalize;
     font-size: 1.6rem;
     font-weight: bold;
-    // color: $cu-red;
     position: relative;
     width: 100% !important;
     display: flex;
     top: 0;
     margin-top: 0;
     padding: 24px;
+    cursor: pointer;
 
     &:focus {
       outline: 2px dotted;
@@ -506,12 +450,9 @@
       color: $white;
     }
 
-    font-family: $futura-regular;
-    // @include qbal-drop-enter;
+    font-family: $arial;
 
     &--more {
-      // @include qbal-drop-enter;
-
       &::after {
         content: "\f078 ";
         font-family: "Font Awesome 5 Pro";
@@ -538,10 +479,31 @@
   }
 
   .grid-block-widget__text--revealed {
-    // @include qbal-grow-enter;
+    // @include qbal-fade-enter;
   }
 
   .grid-block-widget__text:not(.grid-block-widget__text--revealed) {
-    // @include qbal-slideUp-enter;
+    // @include qbal-fade-exit;
+  }
+
+  // if has text only and no title, add top margin
+  img.grid-block-widget__image + .grid-block-widget__text {
+    padding-top: 24px;
+  }
+}
+
+html.two-column-template,
+html.three-column-template {
+  body {
+    .grid-block-widget__wrapper {
+      background-color: transparent !important;
+    }
+  }
+}
+
+.two-column-template,
+.three-column-template {
+  .grid-block-widget__container {
+    margin-bottom: 60px;
   }
 }

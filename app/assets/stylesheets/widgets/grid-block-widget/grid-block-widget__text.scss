@@ -7,8 +7,15 @@
         display: block;
         padding-left: 24px !important;
         padding-right: 24px !important;
+        font-family: $futura-regular;
       }
       &__text {
+        padding-left: 24px;
+        padding-right: 24px;
+
+        & + .grid-block-widget__reveal {
+          padding-top: 12px;
+        }
         &--white {
           a {
             color: $red;
@@ -22,4 +29,9 @@
       }
     }
   }
+}
+
+// if has text only and no title, add top margin
+img.grid-block-widget__image + .grid-block-widget__text {
+  padding-top: 24px;
 }

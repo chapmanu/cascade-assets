@@ -16,6 +16,7 @@
 
 .grid-block-widget__wrapper {
   .grid-block-widget__cta .button {
+    font-family: $arial;
     display: inline-block;
     & + .button {
       margin-left: 5px;
@@ -25,6 +26,7 @@
 
 // TODO: Refactor Defaults.scss button wildcards
 // (html body ... [class*="__button--white"] )
+html body .intro-section__button a.button--white,
 html body .section-intro__button a.button--white {
   border: 1px solid $cu-light-grey;
 

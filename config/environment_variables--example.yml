@@ -1,3 +1,4 @@
+# application.rb should load your respective environment_variables.yml file...
 # you could also set this in your .bashrc or .zshrc with `export CASCADE_USERNAME=username` `export CASCADE_USERNAME=password`  (no quotes)
 CASCADE_USERNAME: ""
 CASCADE_PASSWORD: ""

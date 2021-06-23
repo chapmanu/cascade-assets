@@ -1,0 +1,13 @@
+html body {
+  @include respond(phone) {
+    .grid-block-widget__container--circle {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+
+  @media only screen and (max-width: 420px) {
+    .grid-block-widget__container--circle {
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+  }
+}

@@ -532,9 +532,15 @@
             <radio-item show-fields="primaryContent/widget/gridBlockWidget/gridOptions/textAlign, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/gridBlockTitle, primaryContent/widget/gridBlockWidget/gridOptions/circle, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/titleLink" value="Yes"/>
             <radio-item value="No"/>
           </text>
-          <text field-id="2994320ac0a81e8a5a403945b6122351" identifier="bodyText" label="Body Text" required="true" type="radiobutton">
-            <radio-item show-fields="primaryContent/widget/gridBlockWidget/gridOptions/textAlign, primaryContent/widget/gridBlockWidget/gridOptions/circle, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/gridBlockText" value="Yes"/>
-            <radio-item value="No"/>
+          <!-- body text -->
+          <text field-id="2994320ac0a81e8a5a403945b6122351" identifier="bodyText" label="Body Text" type="radiobutton">
+            <radio-item show-fields="primaryContent/widget/gridBlockWidget/gridOptions/textAlign, primaryContent/widget/gridBlockWidget/gridOptions/circle, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/gridBlockText, primaryContent/widget/gridBlockWidget/gridOptions/truncateText, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/truncateText" value="Yes" />
+            <radio-item value="No" />
+          </text>
+          <!-- truncate -->
+          <text default="yes" field-id="" identifier="truncateText" label="Truncate Long Text with 'Show More' Button?" type="radiobutton">
+            <radio-item label="Yes" value="yes" />
+            <radio-item label="No" value="no" />
           </text>
           <text field-id="243872cdc0a81e8a5a403945a36afb2a" identifier="textAlign" label="Text Align" required="true" type="radiobutton">
             <radio-item label="Left" value="left"/>
@@ -572,6 +578,10 @@
             <radio-item label="Display All Grid Items" value="showAll"/>
             <radio-item label="Rotator (will rotate up to four items at a time)" value="rotator"/>
           </text>
+          <!-- advanced -->
+          <group collapsed="true" identifier="advanced" label="Advanced - Visible Only to Admins and Web Coordinators" restrict-to-groups="Administrators, Web-Coordinators">
+            <text default="12px" field-id="" identifier="gridGap" label="Grid Gap" help-text=" Space between grid blocks. Default is 12px. grid block items. Default is 12px." />
+          </group>
           <group collapsed="true" identifier="gridBlock" label="Grid Block" multiple="true">
             <text field-id="2462637fc0a81e8a5a4039452d57a512" identifier="gridBlockTitle" label="Title" required="true"/>
             <text field-id="3429c844c0a81e8a5a4039450d9bac85" identifier="titleLink" label="Title Link?" required="true" type="radiobutton">
@@ -589,6 +599,11 @@
             <text default="center center" field-id="2819d3aec0a81e8a5a4039450b676935" help-text="Changes image focal point. See https://developer.mozilla.org/en-US/docs/Web/CSS/object-position" identifier="imagePosition" label="Image Position"/>
             <text field-id="fe561786c0a81e5f0fce9f5b0436381f" help-text="Youtube or Vimeo iframe" identifier="iFrame" label="iFrame" required="true"/>
             <text field-id="24682989c0a81e8a5a40394504b245f8" identifier="gridBlockText" label="Grid Block Text" required="true" wysiwyg="true"/>
+            <!-- truncate (block level override) -->
+            <text default="yes" field-id="" identifier="truncateText" label="Truncate Long Text with 'Show More' Button?" help-text="Overrides Top-Level Setting" type="radiobutton">
+              <radio-item label="Yes" value="yes" />
+              <radio-item label="No" value="no" />
+            </text>
           </group>
         </group>
         <shared-field field-id="fe561786c0a81e5f0fce9f5b3da9220b" identifier="link" path="cta__buttons-only"/>

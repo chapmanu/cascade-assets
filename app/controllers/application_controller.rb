@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  helper_method :grid_num_col
+
+  def grid_num_col
+    num = rand(2..6)
+    @grid_num_col = "grid-block-widget__container--#{num}-col"
+  end
+
   def cascade_block(block_path)
     render_to_string(partial: block_path)
   end
