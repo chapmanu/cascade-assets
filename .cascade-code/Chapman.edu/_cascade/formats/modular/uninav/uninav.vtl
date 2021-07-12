@@ -7,35 +7,30 @@
 ## If this 'Custom Navigation' field contains a path to a respective html block, this Velocity format will output that block. 
 ## Otherwise, it falls back to the old, non-API object method code. 
 
+##
+## Imports
+##
+#import( "/_config/global_nav.vm" )
+#import( "/_config/global_nav_law.vm" )
+#import( "/_cascade/formats/helpers.velocity" )
+#import ("/_cascade/formats/modular/uninav/_offCanvas_umbrella_nav_button.vtl")
+
 #macro(findCustomNavPath $folderRef $depth)##
 
     #if ($depth > 15 ) 
-    ## depth greater than 15
+    ## depth greater than 15 - Cascade breaks due to a Velocity limitation
     #elseif ((!$_PropertyTool.isEmpty($folderRef.metadata.getDynamicField('Custom Navigation').value) ) )
-        ## dynamic metadata field: $folderRef.metadata.getDynamicField('Custom Navigation').value
         #set ($customNavConfig = $folderRef.metadata.getDynamicField('Custom Navigation').value.replaceAll("Chapman.edu", ""))
-        
-        ## node is set on: $folderRef.path
         #set ($customNavObj = $_.locateBlock("${customNavConfig}", "Chapman.edu") )
-        ## custom nav detected: string: $customNavConfig | api object: $customNavObj
         #set ($customNavID = $customNavObj.identifier.id )
-        ## customNavID: $customNavID
         #set ($customNavPath = $customNavObj.path )
-        ## customNavPath: $customNavPath
-    
+
     #elseif ($_PropertyTool.isEmpty($folderRef.parentFolder) || $folderRef.path == '/')
         ## this is a root-level item
         #set ($customNavConfig = '_cascade/blocks/html/Uninav')
-        ## customnavConfig: $customNavConfig $customNavConfig.path (this will probably have to be an API-object via locateblock)
     #else ## assume parent folder exists
-        ## calling  find custom path on parent folder $folderRef.path
-        ## folderref props: $_PropertyTool.outputProperties($folderRef)
-        
         #set ($parentNode = $_.locateFolder($folderRef.parentFolder.path, 'Chapman.edu'))
-        
-        ## parentNode: $parentNode
         #findCustomNavPath($parentNode, $_MathTool.add($depth, 1))
-        ## #end
     #end
 #end
 
@@ -66,6 +61,21 @@
 
 #if ($customNavConfig != '_cascade/blocks/html/Uninav') ## IF NOT CONTEXTUAL NAV
 <nav id="uninav" class="$brandClass contextual-navigation $currentPage.parentFolder.name" data-navigation-block="${_EscapeTool.xml($customNavConfig)}">
+    ## used in omni_nav format and other partial formats to build toggle in off-canvas nav:
+    
+    <div class="uninav__hamburger-menu">
+    <button class="hamburger-menu-button" type="button" aria-label="Toggle site menu">
+        <span class="fas fa-bars"></span>
+      <span class="sr-only">Menu</span>
+    </button>
+    </div>
+    
+    
+    
+    ## Contextual Off Canvas 
+    #buildOffCanvasNav()
+    ## End Contextual Off Canvas
+    
     <div class="uninav__logo">
         <div class="uninav__logo--primary" id="uninav__logo--primary">
             <a href="${logoLinkPath}" id="uninav-logo-chapman-university" target="_parent" title="Chapman University">
@@ -117,7 +127,11 @@
       <div class="uninav__utility-nav">
           <ul class="uninav__menu-item-flex uninav__menu-item-flex--utility">
                 <li aria-expanded="false" class="uninav__utility-nav--audiences-container  uninav__dropdown--parent">
-                    <p tabindex="0">Info For</p>
+                    <p tabindex="0">Info For
+                    <span class="uninav-relative-wrapper">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="svg-inline--fa fa-caret-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg>
+          </span>
+          </p>
                     <div class="uninav__dropdown--child" aria-expanded="false">
                         <ul class="uninav__utility-nav--audiences-menu">
                             #set ($audienceMenuItems = $customNavObj.getStructuredDataNodes('uninav/audienceNav/menuItem'))
@@ -168,9 +182,8 @@
                             }
                         </style>
                     #end 
-                
                     <style>
-                    input.gsc-input {
+                        input.gsc-input {
                       opacity: 1 !important;
                     }
                         .gssb_c,
@@ -358,22 +371,7 @@
 ## NON-API OBJECT METHODS - THIS IS THE "DEFAULT" NAVIGATION, WRITTEN IN 2020
 ## IF NOT CUSTOM, USE OLD NON-API OBJECT NAVIGATION (WITH "UMBRELLA NAV")
 #else ## if default navigation
-    <style>
-        .contextual-navigation {
-            display: none !important;
-        }
-    </style>
-    
-    ##
-    ## Imports
-    ##
-    #import( "/_config/global_nav.vm" )
-    #import( "/_config/global_nav_law.vm" )
-    #import( "/_cascade/formats/helpers.velocity" )
-    #import ("/_cascade/formats/modular/uninav/_offCanvas_umbrella_nav_button.vtl")
-  
-    ## Log velocity variables in the browser console on dev
-    
+
     ##
     ## Hardcoded Params
     ##
@@ -649,11 +647,12 @@
     
     #macro ( buildOffCanvasDirectoryMenu )
     #set ( $currentPathRoot = $currentPage.path.replaceAll('/(.*)', "") )
-    
+
+
     #if ( $currentPathRoot != "index" && $currentPathRoot != "")
     #set ( $offCanvasNavAssets = $_.locateFolder($currentPathRoot) )
     #set ( $offCanvasLabel = $offCanvasNavAssets.label)
-    
+        
     <div id="off-canvas-umbrella" class="off-canvas-menu">
       <div class="menu-header">
         <span tabindex="0" class="menu-label">${_EscapeTool.xml($offCanvasLabel)}</span>
@@ -663,7 +662,7 @@
       <div id="off-canvas-umbrella-navigation" class="off-canvas-menu">
         <ul class="root-umbrella-nav">
           #foreach( $asset in $offCanvasNavAssets.children)
-          #buildDrillDownList($asset)
+              #buildDrillDownList($asset)
           #end
         </ul>
       </div>

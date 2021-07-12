@@ -21,10 +21,6 @@
   }
 }
 
-@mixin uninav__menu-item--dropdown-parent {
-  content: "\f0d7";
-}
-
 @mixin uninav-drop-shadow {
   // todo: https://tobiasahlin.com/blog/how-to-animate-box-shadow/
   box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.1);
@@ -237,15 +233,6 @@ html {
       @include respond(phone) {
         margin-left: auto;
       }
-
-      // @include respond(tab-land) {
-      //   width: auto;
-      //   max-width: 50%;
-      // }
-
-      // @include respond(phone) {
-      //   max-width: none;
-      // }
 
       .uninav {
         &__menu-item--audiences {
@@ -467,28 +454,10 @@ html {
           text-transform: uppercase;
           font-weight: bold;
           cursor: pointer;
-
-          &:hover {
-            &::after {
-              display: inline-block;
-              content: "\f0d7";
-              transform: rotate(180deg) translateX(-1rem);
-              transition: all ease 0.35s;
-              transition-delay: 0;
-              color: $cu-red;
-            }
-          }
+          display: inline-flex;
 
           &:focus {
             outline: 2px dotted $cu-red;
-          }
-
-          &::after {
-            font-family: "Font Awesome 5 Pro";
-            font-weight: 900;
-            content: "\f0d7";
-            padding-left: 1rem;
-            font-size: 1.4rem;
           }
         }
       }
@@ -648,12 +617,7 @@ html {
                 animation-delay: $i * 12ms;
               }
             }
-            // @for $i from 5 to 10 {
-            //   &:nth-child(#{$i}) {
-            //     animation-delay: $i * 100ms;
-            //   }
-            // }
-
+ 
             a {
               width: 100%;
               height: 100%;
@@ -709,14 +673,6 @@ html {
     border-right: 1px solid $cu-light-grey;
   }
 
-  .uninav__dropdown-wrapper > a::after {
-    font-family: "Font Awesome 5 Pro";
-    font-weight: 900;
-    content: "\f0d7";
-    padding-left: 1rem;
-    font-size: 1.4rem;
-  }
-
   & > ul {
     display: flex;
     justify-content: center;
@@ -733,14 +689,6 @@ html {
       align-items: center;
     }
   }
-}
-
-#uninav > nav {
-  // grid-area: nav;
-}
-
-#uninav > global {
-  // grid-area: global;
 }
 
 #uninav > div.uninav__logo--primary {
@@ -786,56 +734,9 @@ html {
     }
   }
 
-  .uninav__dropdown--child[aria-expanded="false"] + .uninav {
-    &__dropdown-wrapper {
-      & > a {
-        &:after {
-          content: "\f0d7";
-          transform: rotate(0deg);
-          transition: all linear 0.25s;
-        }
-      }
-    }
-  }
-
-  .uninav__dropdown--child[aria-expanded="true"] + &.uninav {
-    &__dropdown-wrapper {
-      & > a {
-        &:after {
-          content: "\f0d7";
-          transform: rotate(180deg) translateX(-1rem);
-          transition: all linear 0.25s;
-          color: $cu-red;
-        }
-      }
-    }
-  }
-
-  .uninav__global-nav .uninav__dropdown-wrapper > a::after {
-    content: "\f0d7";
-    transform: rotate(180deg) translateX(-1rem);
-    transition: all linear 0.15s;
-  }
   .uninav__dropdown--child[aria-expanded="true"] {
     z-index: 99999999;
     display: flex;
-  }
-
-  .uninav__dropdown-wrapper > a::after {
-    content: "\f0d7";
-    transform: rotate(0deg);
-    transition: all ease 0.35s;
-    transition-delay: 0;
-  }
-
-  &:hover {
-    .uninav__dropdown-wrapper > a::after {
-      content: "\f0d7";
-      transform: rotate(180deg) translateX(-1rem);
-      transition: all ease 0.35s;
-      transition-delay: 0;
-      color: $cu-red;
-    }
   }
 }
 
@@ -1295,18 +1196,7 @@ html {
 }
 
 @media only screen and (max-width: 400px) {
-  #uninav {
-    // grid-template-areas: "logo hamburger utility";
-    // grid-template-rows: 60px;
-    // grid-template-columns: 1fr 2fr 2fr;
 
-    &.utility-only {
-      // grid-template-areas: "utility";
-
-      // .uninav__utility-nav--wrapper {
-      //   width: 100vw;
-      // }
-    }
 
     .uninav {
       &__global-nav {
@@ -1452,31 +1342,8 @@ form.gsc-search-box.gsc-search-box-tools {
   border: 2px dotted var(--color-cu-red) !important;
 }
 
-.uninav__dropdown--parent:hover .fas.fa-paw::before,
-.uninav__dropdown--parent:focus .fas.fa-paw::before,
-.uninav__dropdown--parent:focus-within .fas.fa-paw::before {
-  // content: "chapman systems login" !important;
-  font-family: $futura-regular;
-  font-size: 1.4rem;
-  word-break: break-word;
-  animation: changeLetter 150ms linear 1 forwards;
-
-  @keyframes changeLetter {
-    0% {
-      opacity: 0;
-    }
-
-    50% {
-      opacity: 0.5;
-    }
-
-    100% {
-      opacity: 1;
-      content: "Login";
-      white-space: nowrap;
-      padding: 2%;
-    }
-  }
+svg.svg-inline--fa.fa-paw.fa-w-16 {
+  max-height: 20px;
 }
 
 #js-off-canvas-nav-container * {
@@ -1517,11 +1384,40 @@ form.gsc-search-box.gsc-search-box-tools {
 }
 
 .no-js {
-  .uninav__dropdown--parent:hover .uninav__dropdown--child {
-    z-index: 99999999;
-    display: flex;
+  #uninav {
+    .uninav__dropdown--parent:hover .uninav__dropdown--child {
+      z-index: 99999999;
+      display: flex;
+    }
+    .uninav__utility-nav--wrapper {
+      margin-right: 17px !important;
+    }
+
+    li#uninav__search-button--mobile {
+      display: none !important;
+    }
   }
-  .uninav__utility-nav--wrapper {
-    margin-right: 17px !important;
+}
+
+#uninav {
+  svg.svg-inline--fa.fa-caret-down.fa-w-10 {
+    display: block;
+    width: 8px;
+    min-width: 8px;
+    margin-left: 10px;
+  }
+
+  li.uninav__dropdown--parent:hover svg.svg-inline--fa.fa-caret-down.fa-w-10 {
+    transform: rotate(180deg) translateX(-1rem);
+    transition: all linear 0.25s;
+    margin-left: 0;
+  }
+
+  span.uninav-relative-wrapper {
+    position: relative;
+    min-width: 10px;
+    width: 10px;
+    display: flex;
+    align-items: center;
   }
 }

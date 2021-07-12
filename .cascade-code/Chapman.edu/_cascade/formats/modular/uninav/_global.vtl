@@ -31,7 +31,9 @@
                         <a
                             id="uninav-global-${_EscapeTool.xml($menuID)}"
                             href="site://Chapman.edu/${menuItemLink.getChild('path').value}">
-                            <span class="uninav__underline--center">${menuItem.value}</span></a>
+                            <span class="uninav__underline--center">${menuItem.value}</span>
+                        
+                            </a>
                     </li>
                     <span class="uninav__pipe"></span>
                 #else
@@ -40,7 +42,13 @@
                         class="uninav__dropdown--parent ">
                         <span class="uninav__dropdown-wrapper">
                             <a id="uninav-global-${_EscapeTool.xml($menuID)}" tabindex="0">
-                                <span class="uninav__underline--center">${_EscapeTool.xml($menuItem.value)}</span></a>
+                                <span class="uninav__underline--center">${_EscapeTool.xml($menuItem.value)}</span>
+                                <span class="uninav-relative-wrapper">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="svg-inline--fa fa-caret-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg>
+          </span>
+                                
+                                </a>
+                                
                         </span>
                         <div class="uninav__dropdown--child">
                             <ul>
