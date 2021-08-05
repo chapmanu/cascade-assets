@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.7.0'
+
 
 gem 'autoprefixer-rails', '~> 6.4'
 gem 'awesome_print'
