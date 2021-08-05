@@ -617,7 +617,7 @@ html {
                 animation-delay: $i * 12ms;
               }
             }
- 
+
             a {
               width: 100%;
               height: 100%;
@@ -1196,31 +1196,28 @@ html {
 }
 
 @media only screen and (max-width: 400px) {
+  .uninav {
+    &__global-nav {
+      display: none;
+    }
 
+    &__hamburger-menu {
+      justify-content: center;
+    }
+  }
 
-    .uninav {
-      &__global-nav {
-        display: none;
-      }
+  .uninav {
+    &__utility-nav--search-wrapper {
+      margin-right: 0;
 
-      &__hamburger-menu {
-        justify-content: center;
+      .uninav__search-button--mobile {
+        border-right: none;
       }
     }
 
-    .uninav {
-      &__utility-nav--search-wrapper {
-        margin-right: 0;
-
-        .uninav__search-button--mobile {
-          border-right: none;
-        }
-      }
-
-      &__logo {
-        .chapman-logo {
-          width: 75%;
-        }
+    &__logo {
+      .chapman-logo {
+        width: 75%;
       }
     }
   }
