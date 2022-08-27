@@ -133,15 +133,15 @@
     animation-direction: forwards;
     -webkit-animation: fadein 1s forwards;
 
-    .img--square {
-      border-radius: 0;
-    }
-
     img {
       height: 140px;
       width: 140px;
+    }
+     
+    &img--circle {
       border-radius: 50%;
     }
+
   }
 
   +[class*="-widget"] {
