@@ -16,7 +16,7 @@ rake serve
 
 ### Ruby version
 
-You may find the detailed step by step instructions here: https://mac.install.guide/ruby/1.html
+You may find the detailed step-by-step instructions here: https://mac.install.guide/ruby/1.html
 
 If you’re getting the following error when executing “bundle install”:
 ```
@@ -27,7 +27,7 @@ You don't have write permissions for the /Library/Ruby/Gems/2.6.0 directory
 #### Check installed version of the Ruby:
 
 ```
-Which -a ruby
+ruby --version
 ```
 If you see /usr/bin/ruby, it is the system Ruby which comes pre-installed on macOS to support scripting. Don't try to remove the system Ruby. Leave it in place and use Homebrew or a version manager to install a newer Ruby version.
 
@@ -37,45 +37,39 @@ If you see /usr/bin/ruby, it is the system Ruby which comes pre-installed on mac
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-#### To install version manager: (ex: asdf)
+#### To install version manager: (ex: rbenv)
+Supplemental instructions: https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-macos
 
 ```
-brew install asdf
+brew install rbenv
 ```
 
-To use asdf, add the following line to your ~/.zshrc:
+To use rbenv, add the following line to your ~/.zshrc:
 ```
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 ```
 
 Close and reopen the terminal after installation.
-Confirm installation of the asdf:
+Confirm installation of the rbenv:
 ```
-asdf --version
+rbenv --version
 ```
-
-To allow asdf read older versions of Ruby:
-```
-echo "legacy_version_file = yes" >> ~/.asdfrc
-cat ~/.asdfrc
-legacy_version_file = yes
-```
-
-#### Install Ruby with Asdf:
+#### Install Ruby with rbenv:
 
 ```
-asdf plugin add ruby
-asdf install ruby 2.7.3
+rbenv plugin add ruby
+rbenv install ruby 2.7.3
 ```
 
 Set the default version of Ruby:
 ```
-asdf global ruby 2.7.3
+rbenv global ruby 2.7.3
 ```
 
 To set the local default version, go to the project folder and run:
 ```
-asdf local ruby 2.7.3
+rbenv local ruby 2.7.3
 ```
 
 Once you’ve set the default version of the Ruby run “bundle install” again!
@@ -92,15 +86,29 @@ npm config set "//npm.fontawesome.com/:_authToken" 35502DF3-AEA2-4B2E-9B3E-3C5D1
 npm install
 ```
 
+#### Install Python (Big Sur and up):
+On MacOS Big Sur and higher, if you run into:   *NPM Error "Can't find Python executable"*  
+Run the following:
+```
+brew install pyenv
+```
+Any modern version of python should do.
+```
+pyenv install 3.10.6
+pyenv global 3.10.6
+```
+Add pyenv to your PATH so that you can reference python.
+```
+echo "export PATH=\"\${HOME}/.pyenv/shims:\${PATH}\"" >> ~/.zshrc
+```
+Open a new terminal session for changes to take effect.
 #### Run server:
 
 ```
 Rake serve
 ```
 
-
 Send your browser to [http://localhost:5000](http://localhost:5000). Turn on your livereload extension (optional).
-
 
 ## Making Changes
 
@@ -234,3 +242,13 @@ So we put the stylesheet at [/static/\_files/css/level_2013.css](https://github.
 At runtime, the [application controller will move this directory](https://github.com/chapmanu/cascade-assets/blob/development/app/controllers/content_types/school_home_pages_controller.rb#L12) under the `public` directory that is accessible under dev server's document root. And, thus, we can use the [same layout template](https://github.com/chapmanu/cascade-assets/blob/development/app/views/_cascade/templates/school_home_pages/slideshow.html) that Cascade uses without any changes.
 
 This can also be used for other assets that you don't want bundled and deployed to Cascade, like those to style the Cascade Assets dashboard.
+
+## Version References
+
+Version incompatibilities may occur during setup. For reference, please try again with the following versions:
+- ruby 2.7.3
+- rbenv 1.2.0
+- bundler 1.17.3
+- node 13.11.0
+- npm 6.13.7
+- python 3.10.6
