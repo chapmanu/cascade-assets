@@ -9,10 +9,6 @@
 
 #bgColorChooser($wxp)
 
-
-
-
-
 <div class="testimonial-widget $bgColor">
     #foreach ($slide in $slides)
         ## TEXT
@@ -22,44 +18,32 @@
         )
 
         #if ($endorserName != "")
-        
-	
-	
-	
-	<div class=" testimonial-widget__slide" tabindex="0">
-		<div class="testimonial-widget__row">
+  
+            <div class=" testimonial-widget__slide" tabindex="0">
+                <div class="testimonial-widget__row"> 
+                #imageInCollection($slide)
+                    <div class="testimonial-widget__text">
+                        <div class="testimonial-widget__titles">
+                            <div class="faux-h2 testimonial-widget__faux-h2">
+                                ${_DisplayTool.truncate($endorserName,100,"...")}
+                            </div>
+                            <div class="testimonial-widget__department-title">
+                                ${_EscapeTool.xml($endorserTitle)}
+                            </div>
+                        </div>
+                        <div class="testimonial-widget__body">
+                                ${_DisplayTool.truncate($testimonyText,350,"...")}
 
-        #imageInCollection($slide)
-
-                
-		
-			
-			
-			<div class="testimonial-widget__text">
-				<div class="testimonial-widget__titles">
-					<div class="faux-h2 testimonial-widget__faux-h2">
-                        ${_DisplayTool.truncate($endorserName,100,"...")}
+                        </div>
+                        <div class="testimonial-widget__cta">
+                            #cta($slide 'link')
+                        </div>
                     </div>
-					<div class="testimonial-widget__department-title">
-                        ${_EscapeTool.xml($endorserTitle)}
-                    </div>
-				</div>
-				<div class="testimonial-widget__body">
-                        ${_DisplayTool.truncate($testimonyText,350,"...")}
-
-				</div>
-				<div class="testimonial-widget__cta">
-                    #cta($slide 'link')
                 </div>
-			</div>
-		</div>
-	</div>
-
+            </div>
+ 
         #end
     #end
-
-
-
 
 </div>
 #end

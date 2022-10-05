@@ -86,8 +86,8 @@ Master Version: Chapman.edu/_cascade/formats/helpers.velocity
     ## ENSURE CIRCULAR IMAGES HAVE EQUAL HEIGHT AND WIDTH 
     #if ($imageShape == 'circle')
       ## These CSS vars can be overridden in the 'code' section below
-      #set ($imageWidth = '<style> --imgSize: 180px;  var(--smallIMgSize) </style>')
-      #set ($imageHeight = '<style> --imgSize: 180px; var(--smallIMgSize) </style>')
+      #set ($imageWidth = '180px')
+      #set ($imageHeight = '180px')
     #elseif ($imageShape == 'square')
       #set ($imageWidth = '100%')
       #set ($imageHeight = 'auto')
@@ -111,7 +111,7 @@ Master Version: Chapman.edu/_cascade/formats/helpers.velocity
     #if (!$imageType.contains("none") && ($imageUrlInt != '')) 
         <div
             class="${_EscapeTool.xml($widgetXPath)}__img--${_EscapeTool.xml($imageShape)} ${_EscapeTool.xml($widgetXPath)}__img"
-            style="width: ${_EscapeTool.xml($imgSize)}; height: ${_EscapeTool.xml($imgSize)}; ">
+            style="width: ${_EscapeTool.xml($imageWidth)}; height: ${_EscapeTool.xml($imageHeight)}; ">
                 <img $imageRole class="lazy internal-image ${_EscapeTool.xml($widgetXPath)}__img img--${_EscapeTool.xml($imageShape)} "
                     src="${_EscapeTool.xml($imageURL)}"
                     alt="${_EscapeTool.xml($altText)}" title="${_EscapeTool.xml($altText)}" style="object-fit: ${_EscapeTool.xml($objectFit)}; object-position:${_EscapeTool.xml($objectPositionX)} ${_EscapeTool.xml($objectPositionY)}"/>
@@ -119,11 +119,13 @@ Master Version: Chapman.edu/_cascade/formats/helpers.velocity
     #elseif (!$imageType.contains("none") && ($imageUrlExt != '')) 
          <div
             class=" ${_EscapeTool.xml($widgetXPath)}__img--${_EscapeTool.xml($imageShape)} ${_EscapeTool.xml($widgetXPath)}__img"
-            style="width: ${_EscapeTool.xml($imgSize)}; height: ${_EscapeTool.xml($imgSize)}; ">
+            style="width: ${_EscapeTool.xml($imageWidth)}; height: ${_EscapeTool.xml($imageHeight)}; ">
                 <img $imageRole class="lazy external-image ${_EscapeTool.xml($widgetXPath)}__img img--${_EscapeTool.xml($imageShape)} "
                     src="[system-asset]${_EscapeTool.xml($imageURLExt)}[/system-asset]"
                     alt="${_EscapeTool.xml($altText)}" title="${_EscapeTool.xml($altText)}" style="object-fit: ${_EscapeTool.xml($objectFit)}; object-position:${_EscapeTool.xml($objectPositionX)} ${_EscapeTool.xml($objectPositionY)}"/>
         </div>
+    #else
+        <div class="${_EscapeTool.xml($widgetXPath)}__img"></div>
     #end
 #end
 
@@ -177,8 +179,8 @@ USAGE: #image()
     ## ENSURE CIRCULAR IMAGES HAVE EQUAL HEIGHT AND WIDTH 
     #if ($imageShape == 'circle')
       ## These CSS vars can be overridden in the 'code' section below
-      #set ($imageWidth = '<style> --imgSize: 180px;  var(--smallIMgSize) </style>')
-      #set ($imageHeight = '<style> --imgSize: 180px; var(--smallIMgSize) </style>')
+      #set ($imageWidth = '180px')
+      #set ($imageHeight = '180px')
     #elseif ($imageShape == 'square')
       #set ($imageWidth = '100%')
       #set ($imageHeight = 'auto')

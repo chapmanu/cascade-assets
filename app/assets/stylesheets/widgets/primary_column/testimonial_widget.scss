@@ -137,14 +137,14 @@
     animation-direction: forwards;
     -webkit-animation: fadein 1s forwards;
 
-    &--square img {
-      border-radius: 0;
+    &.img--circle {
+      border-radius: 50%;
     }
 
     img {
       height: 140px;
       width: 140px;
-      border-radius: 50%;
+      border-radius: 0;
     }
   }
 
