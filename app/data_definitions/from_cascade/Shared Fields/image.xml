@@ -1,34 +1,28 @@
 <system-data-structure>
-  <group identifier="image" label="Image" multiple="true">
-    <text default="Internal Cascade Image" field-id="ff6bcc9cc0a81e5f43ef9b37cfd7f777" identifier="imageType" label="Image Link" required="true" type="radiobutton">
-      <radio-item show-fields="image/imageUrlInt, image/imageAltOrDecorative, image/imageShape, image/objectPositionX, image/objectPositionY" value="Internal Cascade Image" />
-      <radio-item show-fields="image/imageUrlExt, image/imageAltOrDecorative, image/imageShape, image/objectPositionX, image/objectPositionY" value="External Image URL" />
-      <radio-item value="None" />
-    </text>
-    <text field-id="ff6bcc9cc0a81e5f43ef9b379d558294" identifier="imageUrlExt" label="External Image URL" />
-    <asset field-id="ff6bcc9cc0a81e5f43ef9b37700ee575" identifier="imageUrlInt" label="Internal Cascade Image" type="file" />
-    <text default="Decorative Image" field-id="db3bd370c0a81e8a5a4039451a733b1c" help-text="Decorative images don’t add information to the content of a page. For example, the information provided by the image might already be given using adjacent text, or the image might be included to make the website more visually attractive." identifier="imageAltOrDecorative" label="Accessibility" type="radiobutton">
-      <radio-item show-fields="image/altText" value="Alt Text" />
-      <radio-item value="Decorative Image" />
-    </text>
-    <text field-id="80953f4cc0a81e5f43ef9b370fcbe411" help-text="Be succinct, accurate, and equivalent in presenting the same content and function of the image. Do NOT be redundant or provide the same information as text within the context of the image. Do NOT use the phrases &quot;image of ...&quot; or &quot;graphic of ...&quot; to describe the image. https://webaim.org/techniques/alttext/" identifier="altText" label="Alternate Text" required="true" />
-    <text default="Image Shape" field-id="ff6bcc9cc0a81e5f43ef9b37ad036dff" help-text="Image can be square or cicular with a 1:1 aspect ratio. This will attempt to crop a square image via CSS if &quot;Circle&quot; is selected" identifier="imageShape" label="Image Shape" type="radiobutton">
-      <radio-item value="Circle" />
-      <radio-item value="Square" />
-    </text>
-    <group collapsed="true" identifier="advanced" label="Advanced" multiple="true" restrict-to-groups="Administrators, Web-Coordinators">
-      <text default="cover" field-id="1e92aad0c0a81e5f16fb1e5a85171a7e" identifier="objectFit" label="Object-Fit">
-        <dropdown-item value="cover" />
-        <dropdown-item value="contain" />
-        <dropdown-item value="fill" />
-        <dropdown-item value="scale-down" />
-        <dropdown-item value="none" />
-      </text>
-      <text default="100%" field-id="1e92aad0c0a81e5f16fb1e5a05c1362e" help-text="Circular images require be equal height and width" identifier="imageWidth" label="Image Width" />
-      <text default="auto" field-id="1e92aad0c0a81e5f16fb1e5a2e18ac13" help-text="Circular images require equal height and width" identifier="imageHeight" label="Image Height" />
-      <text default="Center" field-id="ff6bcc9cc0a81e5f43ef9b3754f89c63" help-text="Horiztonal position. Enter value such as a percentage (&quot;10%&quot;), direction (&quot;top&quot;), or pixels (&quot;10px&quot;). Usage: https://developer.mozilla.org/en-US/docs/Web/CSS/object-position" identifier="objectPositionX" label="Object Position X" />
-      <text default="Center" field-id="ff6bcc9cc0a81e5f43ef9b375e46fd9e" help-text="Horiztonal position. Enter value such as a percentage (&quot;10%&quot;), direction (&quot;top&quot;), or pixels (&quot;10px&quot;). Usage: https://developer.mozilla.org/en-US/docs/Web/CSS/object-position" identifier="objectPositionY" label="Object Position Y" />
-      <text field-id="1e92aad0c0a81e5f16fb1e5ad4a6683a" help-text="Inline Code" identifier="code" multi-line="true" />
-    </group>
-  </group>
+	<group identifier="image" label="Image" multiple="true">
+		<text default="Internal Cascade Image" field-id="ff6bcc9cc0a81e5f43ef9b37cfd7f777" identifier="imageType" label="Image Link" required="true" type="radiobutton">
+			<radio-item show-fields="image/imageUrlInt, image/imageAltOrDecorative, image/imageShape, image/objectPositionX, image/objectPositionY" value="Internal Cascade Image"/>
+			<radio-item show-fields="image/imageUrlExt, image/imageAltOrDecorative, image/imageShape, image/objectPositionX, image/objectPositionY" value="External Image URL"/>
+			<radio-item value="None"/>
+		</text>
+		<text field-id="ff6bcc9cc0a81e5f43ef9b379d558294" identifier="imageUrlExt" label="External Image URL"/>
+		<asset field-id="ff6bcc9cc0a81e5f43ef9b37700ee575" identifier="imageUrlInt" label="Internal Cascade Image" type="file"/>
+		<text default="Decorative Image" field-id="db3bd370c0a81e8a5a4039451a733b1c" help-text="Decorative images don’t add information to the content of a page. For example, the information provided by the image might already be given using adjacent text, or the image might be included to make the website more visually attractive." identifier="imageAltOrDecorative" label="Accessibility" type="radiobutton">
+			<radio-item show-fields="image/altText" value="Alt Text"/>
+			<radio-item value="Decorative Image"/>
+		</text>
+		<text field-id="80953f4cc0a81e5f43ef9b370fcbe411" help-text="Be succinct, accurate, and equivalent in presenting the same content and function of the image. Do NOT be redundant or provide the same information as text within the context of the image. Do NOT use the phrases &quot;image of ...&quot; or &quot;graphic of ...&quot; to describe the image. https://webaim.org/techniques/alttext/" identifier="altText" label="Alternate Text" required="true"/>
+		<text default="Image Shape" field-id="ff6bcc9cc0a81e5f43ef9b37ad036dff" help-text="Image can be square or cicular with a 1:1 aspect ratio. This will attempt to crop a square image via CSS if &quot;Circle&quot; is selected" identifier="imageShape" label="Image Shape" type="radiobutton">
+			<radio-item value="Circle"/>
+			<radio-item value="Square"/>
+		</text>
+		<group collapsed="true" identifier="advanced" label="Advanced" multiple="true" restrict-to-groups="Administrators, Web-Coordinators">
+			<text default="cover" field-id="1e92aad0c0a81e5f16fb1e5a85171a7e" identifier="objectFit" label="Object-Fit"/>
+			<text default="100%" field-id="1e92aad0c0a81e5f16fb1e5a05c1362e" help-text="Circular images require be equal height and width" identifier="imageWidth" label="Image Width"/>
+			<text default="100%" field-id="1e92aad0c0a81e5f16fb1e5a2e18ac13" help-text="Circular images require equal height and width" identifier="imageHeight" label="Image Height"/>
+			<text default="Center" field-id="ff6bcc9cc0a81e5f43ef9b3754f89c63" help-text="Horiztonal position. Enter value such as a percentage (&quot;10%&quot;), direction (&quot;top&quot;), or pixels (&quot;10px&quot;). Usage: https://developer.mozilla.org/en-US/docs/Web/CSS/object-position" identifier="objectPositionX" label="Object Position X"/>
+			<text default="Center" field-id="ff6bcc9cc0a81e5f43ef9b375e46fd9e" help-text="Horiztonal position. Enter value such as a percentage (&quot;10%&quot;), direction (&quot;top&quot;), or pixels (&quot;10px&quot;). Usage: https://developer.mozilla.org/en-US/docs/Web/CSS/object-position" identifier="objectPositionY" label="Object Position Y"/>
+			<text field-id="1e92aad0c0a81e5f16fb1e5ad4a6683a" help-text="Inline Code" identifier="code" multi-line="true"/>
+		</group>
+	</group>
 </system-data-structure>

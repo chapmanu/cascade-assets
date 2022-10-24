@@ -1,0 +1,20 @@
+<system-data-structure>
+	<group collapsed="true" identifier="dropDownButton" label="Drop Down Button">
+		<text default="no" field-id="856478e0c0a81e8a3b00029378e3e8ef" identifier="showDropDownButton" label="Show Drop Down Button?" type="radiobutton">
+			<radio-item label="Yes" show-fields="dropDownButton/dropdownLabel, dropDownButton/link" value="yes"/>
+			<radio-item label="No" value="no"/>
+		</text>
+		<text field-id="91a569f2c0a81e8a65cef5dfc71ffb78" identifier="dropdownLabel" label="Dropdown Label" required="true"/>
+		<group identifier="link" label="Link" multiple="true">
+			<text field-id="855634b2c0a81e8a3b0002934dd65c38" identifier="linkLabel" label="Link Label"/>
+			<text field-id="855a13d0c0a81e8a3b0002935a89f8a9" identifier="linkType" label="Link Type" type="radiobutton">
+				<radio-item label="Internal Link" show-fields="dropDownButton/link/internalLinkPage" value="internalLink"/>
+				<radio-item label="External Link" show-fields="dropDownButton/link/externalLink" value="externalLink"/>
+				<radio-item label="File Link" show-fields="dropDownButton/link/fileLink" value="fileLink"/>
+			</text>
+			<asset field-id="855a13d0c0a81e8a3b0002935decb78b" help-text="link to pages within chapman website" identifier="internalLinkPage" label="Internal Link " type="page"/>
+			<text field-id="855f8c87c0a81e8a3b00029347be079a" help-text="links to urls outside of chapman website" identifier="externalLink" label="External Link"/>
+			<asset field-id="855a13d0c0a81e8a3b00029392a0a4be" help-text="link to files such as documents, pdfs, images, etc..." identifier="fileLink" label="File Link" type="file"/>
+		</group>
+	</group>
+</system-data-structure>

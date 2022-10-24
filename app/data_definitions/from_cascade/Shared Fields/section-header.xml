@@ -1,0 +1,28 @@
+<system-data-structure>
+	<group collapsed="true" identifier="sectionHeaderGroup" label="Intro Section Header">
+		<text field-id="2e7e4d67c0a81e8a5a403945a2b3eda0" help-text="Smaller text that sits above the header" identifier="sectionPreheader" label="Intro Section Pre-header"/>
+		<text field-id="2e7e4d67c0a81e8a5a403945858f943f" identifier="sectionHeader" label="Intro Section Header"/>
+		<text field-id="2e7e4d67c0a81e8a5a40394567752eaf" identifier="sectionHeaderParagraph" label="Intro Section Paragraph" wysiwyg="true"/>
+		<!--<text field-id="2e7e4d67c0a81e8a5a403945f9fb5f13" identifier="displaySectionButtons" label="Display Section Buttons?" required="true" type="radiobutton">-->
+		<!--  <radio-item label="Yes" show-fields="sectionHeader/sectionButtons, sectionHeader/sectionButtonAlignment" value="yes"/>-->
+		<!--  <radio-item label="No" value="no"/>-->
+		<!--</text>-->
+		<!--<group collapsed="true" identifier="sectionButtons" label="Intro Section Buttons" maximum-number="3" multiple="true">-->
+		<!--  <text field-id="2e825a44c0a81e8a5a403945b9364f37" identifier="buttonLabel" label="Button Label" required="true"/>-->
+		<!--  <text field-id="2e7e4d67c0a81e8a5a403945780ba691" identifier="internalOrExternalLink" label="Internal or External Link?" required="true" type="radiobutton">-->
+		<!--    <radio-item label="Internal" show-fields="sectionHeader/sectionButtons/internalLink" value="internal"/>-->
+		<!--    <radio-item label="External" show-fields="sectionHeader/sectionButtons/externalLinkField" value="external"/>-->
+		<!--  </text>-->
+		<!--  <asset field-id="2e7e4d67c0a81e8a5a403945fa4a2cd7" identifier="internalLink" label="Internal Link" required="true" type="page"/>-->
+		<!--  <text field-id="2e7e4d67c0a81e8a5a403945ab085c9f" identifier="externalLinkField" label="External Link" required="true"/>-->
+		<!--  <text default="red" field-id="2e7e4d67c0a81e8a5a4039453f253ac1" identifier="buttonColor" label="Button Color" type="dropdown">-->
+		<!--    <dropdown-item label="Chapman Red" value="red"/>-->
+		<!--    <dropdown-item label="Panther Black" value="black"/>-->
+		<!--    <dropdown-item label="White" value="white"/>-->
+		<!--  </text>-->
+		<!--  <group collapsed="true" identifier="buttonAccessibility" label="Button Accessibility">-->
+		<!--    <text field-id="2e825a44c0a81e8a5a4039454e2daee8" help-text="Describe what the image looks like." identifier="ariaLabel" label="Aria Label" required="true"/>-->
+		<!--  </group>-->
+		<!--</group>-->
+	</group>
+</system-data-structure>

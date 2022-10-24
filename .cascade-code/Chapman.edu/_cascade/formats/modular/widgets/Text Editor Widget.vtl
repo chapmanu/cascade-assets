@@ -1,6 +1,12 @@
 #macro(outputTextEditorWidget $element)
   #import( "/_cascade/formats/helpers.velocity" )
 
+<style>
+    .text-editor-widget__button {
+        text-align: center;
+    }
+</style>
+
   #set ( $textEditor = $_XPathTool.selectSingleNode($element, 'textEditorWidget'))
   #set ( $bgColor = $textEditor.getChild('backgroundColor').value )
   #set ( $textLayout = $textEditor.getChild('textLayout').value )
@@ -8,6 +14,7 @@
   #set ( $header = $textEditor.getChild('textOptions').getChild('header').value)
   #set ( $preHeader = $textEditor.getChild('textOptions').getChild('preHeader').value)
   #set ( $serializedText = $_SerializerTool.serialize($textEditor.getChild('textOptions').getChild('text'),true))
+  #set ( $custom = $_SerializerTool.serialize($textEditor.getChild('custom'),true))
   #set ( $textOnlyAlignment = $textEditor.getChild('textOnlyAlignment').value )
   #set ( $textAlignment = $textEditor.getChild('textAlignment').value )
   #set ( $imageGroup = $textEditor.getChild('image') )
@@ -90,7 +97,7 @@
             <iframe width="300" height="225" src="$_EscapeTool.xml($videoUrl)" frameborder="0"></iframe>
         </div>
     #else
-        <div class='grid-text__custom'>$serializedText</div>
+        <div class='grid-text__custom'>$custom</div>
     #end
 
     #macro (outputButtonsLinks)

@@ -1,0 +1,21 @@
+<system-data-structure>
+	<group identifier="link" label="Call to Action Buttons" maximum-number="3" multiple="true">
+		<text default="Internal Link" field-id="ff6bcc9ac0a81e5f43ef9b374b696a50" identifier="linkType" label="Link Type" type="radiobutton">
+			<radio-item show-fields="link/internalLink" value="Internal Link"/>
+			<radio-item show-fields="link/externalLink" value="External Link"/>
+			<radio-item show-fields="link/fileLink" value="File Link"/>
+		</text>
+		<text field-id="ff6bcc9ac0a81e5f43ef9b373660905b" help-text="full url (including HTTPS) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+		<asset field-id="ff6bcc9ac0a81e5f43ef9b3718fb9a85" identifier="internalLink" label="Internal Link" type="page"/>
+		<asset field-id="ff6bcc9ac0a81e5f43ef9b37f1e18a3b" identifier="fileLink" label="File Link" type="file"/>
+		<text field-id="ff6bcc9ac0a81e5f43ef9b371849e750" identifier="label" label="Label"/>
+		<group collapsed="true" identifier="accessibility" label="Accessibility">
+			<text field-id="ff6bcc9ac0a81e5f43ef9b3729d7d0df" identifier="ariaLabel" label="Aria Label"/>
+			<text field-id="ff6bcc9ac0a81e5f43ef9b37036adb23" identifier="title" label="Title"/>
+		</group>
+		<group collapsed="true" identifier="tracking" label="Analytics Tracking" restrict-to-groups="Administrators, Web-Coordinators">
+			<text field-id="ff6bcc9ac0a81e5f43ef9b371e5afefb" help-text="Replace or add custom link ID for tracking." identifier="customID" label="Override HTML ID"/>
+			<text field-id="ff6bcc9ac0a81e5f43ef9b37362e884a" help-text="Replace or add custom data-attr for tracking. Entering 'my-custom-thing' will result in 'data-my-custom-thing'" identifier="dataAttr" label="Data Attribute" multiple="true"/>
+		</group>
+	</group>
+</system-data-structure>
