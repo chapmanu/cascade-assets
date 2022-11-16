@@ -114,10 +114,7 @@ var chapman = chapman || {};
 
                 // Jump to Undergraduate section to search by keyword
                 $("#dap-undergraduate-keyword").val(keywordVal);
-                _this.toggleSection(
-                  $("#js-dap-section-undergraduate"),
-                  trigger
-                );
+                _this.toggleSection($("#js-dap-section-undergraduate"), trigger);
                 _this.applyHashFilters(); // This is a special case where the hash filters must be applied even though there was a form event
               } else {
                 // Otherwise reset the rest of the form
@@ -177,13 +174,9 @@ var chapman = chapman || {};
       });
 
       // Click on Program Types buttons in Undergraduate section
-      dap.undergraduate.$programTypes.on(
-        "change",
-        ".program-type input",
-        function () {
-          _this.syncUndergraduateProgramTypes($(this));
-        }
-      );
+      dap.undergraduate.$programTypes.on("change", ".program-type input", function () {
+        _this.syncUndergraduateProgramTypes($(this));
+      });
 
       $("form").on("change", function (event) {
         var form = $(this),
@@ -194,9 +187,7 @@ var chapman = chapman || {};
 
           // If using the keyword search in the Discover section...
           if (activeSection === "discover") {
-            var trigger = $(
-              "#js-dap-section-undergraduate .dap-section-accordion-trigger"
-            );
+            var trigger = $("#js-dap-section-undergraduate .dap-section-accordion-trigger");
 
             // Jump to Undergraduate section to search by keyword
             _this.toggleSection($("#js-dap-section-undergraduate"), trigger);
@@ -212,13 +203,9 @@ var chapman = chapman || {};
       //-------- Graduate Events --------//
 
       // Click on Program Types buttons in Graduate section
-      dap.graduate.$programTypes.on(
-        "change",
-        ".program-type input",
-        function () {
-          _this.syncGraduateProgramTypes($(this));
-        }
-      );
+      dap.graduate.$programTypes.on("change", ".program-type input", function () {
+        _this.syncGraduateProgramTypes($(this));
+      });
     },
 
     resetFiltering: function (form) {
@@ -294,11 +281,7 @@ var chapman = chapman || {};
                   var degreeTypeFormatted = degreeType.toLowerCase();
 
                   // Any of the following count as bridge/accelerated
-                  if (
-                    degreeTypeFormatted === "bridge" ||
-                    degreeTypeFormatted === "integrated/4+1" ||
-                    degreeTypeFormatted === "accelerated 3+2"
-                  ) {
+                  if (degreeTypeFormatted === "bridge" || degreeTypeFormatted === "integrated/4+1" || degreeTypeFormatted === "accelerated 3+2") {
                     isUndergradAndGrad = true;
                     break;
                   }
@@ -344,11 +327,7 @@ var chapman = chapman || {};
       var _this = this;
 
       setInterval(function () {
-        if (
-          !lazyLoadingPaused &&
-          activeSection !== undefined &&
-          activeSection !== ""
-        ) {
+        if (!lazyLoadingPaused && activeSection !== undefined && activeSection !== "") {
           _this.lazyLoadResults();
         }
       }, lazyLoadingIntervalTime);
@@ -368,13 +347,9 @@ var chapman = chapman || {};
 
         $("#js-dap-results-" + activeSection + " .results-row").append(result); // Append the result
         var $result = $(result); // Store previously appended result as variable
-        bottomOfResultsContainer =
-          $resultsContainer.offset().top + $resultsContainer.outerHeight(true); // Recalculate container's height with new result
+        bottomOfResultsContainer = $resultsContainer.offset().top + $resultsContainer.outerHeight(true); // Recalculate container's height with new result
 
-        if (
-          scrollThreshold >= bottomOfResultsContainer &&
-          $resultsContainer.is(":visible")
-        ) {
+        if (scrollThreshold >= bottomOfResultsContainer && $resultsContainer.is(":visible")) {
           // If the user is past the scroll threshold
           _this.fadeInResult($result); // Fade the result in
           resultsSetItemsLoaded++; // Move to the next result
@@ -387,12 +362,9 @@ var chapman = chapman || {};
 
         if (activeSection === "discover") {
           // Open the keyword form
-          dap.discover.$keywordForm.slideDown(
-            standardTransitionTime,
-            function () {
-              $(this).css("overflow", "visible");
-            }
-          );
+          dap.discover.$keywordForm.slideDown(standardTransitionTime, function () {
+            $(this).css("overflow", "visible");
+          });
         }
       }
     },
@@ -439,11 +411,7 @@ var chapman = chapman || {};
       $dapFeature.addClass(transitioningClass);
 
       // Reset the previously opened section
-      if (
-        activeSection !== undefined &&
-        activeSection !== "" &&
-        $("#js-dap-" + activeSection + "-form").length > 0
-      ) {
+      if (activeSection !== undefined && activeSection !== "" && $("#js-dap-" + activeSection + "-form").length > 0) {
         form = $("#js-dap-" + activeSection + "-form");
         // _this.resetFiltering(form);
         _this.resetForm(form);
@@ -459,9 +427,7 @@ var chapman = chapman || {};
 
       if (section.hasClass("active")) {
         // If the section is open, close it
-        var activeResults = $(
-          "#js-dap-results-" + activeSection + " .results-row .result"
-        );
+        var activeResults = $("#js-dap-results-" + activeSection + " .results-row .result");
 
         section.removeClass("active");
         activeResults.removeClass("faded-in");
@@ -518,9 +484,7 @@ var chapman = chapman || {};
             var scrollToSectionTime = 1000,
               scrollPoint;
 
-            headerOffset = parseInt(
-              $("html").css("padding-top").replace("px", "")
-            );
+            headerOffset = parseInt($("html").css("padding-top").replace("px", ""));
 
             // Scroll to new section
             if (scrollEl) {
@@ -560,11 +524,7 @@ var chapman = chapman || {};
     switchDiscoverMotivation: function (el) {
       if (!el.hasClass(activeClass)) {
         var motivation = el.data("motivation"),
-          $motivationInterests = $(
-            '#js-dap-discover-interests .interest[data-category="' +
-              motivation +
-              '"]'
-          );
+          $motivationInterests = $('#js-dap-discover-interests .interest[data-category="' + motivation + '"]');
 
         dap.discover.$interests.find("input").prop("checked", false); // Reset interests
         dap.discover.activeMotivation = motivation; // Change the active motivation
@@ -650,10 +610,7 @@ var chapman = chapman || {};
         inputID = el.attr("id");
 
       if (inputID === allProgramsID) {
-        dap.undergraduate.$programTypes
-          .find("input")
-          .not(el)
-          .prop("checked", false);
+        dap.undergraduate.$programTypes.find("input").not(el).prop("checked", false);
       } else {
         $("#" + allProgramsID).prop("checked", false);
       }
@@ -749,22 +706,10 @@ var chapman = chapman || {};
             degreeTypes = result.degreeTypes;
           }
 
-          _this.filterResult(
-            result,
-            title,
-            interests,
-            motivations,
-            degreeTypes,
-            schools
-          );
+          _this.filterResult(result, title, interests, motivations, degreeTypes, schools);
         }
 
-        resultsCountText =
-          "You are seeing " +
-          resultsSetCount +
-          " out of " +
-          undergraduateResults.length +
-          " Undergraduate Degrees and Programs"; // Set the results count text
+        resultsCountText = "You are seeing " + resultsSetCount + " out of " + undergraduateResults.length + " Undergraduate Degrees and Programs"; // Set the results count text
       } else if (activeSection === "graduate") {
         for (var j = 0; j < graduateResults.length; j++) {
           result = graduateResults[j];
@@ -772,22 +717,10 @@ var chapman = chapman || {};
           degreeTypes = result.degreeTypes;
           schools = result.schools;
 
-          _this.filterResult(
-            result,
-            title,
-            interests,
-            motivations,
-            degreeTypes,
-            schools
-          );
+          _this.filterResult(result, title, interests, motivations, degreeTypes, schools);
         }
 
-        resultsCountText =
-          "You are seeing " +
-          resultsSetCount +
-          " out of " +
-          graduateResults.length +
-          " Graduate Degrees and Programs"; // Set the results count text
+        resultsCountText = "You are seeing " + resultsSetCount + " out of " + graduateResults.length + " Graduate Degrees and Programs"; // Set the results count text
       }
 
       $resultsCount.removeClass("faded-in");
@@ -805,22 +738,11 @@ var chapman = chapman || {};
     },
 
     // Compares properties of a single result to the active filters set
-    filterResult: function (
-      result,
-      title,
-      interests,
-      motivations,
-      degreeTypes,
-      schools
-    ) {
+    filterResult: function (result, title, interests, motivations, degreeTypes, schools) {
       var _this = this;
 
       // Keyword search is separate
-      if (
-        title !== undefined &&
-        activeFilters.keyword !== undefined &&
-        activeFilters.keyword !== ""
-      ) {
+      if (title !== undefined && activeFilters.keyword !== undefined && activeFilters.keyword !== "") {
         var formattedTitle = title.toLowerCase(),
           formattedKeyword = activeFilters.keyword.toLowerCase();
 
@@ -852,10 +774,7 @@ var chapman = chapman || {};
 
         // Motivations
         if (activeFilters.motivation !== undefined) {
-          if (
-            motivations !== undefined &&
-            motivations.indexOf(activeFilters.motivation) > -1
-          ) {
+          if (motivations !== undefined && motivations.indexOf(activeFilters.motivation) > -1) {
             motivationMatch = true;
           }
         } else {
@@ -899,12 +818,7 @@ var chapman = chapman || {};
         }
 
         // If it's a match, add the result HTML to the results set
-        if (
-          interestMatch &&
-          motivationMatch &&
-          degreeTypesMatch &&
-          schoolsMatch
-        ) {
+        if (interestMatch && motivationMatch && degreeTypesMatch && schoolsMatch) {
           _this.addResultHTML(result);
         }
       }
@@ -933,22 +847,14 @@ var chapman = chapman || {};
 
       // Only show this field if it's defined
       if (result.links) {
-        console.log(
-          "stringified link length: " +
-            JSON.stringify(result.title + " " + result.links.length)
-        );
+        console.log("stringified link length: " + JSON.stringify(result.title + " " + result.links.length));
 
         if (result.links[0] !== undefined) {
           console.log(JSON.stringify(result.links[0]));
-          console.log(
-            "link 0 label: " +
-              JSON.stringify(result.title + result.links[0].linkLabel)
-          );
+          console.log("link 0 label: " + JSON.stringify(result.title + result.links[0].linkLabel));
         }
         if (result.links[1] !== undefined) {
-          console.log(
-            "link 1 label: " + JSON.stringify(result.links[1].linkLabel)
-          );
+          console.log("link 1 label: " + JSON.stringify(result.links[1].linkLabel));
         }
         linksHTML += '<ul class="program-links">';
         for (var i = 0; i < result.links.length; i++) {
@@ -988,8 +894,7 @@ var chapman = chapman || {};
         degreeTypesHTML = '<ul class="degree-types clearfix">';
 
         for (var j = 0; j < degreeTypes.title.length; j++) {
-          degreeTypesHTML =
-            degreeTypesHTML + "<li>" + degreeTypes.title[j] + "</li>";
+          degreeTypesHTML = degreeTypesHTML + "<li>" + degreeTypes.title[j] + "</li>";
         }
 
         degreeTypesHTML = degreeTypesHTML + "</ul>";
@@ -1053,9 +958,7 @@ var chapman = chapman || {};
         hash;
 
       if (window.location.href.indexOf("?") > -1) {
-        var hashes = window.location.href
-          .slice(window.location.href.indexOf("?") + 1)
-          .split("&");
+        var hashes = window.location.href.slice(window.location.href.indexOf("?") + 1).split("&");
 
         for (var i = 0; i < hashes.length; i++) {
           hash = hashes[i].split("=");
@@ -1064,10 +967,7 @@ var chapman = chapman || {};
             // BREI's Version
             urlTypeQuery = hash[1].toLowerCase();
 
-            if (
-              urlTypeQuery === "undergraduate" ||
-              urlTypeQuery === "graduate"
-            ) {
+            if (urlTypeQuery === "undergraduate" || urlTypeQuery === "graduate") {
               _this.toggleSection($("#js-dap-section-" + urlTypeQuery));
             } else if (urlTypeQuery === "discover") {
               _this.toggleSection($("#js-dap-section-" + urlTypeQuery), false);
@@ -1108,22 +1008,17 @@ var chapman = chapman || {};
         graduateAutocompleteOptions = "";
 
       for (var i = 0; i < undergraduateProgramNames.length; i++) {
-        undergraduateAutocompleteOptions +=
-          '<option value="' + undergraduateProgramNames[i] + '">';
+        undergraduateAutocompleteOptions += '<option value="' + undergraduateProgramNames[i] + '">';
       }
 
       for (var j = 0; j < graduateProgramNames.length; j++) {
-        graduateAutocompleteOptions +=
-          '<option value="' + graduateProgramNames[j] + '">';
+        graduateAutocompleteOptions += '<option value="' + graduateProgramNames[j] + '">';
       }
 
       keywordFields.each(function () {
         var fieldID = $(this).attr("id");
 
-        if (
-          fieldID.indexOf("-discover") !== -1 ||
-          fieldID.indexOf("-undergraduate") !== -1
-        ) {
+        if (fieldID.indexOf("-discover") !== -1 || fieldID.indexOf("-undergraduate") !== -1) {
           $(this).autoComplete({
             minChars: 1,
             source: function (term, suggest) {
@@ -1170,9 +1065,7 @@ var chapman = chapman || {};
         var filter = decodeURIComponent(hashItems[i].replace(/\+/g, "%20")); // Remove any plus signs and code as spaces, then decode the filter
         var filterName = filter.substring(0, filter.indexOf("="));
         var filterValue = filter.substring(filter.indexOf("=") + 1);
-        var filterEl = $(
-          '[name="' + filterName + '"][value="' + filterValue + '"]'
-        ); // Get the element using the name and value. Standard filter element except for special cases below.
+        var filterEl = $('[name="' + filterName + '"][value="' + filterValue + '"]'); // Get the element using the name and value. Standard filter element except for special cases below.
 
         if (filterName === "type") {
           // Switch section on back/forward if necessary
@@ -1188,31 +1081,19 @@ var chapman = chapman || {};
             .val(filterValue)
             .change(); // Set select value and trigger change
         } else if (filter.indexOf("motivation") !== -1) {
-          var $motivationEl = $(
-            '#js-dap-discover-motivations .motivation[data-motivation="' +
-              filterValue +
-              '"]'
-          );
+          var $motivationEl = $('#js-dap-discover-motivations .motivation[data-motivation="' + filterValue + '"]');
 
           _this.switchDiscoverMotivation($motivationEl);
         } else if (filter.indexOf("interest") !== -1) {
           if (formType === "discover") {
-            var $interestEl = $(
-              '#js-dap-discover-interests .interest[data-interest="' +
-                filterValue +
-                '"]'
-            );
+            var $interestEl = $('#js-dap-discover-interests .interest[data-interest="' + filterValue + '"]');
 
             _this.switchDiscoverInterest($interestEl);
           } else {
             filterEl.prop("checked", true); // Check the checkbox
           }
         } else {
-          if (
-            hashItems.length === 1 &&
-            !filterName.length &&
-            !filterValue.length
-          ) {
+          if (hashItems.length === 1 && !filterName.length && !filterValue.length) {
             // No hash and no filters set!
 
             if ($("#js-dap-section-" + activeSection).hasClass("active")) {
@@ -1265,8 +1146,7 @@ var chapman = chapman || {};
       var windowHeight = $(window).height();
       var bottomOfWindow = $(window).scrollTop() + windowHeight;
       var topOfResultsContainer = $resultsContainer.offset().top;
-      var scrollPoint =
-        topOfResultsContainer - (windowHeight - resultsContainerHeight);
+      var scrollPoint = topOfResultsContainer - (windowHeight - resultsContainerHeight);
 
       // If the top of the results container isn't completely in view, scroll to it
       if (bottomOfWindow - resultsContainerHeight <= topOfResultsContainer) {
