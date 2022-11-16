@@ -199,3 +199,9 @@
 		}
 	}
 }
+
+@include respond(phone) {
+	.fact-card {
+		margin: 15px auto;
+	}
+}
