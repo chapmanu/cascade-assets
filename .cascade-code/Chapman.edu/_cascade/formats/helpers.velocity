@@ -701,7 +701,8 @@ LOG VELOCITY VARIABLES IN THE BROWSER CONSOLE ON DEV
 
 #macro(outputBgColorClass $element $widgetClass)
     #set($bgColor = $element.getChild('bgColor').value)
-    #set($colorClass = "${widgetClass}__#if($bgColor == 'Light')light-bg#{elseif}($bgColor == 'Medium')medium-bg#{else}dark-bg#end")
+    ##set($colorClass = "${widgetClass}__#if($bgColor == 'Light')light-bg#{elseif}($bgColor == 'Medium')medium-bg#{else}dark-bg#end")
+    #set($colorClass = "${widgetClass}__#if($bgColor == 'Light')light-bg#{elseif}($bgColor == 'Medium')medium-bg#{elseif}($bgColor == 'Dark')dark-bg#{else}sand-bg#end")
     $colorClass
 #end
 
