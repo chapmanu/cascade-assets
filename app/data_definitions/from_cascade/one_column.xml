@@ -1273,6 +1273,7 @@
           <radio-item value="Light"/>
           <radio-item value="Medium"/>
           <radio-item value="Dark"/>
+          <radio-item value="Sand"/>
         </text>
         <text field-id="ff6bcbf3c0a81e5f43ef9b37a46a17ac" identifier="title" label="Title"/>
         <text field-id="ff6bcbf3c0a81e5f43ef9b3723de3eb0" help-text="Paste url of a blog site from blogs.chapman" identifier="feedUrl" label="Feed Url"/>
