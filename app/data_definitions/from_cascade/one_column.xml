@@ -1278,10 +1278,10 @@
         <text field-id="ff6bcbf3c0a81e5f43ef9b37a46a17ac" identifier="title" label="Title"/>
         <text field-id="ff6bcbf3c0a81e5f43ef9b3723de3eb0" help-text="Paste url of a blog site from blogs.chapman" identifier="feedUrl" label="Feed Url"/>
         <text field-id="ff6bcbf3c0a81e5f43ef9b37dcea3114" help-text="Paste url of a blog post from blogs.chapman" identifier="topStory" label="Top Story Url"/>
-        <group collapsed="true" identifier="button" label="Button">
-          <text field-id="ff6bcbf3c0a81e5f43ef9b37b011ddfc" identifier="text" label="Text"/>
-          <text field-id="ff6bcbf3c0a81e5f43ef9b374f0e717d" help-text="full url (including http)" identifier="link" label="Link"/>
-        </group>
+				<group collapsed="true" identifier="button" label="Button" maximum-number="3" multiple="true">
+					<text field-id="ff6bcbf3c0a81e5f43ef9b37b011ddfc" identifier="text" label="Text"/>
+					<text field-id="ff6bcbf3c0a81e5f43ef9b374f0e717d" help-text="full url (including http)" identifier="link" label="Link"/>
+				</group>
       </group>
       <group collapsed="true" identifier="subscribe" label="Campaign Monitor Newsletter Subscribe">
         <text default="Yes" field-id="ff6bcbf3c0a81e5f43ef9b37c538bf58" identifier="display-subscribe" label="Show" type="radiobutton">
