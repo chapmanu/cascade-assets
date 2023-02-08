@@ -1,0 +1,177 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenLite.min.js"></script>
+<style>
+  .fact5 .bigstat:before {
+    content: "$";
+  }
+
+  #pullout-callout-box {
+    background-color: #009ca6;
+    box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.3);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    right: 39px;
+    position: fixed;
+    top: 130px;
+    height: 210px;
+    transform: translateX(100%);
+    width: 338px;
+    z-index: 100;
+    background-image: url(https://www.chapman.edu/_assets/homepage/callout-background.jpg);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  .pullout-btn-opener {
+    background-color: #2ab7c1;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: -3px -4px 8px rgb(0 0 0 / 30%);
+    cursor: pointer;
+    padding: 8px 10px;
+    position: absolute;
+    text-transform: uppercase;
+    transform: rotate(-90deg) translatez(0) translate(-41%, -86px);
+    width: 210px;
+    font-weight: bold;
+    text-align: right;
+    font-size: 1.5rem;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 100% 100%, 18% 100%);
+  }
+
+  .pullout-btn-opener:hover,
+  .pullout-btn-opener:active,
+  .pullout-btn-opener:focus {
+    background-color: #47cdd7;
+    -webkit-transition: background-color 0.4s;
+    transition: 0.4s;
+  }
+
+  #pullout-callout-box .pullout-btn-opener-icon {
+    position: absolute;
+    left: 8px;
+    bottom: 7px;
+    z-index: 2;
+    height: 24px;
+    animation: none;
+    opacity: 1;
+  }
+
+  #pullout-callout-box .pullout-btn-body {
+    padding: 25px 25px 0px 65px;
+  }
+
+  #pullout-callout-box .pullout-btn-body h3 {
+    margin: 0rem 0 1rem;
+  }
+
+  #pullout-callout-box .pullout-btn-body ol {
+    padding: 5px 0px 10px 20px;
+  }
+
+  #pullout-callout-box .pullout-btn-body li {
+    font-weight: 700;
+    padding: 8px 0px;
+  }
+
+  #pullout-callout-box .pullout-carot {
+    margin-left: 1px;
+    font-size: 2rem;
+  }
+
+  #pullout-callout-box .pullout-btn-body .btn-primary {
+    background: #ffffff;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 0 0 0 #2f2f2f;
+    color: #009ca6;
+    cursor: pointer;
+    display: block;
+    font-family: "futura-pt", arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    min-width: 120px;
+    padding: 5px;
+    text-align: center;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-transition: 250ms ease-in-out;
+    transition: 250ms ease-in-out;
+    will-change: background-color;
+  }
+  a#pullout-learn-more-btn:hover,
+  a#pullout-learn-more-btn:focus,
+  a#pullout-learn-more-btn:focus-within {
+    outline: 2px dotted white;
+  }
+
+  #pullout-callout-box .pullout-btn-body .btn-primary:hover,
+  #pullout-callout-box .pullout-btn-body .btn-primary:active,
+  #pullout-callout-box .pullout-btn-body .btn-primary:focus {
+    background-color: #ededed;
+    -webkit-transition: background-color 1s linear;
+    transition: background-color 1s linear;
+  }
+</style>
+<div id="pullout-callout-box" role="complementary">
+  <img
+    class="pullout-btn-opener-icon"
+    src="https://www.chapman.edu/_assets/homepage/cu-finestra-white.svg"
+  />
+  <div class="pullout-btn-opener" tabindex="0">
+    <span>Inspire Students</span>
+    <span class="pullout-carot"
+      ><i class="fas fa-caret-up" aria-hidden="true"></i
+    ></span>
+  </div>
+  <div class="pullout-btn-body">
+    <h3>
+      Learn about Chapman’s Inspire Campaign and transform students’ lives.
+    </h3>
+    <a
+      tabindex="-1"
+      id="pullout-learn-more-btn"
+      class="btn btn-primary btn-block"
+      aria-label="Learn about Chapman’s Inspire Campaign and transform students’ lives."
+      href="https://inspire.chapman.edu/"
+      >Visit Website</a
+    >
+  </div>
+</div>
+<script>
+  var contactEl;
+  var toggleBtn;
+  var contactElHidden = true;
+
+  $(function () {
+    contactEl = $("#pullout-callout-box");
+    toggleBtn = contactEl.find(".pullout-btn-opener");
+    toggleBtn.click(_toggleContactEl);
+    // $(window).scroll(_onScroll);
+  });
+
+  function _toggleContactEl() {
+    TweenLite.to(contactEl, 0.3, {
+      x: contactElHidden ? "14%" : "100%",
+    });
+    contactElHidden = !contactElHidden;
+    $("#pullout-carot i").toggleClass("fa-caret-up fa-caret-down");
+    $("#pullout-learn-more-btn").attr("tabindex", function (index, attr) {
+      return attr == 0 ? -1 : 0;
+    });
+  }
+
+  function _onScroll() {
+    // scrolled half-way
+    if ($(window).scrollTop() < $(document).height() * 0.5) {
+      if (contactElHidden) {
+        //_toggleContactEl();
+      }
+      // only try to display once
+      $(window).off("scroll");
+    }
+  }
+</script>
