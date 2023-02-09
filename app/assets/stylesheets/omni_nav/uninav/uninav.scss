@@ -150,6 +150,17 @@ html {
       }
     }
 
+    &__cta_special a {
+      color: #009da6;
+      &:hover,
+      &:focus,
+      &:active {
+        color: #50b6c2;
+        -webkit-transition: background-color 0.4s;
+        transition: 0.4s;
+      }
+    }
+
     &__cta {
       width: 15%;
       display: flex;

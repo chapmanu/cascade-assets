@@ -92,5 +92,26 @@
 				<text help-text="enter name of CSS class for an icon eg. book4" identifier="icon_cssClass" label="CSS Class"/>
 			</group>
 		</group>
+		<group collapsed="true" identifier="ctaSpecial" label="CTA Special">
+			<group collapsed="true" identifier="link" label="Link" multiple="true">
+				<text identifier="label" label="Label"/>
+				<text help-text="(optional) Alternative label for accessibility to distinguish common or duplicate labels within uninav i.e. if two Event links give one a label of Alumni Events and one Campus Events" identifier="ariaLabel" label="Aria Label"/>
+				<text default="Internal Link" identifier="linkType" label="Link Type" type="radiobutton">
+					<radio-item show-fields="uninav/cta/link/internalLink" value="Internal Link"/>
+					<radio-item show-fields="uninav/cta/link/externalLink" value="External Link"/>
+					<radio-item show-fields="uninav/cta/link/fileLink" value="File Link"/>
+				</text>
+				<text help-text="full url (including https) to page outside of Cascade" identifier="externalLink" label="External Link"/>
+				<asset help-text="link to a page in Cascade" identifier="internalLink" label="Internal Link" type="page"/>
+				<asset help-text="link to a pdf or other document file in Cascade" identifier="fileLink" label="File Link" type="file"/>
+				<text default="None" identifier="icon" label="Icon" type="radiobutton">
+					<radio-item label="None" value="None"/>
+					<radio-item show-fields="uninav/cta/link/icon_svg" value="SVG"/>
+					<radio-item show-fields="uninav/cta/link/icon_cssClass" value="CSS Class"/>
+				</text>
+				<text help-text="enter full svg/html markup to create icon" identifier="icon_svg" label="SVG" multi-line="true"/>
+				<text help-text="enter name of CSS class for an icon eg. book4" identifier="icon_cssClass" label="CSS Class"/>
+			</group>
+		</group>
 	</group>
 </system-data-structure>

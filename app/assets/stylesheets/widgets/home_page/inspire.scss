@@ -1,0 +1,170 @@
+#pullout-callout-box {
+  background-color: var(--color-pacific);
+  box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  right: 39px;
+  position: fixed;
+  top: 130px;
+  height: 210px;
+  transform: translateX(100%);
+  width: 338px;
+  z-index: 101;
+  background-image: url(https://www.chapman.edu/_assets/homepage/callout-background.jpg);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+  .pullout-btn-opener {
+    background-color: var(--color-pacific);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+    padding: 8px 10px;
+    position: absolute;
+    text-transform: uppercase;
+    transform: rotate(-90deg) translatez(0) translate(-41%, -86px);
+    width: 210px;
+    font-weight: bold;
+    text-align: right;
+    font-size: 1.5rem;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 100% 100%, 18% 100%);
+
+    &:hover,
+    &:focus,
+    &.pullout-open {
+      background-color: #50b6c2;
+      -webkit-transition: background-color 0.4s;
+      transition: 0.4s;
+    }
+  }
+
+  .pullout-btn-opener-icon {
+    position: absolute;
+    left: 8px;
+    bottom: 7px;
+    z-index: 2;
+    height: 24px;
+    animation: none;
+    opacity: 1;
+  }
+
+  .pullout-carot {
+    margin-left: 1px;
+    font-size: 2rem;
+  }
+
+  .pullout-btn-body {
+    padding: 25px 25px 0px 65px;
+
+    h3 {
+      margin: 0rem 0 1rem;
+    }
+
+    ol {
+      padding: 5px 0px 10px 20px;
+    }
+    li {
+      font-weight: 700;
+      padding: 8px 0px;
+    }
+    .btn-primary {
+      background: var(--color-white);
+      border: none;
+      border-radius: 3px;
+      box-shadow: 0 0 0 0 #2f2f2f;
+      color: #009ca6;
+      cursor: pointer;
+      display: block;
+      font-family: "futura-pt", arial, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      margin-right: 10px;
+      min-width: 120px;
+      padding: 5px;
+      text-align: center;
+      -webkit-animation-duration: 3s;
+      animation-duration: 3s;
+      -webkit-transition: 250ms ease-in-out;
+      transition: 250ms ease-in-out;
+      will-change: background-color;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #ededed;
+        -webkit-transition: background-color 1s linear;
+        transition: background-color 1s linear;
+      }
+    }
+    a#pullout-learn-more-btn:hover,
+    a#pullout-learn-more-btn:focus,
+    a#pullout-learn-more-btn:focus-within {
+      outline: 2px dotted white;
+    }
+  }
+}
+
+#dei-callout {
+  background: var(--color-white);
+  padding: 30px;
+
+  .dei-callout__wrapper {
+    display: flex;
+
+    .dei-callout__text-section {
+      max-width: 625px;
+      padding: 0px 30px;
+
+      .dei_callout__title {
+        font-size: 3.4rem;
+        line-height: 3.4rem;
+        margin: 0;
+      }
+
+      .dei_callout__description {
+        color: var(--color-panther-black);
+        margin-top: 12px;
+        font-family: "futura-pt", Arial, sans-serif;
+        font-size: 1.8rem;
+      }
+    }
+    .dei-callout__image {
+      max-width: 500px;
+
+      img {
+        -webkit-transition: 0.4s ease;
+        transition: 0.4s ease;
+      }
+
+      &:hover img,
+      &:active img,
+      &:focus img {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        overflow: hidden;
+      }
+    }
+  }
+
+  .dei_callout__button {
+    background-color: var(--color-cu-red);
+    color: var(--color-white);
+    text-transform: uppercase;
+    font-family: "futura-pt", Arial, sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    margin: 0;
+
+    &:hover,
+    &:active,
+    &:focus {
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+      background-color: #c8003f;
+    }
+  }
+}
