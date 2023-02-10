@@ -51,7 +51,7 @@ html {
 
     &__logo,
     #uninav-logo .chapman-logo {
-      width: 100%;
+      // width: 100%;
       border-bottom: none;
     }
 
@@ -112,15 +112,15 @@ html {
       display: flex;
       justify-content: start;
       align-items: center;
-      width: 40%;
+      max-width: 40%;
       height: 60px;
-      padding-left: 2.5rem;
+      padding: 0 2rem;
 
       @include qbal-fade-enter;
 
-      @include respond(tab-land) {
-        width: 30%;
-      }
+      // @include respond(tab-land) {
+      //   width: 30%;
+      // }
 
       &--primary {
         a {
@@ -150,17 +150,13 @@ html {
     }
 
     &__cta {
-      width: auto;
+      max-width: 15%;
       display: flex;
       justify-content: flex-end;
       align-content: center;
       align-items: center;
       margin-left: auto;
       border-bottom: none;
-
-      @include respond(tab-land) {
-        width: 10%;
-      }
 
       ul {
         display: flex;
@@ -452,7 +448,7 @@ html {
         display: flex;
         align-items: center;
         position: relative;
-        margin: 0 2rem;
+        margin: 0 2rem 0 1rem;
 
         @include respond(tab-port) {
           display: none;
@@ -871,9 +867,14 @@ html {
 @include respond(tab-land) {
   #uninav {
     .uninav {
+      .uninav__cta {
+        display: none;
+      }
+
       &__logo {
         &--secondary {
           @include qbal-slideRight-exit;
+          display: none;
         }
       }
 
