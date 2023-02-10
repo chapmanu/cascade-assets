@@ -1,22 +1,27 @@
 /* FuturaLTPro-LightCond */
-@font-face {
-  font-family: "futura-pt-condensed";
-  src: url('http://localhost:8888/Assets/Futura/FuturaLTPro-LightCond.ttf');
-  font-weight: light;
-  font-style: normal;
-}
+// @font-face {
+//   font-family: "futura-pt-condensed";
+//   src: url('http://localhost:8888/Assets/Futura/FuturaLTPro-LightCond.ttf');
+//   font-weight: light;
+//   font-style: normal;
+// }
 
 .homepage-masthead__container {
   height: 100vh;
 
   .homepage-masthead__toggle-play-button {
-    top: calc(750px - 23rem);
+    top: calc(750px - 15rem);
+    left: 2vh;
+    height: 3rem;
    }
 
   .homepage-masthead__sub-container {
     z-index: 100;
 
     .homepage-masthead__heading-container {
+      height: 65%;
+      width: 100%;
+      margin-top: -5%;
 
       .masthead-triangle {
         width: 0;
@@ -25,22 +30,21 @@
         border-right: 125px solid rgba(0, 156, 166, 0.8);
         border-bottom: 125px solid transparent;
         position: relative;
-        top: 9em;
-        left: 15em;
+        top: 0;
+        left: 10%;
         transform: rotate(45deg);
       }
       
       .homepage-masthead__tagline {
         position: relative;
-        left: 9.5em;
-        bottom: 0.6em;
-        text-align: left;
+        left: 12%;
+        bottom: 162px;
       
         .row-one,
         .row-two {
-          display: inline-block;
-          text-align: left;
-          width: 100%;
+          // display: inline-block;
+          // text-align: left;
+          // width: 100%;
         }
       
         .row-one {
@@ -64,15 +68,17 @@
       }
     }
 
-    .homepage-masthead__button-container {
+    .homepage-masthead__button-container-inspire {
       position: relative;
+      left: 12%;
+      margin-top: -2%;
       
-      .homepage-masthead__buttons {
+      .homepage-masthead__buttons-inspire {
         display: flex;
         flex-direction: column;
         position: relative;
     
-        .button-link {
+        .button-link-inspire {
           font-family: 'futura-pt';
           font-weight: bold;
           font-size: 1.6rem;
@@ -83,15 +89,17 @@
           padding-top: 18px;
           padding-bottom: 18px;
           min-width: 350px;
+          max-width: 390px;
           border: 2px solid white;
           border-radius: 4px;
           text-decoration: none;
           text-align: center;
-          width: 34%;
-          margin: 0.25%;
+          width: 100%;
+          margin: 0.50%;
+          left: 0;
         }
         
-        .button-link:hover {
+        .button-link-inspire:hover {
           background-color: rgba(89, 79, 81, 0.7);
         }
       }
@@ -100,27 +108,28 @@
   
   .homepage-masthead__slant-container {
     position: relative;
-    bottom: 10%;
+    bottom: 0;
+    height: auto;
+    margin-top: -16%;
   
     .white-slant {
       position: relative;
-      top: 20%;
-      width: 100vw;
-      height: 325px;
+      top: 135px;
+      width: 100%;
+      max-height: 145px;
       background-color: white;
       background-size: cover;
-      clip-path: polygon(100% 0%, 100% 10%, 0% 50%, 0% 23%);
+      clip-path: polygon(0 90%, 100% 0%, 100% 10%, 0 100%);
       z-index: 90;
     }  
     
     .slant-background {
       position: relative;
-      width: 100vw;
-      height: 19em;
-      bottom: 30%;
-      background-image: url('http://localhost:8888/Pattern-Triangles_RGB-Red.jpg');
+      width: 100%;
+      bottom: 0;
+      background-image: url('https://www.chapman.edu/_files/img/hero-panels/masthead-inspire/inspire-triangle-patterns.jpg');
       background-size: cover;
-      clip-path: polygon(100% 0%, 1000% 100%, 0% 100%, 0% 25%);
+      clip-path: polygon(0 43%, 100% 0%, 100% 100%, 0 100%);
       z-index: 100;
     }
     
@@ -129,7 +138,7 @@
       display: flex;
       text-align: center;
       justify-content: center;
-      top: 30%;
+      top: 40%;
       left: 32%;
       width: 35%;
     
@@ -140,31 +149,32 @@
       line-height: 4.8rem;
       color: white;
     }
-    
+
     .page-down-arrow {
       color: white;
       position: relative;
       display: flex;
       text-align: center;
       justify-content: center;
-      top: 28%;
+      top: 40%;
       font-size: 3rem;
+      font-weight: 300;
+    }
+
+    .page-down-arrow:hover, .page-down-arrow:focus {
+      font-weight: bold;
     }
   }
 
-  video.homepage-masthead__video {
+  video.homepage-masthead__video, video#homepage-masthead__video {
     max-height: 90vh;
-    // mask-image: none;
-    // -webkit-mask-size: none;
-    // -webkit-mask-image: none;
+    mask-image: none !important;
   }
-  // video.homepage-masthead__video {
-  //   height: 80% !important;
-  // }
 }
 
-@media only screen and (max-width: 480px) {
 
+// MEDIA QUERIES
+@media only screen and (max-width: 600px) {
   .homepage-masthead__container {
     .homepage-masthead__sub-container {
       .homepage-masthead__heading-container {
@@ -173,18 +183,18 @@
           border-right: 90px solid rgba(0, 156, 166, 0.8);
           border-bottom: 90px solid transparent;
           position: relative;
-          top: 10.5em;
-          left: -1em;
+          // top: 10.5em;
+          // left: -1em;
           transform: rotate(45deg);
         }
         
         .homepage-masthead__tagline {
-          top: 1.5em;
-          left: 0.5em;
+          // top: 1.5em;
+          // left: 0.5em;
         
           .row-one,
           .row-two {
-            display: inline;
+            display: inline-block;
             text-align: left;
             width: 100%;
           }
@@ -203,28 +213,34 @@
         }
       }
   
-      .homepage-masthead__button-container {
-        top: 4.5em;
-        right: 0em;
+      .homepage-masthead__button-container-inspire {
+        // top: 5.5em;
+        // right: 0em;
         
-        .homepage-masthead__buttons {
-      
-          .button-link {
+        .homepage-masthead__buttons-inspire {
+          align-items: center;
+
+          .button-link-inspire {
             font-family: 'futura-pt';
             font-weight: bold;
             font-size: 1.5rem;
             line-height: 1.5rem;
-
+            margin: 1.25%;
+            left: 0;
           }
         }
       }
     }
-    
+
+    .homepage-masthead__toggle-play-button {
+      top: calc(750px - 78rem);
+    }
+
     .homepage-masthead__slant-container {
       bottom: 0;
     
       .white-slant {
-        top: 22%;
+        top: 23%;
         clip-path: polygon(100% 0%, 100% 10%, 0% 50%, 0% 15%);
       }  
       
@@ -252,14 +268,10 @@
         font-size: 3rem;
       }
     }
-  
-    // video.homepage-masthead__video {
-    //   max-height: 80vh;
-    // }
   }
 }
 
-@media all and (min-width: 480px) and (max-width: 768px) { 
+@media only screen and (min-width: 601px) and (max-width: 900px) {
   .homepage-masthead__container {
     .homepage-masthead__sub-container {
       .homepage-masthead__heading-container {
@@ -267,20 +279,13 @@
           border-top: 110px solid transparent;
           border-right: 110px solid rgba(0, 156, 166, 0.8);
           border-bottom: 110px solid transparent;
-          top: 11.5em;
-          left: -1em;
+          // top: 11.5em;
+          // left: -1em;
         }
         
         .homepage-masthead__tagline {
-          top: 1em;
-          left: 0.8em;
-        
-          .row-one,
-          .row-two {
-            // display: inline-block;
-            // text-align: left;
-            // width: 100%;
-          }
+          // top: 1em;
+          // left: 0.8em;
         
           .row-one {
             font-size: 6.2rem;
@@ -294,15 +299,16 @@
         }
       }
   
-      .homepage-masthead__button-container {
+      .homepage-masthead__button-container-inspire {
         top: 8%;
         left: 3%;
         
-        .homepage-masthead__buttons {
+        .homepage-masthead__buttons-inspire {
           padding-left: 3%;
       
-          .button-link {
+          .button-link-inspire {
             left: 0;
+            margin: 0.75%;
           }
         }
       }
@@ -313,7 +319,7 @@
     }
     
     .homepage-masthead__slant-container {
-      bottom: 0;
+      // bottom: 5%;
     
       .white-slant {
         top: 22%;
@@ -342,28 +348,23 @@
   }
 }
 
-@media all and (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
   .homepage-masthead__container {
     .homepage-masthead__sub-container {
       .homepage-masthead__heading-container {
+        padding-left: 4%;
+
         .masthead-triangle {
           border-top: 110px solid transparent;
           border-right: 110px solid rgba(0, 156, 166, 0.8);
           border-bottom: 110px solid transparent;
-          top: 11.5em;
-          left: -1em;
+          // top: 11.5em;
+          // left: -1em;
         }
         
         .homepage-masthead__tagline {
-          top: 1em;
-          left: 0.8em;
-        
-          .row-one,
-          .row-two {
-            // display: inline-block;
-            // text-align: left;
-            // width: 100%;
-          }
+          top: 4.5%;
+          left: 2.5%;
         
           .row-one {
             font-size: 6.2rem;
@@ -377,15 +378,17 @@
         }
       }
   
-      .homepage-masthead__button-container {
+      .homepage-masthead__button-container-inspire {
         top: 8%;
         left: 3%;
         
-        .homepage-masthead__buttons {
+        .homepage-masthead__buttons-inspire {
           padding-left: 3%;
       
-          .button-link {
+          .button-link-inspire {
             left: 0;
+            max-width: 300px;
+            min-width: 300px;
           }
         }
       }
@@ -396,7 +399,7 @@
     }
     
     .homepage-masthead__slant-container {
-      bottom: 0;
+      bottom: 5%;
     
       .white-slant {
         top: 22%;
@@ -424,3 +427,4 @@
     }
   }
 }
+
