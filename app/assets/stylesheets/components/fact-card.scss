@@ -200,6 +200,10 @@
 	}
 }
 
+.fact5 .bigstat:before {
+    content: "$";
+}
+
 @include respond(phone) {
 	.fact-card {
 		margin: 15px auto;
