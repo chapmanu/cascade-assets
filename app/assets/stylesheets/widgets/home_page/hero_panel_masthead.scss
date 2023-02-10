@@ -1,10 +1,11 @@
 /* FuturaLTPro-LightCond */
-// @font-face {
-//   font-family: "futura-pt-condensed";
-//   src: url('http://localhost:8888/Assets/Futura/FuturaLTPro-LightCond.ttf');
-//   font-weight: light;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: "futura-pt-light-condensed";
+  src: url('https://www.chapman.edu/_files/fonts/futura_cond_light.ttf') format('truetype');
+  src: url('http://localhost:8888/futura_cond_light.tff') format('truetype');
+  font-weight: light;
+  font-style: normal;
+}
 
 .homepage-masthead__container {
   height: 100vh;
@@ -41,7 +42,7 @@
         left: 15%;
 
         .row-one {
-          font-family: "futura-pt-condensed";
+          font-family: "futura-pt-light-condensed";
           font-weight: 200;
           font-size: 6.8rem;
           line-height: 6.4rem;
@@ -58,13 +59,22 @@
           text-transform: uppercase;
           color: white;
         }
+
+        .row-three {
+          font-family: 'futura-pt';
+          font-size: 4.4rem;
+          line-height: 4.4rem;
+          font-weight: bold;
+          margin-top: 32px;
+          text-transform: uppercase;
+        }
       }
     }
 
     .homepage-masthead__buttons-inspire {
       width: 380px;
       position: absolute;
-      top: 37%;
+      top: 42%;
       left: 15%;
 
       .button-link-inspire {
@@ -184,7 +194,8 @@
           // bottom: 0;
 
           .row-one,
-          .row-two {
+          .row-two,
+          .row-three {
             display: inline-block;
             text-align: left;
             width: 100%;
@@ -203,7 +214,7 @@
       }
 
       .homepage-masthead__buttons-inspire {
-        top: 35%;
+        top: 38%;
         left: 12%;
 
         width: 340px;
@@ -231,27 +242,17 @@
     }
     .homepage-masthead__sub-container {
       .homepage-masthead__heading-container {
-        // margin-top: 0;
-        // position: relative;
-        // top: 10%;
 
         .masthead-triangle {
-          // border-top: 125px solid transparent;
-          // border-right: 125px solid rgba(0, 156, 166, 0.8);
-          // border-bottom: 125px solid transparent;
-          // position: relative;
-          // top: 55px;
           left: 9%;
-          // transform: rotate(45deg);
         }
 
         .homepage-masthead__tagline {
-          // top: -105px;
           left: 13%;
-          // bottom: 0;
 
           .row-one,
-          .row-two {
+          .row-two,
+          .row-three {
             display: inline-block;
             text-align: left;
             width: 100%;
@@ -266,12 +267,16 @@
             font-size: 6.8rem;
             line-height: 6.8rem;
           }
+
+          .row-three {
+            font-size: 3.4rem;
+            line-height: 3.4rem;
+          }
         }
       }
 
       .homepage-masthead__buttons-inspire {
-        // align-items: flex-start;
-        // top: 25px;
+        top: 39%;
         left: 13%;
         width: 320px;
 
@@ -316,7 +321,8 @@
           top: 17%;
 
           .row-one,
-          .row-two {
+          .row-two,
+          .row-three {
             display: inline-block;
             text-align: left;
             width: 100%;
@@ -332,6 +338,11 @@
             font-weight: bold;
             font-size: 4.8rem;
             line-height: 4.8rem;
+          }
+
+          .row-three {
+            font-size: 2.8rem;
+            line-height: 2.8rem;
           }
         }
       }
