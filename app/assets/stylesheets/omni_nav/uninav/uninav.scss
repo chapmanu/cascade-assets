@@ -55,7 +55,6 @@ html {
       border-bottom: none;
     }
 
-
     &__utility-nav--wrapper {
       border-bottom: none;
     }
@@ -150,19 +149,8 @@ html {
       }
     }
 
-    &__cta_special a {
-      color: #009da6;
-      &:hover,
-      &:focus,
-      &:active {
-        color: #50b6c2;
-        -webkit-transition: background-color 0.4s;
-        transition: 0.4s;
-      }
-    }
-
     &__cta {
-      width: 15%;
+      width: auto;
       display: flex;
       justify-content: flex-end;
       align-content: center;
@@ -201,7 +189,7 @@ html {
         & > li {
           a {
             @include futura-pt;
-            margin: 0 7px;
+            margin: 0 5px;
             display: block;
             text-align: center;
             font-size: 1.4rem;
@@ -222,6 +210,23 @@ html {
           &:last-child {
             padding-right: 1rem;
           }
+          &:first-child {
+            padding-left: 1rem;
+          }
+        }
+      }
+    }
+
+    &__cta-special {
+      margin: 0;
+      a {
+        color: #009da6;
+        &:hover,
+        &:focus,
+        &:active {
+          color: #50b6c2;
+          -webkit-transition: background-color 0.4s;
+          transition: 0.4s;
         }
       }
     }
@@ -1233,48 +1238,45 @@ html {
   }
 }
 
+#js-off-canvas-overlay {
+  animation: increaseOpacity;
+  animation-direction: normal;
+  animation-duration: 450ms;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  -ms-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  z-index: 1;
 
-  #js-off-canvas-overlay {
-    animation: increaseOpacity;
-    animation-direction: normal;
-    animation-duration: 450ms;
-    animation-timing-function: ease-in-out;
-    -webkit-animation-fill-mode: forwards;
-    -moz-animation-fill-mode: forwards;
-    -o-animation-fill-mode: forwards;
-    -ms-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-    z-index: 1;
+  @keyframes increaseOpacity {
+    0% {
+      opacity: 0;
+      background-color: rgba(0, 0, 0, 0);
+    }
 
-    @keyframes increaseOpacity {
-      0% {
-        opacity: 0;
-        background-color: rgba(0, 0, 0, 0);
-      }
+    25% {
+      background-color: rgba(0, 0, 0, 0.25);
+    }
 
-      25% {
-        background-color: rgba(0, 0, 0, 0.25);
-      }
+    50% {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
 
-      50% {
-        background-color: rgba(0, 0, 0, 0.5);
-      }
+    75% {
+      background-color: rgba(0, 0, 0, 0.75);
+    }
 
-      75% {
-        background-color: rgba(0, 0, 0, 0.75);
-      }
-
-      100% {
-        background-color: rgba(0, 0, 0, 0.9);
-      }
+    100% {
+      background-color: rgba(0, 0, 0, 0.9);
     }
   }
-
+}
 
 .uninav__animation--exit {
   @include qbal-slideRight-exit;
 }
-
 
 // END TABLET PORTRAIT
 // END MEDIA QUERIES
