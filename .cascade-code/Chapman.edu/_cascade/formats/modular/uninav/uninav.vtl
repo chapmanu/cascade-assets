@@ -37,6 +37,11 @@
         #findCustomNavPath($parentNode, $_MathTool.add($depth, 1))
         ## #end
     #end
+
+    #if (($customNavConfig == '_cascade/blocks/html/Default') || ($customNavConfig == '/_cascade/blocks/html/Default'))
+      #set ($customNavConfig = '_cascade/blocks/html/Uninav')
+    #end
+
 #end
 
 #set ($currentPageID = $currentPage.identifier.id)
@@ -64,7 +69,7 @@
 #end
 
 
-#if (($customNavConfig != '_cascade/blocks/html/Uninav') && ($customNavConfig != '/_cascade/blocks/html/Uninav')) ## IF NOT CONTEXTUAL NAV
+#if (($customNavConfig != '_cascade/blocks/html/Uninav') || ($customNavConfig != '/_cascade/blocks/html/Uninav')) ## IF NOT CONTEXTUAL NAV
 <nav id="uninav" class="$brandClass contextual-navigation $currentPage.parentFolder.name" data-navigation-block="${_EscapeTool.xml($customNavConfig)}">
     <div class="uninav__logo">
         <div class="uninav__logo--primary" id="uninav__logo--primary">
