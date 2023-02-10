@@ -13,7 +13,7 @@
     top: 2vh;
     left: 2vh;
     height: 3rem;
-
+    z-index: 100;
   }
 
   .homepage-masthead__sub-container {
@@ -41,7 +41,7 @@
         left: 15%;
 
         .row-one {
-          font-family: 'futura-pt-condensed';
+          font-family: "futura-pt-condensed";
           font-weight: 200;
           font-size: 6.8rem;
           line-height: 6.4rem;
@@ -51,7 +51,7 @@
         }
 
         .row-two {
-          font-family: 'futura-pt';
+          font-family: "futura-pt";
           font-weight: bold;
           font-size: 9.8rem;
           line-height: 8.8rem;
@@ -61,36 +61,35 @@
       }
     }
 
-      .homepage-masthead__buttons-inspire {
-        width: 380px;
-        position: absolute;
-        top: 37%;
-        left: 15%;
+    .homepage-masthead__buttons-inspire {
+      width: 380px;
+      position: absolute;
+      top: 37%;
+      left: 15%;
 
-        .button-link-inspire {
-          font-family: 'futura-pt';
-          font-weight: bold;
-          font-size: 1.6rem;
-          line-height: 2rem;
-          text-transform: uppercase;
-          color: white;
-          background-color: rgba(0, 0, 0, 0.7);
-          padding-top: 18px;
-          padding-bottom: 18px;
-          border: 2px solid white;
-          border-radius: 4px;
-          text-decoration: none;
-          text-align: center;
-          width: 100%;
-          display: block;
-          margin-bottom: 10px;
-        }
-
-        .button-link-inspire:hover {
-          background-color: rgba(89, 79, 81, 0.7);
-        }
+      .button-link-inspire {
+        font-family: "futura-pt";
+        font-weight: bold;
+        font-size: 1.6rem;
+        line-height: 2rem;
+        text-transform: uppercase;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding-top: 18px;
+        padding-bottom: 18px;
+        border: 2px solid white;
+        border-radius: 4px;
+        text-decoration: none;
+        text-align: center;
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
       }
-  
+
+      .button-link-inspire:hover {
+        background-color: rgba(89, 79, 81, 0.7);
+      }
+    }
   }
 
   .homepage-masthead__slant-container {
@@ -98,7 +97,6 @@
     bottom: 0;
     height: 320px;
     margin-top: 400px;
-
 
     .white-slant {
       position: absolute;
@@ -114,7 +112,7 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      background-image: url('https://www.chapman.edu/_files/img/hero-panels/masthead-inspire/inspire-triangle-patterns.jpg');
+      background-image: url("https://www.chapman.edu/_files/img/hero-panels/masthead-inspire/inspire-triangle-patterns.jpg");
       background-size: auto;
       clip-path: polygon(100% 0%, 1000% 100%, 0% 100%, 0% 20%);
       z-index: 100;
@@ -132,7 +130,7 @@
       text-align: center;
       justify-content: center;
       width: 762px;
-      font-family: 'minion-pro';
+      font-family: "minion-pro";
       font-weight: bold;
       font-style: italic;
       font-size: 4rem;
@@ -154,16 +152,12 @@
 
   video.homepage-masthead__video,
   video#homepage-masthead__video {
-    max-height: 90vh;
+    // max-height: 90vh;
     mask-image: none !important;
   }
 }
 
-
 // MEDIA QUERIES
-
-
-
 
 @media only screen and (min-width: 901px) and (max-width: 1200px) {
   .homepage-masthead__container {
@@ -208,22 +202,20 @@
         }
       }
 
+      .homepage-masthead__buttons-inspire {
+        top: 35%;
+        left: 12%;
 
-        .homepage-masthead__buttons-inspire {
-          top: 35%;
-          left: 12%;
+        width: 340px;
 
-          width: 340px;
-
-          .button-link-inspire {
-            font-size: 1.6rem;
-            padding: 16px;
-          }
+        .button-link-inspire {
+          font-size: 1.6rem;
+          padding: 16px;
         }
+      }
     }
   }
 }
-
 
 @media only screen and (min-width: 601px) and (max-width: 900px) {
   .homepage-masthead__container {
@@ -277,28 +269,23 @@
         }
       }
 
-        .homepage-masthead__buttons-inspire {
-          // align-items: flex-start;
-          // top: 25px;
-          left: 13%;
-          width: 320px;
+      .homepage-masthead__buttons-inspire {
+        // align-items: flex-start;
+        // top: 25px;
+        left: 13%;
+        width: 320px;
 
-          .button-link-inspire {
-            font-size: 1.4rem;
-            padding: 14px;
-          }
+        .button-link-inspire {
+          font-size: 1.4rem;
+          padding: 14px;
         }
-  
+      }
     }
-
   }
-
-
 }
 
 @media only screen and (max-width: 600px) {
   .homepage-masthead__container {
-
     .homepage-masthead__slant-container {
       height: 240px;
       .slant-background {
@@ -309,7 +296,6 @@
         }
       }
     }
-    
 
     .homepage-masthead__sub-container {
       .homepage-masthead__heading-container {
@@ -328,7 +314,7 @@
         .homepage-masthead__tagline {
           left: 7%;
           top: 17%;
-          
+
           .row-one,
           .row-two {
             display: inline-block;
@@ -342,7 +328,7 @@
           }
 
           .row-two {
-            font-family: 'futura-pt';
+            font-family: "futura-pt";
             font-weight: bold;
             font-size: 4.8rem;
             line-height: 4.8rem;
@@ -350,20 +336,15 @@
         }
       }
 
-
-        .homepage-masthead__buttons-inspire {
-          // align-items: center;
-          width: 90%;
-          left: 5%;
-          .button-link-inspire {
-            font-size: 1.4rem;
-            padding: 14px;
-          }
-        
+      .homepage-masthead__buttons-inspire {
+        // align-items: center;
+        width: 90%;
+        left: 5%;
+        .button-link-inspire {
+          font-size: 1.4rem;
+          padding: 14px;
         }
-      
+      }
     }
-    
-
   }
 }

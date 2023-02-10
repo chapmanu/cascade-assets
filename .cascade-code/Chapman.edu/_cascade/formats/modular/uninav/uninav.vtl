@@ -69,7 +69,7 @@
 #end
 
 
-#if (($customNavConfig != '_cascade/blocks/html/Uninav') || ($customNavConfig != '/_cascade/blocks/html/Uninav')) ## IF NOT CONTEXTUAL NAV
+#if (($customNavConfig != '_cascade/blocks/html/Uninav') && ($customNavConfig != '/_cascade/blocks/html/Uninav')) ## IF CONTEXTUAL NAV
 <nav id="uninav" class="$brandClass contextual-navigation $currentPage.parentFolder.name" data-navigation-block="${_EscapeTool.xml($customNavConfig)}">
     <div class="uninav__logo">
         <div class="uninav__logo--primary" id="uninav__logo--primary">
@@ -127,7 +127,7 @@
                  #set ($label = $ctaSpecial.getChild('label').textValue)
                  #set ($linkType = $ctaSpecial.getChild('linkType').textValue)
                  
-                 #set ($${_EscapeTool.xml($icon)} = '')
+                 #set (${_EscapeTool.xml($icon)} = '')
                  #set ($icon = $ctaSpecial.getChild('icon_cssClass').textValue)
                  #set ($ariaLabel = '')
                  #set ($ariaLabel = $ctaSpecial.getChild('ariaLabel').textValue)
@@ -390,7 +390,7 @@
       </ul>
     </div>
 </nav>
-## #end ## END IF NOT CONTEXTUAL NAV
+## #end ## END IF CONTEXTUAL NAV
 
 ## NON-API OBJECT METHODS - THIS IS THE "DEFAULT" NAVIGATION, WRITTEN IN 2020
 ## IF NOT CUSTOM, USE OLD NON-API OBJECT NAVIGATION (WITH "UMBRELLA NAV")
