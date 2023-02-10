@@ -9,6 +9,10 @@
 .homepage-masthead__container {
   height: 100vh;
 
+  .homepage-masthead__toggle-play-button {
+    top: calc(750px - 23rem);
+   }
+
   .homepage-masthead__sub-container {
     z-index: 100;
 
@@ -17,12 +21,12 @@
       .masthead-triangle {
         width: 0;
         height: 0;
-        border-top: 150px solid transparent;
-        border-right: 150px solid rgba(0, 156, 166, 0.8);
-        border-bottom: 150px solid transparent;
+        border-top: 125px solid transparent;
+        border-right: 125px solid rgba(0, 156, 166, 0.8);
+        border-bottom: 125px solid transparent;
         position: relative;
-        top: 10em;
-        left: 14em;
+        top: 9em;
+        left: 15em;
         transform: rotate(45deg);
       }
       
@@ -40,7 +44,7 @@
         }
       
         .row-one {
-          font-family: $futura-condensed;
+          font-family: 'futura-pt-condensed';
           font-weight: 200;
           font-size: 6.8rem;
           line-height: 6.4rem;
@@ -50,7 +54,7 @@
         }
       
         .row-two {
-          font-family: $futura;
+          font-family: 'futura-pt';
           font-weight: bold;
           font-size: 9.8rem;
           line-height: 8.8rem;
@@ -61,18 +65,15 @@
     }
 
     .homepage-masthead__button-container {
-      top: 0.5em;
-      right: 3em;
+      position: relative;
       
       .homepage-masthead__buttons {
         display: flex;
         flex-direction: column;
         position: relative;
-        // right: 10%;
-        // bottom: 50%;
     
         .button-link {
-          font-family: $futura;
+          font-family: 'futura-pt';
           font-weight: bold;
           font-size: 1.6rem;
           line-height: 2rem;
@@ -99,9 +100,7 @@
   
   .homepage-masthead__slant-container {
     position: relative;
-    // bottom: 20%;
-    bottom: 15%;
-    // top: 4%;
+    bottom: 10%;
   
     .white-slant {
       position: relative;
@@ -119,12 +118,10 @@
       width: 100vw;
       height: 19em;
       bottom: 30%;
-      // background-image: url('http://cdn.history.com/sites/2/2015/07/hith-white-house-attacks-E.jpeg');
       background-image: url('http://localhost:8888/Pattern-Triangles_RGB-Red.jpg');
       background-size: cover;
       clip-path: polygon(100% 0%, 1000% 100%, 0% 100%, 0% 25%);
       z-index: 100;
-      // box-shadow: 0px 40px 80px 20px rgba(255, 255, 255, 0.5);
     }
     
     p.homepage-masthead__words {
@@ -151,15 +148,19 @@
       text-align: center;
       justify-content: center;
       top: 28%;
-      font-weight: 900;
-      // font-size: 26px;
       font-size: 3rem;
     }
   }
 
   video.homepage-masthead__video {
-    height: 80% !important;
+    max-height: 90vh;
+    // mask-image: none;
+    // -webkit-mask-size: none;
+    // -webkit-mask-image: none;
   }
+  // video.homepage-masthead__video {
+  //   height: 80% !important;
+  // }
 }
 
 @media only screen and (max-width: 480px) {
@@ -180,10 +181,6 @@
         .homepage-masthead__tagline {
           top: 1.5em;
           left: 0.5em;
-          // position: relative;
-          // left: 9.5em;
-          // bottom: 0.6em;
-          // text-align: left;
         
           .row-one,
           .row-two {
@@ -198,7 +195,7 @@
           }
         
           .row-two {
-            font-family: $futura;
+            font-family: 'futura-pt';
             font-weight: bold;
             font-size: 4.8rem;
             line-height: 4.8rem;
@@ -211,57 +208,34 @@
         right: 0em;
         
         .homepage-masthead__buttons {
-          // display: flex;
-          // flex-direction: column;
-          // position: relative;
       
           .button-link {
-            font-family: $futura;
+            font-family: 'futura-pt';
             font-weight: bold;
             font-size: 1.5rem;
             line-height: 1.5rem;
-            // padding-top: 18px;
-            // padding-bottom: 18px;
-            // min-width: 90%;
-            // border: 2px solid white;
-            // border-radius: 4px;
-            // text-decoration: none;
-            // text-align: center;
-            // width: 25%;
-            // margin: 0.25%;
+
           }
         }
       }
     }
     
     .homepage-masthead__slant-container {
-      position: relative;
       bottom: 0;
     
       .white-slant {
-        position: relative;
         top: 22%;
-        width: 100vw;
-        height: 325px;
-        background-color: white;
-        background-size: cover;
         clip-path: polygon(100% 0%, 100% 10%, 0% 50%, 0% 15%);
-        z-index: 90;
       }  
       
       .slant-background {
-        // position: relative;
-        // width: 100vw;
         height: 250px;
         bottom: 32%;
-        // background-image: url('http://localhost:8888/Pattern-Triangles_RGB-Red.jpg');
         clip-path: polygon(100% 0%, 1000% 100%, 0% 100%, 0% 20%);
         background-size: auto;
-        z-index: 100;
       }
       
       p.homepage-masthead__words {
-        // top: 0;
         left: 18%;
         width: 65%;
         font-size: 2.4rem ;
@@ -274,15 +248,179 @@
         display: flex;
         text-align: center;
         justify-content: center;
-        top: 42%;
-        font-weight: 900;
-        // font-size: 26px;
+        top: 30%;
         font-size: 3rem;
       }
     }
   
-    video.homepage-masthead__video {
-      max-height: 75vh;
+    // video.homepage-masthead__video {
+    //   max-height: 80vh;
+    // }
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) { 
+  .homepage-masthead__container {
+    .homepage-masthead__sub-container {
+      .homepage-masthead__heading-container {
+        .masthead-triangle {
+          border-top: 110px solid transparent;
+          border-right: 110px solid rgba(0, 156, 166, 0.8);
+          border-bottom: 110px solid transparent;
+          top: 11.5em;
+          left: -1em;
+        }
+        
+        .homepage-masthead__tagline {
+          top: 1em;
+          left: 0.8em;
+        
+          .row-one,
+          .row-two {
+            // display: inline-block;
+            // text-align: left;
+            // width: 100%;
+          }
+        
+          .row-one {
+            font-size: 6.2rem;
+            line-height: 6.8rem;
+          }
+        
+          .row-two {
+            font-size: 8.4rem;
+            line-height: 7.4rem;
+          }
+        }
+      }
+  
+      .homepage-masthead__button-container {
+        top: 8%;
+        left: 3%;
+        
+        .homepage-masthead__buttons {
+          padding-left: 3%;
+      
+          .button-link {
+            left: 0;
+          }
+        }
+      }
     }
-  } 
+
+    .homepage-masthead__toggle-play-button {
+      top: calc(750px - 78rem);
+    }
+    
+    .homepage-masthead__slant-container {
+      bottom: 0;
+    
+      .white-slant {
+        top: 22%;
+        clip-path: polygon(100% 0%, 100% 10%, 0% 50%, 0% 21.5%);
+      }  
+      
+      .slant-background {
+        // height: 250px;
+        // bottom: 32%;
+        // clip-path: polygon(100% 0%, 1000% 100%, 0% 100%, 0% 20%);
+        background-size: auto;
+      }
+      
+      p.homepage-masthead__words {
+        top: 35%;
+        left: 18%;
+        width: 67%;
+        font-size: 3rem;
+        line-height: 3.8rem;
+      }
+      
+      .page-down-arrow {
+        top: 37%;
+      }
+    }
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .homepage-masthead__container {
+    .homepage-masthead__sub-container {
+      .homepage-masthead__heading-container {
+        .masthead-triangle {
+          border-top: 110px solid transparent;
+          border-right: 110px solid rgba(0, 156, 166, 0.8);
+          border-bottom: 110px solid transparent;
+          top: 11.5em;
+          left: -1em;
+        }
+        
+        .homepage-masthead__tagline {
+          top: 1em;
+          left: 0.8em;
+        
+          .row-one,
+          .row-two {
+            // display: inline-block;
+            // text-align: left;
+            // width: 100%;
+          }
+        
+          .row-one {
+            font-size: 6.2rem;
+            line-height: 6.8rem;
+          }
+        
+          .row-two {
+            font-size: 8.4rem;
+            line-height: 7.4rem;
+          }
+        }
+      }
+  
+      .homepage-masthead__button-container {
+        top: 8%;
+        left: 3%;
+        
+        .homepage-masthead__buttons {
+          padding-left: 3%;
+      
+          .button-link {
+            left: 0;
+          }
+        }
+      }
+    }
+
+    .homepage-masthead__toggle-play-button {
+      top: calc(750px - 78rem);
+    }
+    
+    .homepage-masthead__slant-container {
+      bottom: 0;
+    
+      .white-slant {
+        top: 22%;
+        clip-path: polygon(100% 0%, 100% 10%, 0% 50%, 0% 21.5%);
+      }  
+      
+      .slant-background {
+        // height: 250px;
+        // bottom: 32%;
+        // clip-path: polygon(100% 0%, 1000% 100%, 0% 100%, 0% 20%);
+        background-size: auto;
+      }
+      
+      p.homepage-masthead__words {
+        top: 35%;
+        left: 18%;
+        width: 67%;
+        font-size: 3rem;
+        line-height: 3.8rem;
+      }
+      
+      .page-down-arrow {
+        top: 37%;
+      }
+    }
+  }
 }

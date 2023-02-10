@@ -1,0 +1,175 @@
+/* FuturaLTPro-LightCond */
+@font-face {
+  font-family: "futura-pt-condensed";
+  src: url('http://localhost:8888/Assets/Futura/FuturaLTPro-LightCond.ttf');
+  font-weight: light;
+  font-style: normal;
+}
+
+.homepage-masthead__container {
+  height: 100vh;
+
+}
+
+.homepage-masthead__sub-container {
+  z-index: 100;
+
+}
+
+.homepage-masthead__heading-container {
+
+ 
+}
+
+.masthead-triangle {
+  width: 0;
+  height: 0;
+  border-top: 150px solid transparent;
+  border-right: 150px solid rgba(0, 156, 166, 0.8);
+  border-bottom: 150px solid transparent;
+  position: relative;
+  top: 10em;
+  left: 14em;
+  transform: rotate(45deg);
+}
+
+.homepage-masthead__tagline {
+  position: relative;
+  left: 9.5em;
+  bottom: 0.6em;
+  text-align: left;
+}
+
+.row-one,
+  .row-two {
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+  }
+
+  .row-one {
+    font-family: 'futura-pt-condensed';
+    font-weight: 200;
+    font-size: 6.8rem;
+    line-height: 6.4rem;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.1);
+    color: white;
+  }
+
+  .row-two {
+    font-family: 'futura-pt';
+    font-weight: bold;
+    font-size: 9.8rem;
+    line-height: 8.8rem;
+    text-transform: uppercase;
+    color: white;
+  }
+
+.homepage-masthead__button-container-inspire {
+  top: 0.5em;
+  right: 3em;
+
+}
+
+.homepage-masthead__buttons-inspire {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  
+}
+
+a.button-link-inspire {
+  font-family: 'futura-pt';
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding-top: 18px;
+  padding-bottom: 18px;
+  min-width: 350px;
+  border: 2px solid white;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  width: 20%;
+  margin: 0.25%;
+  position: relative;
+  left: 15%;
+
+}
+
+.button-link-inspire:hover {
+  background-color: rgba(89, 79, 81, 0.7);
+}
+
+.homepage-masthead__toggle-play-button {
+ top: calc(750px - 23rem);
+}
+
+.homepage-masthead__slant-container {
+  position: relative;
+  // bottom: 20%;
+  bottom: 15%;
+  // top: 4%;
+
+}
+
+.white-slant {
+  position: relative;
+  top: 20%;
+  width: 100vw;
+  height: 325px;
+  background-color: white;
+  background-size: cover;
+  clip-path: polygon(100% 0%, 100% 10%, 0% 50%, 0% 23%);
+  z-index: 90;
+}  
+
+.slant-background {
+  position: relative;
+  width: 100vw;
+  height: 19em;
+  bottom: 30%;
+  // background-image: url('http://cdn.history.com/sites/2/2015/07/hith-white-house-attacks-E.jpeg');
+  background-image: url('http://localhost:8888/Pattern-Triangles_RGB-Red.jpg');
+  background-size: cover;
+  clip-path: polygon(100% 0%, 1000% 100%, 0% 100%, 0% 25%);
+  z-index: 100;
+  // box-shadow: 0px 40px 80px 20px rgba(255, 255, 255, 0.5);
+}
+
+p.homepage-masthead__words {
+  position: relative;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  top: 30%;
+  left: 32%;
+  width: 35%;
+
+  font-family: 'minion-pro';
+  font-weight: bold;
+  font-style: italic;
+  font-size: 4rem;
+  line-height: 4.8rem;
+  color: white;
+}
+
+.page-down-arrow {
+  color: white;
+  position: relative;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  top: 28%;
+  font-weight: 900;
+  // font-size: 26px;
+  font-size: 3rem;
+}
+
+video.homepage-masthead__video {
+  height: 80% !important;
+}
