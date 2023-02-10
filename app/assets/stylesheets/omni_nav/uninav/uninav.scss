@@ -36,12 +36,13 @@
 // END MIXINS
 // RESETS
 html {
-  padding-top: $uninav-total-height;
+  margin-top: $uninav-total-height;
+  padding-top: 0;
 }
 
 @include respond(tab-port) {
   html {
-    padding-top: $uninav-div-height;
+    margin-top: $uninav-div-height;
   }
 
   .uninav {
@@ -117,10 +118,6 @@ html {
       padding: 0 2rem;
 
       @include qbal-fade-enter;
-
-      // @include respond(tab-land) {
-      //   width: 30%;
-      // }
 
       &--primary {
         a {

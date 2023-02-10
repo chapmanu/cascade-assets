@@ -113,11 +113,12 @@
 
 #dei-callout {
   background: var(--color-white);
-  padding: 30px;
+  padding: 0;
 
   .dei-callout__wrapper {
     display: flex;
     flex-direction: row;
+    padding: 30px;
 
     .dei-callout__text-section {
       max-width: 625px;
