@@ -7,186 +7,61 @@
 #set ( $altText5 = $heroPanel.getChild('image-5').value )
 
 <div class="homepage-masthead__container">
-	<div class="homepage-masthead__heading-container">
-		<!-- Heading -->
-		<h2>
-			<span class="line-one">
-				Discover
-			</span>
-			<span class="line-two">
-				Boldly.
-			</span>
-		</h2>
-		<div class="homepage-masthead__tagline">
-			<span class="line-one">
-				Get to know Chapman right now,
-			</span>
-			<span class="line-two">
-				wherever you are.
-			</span>
+  <div class="homepage-masthead__sub-container">
+    <div class="homepage-masthead__heading-container">
+      <!-- Heading -->
+      <div class="masthead-triangle"></div>
+      <div class="homepage-masthead__tagline">
+        <div class="row-one">Driven By</div>
+        <div class="row-two">Curiosity</div>
+        <div class="row-three">Inspired By Chapman</div>
+      </div>
+      <!-- "Button" Links -->
+      <div class="homepage-masthead__buttons-inspire">
+        <a class="button-link-inspire" href="https://www.chapman.edu/academics/degrees-and-programs.aspx"
+          tabindex="0">Explore Degrees and Programs</a>
+        <a class="button-link-inspire" href="https://go.chapman.edu/portal/visit" tabindex="0">Visit Chapman</a>
+      </div>
+    </div>
+  </div>
 
-		</div>
-	</div>
+  <!-- Video Play/Pause Buttons -->
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" aria-label="Pause masthead video"
+    class="svg-inline--fa fa-pause-circle fa-w-16 homepage-masthead__toggle-play-button" data-icon="pause-circle"
+    data-prefix="fas" focusable="false" id="homepage-masthead__pause-button" role="img" title="Pause video"
+    viewBox="0 0 512 512">
+    <path
+      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm-16 328c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16v160zm112 0c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16v160z"
+      fill="currentColor" tabindex="0"></path>
+  </svg>
 
-	<!-- Video Play/Pause Buttons -->
-	<svg title="Pause video" aria-label="Pause masthead video" id="homepage-masthead__pause-button" aria-hidden="true"
-		focusable="false" data-prefix="fas" data-icon="pause-circle"
-		class="svg-inline--fa fa-pause-circle fa-w-16 homepage-masthead__toggle-play-button" role="img"
-		xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-		<path tabindex="0" fill="currentColor"
-			d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm-16 328c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16v160zm112 0c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16v160z">
-		</path>
-	</svg>
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" aria-label="Play masthead video"
+    class="svg-inline--fa fa-play-circle fa-w-16 homepage-masthead__toggle-play-button" data-icon="play-circle"
+    data-prefix="fas" focusable="false" id="homepage-masthead__play-button" role="img" title="Play video"
+    viewBox="0 0 512 512">
+    <path
+      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm115.7 272l-176 101c-15.8 8.8-35.7-2.5-35.7-21V152c0-18.4 19.8-29.8 35.7-21l176 107c16.4 9.2 16.4 32.9 0 42z"
+      fill="currentColor" tabindex="0"></path>
+  </svg>
 
-	<svg id="homepage-masthead__play-button" aria-hidden="true" aria-label="Play masthead video" title="Play video"
-		focusable="false" data-prefix="fas" data-icon="play-circle"
-		class="svg-inline--fa fa-play-circle fa-w-16 homepage-masthead__toggle-play-button" role="img"
-		xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-		<path tabindex="0" fill="currentColor"
-			d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm115.7 272l-176 101c-15.8 8.8-35.7-2.5-35.7-21V152c0-18.4 19.8-29.8 35.7-21l176 107c16.4 9.2 16.4 32.9 0 42z">
-		</path>
-	</svg>
+  <div class="homepage-masthead__slant-container">
+    <div class="white-slant"></div>
+    <div class="slant-background">
+      <p class="homepage-masthead__words">
+        At Chapman, we know that inspiration can come from everywhere.
+      </p>
+      <div class="dei-arrow-container">
+        <a href="#dei-callout" tabindex="0">
+          <i class="fa-light fa-circle-chevron-down page-down-arrow" id="arrowDownScroll"></i>
+        </a>
+      </div>
+    </div>
+  </div>
 
-	<!-- "Button" Links -->
-	<div class="homepage-masthead__button-container">
-		<div class="homepage-masthead__buttons">
-			<a tabindex="0" class="button homepage-masthead__button  homepage-masthead__button--red"
-				href="https://www.chapman.edu/academics/degrees-and-programs.aspx">Explore Degrees and Programs</a>
-			<a tabindex="0" class="button homepage-masthead__button  homepage-masthead__button--red"
-				href="https://www.chapman.edu/admission/undergraduate/visit/campus.aspx">Visit Campus</a>
-			<a tabindex="0" class="button homepage-masthead__button  homepage-masthead__button--red"
-				href="https://www.chapman.edu/admission/undergraduate/visit/virtual.aspx">Connect Virtually</a>
-			<a tabindex="0" class="button homepage-masthead__button  homepage-masthead__button--red"
-				href="https://www.chapman.edu/admission/undergraduate/contact-us/student-ambassadors.aspx">Ask a Student</a>
-			<a tabindex="0" class="button homepage-masthead__button  homepage-masthead__button--red"
-				href="https://customviewbook.chapman.edu/wizard/?src=4">Create a Custom Viewbook</a>
-			<a tabindex="0" class="button homepage-masthead__button  homepage-masthead__button--red"
-				href="https://www.youvisit.com/tour/chapman/143029">Take a Self-Guided Tour</a>
-		</div>
-	</div>
-
-	<div class="homepage-masthead__photo-grid-container">
-		<div class="homepage-masthead__photo-grid">
-			<div class="homepage-masthead__photos">
-				<span>
-					<picture>
-						<img loading="lazy"
-							src="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/tour-group-400x00.png"
-							alt="$altText1" />
-						<source srcset="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/tour-group.webp"
-							type="image/webp" />
-						<source srcset="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/tour-group-400x00.png"
-							type="image/png" />
-					</picture>
-				</span>
-				<span>
-					<picture>
-						<img loading="lazy"
-							src="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/panther-square.png"
-							alt="$altText2" />
-						<source srcset="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/panther-square.webp"
-							type="image/webp" />
-						<source srcset="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/panther-square.png"
-							type="image/png" />
-					</picture>
-				</span>
-				<span>
-					<picture>
-						<img loading="lazy"
-							src="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/microscope-square-400x400.png"
-							alt="$altText3" />
-						<source srcset="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/microscope-square.webp"
-							type="image/webp" />
-						<source
-							srcset="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/microscope-square-400x400.png"
-							type="image/png" />
-					</picture>
-				</span>
-				<a href="https://www.chapman.edu/admission/social-media.aspx">
-					<div class="homepage-masthead__photo-grid-container__text">
-						<h2>
-							<span>See </span>
-							<span>What It's </span>
-							<span>Like Here</span>
-						</h2>
-						<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-circle-right"
-							class="svg-inline--fa fa-chevron-circle-right fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 512 512">
-							<path fill="currentColor"
-								d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z">
-							</path>
-						</svg>
-					</div>
-				</a>
-				<span>
-					<picture>
-						<img loading="lazy"
-							src="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/girls-square-400x400.png"
-							alt="$altText4" />
-						<source srcset="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/girls-square.webp"
-							type="image/webp" />
-						<source
-							srcset="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/girls-square-400x400.png"
-							type="image/png" />
-					</picture>
-				</span>
-				<span>
-					<picture>
-						<img loading="lazy"
-							src="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/group-square-400x00.png"
-							alt="$altText4" />
-						<source srcset="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/group-square.webp"
-							type="image/webp" />
-						<source srcset="https://www.chapman.edu/_files/img/hero-panels/masthead-2020-images/group-square-400x00.png"
-							type="image/png" />
-					</picture>
-				</span>
-				<span class="diagonal">
-				</span>
-			</div>
-		</div>
-	</div>
-
-	<img src="https://www.chapman.edu/_files/img/hero-panels/fallback-images/masthead-wave-gradient.png"
-		alt="Chapman Wave" role="presentation" style="
- width: 100%; position: absolute; height: 600px" />
-
-
-	<!-- Video -->
-	<video id="homepage-masthead__video" class="homepage-masthead__video" width="100%"
-		height="var(--space-mastheadVideoHeight)" playsinline="true" muted="true" loop="true" autoplay="true"
-		controls="false" poster="https://www.chapman.edu/_files/img/hero-panels/fallback-images/masthead-wave-gradient.png">
-		<source src="https://www.chapman.edu/_files/img/hero-panels/html5-videos/2_19-056e-2020-homepages-q1_colored.mp4"
-			type="video/mp4" />
-		<source src="https://www.chapman.edu/_files/img/hero-panels/html5-videos/19-056---2020-homepages-q1_v1.webmhd.webm"
-			type="video/webm" />
-	</video>
-	<span class="homepage-masthead__video-overlay"></span>
-
-
+  <!-- Video -->
+  <video autoplay="true" class="homepage-masthead__video" id="homepage-masthead__video" loop="true" muted="true"
+    playsinline="true"
+    poster="https://www.chapman.edu/_files/img/hero-panels/fallback-images/masthead-wave-gradient.png" width="100%">
+    <source src="https://www.chapman.edu/_files/img/hero-panels/html5-videos/20230209_homepage.mp4" type="video/mp4" />
+  </video>
 </div>
-
-<style>
-	video#homepage-masthead__video {
-		max-height: 100vh;
-	}
-</style>
-
-<script>
-	var preloadLink = document.createElement("link");
-	preloadLink.href = "https://api.curator.io/v1/feeds/ef183959-c3ad-4f2d-b90e-390c5d766fac/posts?api_key=11a4445f-6005-4040-9ff2-fd90d3aaa8a6.js";
-	preloadLink.rel = "preload";
-	preloadLink.as = "script";
-	document.head.appendChild(preloadLink);
-
-
-	$(function () {
-		var isIE11 = !!navigator.userAgent.match(/Trident.*rv\:11\./);
-		if (isIE11) {
-			$('html').addClass('ie');
-		}
-	});
-
-
-
-</script>
