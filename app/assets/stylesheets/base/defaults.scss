@@ -46,12 +46,29 @@ html {
   background-color: $white;
   font-family: $font-stack-body;
   overflow-x: hidden;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   scroll-behavior: smooth;
-  scroll-padding-top: $uninav-anchor-offset;
+  scroll-padding-top: $uninav-total-height;
+
+  @include respond(tab-land) {
+    scroll-padding-top: $uninav-height-mobile;
+  }
+
+  :target:focus {
+    outline: none;
+  }
+
+  :target:focus:after {
+    content: "";
+    outline: 2px dotted $cu-red;
+    width: 110%;
+    position: absolute;
+    height: 110%;
+    left: -8px;
+    padding: 5px 13px 22px 13px;
+    top: -5px;
+  }
 
   // This defines what 1rem is
   font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
@@ -83,6 +100,11 @@ html {
   html {
     scroll-behavior: auto;
   }
+}
+
+.anchorLinks a {
+  z-index: 10;
+  position: relative;
 }
 
 body {
@@ -266,7 +288,7 @@ a {
     background: #dad8cf no-repeat center;
     color: $grey;
     width: 100%;
-    margin-bottom: 1.0rem;
+    margin-bottom: 1rem;
     cursor: pointer;
     @include vendorize(box-sizing, border-box);
 

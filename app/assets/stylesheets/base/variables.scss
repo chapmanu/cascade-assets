@@ -38,8 +38,9 @@ $white: #ffffff;
 $white-hover: darken($white, 8%);
 $brown: #896d49;
 $teal: #009ca6;
-$pacific: $teal;
 $teal-hover: #24d4bf;
+$pacific: $teal;
+$pacific-hover: $teal-hover;
 $teal2: #02bac2;
 $teal2-hover: #01cdd4;
 $teal2-light: #a6ddd1;
@@ -190,8 +191,9 @@ $colors: (
   white: $white,
   brown: $brown,
   teal: $teal,
-  pacific: $teal,
   teal-hover: $teal-hover,
+  pacific: $teal,
+  pacific-hover: $teal-hover,
   teal2: $teal2,
   teal2-hover: $teal2-hover,
   teal2-light: $teal2-light,

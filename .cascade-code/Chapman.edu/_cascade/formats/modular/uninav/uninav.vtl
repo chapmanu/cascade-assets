@@ -37,6 +37,11 @@
         #findCustomNavPath($parentNode, $_MathTool.add($depth, 1))
         ## #end
     #end
+
+    #if (($customNavConfig == '_cascade/blocks/html/Default') || ($customNavConfig == '/_cascade/blocks/html/Default'))
+      #set ($customNavConfig = '_cascade/blocks/html/Uninav')
+    #end
+
 #end
 
 #set ($currentPageID = $currentPage.identifier.id)
@@ -64,7 +69,7 @@
 #end
 
 
-#if ($customNavConfig != '_cascade/blocks/html/Uninav') ## IF NOT CONTEXTUAL NAV
+#if (($customNavConfig != '_cascade/blocks/html/Uninav') && ($customNavConfig != '/_cascade/blocks/html/Uninav')) ## IF CONTEXTUAL NAV
 <nav id="uninav" class="$brandClass contextual-navigation $currentPage.parentFolder.name" data-navigation-block="${_EscapeTool.xml($customNavConfig)}">
     <div class="uninav__logo">
         <div class="uninav__logo--primary" id="uninav__logo--primary">
@@ -108,6 +113,38 @@
                     </a>
                 </li>
                  #end
+            </li>
+        </ul>
+        </span>
+    </div>
+
+    <div id="uninav__cta-special" class="uninav__cta uninav__cta-special">
+        <span class="uninav__cta--wrapper">
+        <ul>
+            <li>
+                 #set ($ctaSpecial = $customNavObj.getStructuredDataNode('uninav/ctaSpecial/link'))
+
+                 #set ($label = $ctaSpecial.getChild('label').textValue)
+                 #set ($linkType = $ctaSpecial.getChild('linkType').textValue)
+                 
+                 #set (${_EscapeTool.xml($icon)} = '')
+                 #set ($icon = $ctaSpecial.getChild('icon_cssClass').textValue)
+                 #set ($ariaLabel = '')
+                 #set ($ariaLabel = $ctaSpecial.getChild('ariaLabel').textValue)
+                 
+                #if ($linkType == 'Internal Link')
+                    #set ($link = $ctaSpecial.getChild('internalLink').asset.link)
+                 #elseif ($linkType == 'External Link')
+                    #set ($link = $ctaSpecial.getChild('externalLink').textValue)
+                #elseif ($linkType == 'File Link')
+                    #set ($link = $ctaSpecial.getChild('fileLink').asset.link)
+                #end
+                 
+                <li class="uninav__menu-item-cta">
+                    <a class="icon ${_EscapeTool.xml($icon)} ${_EscapeTool.xml($icon)}" aria-label="${_EscapeTool.xml($ariaLabel)}" href="${_EscapeTool.xml($link)}">
+                        ${_EscapeTool.xml($label)}
+                    </a>
+                </li>
             </li>
         </ul>
         </span>
@@ -353,7 +390,7 @@
       </ul>
     </div>
 </nav>
-## #end ## END IF NOT CONTEXTUAL NAV
+## #end ## END IF CONTEXTUAL NAV
 
 ## NON-API OBJECT METHODS - THIS IS THE "DEFAULT" NAVIGATION, WRITTEN IN 2020
 ## IF NOT CUSTOM, USE OLD NON-API OBJECT NAVIGATION (WITH "UMBRELLA NAV")
@@ -512,6 +549,7 @@
       #buildOffCanvasNav()
       #uninavLogo()
       #uninavCTA()
+      #uninavCTASpecial()
       #uninavUtility()
       #uninavSearch()
       #uninavGlobal()
@@ -545,6 +583,10 @@
     
     #macro ( uninavCTA )
     #import ( "/_cascade/formats/modular/uninav/_cta.vtl" )
+    #end
+
+    #macro ( uninavCTASpecial )
+    #import ( "/_cascade/formats/modular/uninav/_cta_special.vtl" )
     #end
     
     #macro ( uninavGlobal )

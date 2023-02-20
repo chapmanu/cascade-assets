@@ -1,0 +1,63 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenLite.min.js"></script>
+
+<div id="pullout-callout-box" role="complementary">
+  <img
+    class="pullout-btn-opener-icon"
+    src="https://www.chapman.edu/_assets/homepage/cu-finestra-white.svg"
+  />
+  <div class="pullout-btn-opener" tabindex="0">
+    <span>Inspire Students</span>
+    <span class="pullout-carot"
+      ><i class="fas fa-caret-up" aria-hidden="true"></i
+    ></span>
+  </div>
+  <div class="pullout-btn-body">
+    <h3>
+      Learn about Chapman’s Inspire Campaign and transform students’ lives.
+    </h3>
+    <a
+      tabindex="-1"
+      id="pullout-learn-more-btn"
+      class="btn btn-primary btn-block"
+      aria-label="Learn about Chapman’s Inspire Campaign and transform students’ lives."
+      href="https://inspire.chapman.edu/"
+      >Visit Website</a
+    >
+  </div>
+</div>
+<script>
+  var contactEl;
+  var toggleBtn;
+  var contactElHidden = true;
+
+  $(function () {
+    contactEl = $("#pullout-callout-box");
+    toggleBtn = contactEl.find(".pullout-btn-opener");
+    toggleBtn.click(_toggleContactEl);
+    // $(window).scroll(_onScroll);
+  });
+
+  function _toggleContactEl() {
+    TweenLite.to(contactEl, 0.3, {
+      x: contactElHidden ? "14%" : "100%",
+    });
+    contactElHidden = !contactElHidden;
+    $(".pullout-carot i").toggleClass("fa-caret-up fa-caret-down");
+    $(".pullout-btn-opener").toggleClass("pullout-open");
+    $("#pullout-learn-more-btn").attr("tabindex", function (index, attr) {
+      return attr == 0 ? -1 : 0;
+    });
+  }
+
+  function _onScroll() {
+    // scrolled half-way
+    if ($(window).scrollTop() < $(document).height() * 0.5) {
+      if (contactElHidden) {
+        //_toggleContactEl();
+      }
+      // only try to display once
+      $(window).off("scroll");
+    }
+  }
+</script>

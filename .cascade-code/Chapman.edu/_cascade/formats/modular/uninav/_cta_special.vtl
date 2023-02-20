@@ -1,0 +1,48 @@
+## UTILITY NAV LINKS:
+#set ( $ctaNode = $_XPathTool.selectSingleNode($contentRoot, "/system-data-structure/uninav/ctaSpecial/link") )
+<div id="uninav__cta-special" class="uninav__cta uninav__cta-special">
+<span class="uninav__cta--wrapper">
+
+#if ($ctaNode)
+<ul>
+        #set ($label = $ctaNode.getChild('label').value )
+        #set ( $menuID = $label.replaceAll("-", "_").replaceAll(" ", "-").replaceAll("[^a-zA-Z0-9-_]", "").replaceAll("--", "-").toLowerCase() )
+        #set ($linkType = $ctaNode.getChild('linkType').value )
+        #if ($linkType == 'Internal Link')
+            #set ($linkURL = "site://Chapman.edu/${ctaNode.getChild('internalLink').getChild('path').value}" )
+        #elseif ($linkType == 'External Link')
+            #set ($linkURL = $ctaNode.getChild('externalLink').value )
+        #else 
+            #set ($linkURL = "site://Chapman.edu/${ctaNode.getChild('fileLink').getChild('path').value}" )
+        #end
+        #set ($iconType = $ctaNode.getChild('icon').value )
+        #if ($linkURL != '' && $linkURL != '/' && $label != '')
+            ##before do primary-link OR dropdown, find out if there are submenu items:
+            #set ($submenuItems = $_XPathTool.selectNodes($ctaNode, "//menuItem[label='${label}']/submenuItem[label!='']") )
+
+            #if ($submenuItems.size() >= 1)
+            #else
+                
+                <li class="uninav__menu-item-cta">
+                    <a href="${_EscapeTool.xml($linkURL)}" id="uninav-cta-${_EscapeTool.xml($menuID)}"
+                        #if ($iconType == "CSS Class" && $ctaNode.getChild('icon_cssClass').value != "")
+                            ## class="icon icon-${_EscapeTool.xml($menuItem.getChild('icon_cssClass').value)}"
+                        #end
+                    >
+                    #if ($iconType == "SVG" && $ctaNode.getChild('icon_svg').value != "")
+                        ## $menuItem.getChild('icon_svg').value
+                    #end
+                     <span class="uninav__underline--center">
+                    ${_EscapeTool.xml($label)}
+                    </span>
+                    </a>
+                </li>
+            
+            #end
+        #end
+
+</ul>
+#end
+</span>
+</div>
+
