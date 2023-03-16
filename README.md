@@ -77,6 +77,17 @@ Once you’ve set the default version of the Ruby run “bundle install” again
 bundle install
 ```
 
+#### Issues with M1 Macs: 
+This may be an issue with Macbook that are running the M1 chip, but if you are getting this error when running "bundle install":
+```
+There was an arror parsing 'Gemfile': cannot load such file -- em/pure_ruby. Bundler cannot continue
+```
+Try running the following commands:
+```
+gem uninstall eventmachine
+gem install eventmachine --platform ruby
+```
+
 #### Install NPM packages:
 
 To install npm packages, run the following commands in the same order:
@@ -84,6 +95,15 @@ To install npm packages, run the following commands in the same order:
 npm config set "@fortawesome:registry" https://npm.fontawesome.com/
 npm config set "//npm.fontawesome.com/:_authToken" 35502DF3-AEA2-4B2E-9B3E-3C5D1BADEC18
 npm install
+```
+If you are getting errors when running 'npm install', make sure that you are running the version of the node the project supports. You can check the version of node by running:
+```
+node -v
+```
+For NIX (Linux, OS X, ...) - Use n, an extremely simple Node version manager that can be installed via npm.
+```
+npm install -g n   # Install n globally
+n <version>        # Install and use a version of node
 ```
 
 #### Install Python (Big Sur and up):
