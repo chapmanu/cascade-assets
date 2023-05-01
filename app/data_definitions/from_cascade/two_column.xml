@@ -4,7 +4,7 @@
     <!-- radio-item show-fields map to groups below -->
     <!-- radio-item values map to Masthead format selectors -->
     <text field-id="ff6bcc10c0a81e5f43ef9b37a1878525" help-text="these are the new wider mastheads available" identifier="mastheadType" label="Masthead Type" type="radiobutton">
-      <radio-item show-fields="masthead/wavyMasthead" value="Wavy Masthead" label="Beta Test - 2021 Mastheads"/>
+      <radio-item label="Beta Test - 2021 Mastheads" show-fields="masthead/wavyMasthead" value="Wavy Masthead"/>
       <radio-item show-fields="masthead/branded201611" value="Branded - New"/>
       <radio-item show-fields="masthead/slider201611" value="Slider - New"/>
       <radio-item show-fields="masthead/boxes" value="Boxes"/>
@@ -22,13 +22,6 @@
           <radio-item label="Image" show-fields="masthead/wavyMasthead/singleImage_background_group/image" value="image"/>
           <radio-item label="Video" show-fields="masthead/wavyMasthead/singleImage_background_group/videoBackground" value="video"/>
         </text>
-        <group identifier="topLeftWave" label="Top Left Text">
-          <text field-id="" identifier="showTopLeftText" label="Show Top Left Text?" type="radiobutton" default="Yes">
-            <radio-item label="Yes" show-fields="masthead/wavyMasthead/singleImage_background_group/topLeftWave/topLeftText" value="yes"/>
-            <radio-item label="No" value="no"/>
-          </text>
-          <text field-id="" identifier="topLeftText" label="Top Left Text"/>
-        </group>
         <group identifier="headerTitle" label="Center Header Title">
           <text field-id="85415772c0a81e8a3b00029301a1433d" identifier="showHeader" label="Show Header?" type="radiobutton">
             <radio-item label="Yes" show-fields="masthead/wavyMasthead/singleImage_background_group/headerTitle/preheaderMasthead, mastHead/singleImage_background_group/headerTitle/headerMasthead" value="yes"/>
@@ -56,7 +49,7 @@
         </group>
       </group>
       <group collapsed="true" identifier="multipleBoxes" label="Multiple Boxes">
-        <text field-id="" identifier="title" label="Department Title (Not Page Title)"/>
+        <text field-id="521f85230a000021521a45bc4b649ee6" identifier="title" label="Department Title (Not Page Title)"/>
         <group identifier="box" label="Box" maximum-number="4" multiple="true">
           <text field-id="8909d1eac0a81e8a3b000293e895247b" identifier="boxText" label="Box Text" required="true"/>
           <text field-id="8909d1eac0a81e8a3b000293e4ade1a8" identifier="boxLink" label="Box Link" required="true" type="radiobutton">
@@ -70,11 +63,11 @@
       </group>
       <group collapsed="true" identifier="mulitipleImageSlider" label="Multiple Image Slider">
         <group identifier="topLeftWave" label="Top Left Text">
-          <text field-id="" identifier="showTopLeftText" label="Show Top Left Text?" type="radiobutton" default="Yes">
+          <text default="Yes" field-id="521f85240a000021521a45bcaf44ebf9" identifier="showTopLeftText" label="Show Top Left Text?" type="radiobutton">
             <radio-item label="Yes" show-fields="masthead/wavyMasthead/singleImage_background_group/topLeftWave/topLeftText" value="yes"/>
             <radio-item label="No" value="no"/>
           </text>
-          <text field-id="" identifier="topLeftText" label="Top Left Text"/>
+          <text field-id="521f85250a000021521a45bc5cc23da2" identifier="topLeftText" label="Top Left Text"/>
         </group>
         <text default="none" field-id="89377ae3c0a81e8a3b00029393138031" help-text="For better visibility you may want to put your text in a box." identifier="sliderTextBackground" label="Slider Text Background?" type="radiobutton">
           <radio-item label="Red" value="red"/>
@@ -86,14 +79,14 @@
             <text field-id="8909d1ebc0a81e8a3b000293520a861a" identifier="sliderHeader" label="Slider Header" required="true"/>
             <text configuration="Text and Links" field-id="8909d1ebc0a81e8a3b00029303128b45" help-text="Max: 200 characters/30 words" identifier="textArea" label="Text" required="true" wysiwyg="true"/>
           </group>
-          <text field-id="" identifier="backgroundSelector" label="Background:" required="true" type="radiobutton">
+          <text field-id="521f85260a000021521a45bc81091a9c" identifier="backgroundSelector" label="Background:" required="true" type="radiobutton">
             <radio-item label="Image" show-fields="masthead/wavyMasthead/mulitipleImageSlider/imageSlider/image" value="image"/>
             <radio-item label="Video" show-fields="masthead/wavyMasthead/mulitipleImageSlider/imageSlider/videoBackground" value="video"/>
           </text>
-          <shared-field field-id="" identifier="image" label="Image Background" maximum-number="1" minimum-number="1" path="image__rectangle-only--required"/>
+          <shared-field field-id="521f85260a000021521a45bc108e5056" identifier="image" label="Image Background" maximum-number="1" minimum-number="1" path="image__rectangle-only--required"/>
           <group identifier="videoBackground" label="Video Background">
-            <asset field-id="" help-text=".mp4 or .mov" identifier="videoChooser" label="Video File:" type="file"/>
-            <text default="middle" field-id="" identifier="videoPositionChooser" label="Video Position:" type="radiobutton">
+            <asset field-id="521f85270a000021521a45bc8b1d28ed" help-text=".mp4 or .mov" identifier="videoChooser" label="Video File:" type="file"/>
+            <text default="middle" field-id="521f85270a000021521a45bcdfd1ce2b" identifier="videoPositionChooser" label="Video Position:" type="radiobutton">
               <radio-item label="Top" value="top"/>
               <radio-item label="Middle" value="middle"/>
               <radio-item label="Bottom" value="bottom"/>
@@ -264,7 +257,7 @@
       <text default="(choose one)" field-id="ff6bcc13c0a81e5f43ef9b375218259f" help-text="Choose the type of content you'd like to add to the page" identifier="widgetType" label="Type of Widget" type="dropdown">
         <dropdown-item value="(select one)"/>
         <dropdown-item show-fields="primaryContent/widget/textWithCTA" value="Text with CTA"/>
-        <dropdown-item show-fields="primaryContent/widget/rssFeedDisplay" value="RSS Feed Display" label="RSS Feed Display (limit 1)"/>
+        <dropdown-item label="RSS Feed Display (limit 1)" show-fields="primaryContent/widget/rssFeedDisplay" value="RSS Feed Display"/>
         <dropdown-item show-fields="primaryContent/widget/programEvents" value="Program Events"/>
         <dropdown-item show-fields="primaryContent/widget/bannerNotificationWidget" value="Banner Notification"/>
         <dropdown-item show-fields="primaryContent/widget/careerBlockWidget" value="Career Block"/>
@@ -277,7 +270,7 @@
         <dropdown-item show-fields="primaryContent/widget/funnels-2up" value="Funnels 2up"/>
         <dropdown-item show-fields="primaryContent/widget/funnels-1up" value="Funnels 1up"/>
         <dropdown-item show-fields="primaryContent/widget/gridBlockWidget" value="Grid Block"/>
-        <dropdown-item restrict-to-groups="Administrators, Web-Coordinators" show-fields="primaryContent/widget/hideFromSearch" value="Hide From Search"/>
+        <dropdown-item show-fields="primaryContent/widget/hideFromSearch" value="Hide From Search"/>
         <dropdown-item show-fields="primaryContent/widget/logo-image-rotator" value="Logo Image Rotator"/>
         <dropdown-item show-fields="primaryContent/widget/personnel" value="Personnel Table"/>
         <dropdown-item show-fields="primaryContent/widget/personnelWidget" value="Personnel Widget"/>
@@ -290,13 +283,11 @@
         <dropdown-item show-fields="primaryContent/widget/photoCalloutWidget" value="Photo Callout"/>
         <dropdown-item show-fields="primaryContent/widget/next-steps-widget" value="Next Steps"/>
         <dropdown-item show-fields="primaryContent/widget/quickFactBlocksWidget" value="Quick Fact Blocks"/>
-        <!--RETIRING WIDGETS-->
         <dropdown-item label="A to Z Listing - DO NOT USE - RETIRING" show-fields="primaryContent/widget/AtoZListing" value="A to Z Listing"/>
         <dropdown-item label="Calendar25Live - DO NOT USE - RETIRING" show-fields="primaryContent/widget/Calendar25Live" value="Calendar25Live"/>
         <dropdown-item label="Degree Info - DO NOT USE - RETIRING" show-fields="primaryContent/widget/degree" value="Degree Info"/>
         <dropdown-item label="Twitter Feed - DO NOT USE" show-fields="primaryContent/widget/twitterTimeline" value="Twitter Feed"/>
         <dropdown-item label="Three Photo Callout - RETIRING, USE PHOTO CALLOUT" show-fields="primaryContent/widget/threePhotoCallout" value="Three Photo Callout"/>
-        <!--END RETIRING-->
       </text>
       <group identifier="textWithCTA" label="Text with CTA">
         <shared-field field-id="ff6bcc13c0a81e5f43ef9b37cfb81c31" identifier="display" path="display"/>
@@ -367,15 +358,15 @@
           <dropdown-item label="Sand" value="sand"/>
           <dropdown-item label="Grey" value="grey"/>
         </text>
-        <text default="Yes" identifier="showDateTime" label="Show Date/Time" required="true" type="radiobutton">
-          <radio-item value="Yes" />
-          <radio-item value="No" />
+        <text default="Yes" field-id="6a8c0c58c0a81e5f61f09643cb574b8f" identifier="showDateTime" label="Show Date/Time" required="true" type="radiobutton">
+          <radio-item value="Yes"/>
+          <radio-item value="No"/>
         </text>
-        <text default="No" identifier="showImage" label="Show Image" required="true" type="radiobutton">
-          <radio-item value="Yes" />
-          <radio-item value="No" />
+        <text default="No" field-id="6a8c0c59c0a81e5f61f09643c819d6b0" identifier="showImage" label="Show Image" required="true" type="radiobutton">
+          <radio-item value="Yes"/>
+          <radio-item value="No"/>
         </text>
-        <text field-id="ff6bcc14c0a81e5f43ef9b37844b1f7c" identifier="feedUrl" label="Feed Url" required="true" help-text="This widget can currently only display Wordpress RSS Feeds. Example: https://news.chapman.edu/category/alumni/feed/" />
+        <text field-id="ff6bcc14c0a81e5f43ef9b37844b1f7c" help-text="This widget can currently only display Wordpress RSS Feeds. Example: https://news.chapman.edu/category/alumni/feed/" identifier="feedUrl" label="Feed Url" required="true"/>
       </group>
       <group collapsed="true" identifier="programEvents" label="Program Events">
         <shared-field field-id="ff6bcc14c0a81e5f43ef9b378d53f9b4" identifier="display" path="display"/>
@@ -667,7 +658,7 @@
           </text>
           <group collapsed="true" identifier="gridBlock" label="Grid Block" multiple="true">
             <text field-id="2462637fc0a81e8a5a4039452d57a512" identifier="gridBlockTitle" label="Title" required="true"/>
-            <text field-id="3429c844c0a81e8a5a4039450d9bac85" identifier="titleLink" label="Title Link?" required="true" type="radiobutton" default="no">
+            <text default="no" field-id="3429c844c0a81e8a5a4039450d9bac85" identifier="titleLink" label="Title Link?" required="true" type="radiobutton">
               <radio-item label="Yes" show-fields="primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/linkType" value="yes"/>
               <radio-item label="No" value="no"/>
             </text>
@@ -792,26 +783,21 @@
         </group>
       </group>
       <group collapsed="true" identifier="personnelWidget" label="Personnel Widget">
-        <shared-field field-id="" identifier="display" path="display"/>
-        <text default="yes" field-id="" identifier="displaySectionIntro" label="Display Section Intro?" type="radiobutton">
+        <shared-field field-id="60277df3c0a81e5f6db566a86177a3f0" identifier="display" path="display"/>
+        <text default="yes" field-id="60277df4c0a81e5f6db566a8775625d8" identifier="displaySectionIntro" label="Display Section Intro?" type="radiobutton">
           <radio-item label="Yes" show-fields="primaryContent/widget/personnelWidget/sectionHeaderGroup, primaryContent/widget/personnelWidget/textAlignment" value="yes"/>
           <radio-item label="No" value="no "/>
         </text>
-        <text default="left-aligned" field-id="" help-text="Text Alignment for Intro Section" identifier="textAlignment" label="Text Alignment" type="radiobutton">
+        <text default="left-aligned" field-id="60277df5c0a81e5f6db566a879d228c7" help-text="Text Alignment for Intro Section" identifier="textAlignment" label="Text Alignment" type="radiobutton">
           <radio-item label="Left Aligned" value="left-aligned"/>
           <radio-item label="Centered" value="centered"/>
         </text>
         <shared-field field-id="8babbf5fc0a81e8a57740fff772e6a8e" identifier="sectionHeaderGroup" path="Section Header"/>
         <group collapsed="true" identifier="personnel" label="Personnel">
           <text field-id="8babbf5fc0a81e8a57740fff5dba65b7" identifier="style" label="Layout Style:" required="true" type="radiobutton">
-            <radio-item label="Card Grid" show-fields="primaryContent/widget/personnelWidget/personnel/custom,
-            primaryContent/widget/personnelWidget/personnel/custom/person/linkToFullBio" value="cardGrid"/>
-            <radio-item label="Carousel" show-fields="primaryContent/widget/personnelWidget/personnel/custom,
-            primaryContent/widget/personnelWidget/personnel/custom/person/linkToFullBio" value="carousel"/>
-            <radio-item label="Individual Profile" show-fields="primaryContent/widget/personnelWidget/personnel/custom, 
-            primaryContent/widget/personnelWidget/personnel/custom/person/displaySchoolAffiliations,
-            primaryContent/widget/personnelWidget/personnel/custom/person/displayResearchInterests,
-            primaryContent/widget/personnelWidget/personnel/custom/person/displayCoursesTaught" value="individual-profile"/>
+            <radio-item label="Card Grid" show-fields="primaryContent/widget/personnelWidget/personnel/custom, primaryContent/widget/personnelWidget/personnel/custom/person/linkToFullBio" value="cardGrid"/>
+            <radio-item label="Carousel" show-fields="primaryContent/widget/personnelWidget/personnel/custom, primaryContent/widget/personnelWidget/personnel/custom/person/linkToFullBio" value="carousel"/>
+            <radio-item label="Individual Profile" show-fields="primaryContent/widget/personnelWidget/personnel/custom, primaryContent/widget/personnelWidget/personnel/custom/person/displaySchoolAffiliations, primaryContent/widget/personnelWidget/personnel/custom/person/displayResearchInterests, primaryContent/widget/personnelWidget/personnel/custom/person/displayCoursesTaught" value="individual-profile"/>
           </text>
           <!-- Custom person -->
           <group identifier="custom" label="Custom ">
@@ -822,19 +808,19 @@
               <text field-id="407d72cfc0a81e8a6a12ed09c3c8d608" identifier="department" label="Department:"/>
               <text field-id="8bbc03b1c0a81e8a57740fffc9811b36" identifier="phone" label="Phone:"/>
               <text field-id="8bbc03b1c0a81e8a57740fffe3cfb2a2" identifier="email" label="Email:"/>
-              <text field-id="" identifier="officeInfo" label="Office Address/Info:"/>
+              <text field-id="60277df6c0a81e5f6db566a8ee744557" identifier="officeInfo" label="Office Address/Info:"/>
               <!-- Frontside (bottommost) link -->
-              <text field-id="" identifier="frontsideLink" label="Frontside Bottom Link:" type="radiobutton" default="no">
+              <text default="no" field-id="60277df7c0a81e5f6db566a857736f28" identifier="frontsideLink" label="Frontside Bottom Link:" type="radiobutton">
                 <radio-item label="Yes" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/frontsideInternalExternal, primaryContent/widget/personnelWidget/personnel/custom/person/frontsideLinkLabel" value="yes"/>
                 <radio-item label="No" value="no"/>
               </text>
-              <text field-id="" help-text="internal (Cascade), external (outside link)" identifier="frontsideInternalExternal" label="Link Type:" type="radiobutton">
+              <text field-id="60277df8c0a81e5f6db566a8a29d5a3f" help-text="internal (Cascade), external (outside link)" identifier="frontsideInternalExternal" label="Link Type:" type="radiobutton">
                 <radio-item label="Internal" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/frontsideInternalLink" value="frontsideInternal"/>
                 <radio-item label="External" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/frontsideExternalLink" value="frontsideExternal"/>
               </text>
-              <text identifier="frontsideLinkLabel" label="Link Label"/>
-              <asset field-id="" identifier="frontsideInternalLink" label="Internal Link:" type="page"/>
-              <text field-id="" identifier="frontsideExternalLink" label="External Link:"/>
+              <text field-id="60277df9c0a81e5f6db566a8942374f6" identifier="frontsideLinkLabel" label="Link Label"/>
+              <asset field-id="60277dfac0a81e5f6db566a8be14391d" identifier="frontsideInternalLink" label="Internal Link:" type="page"/>
+              <text field-id="60277dfbc0a81e5f6db566a8dd08f50f" identifier="frontsideExternalLink" label="External Link:"/>
               <!-- End frontside (bottommost) link -->
               <text field-id="499edb3dc0a81e8a6a12ed09b5bdf3d3" help-text="Keep this short (80 words Max) because you can always link to their full bio or custom page." identifier="shortBio" label="Short Bio:" multi-line="true"/>
               <text field-id="8bbc03b1c0a81e8a57740fff993608fb" identifier="linkToFullBio" label="Backside Bottom Link:" type="radiobutton">
@@ -845,34 +831,34 @@
                 <radio-item label="Internal" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/internalLink" value="internal"/>
                 <radio-item label="External" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/externalLink" value="external"/>
               </text>
-              <text identifier="linkLabel" label="Link Label"/>
+              <text field-id="60277dfcc0a81e5f6db566a879dd9080" identifier="linkLabel" label="Link Label"/>
               <asset field-id="8bbc03b1c0a81e8a57740fff5ea9dc03" identifier="internalLink" label="Internal Link:" type="page"/>
               <text field-id="8bbc03b1c0a81e8a57740fffb6ee5bef" identifier="externalLink" label="External Link:"/>
               <!-- Research List Items -->
-              <text field-id="" identifier="displayResearchInterests" label="Display Research Interests:" type="radiobutton" default="no">
+              <text default="no" field-id="60277dfdc0a81e5f6db566a8b7152705" identifier="displayResearchInterests" label="Display Research Interests:" type="radiobutton">
                 <radio-item label="Yes" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/researchInterests" value="yes"/>
                 <radio-item label="No" value="no"/>
               </text>
               <group collapsed="true" identifier="researchInterests" label="Research Interest List" multiple="true">
-                <text label="Research Interest Item" identifier="researchInterestItem" multiple="true"/>
+                <text field-id="60277dfec0a81e5f6db566a8ee170ab1" identifier="researchInterestItem" label="Research Interest Item" multiple="true"/>
               </group>
               <!-- End Research List Items -->
               <!-- Teaching List Items -->
-              <text field-id="" identifier="displaycoursesTaught" label="Display Courses Taught:" type="radiobutton" default="no">
+              <text default="no" field-id="60277dffc0a81e5f6db566a89124831b" identifier="displaycoursesTaught" label="Display Courses Taught:" type="radiobutton">
                 <radio-item label="Yes" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/coursesTaught" value="yes"/>
                 <radio-item label="No" value="no"/>
               </text>
               <group collapsed="true" identifier="coursesTaught" label="Courses Taught" multiple="true">
-                <text label="Research Interest Item" identifier="course" multiple="true"/>
+                <text field-id="60277e00c0a81e5f6db566a84c0295e3" identifier="course" label="Research Interest Item" multiple="true"/>
               </group>
               <!-- End Teaching List Items -->
               <!-- School Affiliations List Items -->
-              <text field-id="" identifier="displaySchoolAffiliations" label="Display School Affiliations:" type="radiobutton" default="no">
+              <text default="no" field-id="60277e01c0a81e5f6db566a8455657b9" identifier="displaySchoolAffiliations" label="Display School Affiliations:" type="radiobutton">
                 <radio-item label="Yes" show-fields="primaryContent/widget/personnelWidget/personnel/custom/person/schoolAffiliations" value="yes"/>
                 <radio-item label="No" value="no"/>
               </text>
               <group collapsed="true" identifier="schoolAffiliations" label="School Affiliations" multiple="true">
-                <text label="Research Interest Item" identifier="schoolAffiliationsItem" multiple="true"/>
+                <text field-id="60277e01c0a81e5f6db566a88d585956" identifier="schoolAffiliationsItem" label="Research Interest Item" multiple="true"/>
               </group>
               <!-- School Affiliations Teaching List Items -->
             </group>
@@ -935,7 +921,7 @@
             <radio-item show-fields="primaryContent/widget/funnels-1up/region/altText" value="Alt Text"/>
             <radio-item value="Decorative Image"/>
           </text>
-          <text field-id="ff6bcc1ac0a81e5f43ef9b372d58b8e1" help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text" required="false"/>
+          <text field-id="ff6bcc1ac0a81e5f43ef9b372d58b8e1" help-text="Alternate text to describe image (required)" identifier="altText" label="Image Alt-Text"/>
           <group identifier="link" label="Link">
             <text default="Internal Link" field-id="ff6bcc1ac0a81e5f43ef9b374032390f" identifier="linkType" label="Link Type" type="radiobutton">
               <radio-item show-fields="primaryContent/widget/threePhotoCallout/photoCallout/link/internalLink" value="Internal Link"/>
