@@ -206,9 +206,9 @@ $palettes: map-merge($palettes, ('dap-graduate-form': ('core': $black,
 
 .dap-form {
   background: $sand;
-  mask-image: url(//www.chapman.edu/_assets/masthead-wave-5177a664d6e3c67601d334ce4dbdbb935396b9676aae8f5a5447040a6eb0bae6.png);
-  -webkit-mask-image: url(//www.chapman.edu/_assets/masthead-wave-5177a664d6e3c67601d334ce4dbdbb935396b9676aae8f5a5447040a6eb0bae6.png);
-  -webkit-mask-size: 100% 100%;
+  // mask-image: url(//www.chapman.edu/_assets/masthead-wave-5177a664d6e3c67601d334ce4dbdbb935396b9676aae8f5a5447040a6eb0bae6.png);
+  // -webkit-mask-image: url(//www.chapman.edu/_assets/masthead-wave-5177a664d6e3c67601d334ce4dbdbb935396b9676aae8f5a5447040a6eb0bae6.png);
+  // -webkit-mask-size: 100% 100%;
   will-change: filter;
   min-height: 750px;
   height: 100%;
