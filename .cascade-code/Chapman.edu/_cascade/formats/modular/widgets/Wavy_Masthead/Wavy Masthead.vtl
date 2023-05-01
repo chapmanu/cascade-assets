@@ -38,10 +38,6 @@
 [system-view:internal]
 <!-- Fix internal previews -->
 <style>
-  .wavy-masthead__wave-mask {
-    mask-image: none;
-    -webkit-mask-image: none;
-  }
   .wavy-masthead__img {
     max-height: 600px;
   }
@@ -308,22 +304,6 @@ $currentMastheadType.getChild('image').getChild('advanced').getChild('imageHeigh
 #end
 ##End Dropdown menu links##
 
-##Build top left text##
-#macro(wavyCorner)
-
-<div class="top-left-wave__wrapper">
-  <span class="top-left-wave">
-    <span class="invisible-box">
-      <span class="faux-h2">
-        ${_EscapeTool.xml($topLeftText)}
-      </span>
-    </span>
-    <!-- <%= image_tag("masthead_corner_wave.png") %> -->
-  </span>
-</div>
-#end
-##End Top left text##
-
 ##Build video toggle button##
 #macro(videoToggleButtons)
 
@@ -362,9 +342,6 @@ $currentMastheadType.getChild('backgroundSelector').value)
 #set ($currentMastheadType = $wavyMasthead.getChild('singleImage_background_group'))
 #set ($backgroundSelector = $currentMastheadType.getChild('backgroundSelector').value)
 
-#set ($showTopLeftText = $currentMastheadType.getChild('topLeftWave').getChild('showTopLeftText').value)
-#set ($topLeftText = $currentMastheadType.getChild('topLeftWave').getChild('topLeftText').value)
-
 #set ($showHeader = $currentMastheadType.getChild('headerTitle').getChild('showHeader').value)
 #set ($preheaderMasthead = $currentMastheadType.getChild('headerTitle').getChild('preheaderMasthead').value)
 <div class="hidden">preheaderMasthead $preheaderMasthead</div>
@@ -387,22 +364,18 @@ $currentMastheadType.getChild('callToActionButtons').getChild('dropDownButton').
   <div class="wavy-masthead wavy-masthead__container">
     #videoToggleButtons()
 
-    #if ($showTopLeftText != 'no')
-    #wavyCorner()
-    #else
-      <div class="wavy-masthead__header mobile__text">
-        #if ($showHeader != 'no')
-        #if (!$_PropertyTool.isNull($preheaderMasthead))
-          <div class="wavy-masthead__preheader" style="z-index: 10;position:relative;text-align: center;color: white;">
-            $preheaderMasthead
-          </div>
-        #end
-        <h2 data-display-single-image-or-video="true" style="z-index: 10;position:relative;text-align: center;color: white;">
-          $headerMasthead
-        </h2>
-        #end
-      </div>
-    #end
+    <div class="wavy-masthead__header mobile__text">
+      #if ($showHeader != 'no')
+      #if (!$_PropertyTool.isNull($preheaderMasthead))
+        <div class="wavy-masthead__preheader" style="z-index: 10;position:relative;text-align: center;color: white;">
+          $preheaderMasthead
+        </div>
+      #end
+      <h2 data-display-single-image-or-video="true" style="z-index: 10;position:relative;text-align: center;color: white;">
+        $headerMasthead
+      </h2>
+      #end
+    </div>
 
     <div class="wavy-masthead__wave-mask">
       #if ($backgroundSelector == 'image')
@@ -556,8 +529,6 @@ $currentMastheadType.getChild('callToActionButtons').getChild('dropDownButton').
 
 ## HEADER GROUP
 #set ($sliderTextBackground = $currentMastheadType.getChild('sliderTextBackground').value)
-#set ($showTopLeftText = $currentMastheadType.getChild('topLeftWave').getChild('showTopLeftText').value)
-#set ($topLeftText = $currentMastheadType.getChild('topLeftWave').getChild('topLeftText').value)
 
 #if ($sliderTextBackground == 'black')
 #set ($sliderTextBackgroundCSSVar = 'var(--color-panther-black)')
@@ -630,18 +601,15 @@ $currentMastheadType.getChild('callToActionButtons').getChild('dropDownButton').
     <span class="mobile">
       <div class="wavy-masthead wavy-masthead__container">
         #videoToggleButtons()
-        #if ($showTopLeftText != 'no')
-        #wavyCorner()
-        #end
 
-        <div class="wavy-masthead__wave-mask">
-          #if ($backgroundSelector == 'image')
+      <div class="wavy-masthead__wave-mask">
+        #if ($backgroundSelector == 'image')
           #mastheadImage()
 
-          #elseif ($backgroundSelector == 'video')
+        #elseif ($backgroundSelector == 'video')
           <video playsinline="true" muted="true" loop="true" autoplay="true" controls="false" src="${videoURL}"
-            data-video-state="playing"></video>
-          #end
+          data-video-state="playing"></video>
+        #end
 
         </div>
         <div class="wavy-masthead__text wavy-masthead__text-bg--${sliderTextBackground}">
