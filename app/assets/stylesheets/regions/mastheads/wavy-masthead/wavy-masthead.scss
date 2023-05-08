@@ -35,6 +35,10 @@
     padding-top: 0;
     background-color: $white;
 
+    &:after {
+      max-height: 600px;
+    }
+
     .toggle-video,
     #wavy-masthead__toggle--pause,
     #wavy-masthead__toggle--play {
