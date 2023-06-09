@@ -7,8 +7,9 @@
 }
 
 .homepage-masthead__container {
-  height: 100vh;
-
+  height: calc(100vh - 120px);
+  max-height: 900px;
+  
   .homepage-masthead__toggle-play-button {
     top: 2vh;
     left: 2vh;
@@ -31,20 +32,20 @@
         border-bottom: 125px solid transparent;
         transform: rotate(45deg);
         position: absolute;
-        top: 3%;
-        left: 12%;
+        top: 38px;
+        left: 342px;
       }
 
       .homepage-masthead__tagline {
         position: absolute;
-        top: 12%;
-        left: 15%;
+        top: 120px;
+        left: 380px;
 
         .row-one {
           font-family: "futura-pt-light-condensed";
           font-weight: 200;
-          font-size: 6.8rem;
-          line-height: 6.4rem;
+          font-size: 5.6rem;
+          line-height: 5.6rem;
           text-transform: uppercase;
           color: rgba(0, 0, 0, 0.1);
           color: white;
@@ -53,16 +54,16 @@
         .row-two {
           font-family: "futura-pt";
           font-weight: bold;
-          font-size: 9.8rem;
-          line-height: 8.8rem;
+          font-size: 8rem;
+          line-height: 8rem;
           text-transform: uppercase;
           color: white;
         }
 
         .row-three {
           font-family: 'futura-pt';
-          font-size: 4.4rem;
-          line-height: 4.4rem;
+          font-size: 3.6rem;
+          line-height: 3.6rem;
           font-weight: bold;
           margin-top: 32px;
           text-transform: uppercase;
@@ -73,8 +74,8 @@
     .homepage-masthead__buttons-inspire {
       width: 380px;
       position: absolute;
-      top: 45%;
-      left: 15%;
+      top: 400px;
+      left: 380px;
 
       .button-link-inspire {
         font-family: "futura-pt";
@@ -102,10 +103,11 @@
   }
 
   .homepage-masthead__slant-container {
-    position: relative;
+    position: absolute;
     bottom: 0;
-    height: 320px;
-    margin-top: 400px;
+    height: 225px;
+    width: 100%;
+    
 
     .white-slant {
       position: absolute;
@@ -138,7 +140,7 @@
       display: flex;
       text-align: center;
       justify-content: center;
-      width: 762px;
+      width: 768px;
       font-family: "minion-pro";
       font-weight: bold;
       font-style: italic;
@@ -167,17 +169,17 @@
 
 // MEDIA QUERIES
 
-@media only screen and (min-width: 901px) and (max-width: 1200px) {
+@media only screen and (min-width: 1201px) and (max-width: 1700px) {
   .homepage-masthead__container {
     .homepage-masthead__sub-container {
       .homepage-masthead__heading-container {
 
         .masthead-triangle {
-          left: 9%;
+          left: 105px;
         }
 
         .homepage-masthead__tagline {
-          left: 13%;
+          left: 140px;
 
           .row-one,
           .row-two,
@@ -204,9 +206,59 @@
       }
 
       .homepage-masthead__buttons-inspire {
-        top: 41%;
-        left: 12%;
+        top: 390px;
+        left: 140px;
+        width: 340px;
 
+        .button-link-inspire {
+          font-size: 1.6rem;
+          padding: 16px;
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+  .homepage-masthead__container {
+    .homepage-masthead__sub-container {
+      .homepage-masthead__heading-container {
+
+        .masthead-triangle {
+          left: 105px;
+        }
+
+        .homepage-masthead__tagline {
+          left: 140px;
+
+          .row-one,
+          .row-two,
+          .row-three {
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+          }
+
+          .row-one {
+            font-size: 6.2rem;
+            line-height: 6.2rem;
+          }
+
+          .row-two {
+            font-size: 7.6rem;
+            line-height: 7.6rem;
+          }
+          .row-three {
+            font-size: 3.6rem;
+            line-height: 3.6rem;
+          }
+        }
+      }
+
+      .homepage-masthead__buttons-inspire {
+        top: 390px;
+        left: 140px;
         width: 340px;
 
         .button-link-inspire {
@@ -234,11 +286,11 @@
       .homepage-masthead__heading-container {
 
         .masthead-triangle {
-          left: 9%;
+          left: 50px;
         }
 
         .homepage-masthead__tagline {
-          left: 13%;
+          left: 85px;
 
           .row-one,
           .row-two,
@@ -266,8 +318,8 @@
       }
 
       .homepage-masthead__buttons-inspire {
-        top: 39%;
-        left: 13%;
+        top: 360px;
+        left: 85px;
         width: 320px;
 
         .button-link-inspire {
@@ -296,16 +348,16 @@
       .homepage-masthead__heading-container {
 
         .masthead-triangle {
-          left: -1%;
-          top: 10%;
+          left: 0px;
+          top: 80px;
           border-top: 100px solid transparent;
           border-right: 100px solid rgba(0, 156, 166, 0.8);
           border-bottom: 100px solid transparent;
         }
 
         .homepage-masthead__tagline {
-          left: 7%;
-          top: 17%;
+          left: 30px;
+          top: 144px;
 
           .row-one,
           .row-two,
@@ -335,8 +387,11 @@
       }
 
       .homepage-masthead__buttons-inspire {
-        width: 90%;
-        left: 5%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: relative;
+
         .button-link-inspire {
           font-size: 1.4rem;
           padding: 14px;
