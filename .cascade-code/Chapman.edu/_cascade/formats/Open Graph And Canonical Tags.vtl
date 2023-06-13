@@ -12,6 +12,7 @@
 #set ( $url = $currentPage.getChild('path').text )
 #set ( $hideParentFromSearch = $_XPathTool.selectSingleNode($currentPage.parent, "dynamic-metadata[name = 'HideFromSearch']/value").value )
 #set ( $hidePageFromSearch = $_XPathTool.selectSingleNode($currentPage, "dynamic-metadata[name = 'HideFromSearch']/value").value )
+#set ( $hideCanonicalTag = $_XPathTool.selectSingleNode($currentPage, "dynamic-metadata[name = 'hideCanonicalTag']/value").value )
 ## Thank You pages related to forms are showing up in search results. Tell robots to skip page:
 #if ($url.contains('360') or $url.contains('thank-you') or $url.contains('thankyou')  or $url.contains('test-section')  or $url.contains('training-area') or $url.contains('_reports') )
     <!-- hidden thru programming -->
@@ -34,9 +35,11 @@
 #set ( $extension = '.aspx' )
 #set ( $description = ${_EscapeTool.xml($currentPage.getChild('description').text)} )
 ##
-
-<link rel="canonical" href="https://www.chapman.edu$url$extension"/>
-
+#if ($hideCanonicalTag == 'Yes')
+    <!-- canonical tag hidden -->
+#else
+    <link rel="canonical" href="https://www.chapman.edu$url$extension"/>
+#end
 ## some templates (data definitions) don't have a Sharing node at all so don't do rest of code:
 #if ($sharing)
     #set ( $og_title = $sharing.getChild('og_title').text )    
