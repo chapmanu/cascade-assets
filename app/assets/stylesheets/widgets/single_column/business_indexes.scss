@@ -1,0 +1,119 @@
+/*  Base Styles */
+.business-index-widget {
+  box-shadow: 0px 4px 25px 0px #0000001a;
+
+  .main {
+    height: 145px;
+    display: flex;
+    align-items: center;
+
+    @include outer-container;
+    @include pad(0 $base-spacing * 3);
+
+    @include media($large-screen) {
+      @include pad(0 $base-spacing);
+    }
+
+    ul.index-slider {
+      list-style: none;
+      overflow: visible;
+
+      li.index {
+        font-size: 16px;
+        font-weight: 700;
+        position: relative;
+
+        .title {
+          color: red;
+          white-space: nowrap;
+          margin-bottom: 10px;
+        }
+        .val {
+          margin-bottom: 8px;
+        }
+        .pos {
+          color: green;
+        }
+        .neg {
+          color: red;
+        }
+
+        .info {
+          position: absolute;
+          left: 185px;
+          bottom: 0;
+          background-color: white;
+          text-align: right;
+          margin-right: 20px;
+
+          i {
+            color: #787878;
+            font-size: 16px;
+          }
+
+          &:hover {
+            .extra-info {
+              display: block;
+              width: 220px;
+              left: -200px;
+              top: 30px;
+            }
+          }
+
+          .extra-info {
+            display: none;
+            position: absolute;
+            border-radius: 3px;
+            background: #231f20;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 18px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #ffffff;
+            padding: 15px;
+            z-index: 5;
+          }
+        }
+      }
+    }
+
+    .calc-by {
+      margin-left: auto;
+      max-width: 225px;
+    }
+
+    @include respond(tab-port) {
+      .calc-by {
+        display: none;
+      }
+    }
+  }
+
+  .lSSlideOuter,
+  .lSSlideWrapper {
+    overflow: visible;
+  }
+  .lSAction {
+    a {
+      border-bottom: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0px 2px 4px 0px #00000040;
+      opacity: 0.8;
+    }
+    > .lSPrev {
+      left: 255px;
+    }
+    > .lSNext {
+      left: 300px;
+    }
+  }
+
+  .lSPager {
+    left: 50%;
+    position: absolute;
+  }
+}
