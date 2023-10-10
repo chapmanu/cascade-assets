@@ -1083,7 +1083,7 @@
           <dropdown-item value="Academics"/>
           <dropdown-item value="Admission"/>
           <dropdown-item value="Alumni"/>
-          <dropdown-item value="Argyros School of Business"/>
+          <dropdown-item value="Argyros College of Business"/>
           <dropdown-item value="Attallah College"/>
           <dropdown-item value="Campus Services"/>
           <dropdown-item value="College of Performing Arts"/>
@@ -1122,7 +1122,7 @@
         <asset field-id="ff6bcc1dc0a81e5f43ef9b3798b0ea98" identifier="block" label="Degree" render-content-depth="2" required="true" type="block"/>
         <text default="All" field-id="ff6bcc1dc0a81e5f43ef9b37792edf5f" identifier="school" label="School Affliation" type="dropdown">
           <dropdown-item value="All"/>
-          <dropdown-item value="Argyros School of Business and Economics"/>
+          <dropdown-item value="Argyros College of Business and Economics"/>
           <dropdown-item value="Attallah College of Educational Studies"/>
           <dropdown-item value="Dodge College of Film and Media Arts"/>
           <dropdown-item value="Crean College of Health and Behavioral Sciences"/>
@@ -1191,7 +1191,7 @@
         </group>
         <text default="All" field-id="ff6bcc1ec0a81e5f43ef9b37a22a4991" identifier="school" label="School Affiliation" type="dropdown">
           <dropdown-item label="All" value="All"/>
-          <dropdown-item label="Argyros School" value="SBE"/>
+          <dropdown-item label="Argyros College" value="SBE"/>
           <dropdown-item label="Attallah College" value="CES"/>
           <dropdown-item label="Dodge College" value="CFMA"/>
           <dropdown-item label="Crean College" value="CHBS"/>
