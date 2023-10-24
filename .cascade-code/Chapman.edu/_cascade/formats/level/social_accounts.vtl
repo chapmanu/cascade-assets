@@ -41,6 +41,7 @@
 #if ( $accounts )    
 <div id="social_follow_us" class="school-social-media-icons">
     <ul>
+        <li class="school-social-media-icons__follow">Follow</li>
         #foreach ($account in $accounts)
             #set ( $name = $account.getChild('account_type').text )
             
@@ -51,11 +52,9 @@
             #elseif ( $name == 'instagram')
                 #set ( $fontAwesomeClass = "fab fa-instagram-square")
             #elseif ( $name == 'twitter')
-                #set ( $fontAwesomeClass = "fab fa-twitter-square")
+                #set ( $fontAwesomeClass = "fab fa-square-x-twitter")
             #elseif ( $name == 'vimeo')
-                #set ( $fontAwesomeClass = "fab fa-vimeo-square")    
-            #elseif ( $name == 'youtube')
-                #set ( $fontAwesomeClass = "fab fa-youtube-square")   
+                #set ( $fontAwesomeClass = "fab fa-vimeo-square")
             #elseif ( $name == 'youtube')
                 #set ( $fontAwesomeClass = "fab fa-youtube-square")  
             #elseif ( $name == 'linkedin')
