@@ -45,7 +45,7 @@
   </text>
   <text field-id="ff6bc8d9c0a81e5f43ef9b37dfd1109c" identifier="title" label="Degree Title" required="true"/>
   <text field-id="ff6bc8d9c0a81e5f43ef9b37b4f289fa" identifier="school" label="School Affiliation" required="true" type="checkbox">
-    <checkbox-item value="Argyros School of Business and Economics"/>
+    <checkbox-item value="Argyros College of Business and Economics"/>
     <checkbox-item value="Attallah College of Educational Studies"/>
     <checkbox-item value="Dodge College of Film and Media Arts"/>
     <checkbox-item value="Crean College of Health and Behavioral Sciences"/>

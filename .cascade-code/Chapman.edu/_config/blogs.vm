@@ -15,7 +15,7 @@
 #set ( $BLOGS_CONFIG = {
   'academics' : [ 'Higher Ed and Technology: Academics at Chapman', '' ],
   'alumni' : [ 'Chapman Alumni', '' ],
-  'business' : [ 'Argyros School of Business and Economics', 'business' ],
+  'business' : [ 'Argyros College of Business and Economics', 'business' ],
   'education' : [ 'Attallah College of Educational Studies', 'education' ],
   'collections' : [ 'Art Collections', '' ],
   'communication' : [ 'School of Communication', 'communication' ],

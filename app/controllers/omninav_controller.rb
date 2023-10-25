@@ -14,7 +14,7 @@ class OmninavController < ApplicationController
     # body > div#theme.law > ... > div.cu-off-canvas-header > a.sc-logo.fowler
     umbrella_categories = [
       # [ directory (assume leading /), menu label, class/image id ]
-      ['business', 'Argyros School', 'asbe'],
+      ['business', 'Argyros College', 'asbe'],
       ['education', 'Attallah College', 'education'],
       ['dodge', 'Dodge College', 'dodge'],
       ['crean', 'Crean College', 'crean'],
