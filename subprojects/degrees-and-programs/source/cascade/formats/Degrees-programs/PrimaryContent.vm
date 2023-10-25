@@ -1,11 +1,3 @@
-#**
-    Name:          Degrees & Programs
-    Author:        BarkleyREI
-    Created:       02/13/2017
-    Modified By:   Sarah Harissis
-    Last Modified: 08/28/2017
-*#
-
 ## Data (JSON)
 #set ( $data = $_XPathTool.selectSingleNode( $contentRoot, "//data[@type='page']/link" ) )
 ## Index Block (XML)
@@ -16,7 +8,7 @@
 #set ( $accordion = $_XPathTool.selectNodes( $contentRoot, "//accordion/section" ) )
 
 ## Chapman University Schools & Colleges
-#set ( $schools = ["Argyros College of Business and Economics", "Attallah College of Educational Studies", "College of Performing Arts", "Crean College of Health and Behavioral Sciences", "Dodge College of Film and Media Arts", "Fowler School of Law", "Schmid College of Science and Technology", "School of Communication", "School of Pharmacy", "Wilkinson College of Arts, Humanities, and Social Sciences"] )
+#set ( $schools = ["Argyros College of Business and Economics", "Attallah College of Educational Studies", "College of Performing Arts", "Crean College of Health and Behavioral Sciences", "Dodge College of Film and Media Arts", "Fowler School of Engineering", "Fowler School of Law", "Schmid College of Science and Technology", "School of Communication", "School of Pharmacy", "Wilkinson College of Arts, Humanities, and Social Sciences"] )
 
 ## SVG Macro
 #macro ( svg $name )
@@ -25,15 +17,6 @@
     </svg>
 #end
 
-[system-view:internal]
-<style>
-    #js-dap-section-undergraduate {
-        display: block !important;
-    }
-    
-</style>
-[/system-view:internal]
-
 ## Degrees & Programs
 #macro ( displayPrograms $programs )
 
@@ -41,16 +24,16 @@
 
         #foreach ( $program in $programs )
 
-      ## Locate Block
-      #set ( $path = $program.getChild("path").value )
+            ## Locate Block
+        	#set ( $path = $program.getChild("path").value )
 			#set ( $site = $program.getChild("site").value )
 			#set ( $programObject = $_.locateBlock( $path, $site ) )
 
 			## Title
-      #set ( $title = $programObject.getStructuredDataNode("title") )
+    		#set ( $title = $programObject.getStructuredDataNode("title") )
 
     		## Image
-      #set ( $img = {} )
+    		#set ( $img = {} )
 			#set ( $imgSrc = $programObject.getStructuredDataNode("image") )
 			#set ( $imgAlt = $programObject.getStructuredDataNode("altText") )
 
@@ -75,7 +58,8 @@
 			## External Link
 			#elseif ( $link.linkType.textValue == "External Link" )
 				#if ( $_PropertyTool.isNull( $programObject.getStructuredDataNode("link/externalLink").textValue ) == false )
-					#set ( $link.href = $programObject.getStructuredDataNode("link/externalLink").textValue )
+          #set ( $exLink = $programObject.getStructuredDataNode("link/externalLink").textValue )
+					#set ( $link.href = $_EscapeTool.xml( $exLink ) )
 				#end
 			## File Link
 			#elseif ( $link.linkType.textValue == "File Link" )
@@ -106,11 +90,10 @@
     		## Degree Title(s)
     		#set ( $degreeTitles = $programObject.getStructuredDataNode("type") )
 
-			
-<article class="result columns small-12 clearfix nick">
+			<article class="result columns small-12 clearfix">
 
 				#if ( $_PropertyTool.isNull( $imgSrc.asset ) == false )
-					<div class="image" role="img" style="background-image: url('${_EscapeTool.xml($img.src)}');" aria-label="${_EscapeTool.xml($img.alt)}">
+					<div class="image" role="img" style="background-image: url('${img.src}');" aria-label="${img.alt}">
 				#else
 					<div class="image">
 				#end
@@ -118,13 +101,13 @@
 						<div class="active-content-inner">
 							<p class="desc">$_EscapeTool.xml( $description )</p>
 							#if ( $link.href )
-								<a href="${_EscapeTool.xml($link.href)}" title="View landing page for ${_EscapeTool.xml( $title.textValue )}">
+								<a href="${link.href}" title="View landing page for ${_EscapeTool.xml( $title.textValue )}">
 									Learn More #svg( "icon-double-chevron" )
 								</a>
 							#end
 						</div>
 						<span class="close">
-							#svg( "icon-chevron" )
+							#svg( "icon-close" )
 						</span>
 					</div>
 					<div class="active-content-toggle">
@@ -136,20 +119,20 @@
 
 					<h3 class="title">
 						#if ( $link.href )
-							<a href="${_EscapeTool.xml($link.href)}" title="View landing page for ${_EscapeTool.xml( $title.textValue )}">$_EscapeTool.xml( $title.textValue )</a>
+							<a href="${link.href}" title="View landing page for ${_EscapeTool.xml( $title.textValue )}">$_EscapeTool.xml( $title.textValue )</a>
 						#else
 							$_EscapeTool.xml( $title.textValue )
 						#end
 					</h3>
 
 					#if ( $campuses.size() > 0 )
-						<ul class="campuses">
+						<ul class="campuses xyz">
 							#foreach ( $campus in $campuses )
 								#if ( $campus != "" )
 									#if ( $campus == "Orange" )
-										<li>$_EscapeTool.xml( "Main Campus" )</li>
+										<li>$_EscapeTool.xml( "Orange campus" )</li>
 									#elseif ( $campus == "Rinker" )
-										<li>$_EscapeTool.xml( "Rinker Health Science Campus" )</li>
+										<li>$_EscapeTool.xml( "Rinker Health Science campus" )</li>
 									#end
 								#end
 							#end
@@ -167,7 +150,7 @@
 					<p class="desc">$_EscapeTool.xml( $description )</p>
 
 					#if ( $link.href )
-						<a href="${_EscapeTool.xml($link.href)}" title="View landing page for ${_EscapeTool.xml( $title.textValue )}" class="button">
+						<a href="${link.href}" title="View landing page for ${_EscapeTool.xml( $title.textValue )}" class="button">
 							Learn More #svg( "icon-double-chevron" )
 						</a>
 					#end
@@ -176,11 +159,9 @@
 
 			</article>
 
-
     	#end
 
     #end
-
 
 #end
 
@@ -240,7 +221,18 @@
 ## D&P Accordion Header
 #macro ( dapHeader $data )
 
-  
+    <header class="dap-header">
+    	<div class="row">
+			<div class="columns small-12">
+				<h2>$_EscapeTool.xml( $data.title.value )</h2>
+				<h3>$_EscapeTool.xml( $data.subtitle.value )</h3>
+				<span class="dap-section-accordion-trigger">
+					<span class="show-for-sr">Toggle the accordion for the "${_EscapeTool.xml( $data.title.value )}" section</span>
+					#svg( "icon-chevron-down" )
+				</span>
+			</div>
+		</div>
+	</header>
 
 #end
 
@@ -426,174 +418,176 @@
 
 		#dapHeader( $header )
 
-    	<!-- EDIT PAGE -->
-<!-- variables are interests and schools -->
-<div class="dap-form">
-  <form id="js-dap-undergraduate-form" class="dap-undergraduate-form" action="">
+    	<div class="dap-body">
 
-  
-    <legend class="show-for-sr">Search for Undergraduate Degrees and Programs</legend>
-    <fieldset>
-  
-      <input type="hidden" name="type" value="undergraduate" />
-  
-      <div id="js-dap-undergraduate-program-types" class="program-types">
-        <div class="row">
-  
-          <!-- Degrees and Programs Checkboxes -->
-          <div class="columns small-12">
-            <div class="title-wrapper section-heading">
-              <h4 class="pb-0 subsection-heading faux-h2"><span class="bold text--red">Undergraduate</span> Degree
-                and
-                Program Finder
-              </h4>
-              <div tabindex="0" class="dap-section-accordion-trigger program-toggle">Graduate Degree Finder</div>
-            </div>
-            <div class="line"></div>
-          </div>
-          <div class="columns small-12 medium-6">
-            <h4 class="subsection-heading">Program Type:</h4>
-            <div class="field-container">
-              <label tabindex="0" class="program-type button" for="dap-undergraduate-program-all">
-                <input id="dap-undergraduate-program-all" name="dap-undergraduate-program-all" type="checkbox" value="all"/>
-                <div class="inner">
-                  #svg( "icon-check" )
-                  <span>All</span>
-                </div>
-              </label>
-              <label tabindex="0" class="program-type button" for="dap-undergraduate-program-majors">
-                <input id="dap-undergraduate-program-majors" name="dap-undergraduate-program-majors" type="checkbox" value="major,integrated/4+1,accelerated 3+2"/>
-                <div class="inner">
-                  #svg( "icon-check" )
-                  <span>Majors</span>
-                </div>
-              </label>
-              <label tabindex="0" class="program-type button" for="dap-undergraduate-program-minor">
-                <input id="dap-undergraduate-program-minor" name="dap-undergraduate-program-minor" type="checkbox" value="minor" />
-                <div class="inner">
-                  #svg( "icon-check" )
-                  <span>Minors</span>
-                </div>
-              </label>
-              <label tabindex="0" class="program-type button dap-undergraduate-program-bridge" for="dap-undergraduate-program-bridge" >
-  
-                <input id="dap-undergraduate-program-bridge" name="dap-undergraduate-program-bridge" type="checkbox" value="bridge,integrated/4+1,accelerated 3+2"/>
-                <div class="inner" xmlns="http://www.w3.org/2000/svg">
-  
-  
-                  <span>Accelerated (4+1) Programs </span>
-                  <span tabindex="0" id="accelerated-tooltip" data-tooltip="The Accelerated MBA program is open only to current Chapman University undergraduate students. This program allows students to obtain both an undergraduate degree and graduate business (MBA) degree with just one additional year of study beyond the traditional four years.">
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="question-circle" class="svg-inline--fa fa-question-circle fa-w-16" role="img" viewBox="0 0 512 512">
-                    <path fill="currentColor" d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"></path>
-                  </svg>
-                  </span>
-                </div>
-              </label>
-              <div id="accelerated-tooltip--mobile">
-The Accelerated MBA program is open only to current Chapman University undergraduate students. This program allows students to obtain both an undergraduate degree and graduate business (MBA) degree with just one additional year of study beyond the traditional four years.
-                </div>
-  
-            </div>
-            <div class="clearfix">
-              <div class="title-wrapper">
-                <h4 class="subsection-heading">Areas of Study:</h4>
-              
-              </div>
-              <ul id="js-dap-undergraduate-interests-list" class="dap-undergraduate-interests-list field-container">
-                #foreach ( $interest in $interests )
+			<div class="dap-form">
+				<form id="js-dap-undergraduate-form" class="dap-undergraduate-form" action="">
+					
+					<fieldset>
 
-                #set ( $suffix = $_EscapeTool.xml( $interest.value ).replace( "&amp;", "and" ).replace( " ", "-" ).toLowerCase() )
-                
-                <li>
-                  <label for="dap-undergraduate-interest-${suffix}">
-                    <input id="dap-undergraduate-interest-${suffix}" name="dap-undergraduate-interest-${suffix}" type="checkbox" value="${_EscapeTool.xml( $interest.value )}" />
-                      <span>$_EscapeTool.xml( $interest.value )</span>
-                  </label>
-                </li>
+						<legend class="show-for-sr">Search for Undergraduate Degrees and Programs</legend>
 
-              #end
-              </ul>
-            </div>
-          </div>
-          <div class="columns small-12 medium-6">
-            <div class="field-container">
-              <div id="create-viewbook" tabindex="0" class="program-toggle program-toggle__blurb">
-                <div class="program-toggle__image">
-                    
-                    #set ( $site = "site://Chapman.edu/" )
+						<input type="hidden" name="type" value="undergraduate" />
 
-                    <img src="site://chapman.edu/_files/degrees-programs/img/phone.png" alt=""/>
-                  
-                </div>
-                <div class="program-toggle__text">
-                  <h4 class="subsection-heading">Create a Custom Viewbook</h4>
-                  <p>Learn more about all the programs you’re interested in!
-                  </p>
-                  <a href="https://customviewbook.chapman.edu/wizard/?src=4">Create Viewbook</a>
-                </div>
-              </div>
-            </div>
-            <div class="field-container">
-              <div  class="program-toggle program-toggle__blurb">
-                <div class="program-toggle__image">
-                 <img src="site://chapman.edu/_files/degrees-programs/img/grad-hat.png" alt=""/>
-                </div>
-                <div class="program-toggle__text">
-                  <h4 class="subsection-heading">Graduate Degree and Program Finder</h4>
-                  <p>If you are looking for an graduate program, please use our Graduate Degree and Program
-                    Finder.
-                  </p>
-                </div>
-              </div>
-            </div>
-  
-          </div>
-  
-  
-        </div>
-      </div>
-      <div class="dp-grid">
-        <div id="js-dap-undergraduate-interests" class="dap-undergraduate-interests">
-  
-        </div>
-      </div>
-  
-  
-    </fieldset>
-  </form>
-</div>
+						<div id="js-dap-undergraduate-program-types" class="program-types">
 
+							<div class="row">
 
-<div id="js-dap-results-undergraduate" class="dap-results dap-results-undergraduate grid-view">
+								<div class="columns small-12">
+									<h4 class="subsection-heading">Degrees &amp; Programs:</h4>
+								</div>
 
+								<div class="columns small-12 medium-6">
+									<div class="field-container">
+										<label class="program-type button" for="dap-undergraduate-program-all">
+											<input id="dap-undergraduate-program-all" name="dap-undergraduate-program-all" type="checkbox" value="all" />
+											<div class="inner">
+												#svg( "icon-check" )
+												<span>All Undergraduate Programs</span>
+											</div>
+										</label>
+									</div>
+								</div>
+
+								<div class="columns small-12 medium-6">
+									<div class="field-container">
+										<label class="program-type button" for="dap-undergraduate-program-major">
+											<input id="dap-undergraduate-program-major" name="dap-undergraduate-program-major" type="checkbox" value="major,accelerated,integrated/4+1,accelerated 3+2" />
+											<div class="inner">
+												#svg( "icon-check" )
+												<span>Majors</span>
+											</div>
+										</label>
+									</div>
+								</div>
+
+								<div class="columns small-12 medium-6">
+									<div class="field-container">
+										<label class="program-type button" for="dap-undergraduate-program-minor">
+											<input id="dap-undergraduate-program-minor" name="dap-undergraduate-program-minor" type="checkbox" value="minor" />
+											<div class="inner">
+												#svg( "icon-check" )
+												<span>Minors</span>
+											</div>
+										</label>
+									</div>
+								</div>
+
+								<div class="columns small-12 medium-6">
+									<div class="field-container">
+										<label class="program-type button" for="dap-undergraduate-program-bridge">
+											<input id="dap-undergraduate-program-bridge" name="dap-undergraduate-program-bridge" type="checkbox" value="bridge,accelerated,integrated/4+1,accelerated 3+2" />
+											<div class="inner">
+												#svg( "icon-check" )
+												<span>Accelerated &amp; Bridge Programs</span>
+											</div>
+										</label>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div id="js-dap-undergraduate-interests" class="dap-undergraduate-interests">
+							<div class="row">
+	    										
+								<div class="columns small-12 clearfix">
+									<a id="js-reset-undergraduate-interests" class="reset" href="javascript:void(0);" title="Reset interests filters">
+										#svg( "icon-reset" ) Reset
+									</a>
+									<h4 class="subsection-heading">I'm Interested In:</h4>
+								</div>
+
+								<div class="columns small-12">
+									<ul id="js-dap-undergraduate-interests-list" class="dap-undergraduate-interests-list">
+
+										#foreach ( $interest in $interests )
+
+											#set ( $suffix = $_EscapeTool.xml( $interest.value ).replace( "&amp;", "and" ).replace( " ", "-" ).toLowerCase() )
+											
+											<li>
+												<label for="dap-undergraduate-interest-${suffix}">
+													<input id="dap-undergraduate-interest-${suffix}" name="dap-undergraduate-interest-${suffix}" type="checkbox" value="${_EscapeTool.xml( $interest.value )}" />
+	    											<span>$_EscapeTool.xml( $interest.value )</span>
+												</label>
+											</li>
+
+										#end
+
+										<li class="show-more">
+											<a href="javascript:void(0);">+ Show More</a>
+										</li>
+
+									</ul>
+								</div>
+
+							</div>
+						</div>
+
+						<div id="js-dap-undergraduate-filter-types" class="filter-types">
+
+							<div class="row">
+
+								<div class="columns small-12 large-5">
+									<div class="field-container custom-select-container">
+										<label for="dap-undergraduate-school" class="show-for-sr">Filter by Schools and Colleges</label>
+										<select name="dap-undergraduate-school" id="dap-undergraduate-school">
+											<option disabled="disabled" selected="selected" value="">Filter by Schools and Colleges</option>
+                                            <option value="all">All Schools and Colleges</option>
+											#foreach ( $school in $schools )
+												<option value="${_EscapeTool.xml( $school )}">$_EscapeTool.xml( $school )</option>
+											#end
+										</select>
+									</div>
+								</div>
+
+								<div class="columns small-12 large-2">
+									<div class="or-separator">
+										<span>Or</span>
+									</div>
+								</div>
+
+								<div class="columns small-12 large-5">
+									<div class="field-container">
+										<label for="dap-undergraduate-keyword" class="show-for-sr">Search for Degrees and Programs</label>
+										<input id="dap-undergraduate-keyword" name="dap-undergraduate-keyword" class="input-with-button" type="text" placeholder="Search Degrees &amp; Programs" />
+										<button type="submit">
+											<span class="show-for-sr">Search for Degrees and Programs</span>
+											#svg( "icon-search" )
+										</button>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+					</fieldset>
+
+				</form>
+			</div>
+
+			<div id="js-dap-results-undergraduate" class="dap-results dap-results-undergraduate grid-view">
+    						
 				<div class="row">
 					<div class="columns small-12">
 						<header class="dap-results-header">
-    	            		
-    	            		
-    	            		
-              <div class="flex-wrapper">
-                <div class="field-container undergraduate-only">
-                  <label class="show-for-sr" for="dap-undergraduate-keyword">Search for Degrees and Programs</label>
-                  <input class="input-with-button" id="dap-undergraduate-keyword" name="dap-undergraduate-keyword" placeholder="Search Programs" type="text" autocomplete="off"/>
-                  <button type="submit">
-                    <span class="show-for-sr">Search for Degrees and Programs</span>
-                    #svg( "icon-search" )
-                  </button>
-                </div>
-                
-                <ul class="clearfix results-views">
-                  <li class="active" data-view="grid-view" aria-label="Click to enable grid view of the results">
-                    <span class="show-for-sr">Show results in grid view</span>
-                    #svg( "icon-grid" )
-                  </li>
-                  <li data-view="list-view" aria-label="Click to enable list view of the results">
-                    <span class="show-for-sr">Show results in list view</span>
-                    #svg( "icon-list" )
-                  </li>
-                </ul>
-              </div>
-            </header>
+
+							<h2 class="results-count">You are seeing all Undergraduate Degrees and Programs</h2>
+
+							<ul class="results-views clearfix">
+								<li class="active" data-view="grid-view" aria-label="Click to enable grid view of the results">
+									<span class="show-for-sr">Show results in grid view</span>
+									#svg( "icon-grid" )
+								</li>
+								<li data-view="list-view" aria-label="Click to enable list view of the results">
+									<span class="show-for-sr">Show results in list view</span>
+									#svg( "icon-list" )
+								</li>
+							</ul>
+
+						</header>
 					</div>
 				</div>
 
@@ -604,220 +598,132 @@ The Accelerated MBA program is open only to current Chapman University undergrad
 				</div>
 
 			</div>
+
+    	</div>	
+
 	</section>
 	<!-- END UNDERGRADUATE SECTION -->
 
 #end
 
 ## Graduate Accordion
-#macro ( graduate $type, $header, $interests )
+#macro ( graduate $type, $header )
 
 	<!-- START GRADUATE SECTION -->
-## 	#set ( $accordion = $_XPathTool.selectNodes( $contentRoot, "//accordion/section" ) )
-	#set ($darkMode = $section.getChild('gradThemeContainer').getChild('gradTheme').value)
-	
-	#if ($darkMode == 'Dark Mode')
-	    #set ($darkMode = 'dark-mode')
-    #else 
-        #set ($darkMode = '')
-    #end
-    
-	<section id="js-dap-section-graduate" class="dap-section ${darkMode}" data-id="graduate">
+	<section id="js-dap-section-graduate" class="dap-section" data-id="graduate">
 
 		#dapHeader( $header )
 
     	<div class="dap-body">
 
 			<div class="dap-form">
-				<!-- EDIT -->
-<!-- EDIT --><form id="js-dap-graduate-form" class="dap-graduate-form" action="">
-  
-  
-  <legend class="show-for-sr">Search for Graduate Degrees and Programs</legend>
-  <fieldset>
-    <input type="hidden" name="type" value="graduate" />
-    
-<div id="js-dap-graduate-program-types" class="program-types">
-      
-<div class="row">
-        <!-- Degrees and Programs Checkboxes -->
-        
-<div class="columns small-12">
-          
-<div class="title-wrapper section-heading">
-            
-<h4 class="pb-0 subsection-heading faux-h2"><span class="bold text--red">Graduate</span> Degree
-              and
-              Program Finder
-            </h4>
-            
-<div class="dap-section-accordion-trigger program-toggle">Undegraduate Degree Finder</div>
-          </div>
-          
-<div class="line" />
-        </div>
-        
-<div class="columns small-12 medium-6">
-          
-<h4 class="subsection-heading">Program Type:</h4>
-          
-<div class="field-container">
-            <label class="program-type button" for="dap-graduate-program-all">
-              <input id="dap-graduate-program-all" name="dap-graduate-program-all" type="checkbox" value="all" />
-              
-<div class="inner">
-                 #svg( "icon-check" )
-                <span>All Graduate Programs</span>
-              </div>
-            </label>
-            <label class="program-type button" for="dap-graduate-program-master">
-              <input id="dap-graduate-program-master" name="dap-graduate-program-master" type="checkbox" value="masters,dual/joint,integrated/4+1,accelerated 3+2" />
-              
-<div class="inner">
-                 #svg( "icon-check" )
-                <span>Masters Programs</span>
-              </div>
-            </label>
-            <label class="program-type button" for="dap-graduate-program-doctoral">
-              <input id="dap-graduate-program-doctoral" name="dap-graduate-program-doctoral" type="checkbox" value="doctorate" />
-              
-<div class="inner">
-                 #svg( "icon-check" )
-                <span>Doctoral Programs</span>
-              </div>
-            </label>
-            <label class="program-type button" for="dap-graduate-program-bridge">
-              <input id="dap-graduate-program-bridge" name="dap-graduate-program-bridge" type="checkbox" value="bridge,accelerated,integrated/4+1,accelerated 3+2,post-baccalaureate,certificate,dual/joint,credential,transitional" />
-              
-<div class="inner">
-                <svg class="[object SVGAnimatedString]" viewbox="null">
-                  
-<title>check</title>
-                  <path d="M26.109 8.844c0 0.391-0.156 0.781-0.438 1.062l-13.438 13.438c-0.281 0.281-0.672 0.438-1.062 0.438s-0.781-0.156-1.062-0.438l-7.781-7.781c-0.281-0.281-0.438-0.672-0.438-1.062s0.156-0.781 0.438-1.062l2.125-2.125c0.281-0.281 0.672-0.438 1.062-0.438s0.781 0.156 1.062 0.438l4.594 4.609 10.25-10.266c0.281-0.281 0.672-0.438 1.062-0.438s0.781 0.156 1.062 0.438l2.125 2.125c0.281 0.281 0.438 0.672 0.438 1.062z">
-                  </path>
-                </svg>
-                <span>Accelerated, Bridge &amp; Special Programs</span>
-              </div>
-            </label>
-          </div>
-        </div>
-        
-<div class="columns small-12 medium-6">
-          
-<h4 class="subsection-heading">Start Term(s):</h4>
-          
-<div id="js-dap-graduate-start-terms" class="field-container">
-            <label tabindex="0" class="program-type start-term button" for="start-term-all">
-              <input id="start-term-all" name="start-term-all" type="checkbox" value="all" />
-              
-<div class="inner">
-                 #svg( "icon-check" )
-                <span>All</span>
-              </div>
-            </label>
-            <label tabindex="0" class="program-type start-term button" for="start-term-spring">
-              <input id="start-term-spring" name="start-term-spring" type="checkbox" value="spring" />
-              
-<div class="inner">
-                 #svg( "icon-check" )
-                <span>Spring</span>
-              </div>
-            </label>
-            <label tabindex="0" class="program-type start-term button" for="start-term-summer">
-              <input id="start-term-summer" name="start-term-summer" type="checkbox" value="summer" />
-              
-<div class="inner">
-                 #svg( "icon-check" )
-                <span>Summer</span>
-              </div>
-            </label>
-            <label tabindex="0" class="program-type start-term button" for="start-term-fall">
-              <input id="start-term-fall" name="start-term-fall" type="checkbox" value="fall" />
-              
-<div class="inner">
-                 #svg( "icon-check" )
-                <span>Fall</span>
-              </div>
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-<div id="js-dap-graduate-interests" class="dap-graduate-interests">
-      
-<div class="row">
-        <!-- I'm Interested In Checkboxes -->
-        
-<div class="clearfix columns small-12 medium-6">
-          
-<h4 class="subsection-heading">Areas of Study:</h4>
-<ul id="js-dap-graduate-interests-list" class="dap-graduate-interests-list field-container">
-  #foreach ( $interest in $interests )
+				<form id="js-dap-graduate-form" class="dap-graduate-form" action="">
+					<fieldset>
 
-  #set ( $suffix = $_EscapeTool.xml( $interest.value ).replace( "&amp;", "and" ).replace( " ", "-" ).toLowerCase() )
-  
-  <li>
-    <label for="dap-graduate-interest-${suffix}">
-      <input id="dap-graduate-interest-${suffix}" name="dap-graduate-interest-${suffix}" type="checkbox" value="${_EscapeTool.xml( $interest.value )}" />
-        <span>$_EscapeTool.xml( $interest.value )</span>
-    </label>
-  </li>
+						<legend class="show-for-sr">Search for Graduate Degrees and Programs</legend>
 
-#end
-</ul>
-        </div>
-        
-<div id="dap-graduate-campuses" class="clearfix columns small-12 medium-6">
-          
-<h4 class="subsection-heading">Campus:</h4>
-          
-<div class="field-container">
-            <label tabindex="0" class="program-type button" for="dap-graduate-campus-all">
-              <input id="dap-graduate-campus-all" name="dap-graduate-campus-all" type="checkbox" value="all" />
-              
-<div class="inner">
-                 #svg( "icon-check" )
-                <span>All</span>
-              </div>
-            </label>
-            <label tabindex="0" class="program-type button" for="dap-graduate-campus-orange">
-              <input id="dap-graduate-campus-orange" name="dap-graduate-campus-orange" type="checkbox" value="Orange Campus" />
-              
-<div class="inner">
-                 #svg( "icon-check" )
-                <span>Orange</span>
-              </div>
-            </label>
-            <label tabindex="0" class="program-type button" for="dap-graduate-campus-irvine">
-              <input id="dap-graduate-campus-irvine" name="dap-graduate-campus-irvine" type="checkbox" value="Rinker Health Science Campus" />
-              
-<div class="inner">
-                 #svg( "icon-check" )
-                <span>Rinker (Irvine) Health Science Campus</span>
-              </div>
-            </label>
-          </div>
-          
-<div class="program-toggle program-toggle__blurb">
-            
-<div class="program-toggle__image">
-              <img src="site://chapman.edu/_files/degrees-programs/img/smiling-student.png" alt="" />
-            </div>
-            
-<div class="program-toggle__text">
-              
-<h4 class="subsection-heading">Undergraduate Degree and Program Finder</h4>
-              
-<p>If you are looking for an undergraduate program, please use our Undergraduate Degree and Program
-                Finder.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </fieldset></form>
+						<input type="hidden" name="type" value="graduate" />
+
+						<div id="js-dap-graduate-program-types" class="program-types">
+
+							<div class="row">
+
+								<div class="columns small-12">
+									<h4 class="subsection-heading">Degrees &amp; Programs:</h4>
+								</div>
+
+								<div class="columns small-12 medium-6">
+									<div class="field-container">
+										<label class="program-type button" for="dap-graduate-program-all">
+											<input id="dap-graduate-program-all" name="dap-graduate-program-all" type="checkbox" value="all" />
+											<div class="inner">
+												#svg( "icon-check" )
+												<span>All Graduate Programs</span>
+											</div>
+										</label>
+									</div>
+								</div>
+
+								<div class="columns small-12 medium-6">
+									<div class="field-container">
+										<label class="program-type button" for="dap-graduate-program-master">
+											<input id="dap-graduate-program-master" name="dap-graduate-program-master" type="checkbox" value="masters,dual/joint,accelerated,integrated/4+1,accelerated 3+2" />
+											<div class="inner">
+												#svg( "icon-check" )
+												<span>Masters Programs</span>
+											</div>
+										</label>
+									</div>
+								</div>
+
+								<div class="columns small-12 medium-6">
+									<div class="field-container">
+										<label class="program-type button" for="dap-graduate-program-doctoral">
+											<input id="dap-graduate-program-doctoral" name="dap-graduate-program-doctoral" type="checkbox" value="doctorate" />
+											<div class="inner">
+												#svg( "icon-check" )
+												<span>Doctoral Programs</span>
+											</div>
+										</label>
+									</div>
+								</div>
+
+								<div class="columns small-12 medium-6">
+									<div class="field-container">
+										<label class="program-type button" for="dap-graduate-program-bridge">
+											<input id="dap-graduate-program-bridge" name="dap-graduate-program-bridge" type="checkbox" value="bridge,accelerated,integrated/4+1,accelerated 3+2,post-baccalaureate,certificate,dual/joint,credential,transitional" />
+											<div class="inner">
+												#svg( "icon-check" )
+												<span>Accelerated, Bridge &amp; Special Programs</span>
+											</div>
+										</label>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div id="js-dap-graduate-filter-types" class="filter-types">
+
+							<div class="row">
+
+								<div class="columns small-12 large-5">
+									<div class="field-container custom-select-container">
+										<label for="dap-graduate-school" class="show-for-sr">Filter by Schools and Colleges</label>
+										<select name="dap-graduate-school" id="dap-graduate-school">
+											<option disabled="disabled" selected="selected" value="">Filter by Schools and Colleges</option>
+                                            <option value="all">All Schools and Colleges</option>
+											#foreach ( $school in $schools )
+												<option value="${_EscapeTool.xml( $school )}">$_EscapeTool.xml( $school )</option>
+											#end
+										</select>
+									</div>
+								</div>
+
+								<div class="columns small-12 large-2">
+									<div class="or-separator">
+										<span>Or</span>
+									</div>
+								</div>
+
+								<div class="columns small-12 large-5">
+									<div class="field-container">
+										<label for="dap-graduate-keyword" class="show-for-sr">Search for Degrees and Programs</label>
+										<input id="dap-graduate-keyword" name="dap-graduate-keyword" class="input-with-button" type="text" placeholder="Search Degrees &amp; Programs" />
+										<button type="submit">
+											<span class="show-for-sr">Search for Degrees and Programs</span>
+											#svg( "icon-search" )
+										</button>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+					</fieldset>
+				</form>
 			</div>
 
 			<div id="js-dap-results-graduate" class="dap-results dap-results-graduate grid-view">
@@ -825,31 +731,21 @@ The Accelerated MBA program is open only to current Chapman University undergrad
 				<div class="row">
 					<div class="columns small-12">
 						<header class="dap-results-header">
-    	            		
-    	            		
-    	            		
-              <div class="flex-wrapper">
-                <div class="field-container graduate-only">
-                  <label class="show-for-sr" for="dap-graduate-keyword">Search for Degrees and Programs</label>
-                  <input class="input-with-button" id="dap-graduate-keyword" name="dap-graduate-keyword" placeholder="Search Programs" type="text" autocomplete="off"/>
-                  <button type="submit">
-                    <span class="show-for-sr">Search for Graduate Degrees and Programs</span>
-                    #svg( "icon-search" )
-                  </button>
-                </div>
-                
-                <ul class="clearfix results-views">
-                  <li class="active" data-view="grid-view" aria-label="Click to enable grid view of the results">
-                    <span class="show-for-sr">Show results in grid view</span>
-                    #svg( "icon-grid" )
-                  </li>
-                  <li data-view="list-view" aria-label="Click to enable list view of the results">
-                    <span class="show-for-sr">Show results in list view</span>
-                    #svg( "icon-list" )
-                  </li>
-                </ul>
-              </div>
-            </header>
+
+							<h2 class="results-count">You are seeing all Graduate Degrees and Programs</h2>
+
+							<ul class="results-views clearfix">
+								<li class="active" data-view="grid-view" aria-label="Click to enable grid view of the results">
+									<span class="show-for-sr">Show results in grid view</span>
+									#svg( "icon-grid" )
+								</li>
+								<li data-view="list-view" aria-label="Click to enable list view of the results">
+									<span class="show-for-sr">Show results in list view</span>
+									#svg( "icon-list" )
+								</li>
+							</ul>
+
+						</header>
 					</div>
 				</div>
 
@@ -893,11 +789,8 @@ The Accelerated MBA program is open only to current Chapman University undergrad
                 #undergraduate( $type, $header, $interests )
             
             #elseif ( $type.value == "Graduate" )        
-                #set ( $interests = $_XPathTool.selectNodes( $section, "interestsGrad/interest" ) )
-                #graduate( $type, $header, $interests )
-                
-
             
+                #graduate( $type, $header )
             
             #end
             

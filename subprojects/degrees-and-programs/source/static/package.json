@@ -6,6 +6,7 @@
     "compass": "^0.1.1",
     "grunt-modernizr": "^3.0.2",
     "install": "^0.13.0",
+    "jquery": "^3.7.1",
     "jshint": "^2.13.0",
     "matchdep": "^2.0.0",
     "nconf": "^0.11.2",
@@ -31,12 +32,14 @@
     "grunt-contrib-connect": "^3.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^4.0.0",
+    "grunt-contrib-jshint": "^3.2.0",
     "grunt-contrib-uglify": "^5.0.1",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-execute": "^0.2.2",
     "grunt-usemin": "^3.1.1",
     "gulp": "^4.0.2",
-    "load-grunt-configs": "^1.0.0"
+    "load-grunt-configs": "^1.0.0",
+    "scsslint": "0.0.3"
   },
   "engines": {
     "node": ">=4.0.0"
