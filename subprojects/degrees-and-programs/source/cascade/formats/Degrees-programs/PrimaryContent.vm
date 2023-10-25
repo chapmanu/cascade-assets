@@ -479,7 +479,7 @@
 											<input id="dap-undergraduate-program-bridge" name="dap-undergraduate-program-bridge" type="checkbox" value="bridge,accelerated,integrated/4+1,accelerated 3+2" />
 											<div class="inner">
 												#svg( "icon-check" )
-												<span>Accelerated &amp; Bridge Programs</span>
+												<span>Integrated 4+1 &amp; Bridge Programs</span>
 											</div>
 										</label>
 									</div>
@@ -674,7 +674,7 @@
 											<input id="dap-graduate-program-bridge" name="dap-graduate-program-bridge" type="checkbox" value="bridge,accelerated,integrated/4+1,accelerated 3+2,post-baccalaureate,certificate,dual/joint,credential,transitional" />
 											<div class="inner">
 												#svg( "icon-check" )
-												<span>Accelerated, Bridge &amp; Special Programs</span>
+												<span>Integrated 4+1, Bridge, &amp; Special Programs</span>
 											</div>
 										</label>
 									</div>
