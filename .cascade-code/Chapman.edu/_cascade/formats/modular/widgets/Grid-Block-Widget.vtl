@@ -148,7 +148,6 @@
 
 
   #set ($hasGridTitle = $gridOptions.getChild('title').value)
-  
 
   #if ($hasGridTitle != "No")
     #set ($gridTitleClass = "has-grid-title")
@@ -255,6 +254,7 @@
 
   #foreach ($block in $blocks)
     #set ($title = $block.getChild('gridBlock').getChild('gridBlockTitle').value )
+    #set ($gridBlockTitleLinked = $block.getChild('gridBlock').getChild('titleLink').value )
     #set ($gridBlockTitle = $block.getChild('gridBlockTitle').value)
     #set ($gridBlockLinkType = $block.getChild('linkType').value)
 
@@ -315,7 +315,7 @@
           
     #end
     
-    #if ($hasGridTitle == 'Yes' && $linkURL != '' && $gridBlockLinkType != '' )
+    #if ($hasGridTitle == 'Yes' && $linkURL != '' && $gridBlockLinkType != '' && $gridBlockTitleLinked == 'yes')
       <a href="${gridBlockLinkURL}" class="grid-block-widget__title text-align--${textAlignment} grid-block-widget__title--${titleBgColor} focus-no-border border-bottom--none">
         <span class="label border-bottom--dotted">${_EscapeTool.xml($gridBlockTitle)}</span>
       </a>
