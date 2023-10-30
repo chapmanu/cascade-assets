@@ -31,6 +31,11 @@
                 #set ($showSchoolAffiliations = $showSchoolAffiliations + " ")
             #end
         #end
+        <div id="faculty${count}" class="personnel-listing-widget faculty-widget">
+            <span class="loadingText">Loading faculty member..</span>
+        </div>
+        <div style="clear:both"></div>
+
         <script type="text/javascript">
             $(document).ready(function(){
                 var names = "${names}".split(" ");
@@ -44,11 +49,6 @@
                 getFacultyInfo(names, showPhoto, showLink, showBio, showResearch, showCourses, showOffice, showSchoolAffiliations, "faculty${count}");
             })
         </script>
-
-        <div id="faculty${count}" class="personnel-listing-widget faculty-widget">
-            <span class="loadingText">Loading faculty member..</span>
-        </div>
-        <div style="clear:both"></div>
     #elseif ($_XPathTool.selectSingleNode($fWidget, "faculty/type").value == "Faculty Listing")
         #set ($school = $_XPathTool.selectSingleNode($fWidget, 'faculty/school').value)
         #if ($school == "")
@@ -68,6 +68,11 @@
             #set ($facultyUnit = "All")
         #end
         ##
+        <div id="faculty${count}" class="personnel-listing-widget faculty-widget">
+            <span class="loadingText">Loading faculty member(s)..</span>
+        </div>
+        <div style="clear:both"></div>
+
         #set ($showPhoto = $_XPathTool.selectSingleNode($fWidget, "faculty/photo").value)
         #set ($showLink = $_XPathTool.selectSingleNode($fWidget, "faculty/bio-link").value)
         #set ($showBio = $_XPathTool.selectSingleNode($fWidget, "faculty/short-bio").value)
@@ -80,9 +85,5 @@
                 getFacultyListing("${school}", "${dept}", "${filter}", "${facultyUnit}", "${showPhoto}", "${showLink}", "${showBio}", "${showResearch}", "${showCourses}", "${showOffice}", "${showSchoolAffiliations}", "faculty${count}");
             })
         </script>
-        <div id="faculty${count}" class="personnel-listing-widget faculty-widget">
-            <span class="loadingText">Loading faculty member(s)..</span>
-        </div>
-        <div style="clear:both"></div>
     #end
 #end
