@@ -665,27 +665,25 @@ LOG VELOCITY VARIABLES IN THE BROWSER CONSOLE ON DEV
     #set ($link = $content.getChild('link').value)
 
     #set ($iconClasses = {
-        "Facebook"   : "icon-facebook",
-        "GooglePlus" : "icon-google-plus",
-        "iTunes U"   : "icon-graduation2",
-        "Instagram"  : "icon-instagram",
-        "LinkedIn"   : "icon-linkedin2",
-        "Pinterest"  : "icon-pinterest",
-        "Twitter"    : "icon-twitter",
-        "WordPress"  : "icon-newspaper",
-        "YouTube"    : "icon-youtube"
+        "Facebook"   : "fab fa-facebook-f",
+        "Instagram"  : "fab fa-instagram",
+        "LinkedIn"   : "fab fa-linkedin-in",
+        "Twitter"    : "fab fa-x-twitter",
+        "WordPress"  : "fa-regular fa-newspaper",
+        "YouTube"    : "fab fa-youtube",
+        "Spotify"    : "fab fa-spotify",
+        "Tiktok"     : "fab fa-tiktok"
     })
 
     #set ($iconTitleText = {
         "Facebook"   : "Follow Us On Facebook",
-        "GooglePlus" : "Follow Us On GooglePlus",
-        "iTunes U"   : "Follow Us On iTunes U",
         "Instagram"  : "Follow Us On Instagram",
         "LinkedIn"   : "Follow Us On LinkedIn",
-        "Pinterest"  : "Follow Us On Pinterest",
-        "Twitter"    : "Follow Us On Twitter",
+        "Twitter"    : "Follow Us On X",
         "WordPress"  : "Follow Us On WordPress",
-        "YouTube"    : "Follow Us On YouTube"
+        "YouTube"    : "Follow Us On YouTube",
+        "Spotify"    : "Follow Us On Spotify",
+        "Tiktok"     : "Follow Us On Tiktok"
     })
 
     #if($iconClasses.get($type))
@@ -701,7 +699,7 @@ LOG VELOCITY VARIABLES IN THE BROWSER CONSOLE ON DEV
 
 #macro(outputBgColorClass $element $widgetClass)
     #set($bgColor = $element.getChild('bgColor').value)
-    #set($colorClass = "${widgetClass}__#if($bgColor == 'Light')light-bg#{elseif}($bgColor == 'Medium')medium-bg#{elseif}($bgColor == 'Dark')dark-bg#{else}sand-bg#end")
+    #set($colorClass = "${widgetClass}__#if($bgColor == 'Light')light-bg#{elseif}($bgColor == 'Medium')medium-bg#{else}dark-bg#end")
     $colorClass
 #end
 
