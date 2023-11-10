@@ -243,7 +243,7 @@
     #camelToSnake($widgetXPath)
     #set ( $widgetXPath = $snakeCase ) 
 
-    #if ($templateType == ("Modular/1 Column"))
+    #if ($templateType == "Modular/1 Column" || $templateType == "Modular/2 Column")
       #set ($textBackgroundColor = $gridOptions.getChild('textBackgroundColor').value)
       #set ($titleBgColor = $element.getChild($widgetXPath).getChild("gridOptions").getChild('textBackgroundColor').value)
     #end
