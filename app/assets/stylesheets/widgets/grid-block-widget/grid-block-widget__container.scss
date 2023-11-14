@@ -427,7 +427,7 @@
         -webkit-line-clamp: 7;
         overflow: hidden;
 
-        display: block;
+        display: block !important;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         position: relative;
