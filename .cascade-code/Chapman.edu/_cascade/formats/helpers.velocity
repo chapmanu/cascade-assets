@@ -303,8 +303,10 @@ EXAMPLE 2: Collection (slides) within a collection (slider): #wtf($slide 'link')
             
         #if ($linkType == 'Internal Link')
             #set ($linkURL = $link.getChild('internalLink').getChild('path').value )
+            #set ($linkURL = ${_EscapeTool.xml($linkURL)})
             #elseif ($linkType == 'External Link')
                 #set ($linkURL = $link.getChild('externalLink').value )
+                #set ($linkURL = ${_EscapeTool.xml($linkURL)})
         #else 
             #set ($linkURL = $link.getChild('fileLink').getChild('path').value )
         #end
