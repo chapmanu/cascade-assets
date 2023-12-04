@@ -402,9 +402,6 @@
 						<radio-item label="Rotator (will rotate up to four items at a time)" value="rotator"/>
 					</text>
 					<!-- advanced -->
-					<group collapsed="true" identifier="advanced" label="Visible Only to Admins and Web Coordinators" restrict-to-groups="Administrators, Web-Coordinators">
-						<text default="12px" field-id="fd0d6666c0a81e8a02dba63d3f8dea06" help-text=" - spacing between grid block items. Default is 12px." identifier="gridGap" label="Grid Gap"/>
-					</group>
 					<group collapsed="true" identifier="gridBlock" label="Grid Block" multiple="true">
 						<text field-id="2462637fc0a81e8a5a4039452d57a512" identifier="gridBlockTitle" label="Title" required="true"/>
 						<text default="no" field-id="3429c844c0a81e8a5a4039450d9bac85" identifier="titleLink" label="Title Link?" required="true" type="radiobutton">

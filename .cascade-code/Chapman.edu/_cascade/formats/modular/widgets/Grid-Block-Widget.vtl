@@ -164,6 +164,8 @@
       #set ($gridColumnsVideos = 'grid-block-widget__container--3-col')
       #set ($gridColumnsImages = $gridColumnsVideos)
     #end
+  #else 
+    #set ($dataColumns = '')
   #end
 
   #set ($gridDisplay = $gridOptions.getChild('gridDisplay').value)
@@ -205,7 +207,6 @@
     </div>
     
   #end
-    
   <div id="grid-block-widget__container--${_MathTool.add($foreach.index, 1)}" class="grid-block-widget__container grid-block-widget__container--$imageOrVideo grid-block-widget__container--${gridColumnsImages} ${gridColumnsVideos} ${overlayClass} grid-block-widget__container--${imageOrientation} ${pagination}" data-columns="${dataColumns}">
   
   #foreach ($block in $blocks)
@@ -243,7 +244,7 @@
     #camelToSnake($widgetXPath)
     #set ( $widgetXPath = $snakeCase ) 
 
-    #if ($templateType == "Modular/1 Column" || $templateType == "Modular/2 Column")
+    #if ($templateType == "Modular/1 Column" || $templateType == "Modular/2 Column" || $templateType == "Modular/3 Column")
       #set ($textBackgroundColor = $gridOptions.getChild('textBackgroundColor').value)
       #set ($titleBgColor = $element.getChild($widgetXPath).getChild("gridOptions").getChild('textBackgroundColor').value)
     #end
@@ -282,18 +283,23 @@
           </p>
         </div>
       #end
-      <span
-        style="display:none;"
-        tabindex="0"
-        class="grid-block-widget__reveal grid-block-widget__reveal--more grid-block-widget__reveal--${titleBgColor} "
-        >Show More</span
-      >
-      <span
-        style="display:none;"
-        tabindex="0"
-        class="grid-block-widget__reveal grid-block-widget__reveal--less grid-block-widget__reveal--${titleBgColor} "
-        >Show Less</span
-      >
+      
+      #set ($truncateTextValue = $gridOptions.getChild('truncateText').value)
+
+      #if ($truncateTextValue == 'yes')
+        <span
+          style="display:none;"
+          tabindex="0"
+          class="grid-block-widget__reveal grid-block-widget__reveal--more grid-block-widget__reveal--${titleBgColor} "
+          >Show More</span
+        >
+        <span
+          style="display:none;"
+          tabindex="0"
+          class="grid-block-widget__reveal grid-block-widget__reveal--less grid-block-widget__reveal--${titleBgColor} "
+          >Show Less</span
+        >
+      #end
     </div>
   
   #end

@@ -548,6 +548,10 @@
 						<radio-item show-fields="primaryContent/widget/gridBlockWidget/gridOptions/textAlign, primaryContent/widget/gridBlockWidget/gridOptions/circle, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/gridBlockText" value="Yes"/>
 						<radio-item value="No"/>
 					</text>
+					<text default="yes" field-id="239015140a0000217b61291e909a10d2" identifier="truncateText" label="Truncate Long Text with 'Show More' Button?" type="radiobutton">
+						<radio-item label="Yes" value="yes"/>
+						<radio-item label="No" value="no"/>
+					</text>
 					<text field-id="243872cdc0a81e8a5a403945a36afb2a" identifier="textAlign" label="Text Align" required="true" type="radiobutton">
 						<radio-item label="Left" value="left"/>
 						<radio-item label="Center" value="center"/>
@@ -1031,7 +1035,7 @@
 					<dropdown-item value="Academics"/>
 					<dropdown-item value="Admission"/>
 					<dropdown-item value="Alumni"/>
-					<dropdown-item value="Argyros College of Business"/>
+					<dropdown-item value="Argyros School of Business"/>
 					<dropdown-item value="Attallah College"/>
 					<dropdown-item value="Campus Services"/>
 					<dropdown-item value="College of Performing Arts"/>
@@ -1070,7 +1074,7 @@
 				<asset field-id="ff6bcc42c0a81e5f43ef9b3735bcebba" identifier="block" label="Degree" render-content-depth="2" required="true" type="block"/>
 				<text default="All" field-id="ff6bcc42c0a81e5f43ef9b376136042c" identifier="school" label="School Affliation" type="dropdown">
 					<dropdown-item value="All"/>
-					<dropdown-item value="Argyros College of Business and Economics"/>
+					<dropdown-item value="Argyros School of Business and Economics"/>
 					<dropdown-item value="Attallah College of Educational Studies"/>
 					<dropdown-item value="Dodge College of Film and Media Arts"/>
 					<dropdown-item value="Crean College of Health and Behavioral Sciences"/>
@@ -1139,7 +1143,7 @@
 				</group>
 				<text default="All" field-id="ff6bcc43c0a81e5f43ef9b3726ca1f6c" identifier="school" label="School Affiliation" type="dropdown">
 					<dropdown-item label="All" value="All"/>
-					<dropdown-item label="Argyros College" value="SBE"/>
+					<dropdown-item label="Argyros School" value="SBE"/>
 					<dropdown-item label="Attallah College" value="CES"/>
 					<dropdown-item label="Dodge College" value="CFMA"/>
 					<dropdown-item label="Crean College" value="CHBS"/>
