@@ -23,7 +23,6 @@
     }
 
     a {
-
       &:focus,
       &:focus-within {
         outline: $white;
@@ -37,10 +36,8 @@
 
   ul.link-list li {
     a {
-
       &:focus,
       &:focus-within {
-
         outline: 2px dotted $white;
         outline-offset: 3px;
         color: $white;
@@ -56,9 +53,10 @@
     justify-items: center;
     padding-top: 2rem;
 
-    &>div {
+    & > div {
       width: 20%;
       flex-direction: column;
+      margin-right: 10px;
     }
   }
 
@@ -69,7 +67,7 @@
   }
 
   &__faux-buttons {
-    padding-top: .5rem;
+    padding-top: 0.5rem;
   }
 
   &__faux-button {
@@ -129,8 +127,8 @@
     align-items: center;
 
     &:hover {
-      background-color: transparentize($cu-red, .5);
-      border: 1px solid transparentize($cu-red, .5);
+      background-color: transparentize($cu-red, 0.5);
+      border: 1px solid transparentize($cu-red, 0.5);
       color: $white;
     }
 
@@ -140,7 +138,6 @@
       outline-offset: 3px;
       color: $white;
       border: 1px solid rgba(255, 255, 255, 0.25);
-
     }
   }
 
@@ -189,12 +186,11 @@
         color: $white;
       }
     }
-
   }
 
   &__logo {
     width: 22.8rem;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     display: block;
     width: auto;
     max-width: 22rem;
@@ -214,7 +210,7 @@
 
     .fab {
       font-size: 2rem;
-      margin-left: .5rem;
+      margin-left: 0.5rem;
       color: $white;
     }
   }
@@ -231,7 +227,7 @@
       width: 90%;
       justify-content: space-between;
 
-      &>div:first-child {
+      & > div:first-child {
         flex: 1 0 100% !important;
         width: 100%;
         flex-direction: row;
@@ -255,7 +251,7 @@
       justify-content: space-evenly;
       max-height: 58px;
 
-      +.footer__faux-button {
+      + .footer__faux-button {
         margin-left: 20px;
       }
     }
@@ -267,13 +263,13 @@
     &__inner {
       flex-wrap: wrap;
 
-      &>div:first-child {
+      & > div:first-child {
         flex: 1 0 100% !important;
         width: 100%;
         flex-direction: column;
       }
 
-      &>div+div {
+      & > div + div {
         flex: 100%;
         margin-top: 20px;
       }
@@ -294,19 +290,19 @@
       width: 100%;
       max-width: 100%;
 
-      +.footer__faux-button {
+      + .footer__faux-button {
         margin-left: unset;
       }
     }
 
     &__logo {
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
     }
 
     &__copyright-social {
       display: -ms-grid;
       display: grid;
-      margin-left: .5rem;
+      margin-left: 0.5rem;
       justify-content: center;
       justify-items: center;
 
@@ -360,14 +356,13 @@
 
     @include respond(tab-land) {
       &__faux-button {
-        +.footer__faux-button {
+        + .footer__faux-button {
           margin-left: 0;
         }
       }
     }
   }
 }
-
 
 #back2top {
   position: fixed;
@@ -380,7 +375,6 @@
   cursor: pointer;
 
   .circle-bg {
-
     background-color: $cu-red;
     border-radius: 50%;
     width: 50px;
@@ -400,15 +394,12 @@
       -ms-transition: 300ms;
       -o-transition: 300ms;
     }
-
   }
 
   span.fa.fa-chevron-up {
     color: $white;
   }
 }
-
-
 
 .ie {
   .footer {

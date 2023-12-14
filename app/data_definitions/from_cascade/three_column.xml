@@ -548,6 +548,10 @@
 						<radio-item show-fields="primaryContent/widget/gridBlockWidget/gridOptions/textAlign, primaryContent/widget/gridBlockWidget/gridOptions/circle, primaryContent/widget/gridBlockWidget/gridOptions/gridBlock/gridBlockText" value="Yes"/>
 						<radio-item value="No"/>
 					</text>
+					<text default="yes" field-id="239015140a0000217b61291e909a10d2" identifier="truncateText" label="Truncate Long Text with 'Show More' Button?" type="radiobutton">
+						<radio-item label="Yes" value="yes"/>
+						<radio-item label="No" value="no"/>
+					</text>
 					<text field-id="243872cdc0a81e8a5a403945a36afb2a" identifier="textAlign" label="Text Align" required="true" type="radiobutton">
 						<radio-item label="Left" value="left"/>
 						<radio-item label="Center" value="center"/>

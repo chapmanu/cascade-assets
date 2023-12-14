@@ -246,7 +246,7 @@
 					<radio-item value="Center"/>
 					<radio-item value="Bottom"/>
 				</text>
-				<text field-id="ff6bcbe4c0a81e5f43ef9b379def2e6c" help-text="Be succinct, accurate, and equivalent in presenting the same content and function of the image.    Do NOT be redundant or provide the same information as text within the context of the image. Do NOT use the phrases &quot;image of ...&quot; or &quot;graphic of ...&quot; to describe the image. https://webaim.org/techniques/alttext/" identifier="alternateText" label="Alternate Text"/>
+				<text field-id="ff6bcbe4c0a81e5f43ef9b379def2e6c" help-text="Be succinct, accurate, and equivalent in presenting the same content and function of the image.    Do NOT be redundant or provide the same information as text within the context of the image. Do NOT use the phrases &quot;image of ...&quot; or &quot;graphic of ...&quot; to describe the image. https://webaim.org/techniques/alttext/" identifier="altText" label="Alternate Text"/>
 			</group>
 		</group>
 		<group collapsed="true" identifier="subPageMasthead" label="1 Column Child Page Masthead">
@@ -266,7 +266,7 @@
 					<radio-item value="Center"/>
 					<radio-item value="Bottom"/>
 				</text>
-				<text field-id="ff6bcbe4c0a81e5f43ef9b3762546564" help-text="Be succinct, accurate, and equivalent in presenting the same content and function of the image.    Do NOT be redundant or provide the same information as text within the context of the image. Do NOT use the phrases &quot;image of ...&quot; or &quot;graphic of ...&quot; to describe the image. https://webaim.org/techniques/alttext/" identifier="alternateText" label="Alternate Text"/>
+				<text field-id="ff6bcbe4c0a81e5f43ef9b3762546564" help-text="Be succinct, accurate, and equivalent in presenting the same content and function of the image.    Do NOT be redundant or provide the same information as text within the context of the image. Do NOT use the phrases &quot;image of ...&quot; or &quot;graphic of ...&quot; to describe the image. https://webaim.org/techniques/alttext/" identifier="altText" label="Alternate Text"/>
 			</group>
 		</group>
 	</group>
@@ -402,9 +402,6 @@
 						<radio-item label="Rotator (will rotate up to four items at a time)" value="rotator"/>
 					</text>
 					<!-- advanced -->
-					<group collapsed="true" identifier="advanced" label="Visible Only to Admins and Web Coordinators" restrict-to-groups="Administrators, Web-Coordinators">
-						<text default="12px" field-id="fd0d6666c0a81e8a02dba63d3f8dea06" help-text=" - spacing between grid block items. Default is 12px." identifier="gridGap" label="Grid Gap"/>
-					</group>
 					<group collapsed="true" identifier="gridBlock" label="Grid Block" multiple="true">
 						<text field-id="2462637fc0a81e8a5a4039452d57a512" identifier="gridBlockTitle" label="Title" required="true"/>
 						<text default="no" field-id="3429c844c0a81e8a5a4039450d9bac85" identifier="titleLink" label="Title Link?" required="true" type="radiobutton">
@@ -1352,14 +1349,13 @@
 					<group collapsed="true" identifier="social-media-link" label="Social Media Link" multiple="true">
 						<text field-id="ff6bcbf5c0a81e5f43ef9b373112df89" identifier="social-media-type" label="Social Media Type" type="dropdown">
 							<dropdown-item value="Facebook"/>
-							<dropdown-item value="GooglePlus"/>
-							<dropdown-item value="iTunes U"/>
 							<dropdown-item value="Instagram"/>
 							<dropdown-item value="LinkedIn"/>
-							<dropdown-item value="Pinterest"/>
 							<dropdown-item value="Twitter"/>
 							<dropdown-item value="WordPress"/>
 							<dropdown-item value="YouTube"/>
+							<dropdown-item value="Spotify"/>
+							<dropdown-item value="Tiktok"/>
 						</text>
 						<text field-id="ff6bcbf5c0a81e5f43ef9b376f93a8c6" identifier="link" label="Link"/>
 					</group>
@@ -1376,95 +1372,4 @@
 			<text field-id="ff6bcbf5c0a81e5f43ef9b376aeb0636" help-text="Hashtags to get appended to tweet (no #!)" identifier="twitter_hashtag" label="Twitter Hashtag" maximum-number="3" multiple="true"/>
 		</group>
 	</group>
-</system-data-structure>6a17ac" identifier="title" label="Title"/>
-        <text field-id="ff6bcbf3c0a81e5f43ef9b3723de3eb0" help-text="Paste url of a blog site from blogs.chapman" identifier="feedUrl" label="Feed Url"/>
-        <text field-id="ff6bcbf3c0a81e5f43ef9b37dcea3114" help-text="Paste url of a blog post from blogs.chapman" identifier="topStory" label="Top Story Url"/>
-				<group collapsed="true" identifier="button" label="Button" maximum-number="3" multiple="true">
-					<text field-id="ff6bcbf3c0a81e5f43ef9b37b011ddfc" identifier="text" label="Text"/>
-					<text field-id="ff6bcbf3c0a81e5f43ef9b374f0e717d" help-text="full url (including http)" identifier="link" label="Link"/>
-				</group>
-      </group>
-      <group collapsed="true" identifier="subscribe" label="Campaign Monitor Newsletter Subscribe">
-        <text default="Yes" field-id="ff6bcbf3c0a81e5f43ef9b37c538bf58" identifier="display-subscribe" label="Show" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text default="Dark" field-id="ff6bcbf3c0a81e5f43ef9b372b7d4b33" identifier="bgColor" label="Background Color" type="radiobutton">
-          <radio-item value="Light"/>
-          <radio-item value="Medium"/>
-          <radio-item value="Dark"/>
-        </text>
-        <text field-id="ff6bcbf3c0a81e5f43ef9b37ca5b598f" identifier="subscribeMessage" label="Subscribe Message"/>
-        <text cols="50" field-id="ff6bcbf3c0a81e5f43ef9b3725e248d1" help-text="Paste in HTML from Campaign Monitor" identifier="campaignMonitorHtml" label="Campaign Monitor HTML" multi-line="true" rows="15"/>
-      </group>
-      <group collapsed="true" identifier="callToActionFooter" label="Call to Action Footer">
-        <text default="Yes" field-id="ff6bcbf3c0a81e5f43ef9b37ab444cff" identifier="displayCallToActionFooter" label="Show" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text default="white" field-id="ff6bcbf3c0a81e5f43ef9b379f11b03b" identifier="bgColor" label="Background Color" type="radiobutton">
-          <radio-item value="White"/>
-          <radio-item value="School Color"/>
-        </text>
-        <text field-id="ff6bcbf4c0a81e5f43ef9b37947974c8" identifier="title" label="Title"/>
-        <group identifier="button" label="Button" maximum-number="3" minimum-number="0" multiple="true">
-          <text default="Internal Link" field-id="ff6bcbf4c0a81e5f43ef9b37294a02f7" identifier="linkType" label="Link Type" type="radiobutton">
-            <radio-item show-fields="primaryContent/widget/callToActionFooter/button/internalLink" value="Internal Link"/>
-            <radio-item show-fields="primaryContent/widget/callToActionFooter/button/externalLink" value="External Link"/>
-            <radio-item show-fields="primaryContent/widget/callToActionFooter/button/fileLink" value="File Link"/>
-          </text>
-          <text field-id="ff6bcbf4c0a81e5f43ef9b3751d51593" help-text="full url (including http) to page outside of Cascade" identifier="externalLink" label="External Link"/>
-          <asset field-id="ff6bcbf4c0a81e5f43ef9b378454d18d" identifier="internalLink" label="Internal Link" type="page"/>
-          <asset field-id="ff6bcbf4c0a81e5f43ef9b375d69c6c5" identifier="fileLink" label="File Link" type="file"/>
-          <text field-id="ff6bcbf4c0a81e5f43ef9b37aad98e2a" identifier="label" label="Label"/>
-        </group>
-      </group>
-      <group collapsed="true" identifier="contactFooter" label="Contact Footer">
-        <text default="Yes" field-id="ff6bcbf4c0a81e5f43ef9b374690a2d0" identifier="displayContactFooter" label="Show" type="radiobutton">
-          <radio-item value="Yes"/>
-          <radio-item value="No"/>
-        </text>
-        <text default="Light" field-id="ff6bcbf4c0a81e5f43ef9b3777aa7219" identifier="bgColor" label="Background Color" type="radiobutton">
-          <radio-item value="Light"/>
-          <radio-item value="Medium"/>
-          <radio-item value="Dark"/>
-        </text>
-        <text field-id="ff6bcbf4c0a81e5f43ef9b37d3ad5148" identifier="phone" label="Phone"/>
-        <text field-id="ff6bcbf4c0a81e5f43ef9b37424f80aa" identifier="email" label="Email"/>
-        <group collapsed="true" identifier="address" label="Address">
-          <text field-id="ff6bcbf4c0a81e5f43ef9b37d599973b" identifier="name" label="Name"/>
-          <text field-id="ff6bcbf4c0a81e5f43ef9b37a0a893fa" identifier="address-line-1" label="Address Line 1"/>
-          <text field-id="ff6bcbf4c0a81e5f43ef9b37a1e83752" identifier="city" label="City"/>
-          <text field-id="ff6bcbf4c0a81e5f43ef9b37faf0197b" identifier="state" label="State"/>
-          <text field-id="ff6bcbf5c0a81e5f43ef9b37766e5408" identifier="zip" label="Zip"/>
-        </group>
-        <group collapsed="true" identifier="social-media" label="Social Media">
-          <text field-id="ff6bcbf5c0a81e5f43ef9b3750241523" identifier="title" label="Title"/>
-          <group collapsed="true" identifier="social-media-link" label="Social Media Link" multiple="true">
-            <text field-id="ff6bcbf5c0a81e5f43ef9b373112df89" identifier="social-media-type" label="Social Media Type" type="dropdown">
-              <dropdown-item value="Facebook"/>
-              <dropdown-item value="GooglePlus"/>
-              <dropdown-item value="iTunes U"/>
-              <dropdown-item value="Instagram"/>
-              <dropdown-item value="LinkedIn"/>
-              <dropdown-item value="Pinterest"/>
-              <dropdown-item value="Twitter"/>
-              <dropdown-item value="WordPress"/>
-              <dropdown-item value="YouTube"/>
-            </text>
-            <text field-id="ff6bcbf5c0a81e5f43ef9b376f93a8c6" identifier="link" label="Link"/>
-          </group>
-        </group>
-      </group>
-    </group>
-  </group>
-  <group collapsed="true" identifier="meta" label="Supplemental Content">
-    <group collapsed="true" identifier="sharing" label="Sharing ">
-      <asset field-id="ff6bcbf5c0a81e5f43ef9b377146a67b" help-text="Image used for sharing on facebook (130px w, 110px h exactly)" identifier="og_image" label="OG Image" type="file"/>
-      <text field-id="ff6bcbf5c0a81e5f43ef9b37d41583a7" help-text="Overrides title for when page is shared to facebook (defaults to Display Name)" identifier="og_title" label="OG Title"/>
-      <text field-id="ff6bcbf5c0a81e5f43ef9b37c43ba900" help-text="Overrides description when page is shared to facebook" identifier="og_description" label="OG Description"/>
-      <text field-id="ff6bcbf5c0a81e5f43ef9b37f50b50c0" help-text="The text that prepopulates on twitter (followed by URL and hashtags)" identifier="twitter_text" label="Twitter Share Text"/>
-      <text field-id="ff6bcbf5c0a81e5f43ef9b376aeb0636" help-text="Hashtags to get appended to tweet (no #!)" identifier="twitter_hashtag" label="Twitter Hashtag" maximum-number="3" multiple="true"/>
-    </group>
-  </group>
 </system-data-structure>

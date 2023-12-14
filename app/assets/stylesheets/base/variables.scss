@@ -141,8 +141,12 @@ $red-dots: 2px dotted $cu-red;
 /* Omninav height. Be sure to cross reference getOmninavHeight() in omni-nav-2.js if changes are made to the height*/
 $omniNavHeightDesktop: 60px;
 $omniNavHeightMobile: 123px;
+
 $uninav-total-height: 120px;
+$uninav-anchor-offset: 140px;
 $uninav-height-mobile: 60px;
+$uninav-anchor-offset-mobile: 80px;
+
 
 $standardPadding: 5%;
 $mastheadTextShadow: rgba(0, 0, 0, 0.5) 6.5px 6.5px 13px;

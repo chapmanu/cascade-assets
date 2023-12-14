@@ -302,13 +302,13 @@
       }
 
       &.slick-prev:before {
-        font-family: "Font Awesome 5 Pro";
+        font-family: "Font Awesome 6 Pro";
         content: "\f053";
         font-weight: 400;
       }
 
       &.slick-next:before {
-        font-family: "Font Awesome 5 Pro";
+        font-family: "Font Awesome 6 Pro";
         content: "\f054";
         margin-left: 3px;
         font-weight: 400;
@@ -421,13 +421,13 @@
         line-height: 2.2rem;
       }
       &--truncated {
-        max-height: 150px;
+        max-height: 180px;
 
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 7;
         overflow: hidden;
 
-        display: block;
+        display: block !important;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         position: relative;
@@ -520,7 +520,7 @@
 
       &::after {
         content: "\f078 ";
-        font-family: "Font Awesome 5 Pro";
+        font-family: "Font Awesome 6 Pro";
         font-weight: 900;
         margin-left: 5px;
         font-size: 1.4rem;
@@ -533,7 +533,7 @@
 
       &::after {
         content: "\f077 ";
-        font-family: "Font Awesome 5 Pro";
+        font-family: "Font Awesome 6 Pro";
         font-weight: 900;
         margin-left: 5px;
         font-size: 1.4rem;

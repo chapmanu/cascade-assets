@@ -3,8 +3,12 @@
     <div class="brochure-masthead">
       <div class="foreground-content">
         <div class="headline-container">
-          <div class="faux-h2 headline secondary subhead">Chapman University</div>
-          <h1 class="headline primary title">Argyros School of Business & Economics</h1>
+          <div class="faux-h2 headline secondary subhead">
+            Chapman University
+          </div>
+          <h1 class="headline primary title">
+            Argyros College of Business & Economics
+          </h1>
         </div>
         <button class="theme-button">
           <a href="#">Learn More</a>
@@ -13,11 +17,24 @@
           <a href="#">Apply</a>
         </button>
         <div class="dropdown">
-          <div onclick="dropdownToggle()" class="dropdown-inner theme-border-color">Degrees & Programs <span class="select-arrow"></span></div>
+          <div
+            onclick="dropdownToggle()"
+            class="dropdown-inner theme-border-color"
+          >
+            Degrees & Programs <span class="select-arrow"></span>
+          </div>
           <div id="mastheadDropdown" class="dropdown-content">
-            <li> <a href="#home"> <span class="link-underline"> Argyros </span></a></li>
-            <li><a href="#home"> <span class="link-underline"> Alumns </span></a></li>
-            <li> <a href="#home"> <span class="link-underline"> Schools & Colleges </span></a></li>
+            <li>
+              <a href="#home"> <span class="link-underline"> Argyros </span></a>
+            </li>
+            <li>
+              <a href="#home"> <span class="link-underline"> Alumns </span></a>
+            </li>
+            <li>
+              <a href="#home">
+                <span class="link-underline"> Schools & Colleges </span></a
+              >
+            </li>
           </div>
         </div>
       </div>
@@ -26,17 +43,42 @@
           <ul class="cd-hero-slider autoplay">
             <li class="selected">
               <div class="background-video-wrapper">
-                <video id="background-video" class="background-video" muted="muted" aria-label="Welcome to Chapman montage"
-                  autoplay="true" loop="true" poster="http://www.chapman.edu/_files/img/hero-panels/fallback-images/welcome-2015.jpg">
-                  <source src="http://www.chapman.edu/_files/img/hero-panels/html5-videos/welcome-2016.mp4" type="video/mp4" />
+                <video
+                  id="background-video"
+                  class="background-video"
+                  muted="muted"
+                  aria-label="Welcome to Chapman montage"
+                  autoplay="true"
+                  loop="true"
+                  poster="http://www.chapman.edu/_files/img/hero-panels/fallback-images/welcome-2015.jpg"
+                >
+                  <source
+                    src="http://www.chapman.edu/_files/img/hero-panels/html5-videos/welcome-2016.mp4"
+                    type="video/mp4"
+                  />
                 </video>
               </div>
-            </li>a
+            </li>
+            a
             <li>
-              <div class="background-image" role="img" aria-label="Memorial Lawn" style="background-image: url(<%= image_url 'placeholder/chapman.jpg' %>)"></div>
+              <div
+                class="background-image"
+                role="img"
+                aria-label="Memorial Lawn"
+                style="
+                  background-image: url(<%=image_url'placeholder/chapman.jpg'%>);
+                "
+              ></div>
             </li>
             <li>
-              <div class="background-image" role="img" aria-label="Musco Center" style="background-image: url(<%= image_url 'placeholder/musco.jpg' %>)"></div>
+              <div
+                class="background-image"
+                role="img"
+                aria-label="Musco Center"
+                style="
+                  background-image: url(<%=image_url'placeholder/musco.jpg'%>);
+                "
+              ></div>
             </li>
           </ul>
         </div>

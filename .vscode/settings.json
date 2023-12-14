@@ -5,4 +5,8 @@
       "titleBar.activeBackground": "#27481F",
       "titleBar.activeForeground": "#F8FBF7"
     }
+
+  "[handlebars]": {
+    "editor.formatOnSave": false
+  }
 }
