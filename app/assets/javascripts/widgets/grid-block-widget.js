@@ -1,5 +1,6 @@
 $(function () {
   if ($(".grid-block-widget").length) {
+    console.log('hello?');
     removeEmptyPTagsinWYSIWYG();
     gridBlockWidget();
     calculateDataHeight();

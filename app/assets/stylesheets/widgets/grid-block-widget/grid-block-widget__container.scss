@@ -421,15 +421,8 @@
         line-height: 2.2rem;
       }
       &--truncated {
-        // max-height: 180px;
-
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 7;
-        overflow: hidden;
-
+        max-height: 180px;
         display: block !important;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
         position: relative;
         overflow: hidden;
         text-overflow: ellipsis;
