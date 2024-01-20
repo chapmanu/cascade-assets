@@ -1,6 +1,5 @@
 $(function () {
   if ($(".grid-block-widget").length) {
-    console.log('hello?');
     removeEmptyPTagsinWYSIWYG();
     gridBlockWidget();
     calculateDataHeight();
@@ -93,7 +92,8 @@ function calculateDataHeight() {
     $(this)
       .parent(".grid-block-widget")
       .addClass("grid-block-widget--text-overflow");
-    if ($(this).attr("data-scroll-height") >= 158) {
+    // console.log('data height: ', $(this).attr("data-scroll-height"));
+    if ($(this).attr("data-scroll-height") >= 158 && $(this).parent().find(".grid-block-widget__reveal--more").length > 0) {
       $(this).parent().find(".grid-block-widget__reveal--more").show();
     } else {
       $(this).parent().find(".grid-block-widget__reveal--more").hide();
