@@ -421,17 +421,14 @@
         line-height: 2.2rem;
       }
       padding: 6px 0 6px 0;
-      // padding: 0;
       
       &--truncated {
         max-height: 180px;
-        // max-height: min-content;
         display: block !important;
         position: relative;
         overflow: hidden;
         text-overflow: ellipsis;
         padding: 0;
-        // padding: 12px 0 12px 0;
       }
 
       &--white {
