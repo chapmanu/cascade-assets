@@ -31,7 +31,9 @@ jQuery(document).ready(function ($) {
           indexData = items[0];
         }
 
-        if (indexData.indexValue) {
+        if (indexCode == "date") {
+          $(this).html("as of " + indexData.dateOfIndex.split("T")[0]);
+        } else if (indexData.indexValue) {
           $(this).html(indexData.indexValue.toFixed(2));
           // console.log("Index Value: " + indexData.indexValue);
         } else {
