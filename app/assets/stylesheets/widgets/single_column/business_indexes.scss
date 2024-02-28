@@ -1,6 +1,7 @@
 /*  Base Styles */
 .business-index-widget {
   box-shadow: 0px 4px 25px 0px #0000001a;
+  border-bottom: black 1px solid;
 
   .main {
     height: 145px;
@@ -30,6 +31,7 @@
         }
         .val {
           margin-bottom: 8px;
+          font-size: 28px;
         }
         .pos {
           color: green;

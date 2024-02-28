@@ -32,7 +32,11 @@ jQuery(document).ready(function ($) {
         }
 
         if (indexCode == "date") {
-          $(this).html("as of " + indexData.dateOfIndex.split("T")[0]);
+          $(this).html(
+            "as of <i>" +
+              dayjs(indexData.dateOfIndex).format("MMM D, YYYY") +
+              "</i>"
+          );
         } else if (indexData.indexValue) {
           $(this).html(indexData.indexValue.toFixed(2));
           // console.log("Index Value: " + indexData.indexValue);
@@ -41,9 +45,12 @@ jQuery(document).ready(function ($) {
         }
       });
     }
-  );
+  ).fail(function () {
+    $(".business-index-widget").hide();
+    console.log("Business index widget failed to load.");
+  });
 
-  //Controls index ticket on https://www.chapman.edu/business/index.aspx
+  //Controls index bar on https://www.chapman.edu/business/index.aspx
   if ($(".business-index-widget .index-slider")[0]) {
     var slider = $(".business-index-widget .index-slider").lightSlider({
       item: 2,
