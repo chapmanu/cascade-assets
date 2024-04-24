@@ -401,6 +401,7 @@ $currentMastheadType.getChild('callToActionButtons').getChild('dropDownButton').
         #end
 
       </div>
+      ## this variable has a typo but I'm leaving it because the live xml already uses this as their ID
       #set ($showButtons = $currentMastheadType.getChild('callToActionButtons').getChild('showMatheadButtons').value)
       
       #if ($showButtons != 'no')
@@ -433,6 +434,8 @@ $currentMastheadType.getChild('callToActionButtons').getChild('dropDownButton').
       #end
     </div>
   </div>
+
+  #if ($showButtons != 'no')
   <!-- mobile -->
   <span class="mobile__text">
     <div class="wavy-masthead__text mobile__text">
@@ -464,6 +467,7 @@ $currentMastheadType.getChild('callToActionButtons').getChild('dropDownButton').
     </div>
   </span>
   <!-- end mobile -->
+  #end
 </div>
 #end
 #end
