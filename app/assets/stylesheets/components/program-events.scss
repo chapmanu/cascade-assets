@@ -1,11 +1,18 @@
 .program-events__container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1136px;
+  width: 100%;
 
+  .button-container {
+    text-align: center;
+  }
   .program-event {
     display: flex;
     margin: 2rem 0;
     min-height: 6rem;
     align-items: center;
-    border-bottom: none;  
+    border-bottom: none;
     background-color: $sand;
 
     &__date-container {
@@ -22,7 +29,7 @@
 
     &__date {
       color: $panther-black;
-      font-family: 'futura-pt';
+      font-family: "futura-pt";
       font-weight: bold;
       font-size: 2rem;
     }
@@ -58,38 +65,38 @@
         display: flex;
         flex-direction: column;
       }
-  
+
       &__title {
         font-size: 1.8rem;
         margin: 1rem 0;
         text-decoration: underline;
         font-family: futura-pt;
         padding: 0 1rem 0;
-  
+
         @include respond(phone) {
-          font-size: 2.0rem;
+          font-size: 2rem;
           margin: 2rem 0;
         }
       }
-  
+
       &__date {
         color: $panther-black;
         font-size: 2rem;
-        padding: 1rem 0 .5rem;
+        padding: 1rem 0 0.5rem;
         font-family: futura-pt;
         font-weight: bold;
-  
+
         @include respond(phone) {
           font-size: 2.2rem;
         }
       }
-  
+
       &__time {
         color: $panther-black;
         font-size: 1.6rem;
         padding: 0;
         font-family: futura-pt;
-  
+
         @include respond(phone) {
           font-size: 1.8rem;
         }
@@ -106,13 +113,13 @@
       flex-direction: row-reverse;
       justify-content: flex-end;
       height: 10rem;
-  
+
       &__title {
         display: flex;
         align-items: center;
         height: 60%;
         width: 65%;
-        font-family: 'futura-pt';
+        font-family: "futura-pt";
 
         @include respond(phone) {
           & {
@@ -120,7 +127,7 @@
           }
         }
       }
-  
+
       &__date-container {
         justify-content: center;
         align-items: center;
@@ -137,7 +144,7 @@
           }
         }
       }
-  
+
       &__date {
         padding: 2rem 0 0 0;
         margin-bottom: 5px;
@@ -145,7 +152,7 @@
     }
   }
 
-
-
-  p { margin: 0; }
+  p {
+    margin: 0;
+  }
 }
