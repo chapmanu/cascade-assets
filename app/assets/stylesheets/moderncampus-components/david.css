@@ -1,0 +1,155 @@
+/* 1-col-img-right-callout */
+#dei-callout .dei-callout__wrapper .dei-callout__image {
+  margin-bottom: 32px;
+}
+
+#dei-callout a.dei_callout__button.button {
+  margin-right: 12px;
+}
+
+#dei-callout .dei_callout__button:hover,
+#dei-callout .dei_callout__button:active,
+#dei-callout .dei_callout__button:focus {
+  -webkit-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  transform: translateY(-2px);
+  background-color: #ce0041;
+  transition: 0.2s ease-in-out;
+}
+
+@media only screen and (max-width: 900px) {
+  #dei-callout .dei-callout__wrapper .dei-callout__text-section {
+    max-width: 50%;
+    padding: 0 10px 0 0;
+  }
+}
+
+@media only screen and (max-width: 672px) {
+  #dei-callout .dei-callout__wrapper .dei-callout__text-section {
+    max-width: 100%;
+  }
+  #dei-callout .dei-callout__wrapper .dei_callout__button {
+    margin-bottom: 12px;
+  }
+}
+
+/* 1-col-img-with-text */
+.messaging-widget .outer-container {
+  margin: 0 15px;
+}
+
+.messaging-widget
+  .outer-container
+  .text-widget-select
+  .select-list
+  li:has(a:empty) {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .messaging-widget__2-column .text-actions {
+    max-width: 100%;
+  }
+}
+
+/* 1-col-three-box-callout */
+@media only screen and (max-width: 56.5em) {
+  #generalInformation .undergraduate-card__text {
+    min-height: 160px;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .homepage .section .third .imagerotator {
+    width: 100%;
+    height: auto;
+    margin: 0 0 20px 0;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .homepage .section .third .imagerotator {
+    width: 100%;
+    float: left;
+    margin: 0 15px 15px 0;
+  }
+}
+
+/* 1-col-two-story-callout */
+.homepage-story__text a.permalink,
+.homepage-story__text a.tag {
+  border-bottom: none;
+}
+
+.homepage-news__grid-wrapper a.arrow-link::after {
+  content: " »";
+}
+
+/* homepage */
+.homepage .stories .story .tag {
+  font-weight: 400;
+}
+
+.homepage .stories .homepage-news__grid-wrapper .story-bg {
+  display: block;
+  height: auto;
+}
+
+.homepage .stories .homepage-news__grid-wrapper .story-bg img {
+  display: block;
+  height: 200px;
+}
+
+.homepage #accessibility-statement {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.homepage #accessibility-statement h2 {
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  margin-bottom: 0.5rem !important;
+}
+
+.homepage #accessibility-statement div div p:last-child {
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 680px) {
+  .homepage #chapmanFamily .heading {
+    font-size: 3.4rem;
+    line-height: 3.8rem;
+    text-align: center;
+  }
+}
+
+.footer__copyright-social .footer__copyright a {
+  color: white;
+  margin-right: 4px;
+}
+
+.footer {
+  flex-direction: column;
+}
+
+.footer__inner {
+  margin: auto;
+  max-width: 1528px;
+}
+
+.footer__row {
+  max-width: 1528px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 75em) {
+  .footer__row {
+    width: 100%;
+  }
+}
+
+#back2top {
+  z-index: 999999;
+}

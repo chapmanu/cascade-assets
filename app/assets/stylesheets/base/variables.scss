@@ -53,6 +53,9 @@ $grey: #2f2f2f;
 $grey-hover: #4c4b45;
 $grey2: #6e6e66;
 $grey2-hover: #918e87;
+$gray: $grey;
+$gray-hover: $grey-hover;
+
 /* These are colors of common elements or states. */
 $cu-font-color: $grey;
 $cu-link-hover: #bb223c;
@@ -146,7 +149,6 @@ $uninav-total-height: 120px;
 $uninav-anchor-offset: 140px;
 $uninav-height-mobile: 60px;
 $uninav-anchor-offset-mobile: 80px;
-
 
 $standardPadding: 5%;
 $mastheadTextShadow: rgba(0, 0, 0, 0.5) 6.5px 6.5px 13px;

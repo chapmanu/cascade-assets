@@ -1,0 +1,8 @@
+html body.one-col #uninav > div.uninav__umbrella-nav-button-container {
+  display: unset;
+}
+@media (max-width: 904px) {
+  html body.one-col #uninav > div.uninav__umbrella-nav-button-container {
+    display: none;
+  }
+}
